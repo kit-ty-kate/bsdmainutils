@@ -1,4 +1,4 @@
-/* $Id: wcslib.c 20 2003-09-07 04:42:52Z bob $ */
+/* $Id: wcslib.c 123 2004-11-01 17:00:19Z bob $ */
 
 /*
  * Copyright (c) 1987, 1993
@@ -99,7 +99,7 @@ static size_t
 utf8towcs (wchar_t *out, char *in, size_t n)
 {
 	char *ip = in, *op = (char *) out;
-	int ibl = strlen(in), obl = n * sizeof(wchar_t);
+	size_t ibl = strlen(in), obl = n * sizeof(wchar_t);
 	static iconv_t cd = (iconv_t) -1;
 	int r;
 

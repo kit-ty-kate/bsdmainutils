@@ -1,3 +1,18 @@
+bsdmainutils (6.0.17) unstable; urgency=medium
+
+  * Use size_t (instead of int) when calling iconv(3): using int on alpha
+    caused iconv to read past the end of the buffer, and return EILSEQ.
+    (closes: #254075)
+
+ -- Graham Wilson <graham@debian.org>  Wed, 27 Oct 2004 18:31:03 +0000
+
+bsdmainutils (6.0.16) unstable; urgency=high
+
+  * Correct the listed charset in a few .po files, and a mis-encoded character
+    in es.po. Thanks to Dennis Barbier. (closes: #277558)
+
+ -- Graham Wilson <graham@debian.org>  Wed, 20 Oct 2004 22:32:46 +0000
+
 bsdmainutils (6.0.15) unstable; urgency=high
 
   * Read calendar files as the user who owns them instead of root when mailing
