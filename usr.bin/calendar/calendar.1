@@ -115,12 +115,24 @@ To handle national Easter names in the calendars,
 .Dq Paskha=<national_name>
 (for Orthodox Easter) can be used.
 .Pp
+A special locale name exists:
+.Sq utf-8 .
+Specifying
+.Dq LANG=utf-8
+indicates that the dates will be read using the C locale, and the descriptions
+will be encoded in UTF-8.  This is usually used for the distributed calendar
+files.
+.Pp
 To enforce special date calculation mode for Cyrillic calendars
 you should specify
 .Dq LANG=<local_name>
 and
 .Dq BODUN=<bodun_prefix>
 where <local_name> can be ru_RU.KOI8-R, uk_UA.KOI8-U or by_BY.KOI8-B.
+.Pp
+Note that the locale is reset to the user's default for each new file that is
+read. This is so that locales from one file do not accidentally carry over into
+another file.
 .Pp
 Other lines should begin with a month and day.
 They may be entered in almost any format, either numeric or as character
@@ -260,9 +272,9 @@ at the beginning of a line.
 .Sh COMPATIBILITY
 The
 .Nm
-command will only display lines that contain use a <tab> character to seperate
-the date and description, or that begin with a <tab>. This is different than in
-previous releases.
+command will only display lines that use a <tab> character to separate the date
+and description, or that begin with a <tab>. This is different than in previous
+releases.
 .Pp
 The
 .Fl t
@@ -281,6 +293,10 @@ program did not accept
 as an argument to the
 .Fl A
 flag.
+.Pp
+Using
+.Sq utf-8
+as a locale name is a Debian-specific enhancement.
 .Sh HISTORY
 A
 .Nm

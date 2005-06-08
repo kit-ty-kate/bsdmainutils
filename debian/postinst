@@ -2,8 +2,6 @@
 
 set -e
 
-. /usr/share/debconf/confmodule
-
 if [ -f /usr/lib/calendar/default ]; then
   mv -f /usr/lib/calendar/default /etc/calendar/default.old
 

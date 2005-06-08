@@ -23,5 +23,6 @@
 #include <calendar.australia>
 #include <calendar.newzealand>
 #include <calendar.belgium>
+#include <calendar.argentina>
 
 #endif /* !_calendar_all_ */

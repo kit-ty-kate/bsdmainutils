@@ -57,6 +57,7 @@ unsigned short lookahead = 1, weekend = 2;
 
 char *calendarFile = "calendar";  /* default calendar file */
 char *calendarHome = ".calendar"; /* HOME */
+char *calendarPath;               /* calendar file we end up using */
 char *calendarNoMail = "nomail";  /* don't sent mail if this file exists */
 
 struct passwd *pw;

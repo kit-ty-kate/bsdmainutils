@@ -42,6 +42,7 @@ static const char copyright[] =
 #include <sys/uio.h>
 #include <sys/wait.h>
 
+#include <limits.h>
 #include <ctype.h>
 #include <err.h>
 #include <errno.h>
@@ -205,15 +206,14 @@ cal(void)
 	(void) setlocale(LC_ALL, "");
 	tmp = events;
 	while (tmp) {
-		wchar_t print_date[31];
 		char buf[1024 + 1];
 
-		wcsftime(print_date, 31, L"%b %d", tmp->tm);
-		fprintf(fp, "%ls%lc", print_date, tmp->var);
+		if (wcstombs(buf, *(tmp->desc), sizeof(buf) - 1) != -1) {
+			wchar_t print_date[31];
 
-		if (wcstombs(buf, *(tmp->desc), sizeof(buf) - 1) == -1)
-			fprintf(fp, "\tevent cannot be displayed in current locale\n");
-		else {
+			wcsftime(print_date, 31, L"%b %d", tmp->tm);
+			fprintf(fp, "%ls%lc", print_date, tmp->var);
+
 			if (memchr(buf, '\0', 1024) == NULL)
 				buf[1024] = '\0';
 			fprintf(fp, "%s\n", buf);
@@ -324,28 +324,61 @@ getfield(wchar_t *p, wchar_t **endp, int *flags)
 	return (val);
 }
 
+/*
+ * Try a number of different paths for the calendar file, and return the file
+ * descriptor of the first one that works. Also set calendarPath to the file
+ * that is opened.
+ */
+int
+openfile()
+{
+	struct stat st;
+	char *home;
+	int fd;
+
+	/* Is there a calendar file in the current directory? */
+	if ((fd = open(calendarFile, O_RDONLY)) != -1 &&
+	    fstat(fd, &st) != -1 && S_ISREG(st.st_mode)) {
+	    	if ((calendarPath = strdup(calendarFile)) == NULL)
+			err(1, NULL);
+
+		return fd;
+	}
+	    	
+	/* Try the ~/.calendar directory. */
+	home = getenv("HOME");
+	if (home == NULL || *home == '\0')
+		errx(1, "cannot get home directory");
+
+	if ((chdir(home) == 0 &&
+	    chdir(calendarHome) == 0 &&
+	    (fd = open(calendarFile, O_RDONLY)) != -1)) {
+		if ((calendarPath = (char *) malloc(PATH_MAX)) == NULL)
+			err(1, NULL);
+		snprintf(calendarPath, PATH_MAX, "%s/%s/%s", home, calendarHome, calendarFile);
+
+		return fd;
+	}
+
+	/* Try the system-wide calendar file. */
+	if ((fd = open(_PATH_DEFAULT, O_RDONLY)) != -1) {
+	    	if ((calendarPath = strdup(_PATH_DEFAULT)) == NULL)
+			err(1, NULL);
+
+		return fd;
+	}
+
+	errx(1, "no calendar file: ``%s'' or ``~/%s/%s''",
+	    calendarFile, calendarHome, calendarFile);
+}
 
 FILE *
 opencal(void)
 {
 	int pdes[2], fdin;
-	struct stat st;
 
 	/* open up calendar file as stdin */
-	if ((fdin = open(calendarFile, O_RDONLY)) == -1 ||
-	    fstat(fdin, &st) == -1 || !S_ISREG(st.st_mode)) {
-		if (!doall) {
-			char *home = getenv("HOME");
-			if (home == NULL || *home == '\0')
-				errx(1, "cannot get home directory");
-			if (!(chdir(home) == 0 &&
-			    chdir(calendarHome) == 0 &&
-			    (fdin = open(calendarFile, O_RDONLY)) != -1))
-				if ((fdin = open(_PATH_DEFAULT, O_RDONLY)) == -1)
-					errx(1, "no calendar file: ``%s'' or ``~/%s/%s''",
-					    calendarFile, calendarHome, calendarFile);
-		}
-	}
+	fdin = openfile();
 
 	if (pipe(pdes) < 0)
 		return (NULL);

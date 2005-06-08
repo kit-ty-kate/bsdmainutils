@@ -29,6 +29,7 @@
  * SUCH DAMAGE.
  */
 
+#include <sys/uio.h>
 
 extern struct passwd *pw;
 extern int doall;
@@ -38,6 +39,7 @@ extern struct iovec header[];
 extern struct tm *tp;
 extern char *calendarFile;
 extern char *calendarHome;
+extern char *calendarPath;
 extern char *optarg;
 
 struct fixs {

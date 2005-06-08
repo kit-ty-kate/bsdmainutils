@@ -1,4 +1,4 @@
-/* $Id: wcslib.c 123 2004-11-01 17:00:19Z bob $ */
+/* $Id: wcslib.c 125 2004-11-02 01:31:58Z bob $ */
 
 /*
  * Copyright (c) 1987, 1993
@@ -45,6 +45,7 @@
 #include <iconv.h>
 #include <errno.h>
 #include <locale.h>
+#include "calendar.h"
 
 int
 wcscasecmp(s1, s2)
@@ -122,11 +123,17 @@ wchar_t *
 myfgetws(wchar_t *s, int size, FILE *stream)
 {
 	static int utf8mode = 0;
+	static char *filename = NULL;
+	static int line = 0;
+
 	char buf[2048 + 1], *p;
-	int ch;
+	int ch, r;
 
 	if (fgets(buf, sizeof(buf), stream) == NULL)
 		return NULL;
+
+	/* Keep a count of line numbers for printing errors. */
+	line++;
 
 	if ((p = strchr(buf, '\n')) != NULL)
 		*p = '\0';
@@ -134,9 +141,40 @@ myfgetws(wchar_t *s, int size, FILE *stream)
 		while ((ch = getchar()) != '\n' && ch != EOF);
 
 	/* handle special directives */
-	if (strncmp(buf, "# 1 \"", 5) == 0) {
-		utf8mode = 0;
-		(void) setlocale(LC_ALL, "");
+	if (strncmp(buf, "# ", 2) == 0) {
+		char *newfile, *end;
+		int n;
+
+		line = strtol(buf + 2, &end, 10) - 1;
+
+		/* Skip whitespace and the opening double quote. */
+		while (isspace(*end))
+			end++;
+		end++;
+
+		/* Copy the filename to a buffer for printing errors. */
+		for (n = 0, p = end; *p && *p != '"'; p++)
+			n++;
+		if ((newfile = (char *) malloc(n + 1)) == NULL)
+			err(1, NULL);
+		strncpy(newfile, end, n);
+		newfile[n] = 0;
+
+		/* If this is a new file, clear file-specific state. */
+		if (!filename || strcmp(newfile, filename) != 0) {
+			int i;
+
+			utf8mode = 0;
+			for (i = 0; i < NUMEV; i++)
+				if (spev[i].uname) {
+					free(spev[i].uname);
+					spev[i].uname = NULL;
+				}
+			(void) setlocale(LC_ALL, "");
+		}
+		if (filename)
+			free(filename);
+		filename = newfile;
 	} else if (strncmp(buf, "LANG=utf-8", 10) == 0) {
 		utf8mode = 1;
 		(void) setlocale(LC_ALL, "C");
@@ -147,12 +185,16 @@ myfgetws(wchar_t *s, int size, FILE *stream)
 	}
 
 	/* convert the line */
-	if (utf8mode) {
-		if (utf8towcs(s, buf, size) == -1)
-			err(1, "while reading input");
-	} else {
-		if (mbstowcs(s, buf, size) == -1)
-			errx(1, "invalid multibyte sequence encountered in input file");
+	if (utf8mode)
+		r = utf8towcs(s, buf, size);
+	else
+		r = mbstowcs(s, buf, size);
+
+	if (r == -1) {
+		if (!filename || strcmp(filename, "<stdin>") == 0)
+			err(1, "%s:%d", calendarPath, line);
+		else
+			err(1, "%s:%d", filename, line);
 	}
 
 	return s;

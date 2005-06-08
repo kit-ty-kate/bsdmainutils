@@ -1,3 +1,38 @@
+bsdmainutils (6.1.2) unstable; urgency=low
+
+  * Fix a typo in calendar.1.
+
+ -- Graham Wilson <graham@debian.org>  Wed, 08 Jun 2005 01:18:22 +0000
+
+bsdmainutils (6.1.1) experimental; urgency=low
+
+  * Remove debconf notes.
+  * Remove duplicate SNL premiere date. (closes: #276271)
+  * Remove ${misc:Depends} from the control file.
+  * Add a calendar file for Argentina, prepared by J. Alejandro Noli.
+    (closes: #280669)
+  * Fix gcc 4.0 error in calendar.h. (closes: #299666)
+  * Fix spelling error in calendar.1. (closes: #302149)
+
+ -- Graham Wilson <graham@debian.org>  Sun, 01 May 2005 23:55:55 +0000
+
+bsdmainutils (6.1) experimental; urgency=low
+
+  * calendar(1) bug fixes and enhancments:
+    - Document the LANG=utf-8 calendar file notation.
+    - Note that the locale for the calendar file is reset each time a new
+      calendar file is read. (closes: #264079)
+    - Keep track of the current file and line number, so that encoding
+      conversion errors can be reported.
+    - Reset special event names when reading new calendar files.
+    - Suppress non-printable events by default. (closes: #255379)
+  * Fix some calendar errors:
+    - Fix spelling error in LOTR calendar. (closes: #255377)
+    - Correct Dvorak's birthplace. (closes: #265979)
+  * Use signal names, rather than numbers, in lorder. (closes: #256198)
+
+ -- Graham Wilson <bob@decoy.wox.org>  Tue, 31 Aug 2004 20:39:06 +0000
+
 bsdmainutils (6.0.17) unstable; urgency=medium
 
   * Use size_t (instead of int) when calling iconv(3): using int on alpha

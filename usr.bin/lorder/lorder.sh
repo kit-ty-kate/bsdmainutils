@@ -60,7 +60,7 @@ fi
 umask $um
 
 # remove temporary files on HUP, INT, QUIT, PIPE, TERM
-trap "rm -rf $TDIR; exit 1" 1 2 3 13 15
+trap "rm -rf $TDIR; exit 1" HUP INT QUIT PIPE TERM
 
 # if the line ends in a colon, assume it's the first occurrence of a new
 # object file.  Echo it twice, just to make sure it gets into the output.

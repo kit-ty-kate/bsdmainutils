@@ -7,7 +7,7 @@ Standards-Version: 3.6.1
 
 Package: bsdmainutils
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, bsdutils (>= 3.0-0), debianutils (>= 1.8)
+Depends: ${shlibs:Depends}, bsdutils (>= 3.0-0), debianutils (>= 1.8)
 Conflicts: textutils (<< 2.0-1), suidmanager (<< 0.50)
 Replaces: bsdutils (<< 3.0-0)
 Suggests: cpp, wenglish | wordlist, whois, vacation
