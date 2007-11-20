@@ -311,6 +311,7 @@ next(char **argv)
 	}
 	for (;;) {
 		if (*_argv) {
+			done = 1;
 			if ((fd = open(*_argv, O_RDONLY)) == -1 ||
 			    close(0) == -1 ||
 			    dup2(fd, 0) == -1 ||
@@ -320,7 +321,7 @@ next(char **argv)
 				++_argv;
 				continue;
 			}
-			statok = done = 1;
+			statok = 1;
 		} else {
 			if (done++)
 				return(0);

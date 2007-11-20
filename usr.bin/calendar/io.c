@@ -353,9 +353,10 @@ openfile()
 	if ((chdir(home) == 0 &&
 	    chdir(calendarHome) == 0 &&
 	    (fd = open(calendarFile, O_RDONLY)) != -1)) {
-		if ((calendarPath = (char *) malloc(PATH_MAX)) == NULL)
+	    	int len = strlen(home) + 1 + strlen(calendarHome) + 1 + strlen(calendarFile) + 1;
+		if ((calendarPath = (char *) malloc(len)) == NULL)
 			err(1, NULL);
-		snprintf(calendarPath, PATH_MAX, "%s/%s/%s", home, calendarHome, calendarFile);
+		snprintf(calendarPath, len, "%s/%s/%s", home, calendarHome, calendarFile);
 
 		return fd;
 	}

@@ -1,3 +1,79 @@
+bsdmainutils (6.1.10) unstable; urgency=medium
+
+  * Bumping versioned conflicts against bsdutils.
+
+ -- Daniel Baumann <daniel@debian.org>  Tue, 20 Nov 2007 08:33:00 +0100
+
+bsdmainutils (6.1.9) unstable; urgency=medium
+
+  * Applied patch from Neil Williams <codehelp@debian.org> to add cross build
+    support (Closes: #450490).
+
+ -- Daniel Baumann <daniel@debian.org>  Wed, 14 Nov 2007 23:30:00 +0100
+
+bsdmainutils (6.1.8) unstable; urgency=medium
+
+  * Bumping versioned conflicts against bsdutils.
+
+ -- Daniel Baumann <daniel@debian.org>  Wed, 31 Oct 2007 10:39:00 +0100
+
+bsdmainutils (6.1.7) unstable; urgency=medium
+
+  * Adding versioned conflicts against bsdutils (Closes: #440630).
+  * Removed old conflicts (pre-sarge).
+
+ -- Daniel Baumann <daniel@debian.org>  Mon,  3 Sep 2007 11:24:00 +0200
+
+bsdmainutils (6.1.6) unstable; urgency=medium
+
+  * Adding calendar.ubuntu from Matt Zimmerman <mdz@ubuntu.com>.
+  * Updating calendar.debian from Martin Schulze <joey@debian.org>.
+
+ -- Daniel Baumann <daniel@debian.org>  Tue,  2 Jan 2007 18:07:00 +0100
+
+bsdmainutils (6.1.5) unstable; urgency=low
+
+  * New maintianer (Closes: #400077).
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 23 Nov 2006 21:07:00 +0100
+
+bsdmainutils (6.1.4) unstable; urgency=low
+
+  * Suggest wamerican, not wenglish. (closes: #354695)
+  * Try to automatically determine the first day of the week.
+    (closes: #288472)
+  * Correct Asimov's birthplace. (closes: #345598)
+  * Never read stdin in hexdump if files are supplied on the
+    command line. (closes: #291150)
+  * Dynamically calculate buffer length of calendar file. (closes: #356943)
+  * Fix spelling error in calendar.holiday. (closes: #357894)
+  * Update standards version (no changes).
+  * Add the required binary-indep target to debian/rules.
+
+ -- Graham Wilson <graham@debian.org>  Tue, 15 Aug 2006 06:03:03 +0000
+
+bsdmainutils (6.1.3) unstable; urgency=medium
+
+  * Spelling error in calendar.history. (closes: #312572)
+  * Fix a warning in the ul man page. (closes: #300668)
+  * Don't needlessly capitalize month names. (closes: #298090)
+  * Update calendar.debian. (closes: #334564)
+
+  * Fix bug where memory wasn't written past the end of where it was
+    allocated. Thanks to Lars Ellenberg for tracking this down.
+    (closes: #339042)
+
+  * Don't use align when printing a set of three months in cal, since
+    align doesn't take into account escape sequences, and will mess
+    things up.
+  * Ensure that all of the monthlines returned from mkmonth/mkmonthb
+    take up the required amount of space on screen, instead of expecting
+    printf to figure this out.
+  * Print the current date in reverse video if stdout is a TTY.
+    (closes: #265881)
+
+ -- Graham Wilson <graham@debian.org>  Mon, 02 Jan 2006 21:42:23 +0000
+
 bsdmainutils (6.1.2) unstable; urgency=low
 
   * Fix a typo in calendar.1.

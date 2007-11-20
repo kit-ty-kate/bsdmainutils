@@ -19,4 +19,3 @@ update-alternatives \
 	--slave /usr/share/man/man1/write.1.gz write.1.gz /usr/share/man/man1/bsd-write.1.gz
 
 #DEBHELPER#
-

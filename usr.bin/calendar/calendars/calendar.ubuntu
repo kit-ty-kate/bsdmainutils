@@ -1,0 +1,20 @@
+/*
+ * Interesting dates in Ubuntu history
+ * Matt Zimmerman <mdz@ubuntu.com>, 2005-10-24
+ */
+
+#ifndef _calendar_ubuntu
+#define _calendar_ubuntu
+
+LANG=utf-8
+
+/* Ubuntu releases */
+Oct 20	Ubuntu 4.10 (Warty Warthog) released, 2004
+Apr 08	Ubuntu 5.04 (Hoary Hedgehog) released, 2005
+Oct 13	Ubuntu 5.10 (Breezy Badger) released, 2005
+Jun 1   Ubuntu 6.06 (Dapper Drake) released, 2006
+Oct 26  Ubuntu 6.10 (Edgy Eft) released, 2006
+
+/* Misc */
+
+#endif /* !_calendar_ubuntu_ */
