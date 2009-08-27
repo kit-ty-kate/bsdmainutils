@@ -1,3 +1,9 @@
+bsdmainutils (6.1.11) unstable; urgency=low
+
+  * Orphaning package.
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 27 Aug 2009 07:01:03 +0200
+
 bsdmainutils (6.1.10) unstable; urgency=medium
 
   * Bumping versioned conflicts against bsdutils.
@@ -22,14 +28,14 @@ bsdmainutils (6.1.7) unstable; urgency=medium
   * Adding versioned conflicts against bsdutils (Closes: #440630).
   * Removed old conflicts (pre-sarge).
 
- -- Daniel Baumann <daniel@debian.org>  Mon,  3 Sep 2007 11:24:00 +0200
+ -- Daniel Baumann <daniel@debian.org>  Mon, 03 Sep 2007 11:24:00 +0200
 
 bsdmainutils (6.1.6) unstable; urgency=medium
 
   * Adding calendar.ubuntu from Matt Zimmerman <mdz@ubuntu.com>.
   * Updating calendar.debian from Martin Schulze <joey@debian.org>.
 
- -- Daniel Baumann <daniel@debian.org>  Tue,  2 Jan 2007 18:07:00 +0100
+ -- Daniel Baumann <daniel@debian.org>  Tue, 02 Jan 2007 18:07:00 +0100
 
 bsdmainutils (6.1.5) unstable; urgency=low
 
@@ -346,7 +352,7 @@ bsdmainutils (5.20020211-5) unstable; urgency=high
   * Fixed country code of Sweden in ncal (Closes: #149699).
   * Fixed some calendar entries (Closes: #143959, #144711, #150262).
 
- -- Marco d'Itri <md@linux.it>  Thu,  4 Jul 2002 20:45:39 +0200
+ -- Marco d'Itri <md@linux.it>  Thu, 04 Jul 2002 20:45:39 +0200
 
 bsdmainutils (5.20020211-4) unstable; urgency=medium
 
@@ -387,7 +393,7 @@ bsdmainutils (5.20010615-3) unstable; urgency=medium
   * Removed calendar(3) man page (Closes: #111995).
   * Added missing files to calendar.all (Closes: #111996).
 
- -- Marco d'Itri <md@linux.it>  Wed,  5 Dec 2001 03:58:39 +0100
+ -- Marco d'Itri <md@linux.it>  Wed, 05 Dec 2001 03:58:39 +0100
 
 bsdmainutils (5.20010615-2) unstable; urgency=medium
 
@@ -396,7 +402,7 @@ bsdmainutils (5.20010615-2) unstable; urgency=medium
   * Added spanish debconf messages (Closes: #104091).
   * Now calendar looks for ~/calendar too (Closes: #99857).
 
- -- Marco d'Itri <md@linux.it>  Sat,  1 Sep 2001 14:16:33 +0200
+ -- Marco d'Itri <md@linux.it>  Sat, 01 Sep 2001 14:16:33 +0200
 
 bsdmainutils (5.20010615-1) unstable; urgency=low
 

@@ -1,7 +1,7 @@
 Source: bsdmainutils
 Section: utils
 Priority: important
-Maintainer: Daniel Baumann <daniel@debian.org>
+Maintainer: Debian QA Group <packages@qa.debian.org>
 Build-Depends: debhelper (>= 4), libncurses5-dev
 Standards-Version: 3.7.2
 
