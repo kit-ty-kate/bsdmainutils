@@ -1,3 +1,73 @@
+bsdmainutils (8.0.2) unstable; urgency=low
+
+  * Added VCS information to control file.
+  * Really install Kazakhstan calendar file. (Closes: #555699)
+  * Made look only search whole words. (Closes: #556885)
+  * Re-added highlighting of current day and made -3 use right format.
+    (Closes: #555641)
+  * Fixed week number calculation. (Closes: #556029)
+
+ -- Michael Meskes <meskes@debian.org>  Mon, 23 Nov 2009 10:18:15 +0100
+
+bsdmainutils (8.0.1) unstable; urgency=low
+
+  * Added patch system to be able to track upstream's source more
+    directly.
+  * Updated ncal to the latest upstream version. (Closes: #415057)
+  * New maintainers. (Closes: #543833)
+  * Bumped Standards version to 3.8.3, no update needed.
+  * Made ncal find the first day of the week automatically.
+    (Closes: #472355)
+  * Added -3 option to cal and ncal. (Closes: #497014)
+  * Made ncal cope with longer month names. (Closes: #528657)
+  * Document that cal always prints 8 lines. (Closes: #367299)
+  * Made ncal catch incorrect year parameter. (Closes: #431930)
+  * Made ncal use locale information for knowing how to display week.
+    (Closes: #361223)
+  * Updated col to the latest FreeBSD version.
+    (Closes: #319952, #348032, #484579)
+  * Patched col to recognize a single non-empty line without newline.
+    (Closes: #335087)
+  * Updated colrm to the latest FreeBSD version. (Closes: #516271)
+  * Updated column to latest FreeBSD version. (Closes: #368384)
+  * Made column react more gracefully upon reading empty fields.
+    (Closes: #382638)
+  * Re-added '-n' option to column and documented it as a Debian
+    extension. (Closes: #485809)
+  * Updated colcrt to the latest FreeBSD version.
+  * Updated banner to latest FreeBSD version.
+  * Renamed banner to printerbanner. (Closes: #315664)
+  * Updated hexdump to its latest FreeBSD version.
+  * Bumped debhelper compat level.
+  * Added patch to prevent segfault in case an empty repetition is
+    given. (Closes: #498232)
+  * Added patch to make hd ignore -C option. (Closes: #487985)
+  * Updated from to latest FreeBSD version.
+  * Updated ul to latest FreeBSD version but kept our changes
+  * Updated lorder to latest version from OpenBSD.
+  * Re-added patch that makes lorder use signal names instead of
+    numbers.
+  * Updated look to latest version from FreeBSD. (Closes: #547622)
+  * Reimplemented and documented -b option for look. (Closes: #264996)
+  * Update write to the latest FreeBSD version.
+  * Allow writing from a terminal that has mesg n set. (Closes: #455248)
+  * Updated calendar binary to latest version from OpenBSD. (Closes: #503276)
+  * Patched new calendar sources to use wide-character functions.
+  * Created patch to put Debian specific options back into calendar
+    tool. (Closes: #293689)
+  * Updated all calendars from their FreeBSD sources. 
+    (Closes: #388153, #413900, #446547, #542229)
+  * Added/Fixed some calendar entries as reported by Debian users.
+    (Closes: #554561, #337311, #525925, #493759, #381114, #280176))
+  * Added Kazakhstan holiday calendar. (Closes: #358609)
+  * Updated Ubuntu calendar. (Closes: #474600)
+  * Removed double word in manpage. (Closes: #401091)
+  * Changed patch of source.data.gz mentioned in README. (Closes: #507602)
+  * Added lintian override for setgid write binary.
+  * Bumped version to 8.0.1 because we are using sources from FreeBSD 8 now.
+
+ -- Michael Meskes <meskes@debian.org>  Sat, 07 Nov 2009 12:31:56 +0100
+
 bsdmainutils (6.1.11) unstable; urgency=low
 
   * Orphaning package.

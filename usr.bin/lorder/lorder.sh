@@ -1,6 +1,6 @@
 #!/bin/sh -
-#	$OpenBSD: lorder.sh,v 1.7 1997/01/25 21:16:44 deraadt Exp $
-#	$NetBSD: lorder.sh,v 1.3 1995/04/24 07:38:52 cgd Exp $
+#	$OpenBSD: lorder.sh,v 1.14 2003/07/02 00:21:16 avsm Exp $
+#	$NetBSD: lorder.sh.gnm,v 1.3 1995/12/20 04:45:11 cgd Exp $
 #
 # Copyright (c) 1990, 1993
 #	The Regents of the University of California.  All rights reserved.
@@ -13,11 +13,7 @@
 # 2. Redistributions in binary form must reproduce the above copyright
 #    notice, this list of conditions and the following disclaimer in the
 #    documentation and/or other materials provided with the distribution.
-# 3. All advertising materials mentioning features or use of this software
-#    must display the following acknowledgement:
-#	This product includes software developed by the University of
-#	California, Berkeley and its contributors.
-# 4. Neither the name of the University nor the names of its contributors
+# 3. Neither the name of the University nor the names of its contributors
 #    may be used to endorse or promote products derived from this software
 #    without specific prior written permission.
 #
@@ -36,7 +32,7 @@
 #	@(#)lorder.sh	8.1 (Berkeley) 6/6/93
 #
 
-# only one argument is a special case, just output the name twice
+# one argument can be optimized: put out the filename twice
 case $# in
 	0)
 		echo "usage: lorder file ...";
@@ -47,47 +43,26 @@ case $# in
 esac
 
 # temporary files
-TDIR=/tmp/_lorder$$
-R=$TDIR/reference
-S=$TDIR/symbol
-
-um=`umask`
-umask 022
-if ! mkdir $TDIR ; then
-	echo temporary directory exists $TDIR
+R=`mktemp /tmp/_referenceXXXXXXXXXX` || exit 1
+S=`mktemp /tmp/_symbolXXXXXXXXXX` || {
+	rm -f ${R}
 	exit 1
-fi
-umask $um
+}
 
 # remove temporary files on HUP, INT, QUIT, PIPE, TERM
-trap "rm -rf $TDIR; exit 1" HUP INT QUIT PIPE TERM
+trap "rm -f $R $S; exit 0" 0
+trap "rm -f $R $S; exit 1" 1 2 3 13 15
 
-# if the line ends in a colon, assume it's the first occurrence of a new
-# object file.  Echo it twice, just to make sure it gets into the output.
-#
-# if the line has " T " or " D " it's a globally defined symbol, put it
-# into the symbol file.
+# make sure files depend on themselves
+for file in "$@"; do echo "$file $file" ; done
+# if the line has " T ", " D ", " G ", " R ",  it's a globally defined 
+# symbol, put it into the symbol file.
 #
 # if the line has " U " it's a globally undefined symbol, put it into
 # the reference file.
-#
-# The awk nastyness is to rearrange the output of GNU nm to be more to the
-# seddery's liking.
-if nm --version 2>/dev/null | grep -q GNU; then
-  FILT='BEGIN{FS="[: ]"}{if (seen[$1]) print $0; else print $1 ":"; print $0; seen[$1]=1}'
-else
-  FILT='{print $0}'
-fi
-
-${NM:-nm} -go $* | awk "$FILT" | sed "
-	/:$/ {
-		s/://
-		s/.*/& &/
-		p
-		d
-	}
-	/ [TD] / {
-		s/:.* [TD] / /
+${NM:-nm} -go "$@" | sed "
+	/ [TDGR] / {
+		s/:.* [TDGR] / /
 		w $S
 		d
 	}
@@ -99,8 +74,8 @@ ${NM:-nm} -go $* | awk "$FILT" | sed "
 "
 
 # sort symbols and references on the first field (the symbol)
-# join on that field, and print out the file names.
-sort -k 2 -o $R $R
-sort -k 2 -o $S $S
+# join on that field, and print out the file names (dependencies).
+sort +1 $R -o $R
+sort +1 $S -o $S
 join -j 2 -o 1.1 2.1 $R $S
-rm -rf $TDIR
+rm -f $R $S

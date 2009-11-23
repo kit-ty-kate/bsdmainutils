@@ -1,13 +1,11 @@
 /*
  * History
  *
- * $FreeBSD: src/usr.bin/calendar/calendars/calendar.history,v 1.28 2003/04/22 10:33:43 grog Exp $
+ * $FreeBSD$
  */
 
 #ifndef _calendar_history_
 #define _calendar_history_
-
-LANG=utf-8
 
 01/01	Anniversary of the Triumph of the Revolution in Cuba
 01/01	Castro expels Cuban President Batista, 1959
@@ -74,14 +72,13 @@ LANG=utf-8
 	in Salem, Massachusetts, 1692
 03/02	Blackthorn winds (New England) (Does anyone know what this is?)
 03/04	First meeting of Congress, 1789, in N.Y.C.
-03/06	Hindenburg explodes and burns upon landing at Lakehurst, NJ, 1939
 03/13	"Striptease" introduced, Paris, 1894
 03/14	Teddy Roosevelt excludes Japanese laborers from continental US, 1907
 03/15	Day of the 1848 revolution in Hungary
 03/15	Buzzards return to Hinckley OH
 03/15	France assumes protectorate over Vietnam, 1874
 03/15	Watts, Los Angeles, riots kill two, injure 25, 1966
-03/15	Ides of March.  Gaius Julius Caesar assassinated by senators, 
+03/15	Ides of March.  Gaius Julius Caesar assassinated by senators,
 	including adoptive son Marcus Junius Brutus Caepio, 44BC
 03/16	First liquid-fuel-powered rocket flight, 1926
 03/16	MyLai Massacre; 300 non-combatant villagers killed by US infantrymen
@@ -133,6 +130,7 @@ LANG=utf-8
 05/03	Anti-war protest disrupts business in Washington, 1971
 05/04	Four Kent State students are shot down by the National Guard, 1970
 05/05	John Scopes arrested for teaching evolution, Dayton, TN, 1925
+05/06	Hindenburg explodes and burns upon landing at Lakehurst, NJ, 1937
 05/07	Germany surrenders after WWII, 1945
 05/08	Beginning of ostrich mating season
 05/08	US institutes mining of Haiphong Harbor, 1972
@@ -180,7 +178,7 @@ LANG=utf-8
 06/17	China explodes its first Hydrogen bomb, 1967
 06/17	Watergate Democratic National Committee break-in, 1972
 06/19	Julius and Ethel Rosenberg are executed in Sing-Sing prison, 1953
-06/19	Lizzie Borden acquitted, 1893
+06/19	Lizzie Bordon acquitted, 1893
 06/20	Victoria crowned, 1837
 06/21	Berlin airlift begins, 1948
 06/21	Sun rises over Heelstone at Stonehenge
@@ -206,6 +204,7 @@ LANG=utf-8
 07/06	First `talkie' (talking motion picture) premiere in New York, 1928
 07/06	Lawrence of Arabia captures Aqaba, 1917
 07/07	First radio broadcast of "Dragnet", 1949
+07/07	Terrorists detonate four bombs on London public transport, 2005
 07/08	First public reading of the Declaration of Independence, 1776
 07/08	Liberty Bell cracks while being rung at funeral of John Marshall, 1835
 07/09	10-hour working day set by law, NH, 1847
@@ -300,10 +299,11 @@ LANG=utf-8
 09/09	California becomes the 31st state of the USA, 1850
 09/09	United Colonies is renamed the United States, 1776
 09/10	Mountain Meadows Massacre.  Mormons kill Gentile wagon train, 1857
+09/11	CIA-sponsored terrorists overthrow Chilean government, murder President Allende, 1973
 09/11	Terrorists destroy World Trade Center in New York, 2001
-09/12	German paratroopers rescue Mussolini from captivity, 1943
+09/12	German paratroopers rescue Mussolini from captivity in Rome, 1943
 09/12	Germany annexes Sudetenland, 1938
-09/13	58Â° C (136.4Â° F) measured at el Azizia, Libya, 1922
+09/13	58° C (136.4° F) measured at el Azizia, Libya, 1922
 09/13	British defeat the French at Abraham near Quebec City, 1788
 09/13	Building of Hadrian's Wall begun, 122
 09/13	Chiang Kai-Shek becomes president of China, 1943
@@ -360,6 +360,7 @@ LANG=utf-8
 10/11	The Gang of Four are arrested in Peking, 1976
 10/11	The first steam powered ferry ran between New York and Hoboken, 1811
 10/11	The second Vatican Ecumenical Council opens in Rome, 1962
+10/11	First broadcast of Saturday Night Live, 1975
 10/12	Bahama Natives discover Columbus of Europe lost on their shores, 1492
 10/12	Khrushchev pounds his desk with shoe during a speech to the UN, 1960
 10/12	Man O'War's last race, 1920
@@ -445,6 +446,7 @@ LANG=utf-8
 12/05	Phi Beta Kappa founded, 1776
 12/05	The Eighteenth Amendment repealed, ending Prohibition, 1933
 12/07	Japan bombs Pearl Harbor, 1941
+12/08	Japan enters Second World War with invasion of Pantai Sabak, Kelantan, 1941
 12/09	Ball-bearing roller skates patented, 1884
 12/10	Metric system established in France, 1799
 12/10	Nobel Peace Prize awarded each year

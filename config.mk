@@ -24,13 +24,8 @@ MAN ?= $(PROG).1
 
 sysconfdir=$(DESTDIR)/etc
 datadir=$(DESTDIR)/usr/share
-ifneq ($(findstring .6,$(MAN)),)
-	bindir=$(DESTDIR)/usr/games
-	mandir=$(datadir)/man/man6
-else
-	bindir=$(DESTDIR)/usr/bin
-	mandir=$(datadir)/man/man1
-endif
+bindir=$(DESTDIR)/usr/bin
+mandir=$(datadir)/man/man1
 
 # rule for building the program
 ifneq ($(findstring .sh,$(SRC)),)

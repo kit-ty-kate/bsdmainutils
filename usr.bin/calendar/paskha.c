@@ -1,4 +1,4 @@
-/*	$OpenBSD: paskha.c,v 1.3 2003/06/25 22:41:24 deraadt Exp $	*/
+/*	$OpenBSD: paskha.c,v 1.5 2005/11/16 16:45:11 deraadt Exp $	*/
 
 /*
  * Copyright (C) 1993-1996 by Andrey A. Chernov, Moscow, Russia.
@@ -26,10 +26,12 @@
  * SUCH DAMAGE.
  */
 
+#ifndef lint
+static const char rcsid[] = "$OpenBSD: paskha.c,v 1.5 2005/11/16 16:45:11 deraadt Exp $";
+#endif /* not lint */
+
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
+#include <tzfile.h>
 
 #include "calendar.h"
 
@@ -37,8 +39,7 @@
 /* (new style result); subtract 13 for old style */
 
 int
-paskha (R)
-	int R;  /*year*/
+paskha(int R)  /*year*/
 {
 	int a, b, c, d, e;
 	static int x = 15;

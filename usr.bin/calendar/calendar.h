@@ -1,4 +1,4 @@
-/*	$OpenBSD: calendar.h,v 1.9 2003/06/03 02:56:06 millert Exp $	*/
+/*	$OpenBSD: calendar.h,v 1.12 2005/08/09 12:32:58 mickey Exp $	*/
 
 /*
  * Copyright (c) 1989, 1993, 1994
@@ -29,7 +29,6 @@
  * SUCH DAMAGE.
  */
 
-#include <sys/uio.h>
 
 extern struct passwd *pw;
 extern int doall;
@@ -39,54 +38,48 @@ extern struct iovec header[];
 extern struct tm *tp;
 extern char *calendarFile;
 extern char *calendarHome;
-extern char *calendarPath;
 extern char *optarg;
 
 struct fixs {
-	wchar_t *name;
+	char *name;
 	int len;
 };
 
 struct event {
 	time_t	when;
-	struct tm *tm;
-	wchar_t	var;
-	wchar_t	**desc;
-	wchar_t	*ldesc;
+	char	print_date[31];
+	char	**desc;
+	char	*ldesc;
 	struct event	*next;
 };
 
 struct match {
 	time_t	when;
-	struct tm *tm;
+	char	print_date[30];
 	int	bodun;
 	int	var;
 	struct match	*next;
 };
 
 struct specialev {
-	wchar_t *name;
+	char *name;
 	int nlen;
-	wchar_t *uname;
+	char *uname;
 	int ulen;
 	int (*getev)(int);
 };
 
-wchar_t	 *wcsdup(const wchar_t *);
-int	 wcscasecmp(const wchar_t *, const wchar_t *);
-int	 wcsncasecmp(const wchar_t *, const wchar_t *, size_t);
-wchar_t	 *myfgetws(wchar_t *, int, FILE *);
-
 void	 cal(void);
 void	 closecal(FILE *);
-int	 getday(wchar_t *);
-int	 getdayvar(wchar_t *);
-int	 getfield(wchar_t *, wchar_t **, int *);
-int	 getmonth(wchar_t *);
+int	 getday(char *);
+int	 getdayvar(char *);
+int	 getfield(char *, char **, int *);
+int	 getmonth(char *);
+int	 pesach(int);
 int	 easter(int);
 int	 paskha(int);
 void	 insert(struct event **, struct event *);
-struct match	*isnow(wchar_t *, int);
+struct match	*isnow(char *, int);
 FILE	*opencal(void);
 void	 settime(time_t *);
 time_t	 Mktime(char *);
@@ -94,7 +87,6 @@ void	 usage(void);
 int	 foy(int);
 void	 variable_weekday(int *, int, int);
 void	 setnnames(void);
-void	 spev_init(void);
 
 /* some flags */
 #define	F_ISMONTH	0x01 /* month (Januar ...) */
@@ -104,17 +96,24 @@ void	 spev_init(void);
 			      * calendar time--e.g.  Easter or easter depending
 			      * days */
 
-extern unsigned short lookahead;	/* how many days to look ahead */
-extern unsigned short weekend;		/* how many days to look ahead if today is Friday */
+extern int f_dayAfter;	/* days after current date */
+extern int f_dayBefore;	/* days before current date */
+extern int f_SetdayAfter; /* calendar invoked with -A */
 
 /* Special events; see also setnnames() in day.c */
 /* '=' is not a valid character in a special event name */
-#define EASTER L"easter"
-#define EASTERNAMELEN ((sizeof(EASTER) / sizeof(wchar_t)) - 1)
-#define PASKHA L"paskha"
-#define PASKHALEN ((sizeof(PASKHA) / sizeof(wchar_t)) - 1)
+#define PESACH "pesach"
+#define PESACHLEN (sizeof(PESACH) - 1)
+#define EASTER "easter"
+#define EASTERNAMELEN (sizeof(EASTER) - 1)
+#define PASKHA "paskha"
+#define PASKHALEN (sizeof(PASKHA) - 1)
 
-#define NUMEV 2	/* Total number of such special events */
+/* calendars */
+extern enum calendars { GREGORIAN = 0, JULIAN, LUNAR } calendar;
+extern u_long julian;
+
+#define NUMEV 3	/* Total number of such special events */
 extern struct specialev spev[NUMEV];
 
 /* For calendar -a, specify a maximum time (in seconds) to spend parsing

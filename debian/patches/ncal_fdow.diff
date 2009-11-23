@@ -1,0 +1,55 @@
+--- bsdmainutils/usr.bin/ncal/ncal.c.orig	2009-09-22 16:22:10.000000000 +0200
++++ bsdmainutils/usr.bin/ncal/ncal.c	2009-09-22 16:21:12.000000000 +0200
+@@ -162,6 +162,7 @@
+ int     nswitch;		/* user defined switch date */
+ int	nswitchb;		/* switch date for backward compatibility */
+ const char	*term_so, *term_se;
++int     weekstart;              /* day the week starts on (Sun [0] - Sat [6]) */
+ int	today;
+ 
+ char   *center(char *s, char *t, int w);
+@@ -263,6 +264,22 @@
+ 	if (flag_backward)
+ 		nswitchb = ndaysj(&ukswitch);
+ 
++	/* Determine on what day the week starts. */
++#ifdef __GLIBC__
++	if (flag_backward) {
++		int first_week_i;
++                date first_week_d;
++                date sunday = { .y = 1997, .m = 11, .d = 30 };
++
++                first_week_i = (intptr_t) nl_langinfo(_NL_TIME_WEEK_1STDAY);
++                first_week_d.d = first_week_i % 100;
++                first_week_i /= 100;
++                first_week_d.m = first_week_i % 100;
++                first_week_i /= 100;
++                first_week_d.y = first_week_i;
++		weekstart = *nl_langinfo(_NL_TIME_FIRST_WEEKDAY) + (ndaysj(&first_week_d) - ndaysj(&sunday)) % 7 - 1;
++        }
++#endif
+ 	while ((ch = getopt(argc, argv, "Jehjm:ops:wy")) != -1)
+ 		switch (ch) {
+ 		case 'J':
+@@ -786,10 +803,10 @@
+ 	}
+ 
+ 	/*
+-	 * Set firsts to the day number of sunday of the first week of
++	 * Set firsts to the weekstart day of the first week of
+ 	 * this month. (This might be in the last month)
+ 	 */
+-	firsts = first - (weekday(first)+1) % 7;
++	firsts = first - (weekday(first)+(8-weekstart)) % 7;
+ 
+ 	/*
+ 	 * Fill the lines with day of month or day of year (Julian day)
+@@ -847,7 +864,7 @@
+ 	memset(&tm, 0, sizeof(tm));
+ 
+ 	for (i = 0; i != 7; i++) {
+-		tm.tm_wday = (i+1) % 7;
++		tm.tm_wday = (i+1+weekstart) % 7;
+ 		wcsftime(buf, sizeof(buf), L"%a", &tm);
+ 		for (len = 2; len > 0; --len) {
+ 			if ((width = wcswidth(buf, len)) <= 2)

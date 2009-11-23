@@ -22,9 +22,9 @@
 .\" OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 .\" SUCH DAMAGE.
 .\"
-.\" $FreeBSD: src/lib/libcalendar/calendar.3,v 1.11 2001/10/01 16:09:10 ru Exp $
+.\" $FreeBSD$
 .\"
-.Dd March 20, 2004
+.Dd November 29, 1997
 .Dt CALENDAR 3
 .Os
 .Sh NAME
@@ -62,8 +62,8 @@
 .Fn weekday "int nd"
 .Sh DESCRIPTION
 These functions provide calendar arithmetic for a large range of years,
-starting at March 1st, year zero (i. e. 1 B.C.) and ending at
-year 5875706.
+starting at March 1st, year zero (i.e., 1 B.C.) and ending way beyond
+year 100000.
 .Pp
 Programs should be linked with
 .Fl lcalendar .
@@ -103,7 +103,8 @@ of a date and the "number of days" representation, which is better suited
 for calculations.
 The days are numbered from March 1st year 1 B.C., starting
 with zero, so the number of a day gives the number of days since March 1st,
-year 1 B.C. The conversions work for nonnegative day numbers only.
+year 1 B.C.
+The conversions work for nonnegative day numbers only.
 .Pp
 The
 .Fn gdate
@@ -151,7 +152,8 @@ Most catholic countries adopted the new
 calendar by the end of the 16th century, whereas others stayed with
 the Julian Calendar until the 20th century.
 The United Kingdom and
-their colonies switched on September 2, 1752. They already had to
+their colonies switched on September 2, 1752.
+They already had to
 delete 11 days.
 .Pp
 The function
@@ -168,13 +170,13 @@ This function is defined for Gregorian Calendar only.
 .Pp
 The function
 .Fn weekday
-returns the weekday (Mo = 0 .. Su = 6) of the day numbered
+returns the weekday (Mo = 0 ..\& Su = 6) of the day numbered
 .Fa nd .
 .Pp
 The structure
 .Fa date
 is defined in
-.Aq Pa calendar.h .
+.In calendar.h .
 It contains these fields:
 .Bd -literal -offset indent
 int y;          /\(** year (0000 - ????) \(**/

@@ -37,6 +37,14 @@ static const char copyright[] =
 	The Regents of the University of California.  All rights reserved.\n";
 #endif /* not lint */
 
+#ifndef lint
+#if 0
+static char sccsid[] = "@(#)hexdump.c	8.1 (Berkeley) 6/6/93";
+#endif
+#endif /* not lint */
+#include <sys/cdefs.h>
+__FBSDID("$FreeBSD$");
+
 #include <sys/types.h>
 #include <locale.h>
 #include <stdlib.h>

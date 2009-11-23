@@ -30,9 +30,9 @@
 .\" SUCH DAMAGE.
 .\"
 .\"	@(#)hexdump.1	8.2 (Berkeley) 4/18/94
-.\" $FreeBSD: src/usr.bin/hexdump/hexdump.1,v 1.19 2002/12/05 08:50:00 ru Exp $
+.\" $FreeBSD$
 .\"
-.Dd April 18, 1994
+.Dd July 10, 2004
 .Dt HEXDUMP 1
 .Os
 .Sh NAME
@@ -310,7 +310,7 @@ If, as a result of the specification of the
 .Fl n
 option or end-of-file being reached, input data only partially
 satisfies a format string, the input block is zero-padded sufficiently
-to display all available data (i.e. any format units overlapping the
+to display all available data (i.e., any format units overlapping the
 end of data will display some number of the zero bytes).
 .Pp
 Further output by such format strings is replaced by an equivalent
@@ -331,7 +331,7 @@ If no format strings are specified, the default display is equivalent
 to specifying the
 .Fl x
 option.
-.Sh DIAGNOSTICS
+.Sh EXIT STATUS
 .Ex -std hexdump hd
 .Sh EXAMPLES
 Display the input in perusal format:
@@ -347,4 +347,5 @@ Implement the \-x option:
 "%07.7_ax  " 8/2 "%04x " "\en"
 .Ed
 .Sh SEE ALSO
-.Xr gdb 1
+.Xr gdb 1 ,
+.Xr od 1

@@ -1,4 +1,4 @@
-/*	$OpenBSD: io.c,v 1.24 2003/06/03 02:56:06 millert Exp $	*/
+/*	$OpenBSD: io.c,v 1.34 2007/10/17 20:10:44 chl Exp $	*/
 
 /*
  * Copyright (c) 1989, 1993, 1994
@@ -35,6 +35,14 @@ static const char copyright[] =
 	The Regents of the University of California.  All rights reserved.\n";
 #endif /* not lint */
 
+#ifndef lint
+#if 0
+static const char sccsid[] = "@(#)calendar.c  8.3 (Berkeley) 3/25/94";
+#else
+static const char rcsid[] = "$OpenBSD: io.c,v 1.34 2007/10/17 20:10:44 chl Exp $";
+#endif
+#endif /* not lint */
+
 #include <sys/param.h>
 #include <sys/stat.h>
 #include <sys/time.h>
@@ -42,7 +50,6 @@ static const char copyright[] =
 #include <sys/uio.h>
 #include <sys/wait.h>
 
-#include <limits.h>
 #include <ctype.h>
 #include <err.h>
 #include <errno.h>
@@ -52,59 +59,54 @@ static const char copyright[] =
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <tzfile.h>
 #include <unistd.h>
-#include <wchar.h>
-#include <wctype.h>
-#include <time.h>
 
 #include "pathnames.h"
 #include "calendar.h"
 
 
 struct iovec header[] = {
-	{"From: ", 6},
-	{NULL, 0},
-	{" (Reminder Service)\nTo: ", 24},
-	{NULL, 0},
-	{"\nSubject: ", 10},
-	{NULL, 0},
-	{"'s Calendar\nPrecedence: bulk\n\n",  30},
+	{ "From: ", 6 },
+	{ NULL, 0 },
+	{ " (Reminder Service)\nTo: ", 24 },
+	{ NULL, 0 },
+	{ "\nSubject: ", 10 },
+	{ NULL, 0 },
+	{ "'s Calendar\nPrecedence: bulk\n",  29 },
+	{ "Auto-Submitted: auto-generated\n\n", 32 },
 };
 
 
 void
 cal(void)
 {
-	int printing;
-	wchar_t *p;
-	FILE *fp;
-	int l, i, bodun = 0, bodun_maybe = 0;
-	int var;
-	wchar_t buf[2048 + 1], *prefix = NULL;
+	int ch, l, i, bodun = 0, bodun_maybe = 0, var, printing;
 	struct event *events, *cur_evt, *ev1, *tmp;
+	char buf[2048 + 1], *prefix = NULL, *p;
 	struct match *m;
-	size_t nlen;
-	int r;
+	FILE *fp;
 
 	events = NULL;
 	cur_evt = NULL;
 	if ((fp = opencal()) == NULL)
 		return;
-	for (printing = 0; myfgetws(buf, 2048 + 1, stdin) != NULL;) {
-		for (l = wcslen(buf); l > 0 && iswspace(buf[l - 1]); l--)
+	for (printing = 0; fgets(buf, sizeof(buf), stdin) != NULL;) {
+		if ((p = strchr(buf, '\n')) != NULL)
+			*p = '\0';
+		else
+			while ((ch = getchar()) != '\n' && ch != EOF);
+		for (l = strlen(buf); l > 0 && isspace(buf[l - 1]); l--)
 			;
-		buf[l] = L'\0';
-		if (buf[0] == L'\0')
+		buf[l] = '\0';
+		if (buf[0] == '\0')
 			continue;
-
-		if (wcsncmp(buf, L"# ", 2) == 0)
-			continue;
-
-		if (wcsncmp(buf, L"LANG=", 5) == 0) {
+		if (strncmp(buf, "LANG=", 5) == 0) {
+			(void) setlocale(LC_ALL, buf + 5);
 			setnnames();
-			if (!wcscmp(buf + 5, L"ru_RU.KOI8-R") ||
-			    !wcscmp(buf + 5, L"uk_UA.KOI8-U") ||
-			    !wcscmp(buf + 5, L"by_BY.KOI8-B")) {
+			if (!strcmp(buf + 5, "ru_RU.KOI8-R") ||
+			    !strcmp(buf + 5, "uk_UA.KOI8-U") ||
+			    !strcmp(buf + 5, "by_BY.KOI8-B")) {
 				bodun_maybe++;
 				bodun = 0;
 				if (prefix)
@@ -113,40 +115,60 @@ cal(void)
 			} else
 				bodun_maybe = 0;
 			continue;
-		}
-		if (bodun_maybe && wcsncmp(buf, L"BODUN=", 6) == 0) {
+		} else if (strncmp(buf, "CALENDAR=", 9) == 0) {
+			char *ep;
+
+			if (buf[9] == '\0')
+				calendar = 0;
+			else if (!strcasecmp(buf + 9, "julian")) {
+				calendar = JULIAN;
+				errno = 0;
+				julian = strtoul(buf + 14, &ep, 10);
+				if (buf[0] == '\0' || *ep != '\0')
+					julian = 13;
+				if ((errno == ERANGE && julian == ULONG_MAX) ||
+				    julian > 14)
+					errx(1, "Julian calendar offset is too large");
+			} else if (!strcasecmp(buf + 9, "gregorian"))
+				calendar = GREGORIAN;
+			else if (!strcasecmp(buf + 9, "lunar"))
+				calendar = LUNAR;
+		} else if (bodun_maybe && strncmp(buf, "BODUN=", 6) == 0) {
 			bodun++;
 			if (prefix)
 				free(prefix);
-			if ((prefix = wcsdup(buf + 6)) == NULL)
+			if ((prefix = strdup(buf + 6)) == NULL)
 				err(1, NULL);
-		}
-		/* User defined names for special events */
-		if ((p = wcschr(buf, L'='))) {
-			for (i = 0; i < NUMEV; i++) {
-			if (wcsncasecmp(buf, spev[i].name, spev[i].nlen) == 0 &&
-			    (p - buf == spev[i].nlen) && buf[spev[i].nlen + 1]) {
-				p++;
-				if (spev[i].uname != NULL)
-					free(spev[i].uname);
-				if ((spev[i].uname = wcsdup(p)) == NULL)
-					err(1, NULL);
-				spev[i].ulen = wcslen(p);
-				i = NUMEV + 1;
-			}
-			}
-		if (i > NUMEV)
 			continue;
 		}
-		if (buf[0] != L'\t') {
+		/* User defined names for special events */
+		if ((p = strchr(buf, '='))) {
+			for (i = 0; i < NUMEV; i++) {
+				if (strncasecmp(buf, spev[i].name,
+				    spev[i].nlen) == 0 &&
+				    (p - buf == spev[i].nlen) &&
+				    buf[spev[i].nlen + 1]) {
+					p++;
+					if (spev[i].uname != NULL)
+						free(spev[i].uname);
+					if ((spev[i].uname = strdup(p)) == NULL)
+						err(1, NULL);
+					spev[i].ulen = strlen(p);
+					i = NUMEV + 1;
+				}
+			}
+			if (i > NUMEV)
+				continue;
+		}
+		if (buf[0] != '\t') {
 			printing = (m = isnow(buf, bodun)) ? 1 : 0;
-			if ((p = wcschr(buf, L'\t')) == NULL) {
+			if ((p = strchr(buf, '\t')) == NULL) {
 				printing = 0;
 				continue;
 			}
 			/* Need the following to catch hardwired "variable"
 			 * dates */
-			if (p > buf && p[-1] == L'*')
+			if (p > buf && p[-1] == '*')
 				var = 1;
 			else
 				var = 0;
@@ -155,70 +177,46 @@ cal(void)
 				
 				ev1 = NULL;
 				while (m) {
-				cur_evt = (struct event *) malloc(sizeof(struct event));
-				if (cur_evt == NULL)
-					err(1, NULL);
-
-				cur_evt->when = m->when;
-				cur_evt->var = (var + m->var) ? L'*' : L' ';
-				if ((cur_evt->tm = malloc(sizeof(struct tm))) == NULL)
-					err(1, NULL);
-				memcpy(cur_evt->tm, m->tm, sizeof(struct tm));
-				if (ev1) {
-					cur_evt->desc = ev1->desc;
-					cur_evt->ldesc = NULL;
-				} else {
-					if (m->bodun && prefix) {
-						int l1 = wcslen(prefix);
-						int l2 = wcslen(p);
-						int len = l1 + l2 + 2;
-						if ((cur_evt->ldesc =
-						    malloc(len * sizeof (wchar_t))) == NULL)
-							err(1, "malloc");
-						swprintf(cur_evt->ldesc, len,
-						    L"\t%ls %ls", prefix, p + 1);
-					} else if ((cur_evt->ldesc =
-					    wcsdup(p)) == NULL)
+					cur_evt = malloc(sizeof(struct event));
+					if (cur_evt == NULL)
 						err(1, NULL);
-					cur_evt->desc = &(cur_evt->ldesc);
-					ev1 = cur_evt;
-				}
-				insert(&events, cur_evt);
-				foo = m;
-				m = m->next;
-				free(foo->tm);
-				free(foo);
+	
+					cur_evt->when = m->when;
+					snprintf(cur_evt->print_date,
+					    sizeof(cur_evt->print_date), "%s%c",
+					    m->print_date, (var + m->var) ? '*' : ' ');
+					if (ev1) {
+						cur_evt->desc = ev1->desc;
+						cur_evt->ldesc = NULL;
+					} else {
+						if (m->bodun && prefix) {
+							if (asprintf(&cur_evt->ldesc,
+							    "\t%s %s", prefix,
+							    p + 1) == -1)
+								err(1, NULL);
+						} else if ((cur_evt->ldesc =
+						    strdup(p)) == NULL)
+							err(1, NULL);
+						cur_evt->desc = &(cur_evt->ldesc);
+						ev1 = cur_evt;
+					}
+					insert(&events, cur_evt);
+					foo = m;
+					m = m->next;
+					free(foo);
 				}
 			}
-		}
-		else if (printing) {
-			wchar_t *ldesc;
-			nlen = wcslen(ev1->ldesc) + wcslen(buf) + 2;
-			if ((ldesc = malloc(nlen * sizeof (wchar_t))) == NULL)
+		} else if (printing) {
+			if (asprintf(&p, "%s\n%s", ev1->ldesc,
+			    buf) == -1)
 				err(1, NULL);
-			swprintf(ldesc, nlen, L"%ls\n%ls", ev1->ldesc, buf);
-			if (ev1->ldesc)
-				free(ev1->ldesc);
-			ev1->ldesc = ldesc;
+			free(ev1->ldesc);
+			ev1->ldesc = p;
 		}
 	}
-	/* reset the locale before we start output */
-	(void) setlocale(LC_ALL, "");
 	tmp = events;
 	while (tmp) {
-		char buf[1024 + 1];
-
-		if (wcstombs(buf, *(tmp->desc), sizeof(buf) - 1) != -1) {
-			wchar_t print_date[31];
-
-			wcsftime(print_date, 31, L"%b %d", tmp->tm);
-			fprintf(fp, "%ls%lc", print_date, tmp->var);
-
-			if (memchr(buf, '\0', 1024) == NULL)
-				buf[1024] = '\0';
-			fprintf(fp, "%s\n", buf);
-		}
-
+		(void)fprintf(fp, "%s%s\n", tmp->print_date, *(tmp->desc));
 		tmp = tmp->next;
 	}
 	tmp = events;
@@ -226,7 +224,6 @@ cal(void)
 		events = tmp;
 		if (tmp->ldesc)
 			free(tmp->ldesc);
-		free(tmp->tm);
 		tmp = tmp->next;
 		free(events);
 	}
@@ -234,35 +231,35 @@ cal(void)
 }
 
 int
-getfield(wchar_t *p, wchar_t **endp, int *flags)
+getfield(char *p, char **endp, int *flags)
 {
 	int val, var, i;
-	wchar_t *start, savech;
+	char *start, savech;
 
-	for (; !iswdigit(*p) && !iswalpha(*p) && *p != L'*' && *p != L'\t'; ++p)
+	for (; !isdigit(*p) && !isalpha(*p) && *p != '*' && *p != '\t'; ++p)
 		;
-	if (*p == L'*') {			/* `*' is every month */
+	if (*p == '*') {			/* `*' is every month */
 		*flags |= F_ISMONTH;
 		*endp = p+1;
 		return (-1);	/* means 'every month' */
 	}
-	if (iswdigit(*p)) {
-		val = wcstol(p, &p, 10);	/* if 0, it's failure */
-		for (; !iswdigit(*p) && !iswalpha(*p) && *p != L'*'; ++p)
+	if (isdigit(*p)) {
+		val = strtol(p, &p, 10);	/* if 0, it's failure */
+		for (; !isdigit(*p) && !isalpha(*p) && *p != '*'; ++p)
 			;
 		*endp = p;
 		return (val);
 	}
-	for (start = p; iswalpha(*++p);)
+	for (start = p; isalpha(*++p);)
 		;
 
 	/* Sunday-1 */
-	if (*p == L'+' || *p == L'-')
-	    for(; isdigit(*++p);)
-		;
+	if (*p == '+' || *p == '-')
+		for(; isdigit(*++p); )
+			;
 
 	savech = *p;
-	*p = L'\0';
+	*p = '\0';
 
 	/* Month */
 	if ((val = getmonth(start)) != 0)
@@ -270,27 +267,27 @@ getfield(wchar_t *p, wchar_t **endp, int *flags)
 
 	/* Day */
 	else if ((val = getday(start)) != 0) {
-	    *flags |= F_ISDAY;
+		*flags |= F_ISDAY;
 
-	    /* variable weekday */
-	    if ((var = getdayvar(start)) != 0) {
-		if (var <= 5 && var >= -4)
-		    val += var * 10;
+		/* variable weekday */
+		if ((var = getdayvar(start)) != 0) {
+			if (var <= 5 && var >= -4)
+				val += var * 10;
 #ifdef DEBUG
-		printf("var: %d\n", var);
+			printf("var: %d\n", var);
 #endif
-	    }
+		}
 	}
 
 	/* Try specials (Easter, Paskha, ...) */
 	else {
 		for (i = 0; i < NUMEV; i++) {
-			if (wcsncasecmp(start, spev[i].name, spev[i].nlen) == 0) {
+			if (strncasecmp(start, spev[i].name, spev[i].nlen) == 0) {
 				start += spev[i].nlen;
 				val = i + 1;
 				i = NUMEV + 1;
 			} else if (spev[i].uname != NULL &&
-			    wcsncasecmp(start, spev[i].uname, spev[i].ulen) == 0) {
+			    strncasecmp(start, spev[i].uname, spev[i].ulen) == 0) {
 				start += spev[i].ulen;
 				val = i + 1;
 				i = NUMEV + 1;
@@ -298,88 +295,53 @@ getfield(wchar_t *p, wchar_t **endp, int *flags)
 		}
 		if (i > NUMEV) {
 			switch(*start) {
-			case L'-':
-			case L'+':
-			   var = wcstol(start, (wchar_t **) NULL, 10);
-			   if (var > 365 || var < -365)
-				   return (0); /* Someone is just being silly */
-			   val += (NUMEV + 1) * var;
-			   /* We add one to the matching event and multiply by
-			    * (NUMEV + 1) so as not to return 0 if there's a match.
-			    * val will overflow if there is an obscenely large
-			    * number of special events. */
-			   break;
+			case '-':
+			case '+':
+				var = atoi(start);
+				if (var > 365 || var < -365)
+					return (0); /* Someone is just being silly */
+				val += (NUMEV + 1) * var;
+				/* We add one to the matching event and multiply by
+				 * (NUMEV + 1) so as not to return 0 if there's a match.
+				 * val will overflow if there is an obscenely large
+				 * number of special events. */
+				break;
 			}
-		*flags |= F_SPECIAL;	
+			*flags |= F_SPECIAL;	
 		}
 		if (!(*flags & F_SPECIAL)) {
-		/* undefined rest */
+			/* undefined rest */
 			*p = savech;
 			return (0);
 		}
 	}
-	for (*p = savech; !iswdigit(*p) && !iswalpha(*p) && *p != L'*' && *p != L'\t'; ++p)
+	for (*p = savech; !isdigit(*p) && !isalpha(*p) && *p != '*' && *p != '\t'; ++p)
 		;
 	*endp = p;
 	return (val);
 }
 
-/*
- * Try a number of different paths for the calendar file, and return the file
- * descriptor of the first one that works. Also set calendarPath to the file
- * that is opened.
- */
-int
-openfile()
-{
-	struct stat st;
-	char *home;
-	int fd;
-
-	/* Is there a calendar file in the current directory? */
-	if ((fd = open(calendarFile, O_RDONLY)) != -1 &&
-	    fstat(fd, &st) != -1 && S_ISREG(st.st_mode)) {
-	    	if ((calendarPath = strdup(calendarFile)) == NULL)
-			err(1, NULL);
-
-		return fd;
-	}
-	    	
-	/* Try the ~/.calendar directory. */
-	home = getenv("HOME");
-	if (home == NULL || *home == '\0')
-		errx(1, "cannot get home directory");
-
-	if ((chdir(home) == 0 &&
-	    chdir(calendarHome) == 0 &&
-	    (fd = open(calendarFile, O_RDONLY)) != -1)) {
-	    	int len = strlen(home) + 1 + strlen(calendarHome) + 1 + strlen(calendarFile) + 1;
-		if ((calendarPath = (char *) malloc(len)) == NULL)
-			err(1, NULL);
-		snprintf(calendarPath, len, "%s/%s/%s", home, calendarHome, calendarFile);
-
-		return fd;
-	}
-
-	/* Try the system-wide calendar file. */
-	if ((fd = open(_PATH_DEFAULT, O_RDONLY)) != -1) {
-	    	if ((calendarPath = strdup(_PATH_DEFAULT)) == NULL)
-			err(1, NULL);
-
-		return fd;
-	}
-
-	errx(1, "no calendar file: ``%s'' or ``~/%s/%s''",
-	    calendarFile, calendarHome, calendarFile);
-}
 
 FILE *
 opencal(void)
 {
 	int pdes[2], fdin;
+	struct stat st;
 
 	/* open up calendar file as stdin */
-	fdin = openfile();
+	if ((fdin = open(calendarFile, O_RDONLY)) == -1 ||
+	    fstat(fdin, &st) == -1 || !S_ISREG(st.st_mode)) {
+		if (!doall) {
+			char *home = getenv("HOME");
+			if (home == NULL || *home == '\0')
+				errx(1, "cannot get home directory");
+			if (!(chdir(home) == 0 &&
+			    chdir(calendarHome) == 0 &&
+			    (fdin = open(calendarFile, O_RDONLY)) != -1))
+				errx(1, "no calendar file: ``%s'' or ``~/%s/%s''",
+				    calendarFile, calendarHome, calendarFile);
+		}
+	}
 
 	if (pipe(pdes) < 0)
 		return (NULL);
@@ -408,7 +370,8 @@ opencal(void)
 			(void)dup2(fderr, STDERR_FILENO);
 			(void)close(fderr);
 		}
-		execl(_PATH_CPP, "cpp", "-traditional", "-I.", _PATH_EINCLUDE, _PATH_INCLUDE, (char *)NULL);
+		execl(_PATH_CPP, "cpp", "-traditional", "-undef", "-U__GNUC__",
+		    "-P", "-I.", _PATH_INCLUDE, (char *)NULL);
 		warn(_PATH_CPP);
 		_exit(1);
 	}
@@ -426,8 +389,7 @@ opencal(void)
 }
 
 void
-closecal(fp)
-	FILE *fp;
+closecal(FILE *fp)
 {
 	struct stat sbuf;
 	int nread, pdes[2], status;
@@ -463,7 +425,7 @@ closecal(fp)
 
 	header[1].iov_base = header[3].iov_base = pw->pw_name;
 	header[1].iov_len = header[3].iov_len = strlen(pw->pw_name);
-	writev(pdes[1], header, 7);
+	writev(pdes[1], header, 8);
 	while ((nread = read(fileno(fp), buf, sizeof(buf))) > 0)
 		(void)write(pdes[1], buf, nread);
 	(void)close(pdes[1]);
@@ -474,9 +436,7 @@ done:	(void)fclose(fp);
 
 
 void
-insert(head, cur_evt)
-	struct event **head;
-	struct event *cur_evt;
+insert(struct event **head, struct event *cur_evt)
 {
 	struct event *tmp, *tmp2;
 

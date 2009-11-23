@@ -1,4 +1,4 @@
-/*	$OpenBSD: calendar.c,v 1.21 2003/06/10 22:20:45 deraadt Exp $	*/
+/*	$OpenBSD: calendar.c,v 1.25 2005/11/16 16:45:11 deraadt Exp $	*/
 
 /*
  * Copyright (c) 1989, 1993, 1994
@@ -35,35 +35,45 @@ static const char copyright[] =
 	The Regents of the University of California.  All rights reserved.\n";
 #endif /* not lint */
 
+#ifndef lint
+#if 0
+static const char sccsid[] = "@(#)calendar.c  8.3 (Berkeley) 3/25/94";
+#else
+static const char rcsid[] = "$OpenBSD: calendar.c,v 1.25 2005/11/16 16:45:11 deraadt Exp $";
+#endif
+#endif /* not lint */
+
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <err.h>
 #include <errno.h>
 #include <locale.h>
+#include <login_cap.h>
 #include <pwd.h>
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <tzfile.h>
 #include <unistd.h>
 
 #include "pathnames.h"
 #include "calendar.h"
 
-void atodays(char, char *, unsigned short *);
-unsigned short lookahead = 1, weekend = 2;
-
 char *calendarFile = "calendar";  /* default calendar file */
 char *calendarHome = ".calendar"; /* HOME */
-char *calendarPath;               /* calendar file we end up using */
 char *calendarNoMail = "nomail";  /* don't sent mail if this file exists */
 
 struct passwd *pw;
 int doall = 0;
 time_t f_time = 0;
 int bodun_always = 0;
+
+int f_dayAfter = 0; /* days after current date */
+int f_dayBefore = 0; /* days before current date */
+int f_SetdayAfter = 0; /* calendar invoked with -A */
 
 struct specialev spev[NUMEV];
 
@@ -74,11 +84,10 @@ main(int argc, char *argv[])
 {
 	int ch;
 	char *caldir;
-	unsigned short before = 0;
 
 	(void)setlocale(LC_ALL, "");
 
-	while ((ch = getopt(argc, argv, "abf:l:t:w:A:B:-")) != -1)
+	while ((ch = getopt(argc, argv, "abf:t:A:B:-")) != -1)
 		switch (ch) {
 		case '-':		/* backward contemptible */
 		case 'a':
@@ -100,17 +109,13 @@ main(int argc, char *argv[])
 				errx(1, "specified date is outside allowed range");
 			break;
 
-		case 'w':
-			atodays(ch, optarg, &weekend);
-			break;
-
 		case 'A': /* days after current date */
-		case 'l':
-			atodays(ch, optarg, &lookahead);
+			f_dayAfter = atoi(optarg);
+			f_SetdayAfter = 1;
 			break;
 
 		case 'B': /* days before current date */
-			atodays(ch, optarg, &before);
+			f_dayBefore = atoi(optarg);
 			break;
 
 		default:
@@ -122,16 +127,15 @@ main(int argc, char *argv[])
 	if (argc)
 		usage();
 
-	spev_init();
-
 	/* use current time */
 	if (f_time <= 0)
 	    (void)time(&f_time);
 
-	if (before) {
+	if (f_dayBefore) {
 		/* Move back in time and only look forwards */
-		lookahead += before;
-		f_time -= SECSPERDAY * before;
+		f_dayAfter += f_dayBefore;
+		f_time -= SECSPERDAY * f_dayBefore;
+		f_dayBefore = 0;
 	}
 	settime(&f_time);
 
@@ -180,9 +184,10 @@ main(int argc, char *argv[])
 				continue;
 			case 0:	/* child */
 				(void)setlocale(LC_ALL, "");
-				(void)setegid(pw->pw_gid);
-				(void)initgroups(pw->pw_name, pw->pw_gid);
-				(void)seteuid(pw->pw_uid);
+				if (setusercontext(NULL, pw, pw->pw_uid,
+				    LOGIN_SETALL ^ LOGIN_SETLOGIN))
+					err(1, "unable to set user context (uid %u)",
+					    pw->pw_uid);
 				if (acstat) {
 					if (chdir(pw->pw_dir) ||
 					    stat(calendarFile, &sbuf) != 0 ||
@@ -227,7 +232,8 @@ main(int argc, char *argv[])
 				warnx("uid %u did not finish in time", pw->pw_uid);
 			}
 			if (time(NULL) - t >= SECSPERDAY)
-				errx(2, "'calendar -a' took more than a day; stopped at uid %u",
+				errx(2, "'calendar -a' took more than a day; "
+				    "stopped at uid %u",
 				    pw->pw_uid);
 		}
 		for (;;) {
@@ -237,10 +243,9 @@ main(int argc, char *argv[])
 			runningkids--;
 		}
 		if (runningkids)
-			warnx(
-"%d child processes still running when 'calendar -a' finished", runningkids);
-	}
-	else if ((caldir = getenv("CALENDAR_DIR")) != NULL) {
+			warnx("%d child processes still running when "
+			    "'calendar -a' finished", runningkids);
+	} else if ((caldir = getenv("CALENDAR_DIR")) != NULL) {
 		if(!chdir(caldir))
 			cal();
 	} else
@@ -249,24 +254,13 @@ main(int argc, char *argv[])
 	exit(0);
 }
 
-void
-atodays(char ch, char *optarg, unsigned short *days)
-{
-	int u;
-
-	u = atoi(optarg);
-	if ((u < 0) || (u > 366))
-		warnx("warning: -%c %d out of range 0-366, ignored.\n", ch, u);
-	else
-		*days = u;
-}
 
 void
 usage(void)
 {
 	(void)fprintf(stderr,
-	    "usage: calendar [-a] [-A num] [-b] [-B num] [-l num] [-w num] "
-	    "[-t dd[.mm[.year]]] [-f calendarfile]\n");
+	    "usage: calendar [-ab] [-A num] [-B num] [-f calendarfile] "
+	    "[-t [[[cc]yy][mm]]dd]\n");
 	exit(1);
 }
 

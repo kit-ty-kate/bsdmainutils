@@ -14,8 +14,8 @@ clean:
 	$(call rmake,clean)
 
 install: all
-	mkdir -p $(DESTDIR)/usr/bin $(DESTDIR)/usr/games
-	mkdir -p $(DESTDIR)/usr/share/man/man1 $(DESTDIR)/usr/share/man/man6
+	mkdir -p $(DESTDIR)/usr/bin
+	mkdir -p $(DESTDIR)/usr/share/man/man1
 
 	$(call rmake,install)
 

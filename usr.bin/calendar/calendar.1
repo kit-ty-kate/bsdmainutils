@@ -1,4 +1,4 @@
-.\"	$OpenBSD: calendar.1,v 1.23 2003/06/10 09:12:09 jmc Exp $
+.\"	$OpenBSD: calendar.1,v 1.33 2007/05/31 19:20:08 jmc Exp $
 .\"
 .\" Copyright (c) 1989, 1990, 1993
 .\"     The Regents of the University of California.  All rights reserved.
@@ -29,7 +29,7 @@
 .\"
 .\"     @(#)calendar.1  8.1 (Berkeley) 6/29/93
 .\"
-.Dd November 8, 2003
+.Dd $Mdocdate: May 31 2007 $
 .Dt CALENDAR 1
 .Os
 .Sh NAME
@@ -37,21 +37,11 @@
 .Nd reminder service
 .Sh SYNOPSIS
 .Nm calendar
-.Op Fl a
+.Op Fl ab
 .Op Fl A Ar num
-.Op Fl b
 .Op Fl B Ar num
 .Op Fl f Ar calendarfile
-.Op Fl l Ar num
-.Op Fl w Ar num
-.Oo
-.Bk -words
-.Fl t Ar dd Ns
-.Sm off
-.Op . Ar mm Op . Ar year
-.Sm on
-.Ek
-.Oc
+.Op Fl t Ar [[[cc]yy][mm]]dd
 .Sh DESCRIPTION
 The
 .Nm
@@ -65,42 +55,27 @@ On Fridays, events on Friday through Monday are displayed.
 .Pp
 The options are as follows:
 .Bl -tag -width Ds
+.It Fl A Ar num
+Print lines from today and next
+.Ar num
+days (forward, future).
 .It Fl a
 Process the
 .Dq calendar
 files of all users and mail the results
 to them.
 This requires superuser privileges.
-.It Fl A Ar num
-Print lines from today and next
-.Ar num
-days. Defaults to one.
-.It Fl b
-Enforce special date calculation mode for KOI8 calendars.
 .It Fl B Ar num
 Print lines from today and previous
 .Ar num
-days. Defaults to zero.
+days (backward, past).
+.It Fl b
+Enforce special date calculation mode for KOI8 calendars.
 .It Fl f Pa calendarfile
 Use
 .Pa calendarfile
 as the default calendar file.
-.It Fl l Ar num
-Print lines from today and next
-.Ar num
-days. Defaults to one.
-.It Fl w Ar num
-Print lines from today and next
-.Ar num
-days, only if today is Friday. Defaults to two, which causes
-.Nm
-calendar to print entries through the weekend on Fridays.
-.It Xo Fl t
-.Sm off
-.Ar dd
-.Op . Ar mm Op . Ar year
-.Sm on
-.Xc
+.It Fl t Ar [[[cc]yy][mm]]dd
 Act like the specified value is
 .Dq today
 instead of using the current date.
@@ -115,13 +90,17 @@ To handle national Easter names in the calendars,
 .Dq Paskha=<national_name>
 (for Orthodox Easter) can be used.
 .Pp
-A special locale name exists:
-.Sq utf-8 .
-Specifying
-.Dq LANG=utf-8
-indicates that the dates will be read using the C locale, and the descriptions
-will be encoded in UTF-8.  This is usually used for the distributed calendar
-files.
+The
+.Dq CALENDAR
+variable can be used to specify the style.
+Only
+.Sq Julian
+and
+.Sq Gregorian
+styles are currently supported.
+Use
+.Dq CALENDAR=
+to return to the default (Gregorian).
 .Pp
 To enforce special date calculation mode for Cyrillic calendars
 you should specify
@@ -129,10 +108,6 @@ you should specify
 and
 .Dq BODUN=<bodun_prefix>
 where <local_name> can be ru_RU.KOI8-R, uk_UA.KOI8-U or by_BY.KOI8-B.
-.Pp
-Note that the locale is reset to the user's default for each new file that is
-read. This is so that locales from one file do not accidentally carry over into
-another file.
 .Pp
 Other lines should begin with a month and day.
 They may be entered in almost any format, either numeric or as character
@@ -175,15 +150,13 @@ If the shared file is not referenced by a full pathname,
 .Xr cpp 1
 searches in the current (or home) directory first, and then in the
 directory
-.Pa /etc/calendar ,
-and finally in
 .Pa /usr/share/calendar .
 Empty lines and lines protected by the C commenting syntax
 .Pq Li /* ... */
 are ignored.
 .Pp
-Some possible calendar entries (<tab> characters are highlighted by a
-\fB\et\fR sequence):
+Some possible calendar entries
+(a \fB\et\fR sequence denotes a <tab> character):
 .Bd -unfilled -offset indent
 LANG=C
 Easter=Ostern
@@ -195,66 +168,74 @@ Easter=Ostern
 Jun. 15\fB\et\fRJune 15.
 15 June\fB\et\fRJune 15.
 Thursday\fB\et\fREvery Thursday.
-June\fB\et\fREvery June	1st.
+June\fB\et\fREvery June 1st.
 15 *\fB\et\fR15th of every month.
 
-May Sun+2\fB\et\fRsecond Sunday	in May (Muttertag)
-04/SunLast\fB\et\fRlast	Sunday in April,
-\fB\et\fRsummer	time in	Europe
+May Sun+2\fB\et\fRsecond Sunday in May (Muttertag)
+04/SunLast\fB\et\fRlast Sunday in April,
+\fB\et\fRsummer time in Europe
 Easter\fB\et\fREaster
-Ostern-2\fB\et\fRGood Friday (2	days before Easter)
-Paskha\fB\et\fROrthodox	Easter
+Ostern-2\fB\et\fRGood Friday (2 days before Easter)
+Paskha\fB\et\fROrthodox Easter
 .Ed
 .Sh FILES
 .Bl -tag -width ~/.calendar/calendar -compact
 .It Pa calendar
-file to read calendar data from
+File in current directory.
 .It Pa ~/.calendar
-directory in the user's home directory (which
+Directory in the user's home directory (which
 .Nm
-changes into if
-.Pa calendar
-does not exist in the current directory)
+changes into, if it exists).
 .It Pa ~/.calendar/calendar
-file to use if no calendar file exists in the current directory
+File to use if no calendar file exists in the current directory.
 .It Pa ~/.calendar/nomail
 .Nm
-will not send mail if this file exists
+will not send mail if this file exists.
+.It Pa calendar.all
+International and national calendar files.
 .It Pa calendar.birthday
-births and deaths of famous (and not-so-famous) people
+Births and deaths of famous (and not-so-famous) people.
 .It Pa calendar.christian
 Christian holidays (should be updated yearly by the local system administrator
-so that roving holidays are set correctly for the current year)
+so that roving holidays are set correctly for the current year).
 .It Pa calendar.computer
-days of special significance to computer people
+Days of special significance to computer people.
+.It Pa calendar.croatian
+Croatian calendar.
+.It Pa calendar.discord
+Discordian calendar (all rites reversed).
 .It Pa calendar.fictional
-Fantasy and Fiction dates (mostly LOTR)
+Fantasy and fiction dates (mostly LOTR).
+.It Pa calendar.french
+French calendar.
+.It Pa calendar.german
+German calendar.
 .It Pa calendar.history
-everything else, mostly U.S. historical events
+Miscellaneous history.
 .It Pa calendar.holiday
-other holidays (including the not-well-known, obscure, and
+Other holidays (including the not-well-known, obscure, and
 .Em really
-obscure)
+obscure).
 .It Pa calendar.judaic
 Jewish holidays (should be updated yearly by the local system administrator
-so that roving holidays are set correctly for the current year)
+so that roving holidays are set correctly for the current year).
 .It Pa calendar.music
-musical events, births, and deaths (strongly oriented toward rock n' roll)
+Musical events, births, and deaths (strongly oriented toward rock n' roll).
 .It Pa calendar.openbsd
 .Ox
-related events
+related events.
 .It Pa calendar.pagan
-Pagan holidays, celebrations and festivals
-.It Pa calendar.usholiday
-U.S. holidays
-.It Pa calendar.world
-World wide calendar
-.It Pa calendar.croatian
-Croatian calendar
-.It Pa calendar.german
-German calendar
+Pagan holidays, celebrations and festivals.
 .It Pa calendar.russian
-Russian calendar
+Russian calendar.
+.It Pa calendar.space
+Cosmic history.
+.It Pa calendar.ushistory
+U.S. history.
+.It Pa calendar.usholiday
+U.S. holidays.
+.It Pa calendar.world
+World wide calendar.
 .El
 .Sh SEE ALSO
 .Xr at 1 ,
@@ -269,34 +250,6 @@ program previously selected lines which had the correct date anywhere
 in the line.
 This is no longer true: the date is only recognized when it occurs
 at the beginning of a line.
-.Sh COMPATIBILITY
-The
-.Nm
-command will only display lines that use a <tab> character to separate the date
-and description, or that begin with a <tab>. This is different than in previous
-releases.
-.Pp
-The
-.Fl t
-flag argument syntax is from the original FreeBSD
-.Nm
-program.
-.Pp
-The
-.Fl l
-and
-.Fl w
-flags are Debian-specific enhancements. Also, the original
-.Nm
-program did not accept
-.Li 0
-as an argument to the
-.Fl A
-flag.
-.Pp
-Using
-.Sq utf-8
-as a locale name is a Debian-specific enhancement.
 .Sh HISTORY
 A
 .Nm
@@ -304,8 +257,4 @@ command appeared in
 .At v7 .
 .Sh BUGS
 .Nm
-doesn't handle Jewish holidays or moon phases. The
-.Fl A
-and
-.Fl l
-flags do the same thing.
+doesn't handle all Jewish holidays or moon phases.

@@ -1,0 +1,12 @@
+diff -rNu /home/michael/bsdmainutils/usr.bin/ncal/ncal.c bsdmainutils/usr.bin/ncal/ncal.c
+--- /home/michael/bsdmainutils/usr.bin/ncal/ncal.c	2009-11-22 18:52:17.000000000 +0100
++++ bsdmainutils/usr.bin/ncal/ncal.c	2009-11-22 18:51:18.000000000 +0100
+@@ -389,7 +389,7 @@
+ 		printeaster(y, flag_julian_cal, flag_orthodox);
+ 	else if (argc == 1 || flag_hole_year) {
+ 		/* disable the highlight for now */
+-		today = 0;
++		/* today = 0; */
+ 		if (flag_backward)
+ 			printyearb(y, flag_julian_day);
+ 		else

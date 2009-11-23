@@ -30,9 +30,9 @@
 .\" SUCH DAMAGE.
 .\"
 .\"     @(#)ul.1	8.1 (Berkeley) 6/6/93
-.\" $FreeBSD: src/usr.bin/ul/ul.1,v 1.10 2002/04/20 12:17:41 charnier Exp $
+.\" $FreeBSD$
 .\"
-.Dd October 30, 2003
+.Dd August 4, 2004
 .Dt UL 1
 .Os
 .Sh NAME
@@ -42,7 +42,7 @@
 .Nm
 .Op Fl i
 .Op Fl t Ar terminal
-.Op Ar name Ar ...
+.Op Ar
 .Sh DESCRIPTION
 The
 .Nm
@@ -51,9 +51,9 @@ and translates occurrences of underscores to the sequence
 which indicates underlining for the terminal in use, as specified
 by the environment variable
 .Ev TERM .
-The 
-.Xr ncurses 3
-library is used to determine the appropriate sequences for underlining.
+The file
+.Pa /etc/termcap
+is read to determine the appropriate sequences for underlining.
 If the terminal is incapable of underlining, but is capable of
 a standout mode then that is used instead.
 If the terminal can overstrike,
@@ -64,47 +64,43 @@ degenerates to
 If the terminal cannot underline, underlining is ignored.
 .Pp
 The following options are available:
-.Bl -tag -width Ds
+.Bl -tag -width indent
 .It Fl i
 Underlining is indicated by a separate line containing appropriate
-dashes `\-'; this is useful when you want to look at the underlining
+dashes
+.Ql \- ;
+this is useful when you want to look at the underlining
 which is present in an
-.Xr nroff
-output stream on a crt-terminal.
+.Xr nroff 1
+output stream on a CRT-terminal.
 .It Fl t Ar terminal
 Overrides the terminal type specified in the environment with
 .Ar terminal .
 .El
 .Sh ENVIRONMENT
-The following environment variable is used:
-.Bl -tag -width TERM
-.It Ev TERM
 The
+.Ev LANG , LC_ALL , LC_CTYPE
+and
 .Ev TERM
-variable is used to relate a tty device
-with its device capability description (see
-.Xr termcap 5 ) .
-.Ev TERM
-is set at login time, either by the default terminal type
-specified in
-.Pa /etc/ttys
-or as set during the login process by the user in their
-.Pa login
-file (see
-.Xr environ 7 ) .
-.El
+environment variables affect the execution of
+.Nm
+as described in
+.Xr environ 7 .
+.Sh EXIT STATUS
+.Ex -std
 .Sh SEE ALSO
 .Xr colcrt 1 ,
 .Xr man 1 ,
 .Xr nroff 1
-.Sh BUGS
-The
-.Xr nroff 1
-command usually outputs a series of backspaces and underlines intermixed
-with the text to indicate underlining.  No attempt is made to optimize
-the backward motion.
 .Sh HISTORY
 The
 .Nm
 command appeared in
 .Bx 3.0 .
+.Sh BUGS
+The
+.Xr nroff 1
+command usually outputs a series of backspaces and underlines intermixed
+with the text to indicate underlining.
+No attempt is made to optimize
+the backward motion.

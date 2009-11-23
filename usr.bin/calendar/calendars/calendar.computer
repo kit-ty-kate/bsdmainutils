@@ -1,13 +1,11 @@
 /*
  * Computer
  *
- * $FreeBSD: src/usr.bin/calendar/calendars/calendar.computer,v 1.9 2003/04/28 00:32:10 grog Exp $
+ * $FreeBSD$
  */
 
 #ifndef _calendar_computer_
 #define _calendar_computer_
-
-LANG=utf-8
 
 01/01	AT&T officially divests its local Bell companies, 1984
 01/01	The Epoch (Time 0 for UNIX systems, Midnight GMT, 1970)
@@ -31,7 +29,7 @@ LANG=utf-8
 03/14	LISP introduced, 1960
 03/28	DEC announces PDP-11, 1970
 03/31	Eckert-Mauchly Computer Corp. founded, Phila, 1946
-04/01	Yourdon, Inc. founded, 1974  (It figures.)
+04/01	Yourdon, Inc. founded, 1974 (It figures.)
 04/03	IBM 701 introduced, 1953
 04/04	Tandy Corp. acquires Radio Shack, 1963 (9 stores)
 04/07	IBM announces System/360, 1964
@@ -47,15 +45,17 @@ LANG=utf-8
 05/28	First meeting of COBOL definition cte. (eventually CODASYL), 1959
 05/30	Colossus Mark II, 1944
 06/02	First issue of Computerworld, 1967
+06/07	Alan Mathison Turing died, 1954
 06/10	First Apple II shipped, 1977
 06/15	UNIVAC I delivered to the Census Bureau, 1951
 06/16	First publicized programming error at Census Bureau, 1951
 06/23	IBM unbundles software, 1969
-06/23	Turing's Birthday, 1912
+06/23	Alan Mathison Turing born, 1912
 06/30	First advanced degree on computer related topic: to H. Karamanian,
 	Temple Univ., Phila, 1948, for symbolic differentiation on the ENIAC
 07/08	Bell Telephone Co. formed (predecessor of AT&T), 1877
 07/08	CDC incorporated, 1957
+07/FriLast	System Administrator Appreciation Day
 08/14	First Unix-based mallet created, 1954
 08/14	IBM PC announced, 1981
 08/22	CDC 6600 introduced, 1963
@@ -72,18 +72,5 @@ LANG=utf-8
 10/25	DEC announces VAX-11/780
 11/04	UNIVAC I program predicts Eisenhower victory based on 7% of votes, 1952
 12/08	First Ph.D. awarded by Computer Science Dept, Univ. of Penna, 1965
-
-/* added in the debian package, from the Jargon File */
-Jan 01	Macintosh Epoch, Midnight 1904
-Jan 18	Unix clock runs out, 2038
-Feb 08	Black Thursday, The CDA is signed into law, 1996
-Mar 31	Automated Retroactive Minimal Moderation (ARMM) released, 1993
-Apr 01	Usenet site kremvax announced as an April Fool's joke, 1984
-Jun 26	White Thursday, CDA demolished by U.S. Supreme Court, 1997
-Jul 04	First @-party, at the Westercon (California SF convention), 1980
-Sep 09	First bug found, a moth in Harvard Mark II, 1947
-Oct 16	Sanford Wallace's Cyber Promotions Inc. shut down by lawsuit, 1997
-Nov 17	VMS Epoch (base date of U.S. Naval Observatory's ephemerides), 1858
-Oct 20	MIT hacked the Harvard-Yale football game, 1982
 
 #endif /* !_calendar_computer_ */

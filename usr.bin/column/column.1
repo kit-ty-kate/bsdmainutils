@@ -30,9 +30,9 @@
 .\" SUCH DAMAGE.
 .\"
 .\"     @(#)column.1	8.1 (Berkeley) 6/6/93
-.\" $FreeBSD: src/usr.bin/column/column.1,v 1.9 2001/08/15 09:09:39 ru Exp $
+.\" $FreeBSD$
 .\"
-.Dd September 21, 2003
+.Dd July 29, 2004
 .Os
 .Dt COLUMN 1
 .Sh NAME
@@ -40,7 +40,7 @@
 .Nd columnate lists
 .Sh SYNOPSIS
 .Nm
-.Op Fl ntx
+.Op Fl tx
 .Op Fl c Ar columns
 .Op Fl s Ar sep
 .Op Ar
@@ -60,13 +60,6 @@ The options are as follows:
 Output is formatted for a display
 .Ar columns
 wide.
-.It Fl n
-By default, the
-.Nm
-command will merge multiple adjacent delimiters into a single delimiter when
-using the
-.Fl t
-option; this option disables that behavior.
 .It Fl s
 Specify a set of characters to be used to delimit columns for the
 .Fl t
@@ -81,32 +74,21 @@ Useful for pretty-printing displays.
 .It Fl x
 Fill columns before filling rows.
 .El
-.Sh DIAGNOSTICS
-.Ex -std
 .Sh ENVIRONMENT
-.Bl -tag -width COLUMNS
-.It Ev COLUMNS
-The environment variable
-.Ev COLUMNS
-is used to determine the size of
-the screen if no other information is available.
-.El
+The
+.Ev COLUMNS , LANG , LC_ALL
+and
+.Ev LC_CTYPE
+environment variables affect the execution of
+.Nm
+as described in
+.Xr environ 7 .
+.Sh EXIT STATUS
+.Ex -std
 .Sh EXAMPLES
-To add headings to the output of
-.Xr ls 1 :
-.Pp
-.Dl (echo \&"PERM LINKS OWNER GROUP SIZE MONTH DAY HH:MM/YEAR NAME\&"\\&;\ \&\e
-.Dl LANG=C ls -l \&| sed 1d) \&| column -t
-.Pp
-To print the wordlist in columns:
-.Pp
-.Dl column /usr/share/dict/words
-.Pp
-The previous examples fills rows before columns (the first column might start
-with aardvark, while the second with mighty). To fill columns before rows (such
-that the first line might contain aardvark and abacus):
-.Pp
-.Dl column -x /usr/share/dict
+.Dl (printf \&"PERM LINKS OWNER GROUP SIZE MONTH DAY \&"\ \&;\ \&\e
+.Dl printf \&"HH:MM/YEAR NAME\en\&"\ \&;\ \&\e
+.Dl ls -l \&| sed 1d) \&| column -t
 .Sh SEE ALSO
 .Xr colrm 1 ,
 .Xr ls 1 ,
@@ -117,3 +99,7 @@ The
 .Nm
 command appeared in
 .Bx 4.3 Reno .
+.Sh BUGS
+Input lines are limited to
+.Dv LINE_MAX
+(2048) bytes in length.

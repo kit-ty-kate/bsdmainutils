@@ -3,6 +3,8 @@
 SHELL+= -e
 #export DH_VERBOSE=1
 
+include /usr/share/quilt/quilt.make
+
 # support noopt; nostrip is handled dh_strip
 CFLAGS = -g
 ifeq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
@@ -19,13 +21,13 @@ else
 	CROSS +=
 endif
 
-build: build-stamp
+build: patch build-stamp
 build-stamp:
 	dh_testdir
 	$(MAKE) $(CROSS)
 	touch build-stamp
 
-clean:
+clean: unpatch
 	dh_testdir
 	$(MAKE) clean
 	-rm -f build-stamp
@@ -43,6 +45,7 @@ binary-arch: build install
 	dh_installdocs
 	dh_installchangelogs
 	dh_installcron
+	dh_install
 	dh_strip
 	dh_compress
 	dh_fixperms -Xbsd-write

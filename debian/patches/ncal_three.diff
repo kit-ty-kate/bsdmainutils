@@ -1,0 +1,194 @@
+--- bsdmainutils/usr.bin/ncal/ncal.1	2009-10-31 20:31:14.000000000 +0100
++++ bsdmainutils/usr.bin/ncal/ncal.1	2009-11-01 12:25:41.000000000 +0100
+@@ -43,7 +43,7 @@
+ .Fl m Ar month
+ .Op Ar year
+ .Nm ncal
+-.Op Fl hjJpwy
++.Op Fl hjJpwy3
+ .Op Fl s Ar country_code
+ .Oo
+ .Op Ar month
+@@ -65,6 +65,8 @@
+ .Pp
+ The options are as follows:
+ .Bl -tag -width indent
++.It Fl 3
++Print the previous month, the current month, and the next month all on one row.
+ .It Fl h
+ Turns off highlighting of today.
+ .It Fl J
+--- bsdmainutils/usr.bin/ncal/ncal.c	2009-10-31 20:41:03.000000000 +0100
++++ bsdmainutils/usr.bin/ncal/ncal.c	2009-11-01 12:25:15.000000000 +0100
+@@ -167,12 +167,15 @@
+ 
+ char   *center(char *s, char *t, int w);
+ wchar_t *wcenter(wchar_t *s, wchar_t *t, int w);
++wchar_t *w3center(wchar_t *s, wchar_t *t, int w);
+ void	mkmonth(int year, int month, int jd_flag, struct monthlines * monthl);
+ void    mkmonthb(int year, int month, int jd_flag, struct monthlines * monthl);
+ void    mkweekdays(struct weekdays * wds);
+ int     parsemonth(const char *s, int *m, int *y);
+ void    printcc(void);
+ void    printeaster(int year, int julian, int orthodox);
++void    printmonthlb(int year, int month, int jd_flag);
++void    printmonthl(int year, int month, int jd_flag);
+ void    printmonth(int year, int month, int jd_flag);
+ void    printmonthb(int year, int month, int jd_flag);
+ void    printyear(int year, int jd_flag);
+@@ -194,6 +197,7 @@
+ 	int     ch;			/* holds the option character */
+ 	int     m = 0;			/* month */
+ 	int	y = 0;			/* year */
++	int	flag_three = 0;		/* show previous, current, and next month */
+ 	int     flag_backward = 0;	/* user called cal--backward compat. */
+ 	int     flag_hole_year = 0;	/* user wants the whole year */
+ 	int	flag_julian_cal = 0;	/* user wants Julian Calendar */
+@@ -280,8 +284,11 @@
+ 		weekstart = *nl_langinfo(_NL_TIME_FIRST_WEEKDAY) + (ndaysj(&first_week_d) - ndaysj(&sunday)) % 7 - 1;
+         }
+ #endif
+-	while ((ch = getopt(argc, argv, "Jehjm:ops:wy")) != -1)
++	while ((ch = getopt(argc, argv, "Jehjm:ops:wy3")) != -1)
+ 		switch (ch) {
++		case '3':
++			flag_three = 1;
++			break;
+ 		case 'J':
+ 			if (flag_backward)
+ 				usage();
+@@ -388,6 +395,11 @@
+ 			printyearb(y, flag_julian_day);
+ 		else
+ 			printyear(y, flag_julian_day);
++	} else if (flag_three) {
++		if (flag_backward)
++			printmonthlb(y, m, flag_julian_day);
++		else
++			printmonthl(y, m, flag_julian_day);
+ 	} else
+ 		if (flag_backward)
+ 			printmonthb(y, m, flag_julian_day);
+@@ -473,6 +485,92 @@
+ }
+ 
+ void
++printmonthl(int y, int m, int jd_flag)
++{
++	struct monthlines month[3];
++	struct weekdays wds;
++	int i, n;
++	int mw;
++
++	mkweekdays(&wds);
++	mw = jd_flag ? MONTH_WIDTH_J : MONTH_WIDTH;
++	wprintf(L"   ");
++	for (n = y * 12 + m - 2, i = 0; i < 3; n++, i++) {
++		int l;
++		wchar_t s[MAX_WIDTH], t[MAX_WIDTH];
++
++		mkmonth(n / 12, n % 12, jd_flag, &month[i]);
++
++		swprintf(s, MAX_WIDTH, L"%d", n / 12);
++		l = wcslen(s);
++		swprintf(s, MAX_WIDTH, L"%ls", month[i].name);
++		s[mw - l -1] = '\0';
++		swprintf(s + wcslen(s), MAX_WIDTH, L" %d", n / 12);
++		wprintf(L"%ls ", w3center(t, s, mw));
++	}
++	wprintf(L"\n");
++
++	for (i = 0; i != 7; i++) {
++		int len;
++
++		len = wcslen(wds.names[i]);
++		if (wcswidth(wds.names[i], len) == len)
++			wprintf(L"%.2ls%-*s %-*s %-*s\n", wds.names[i], mw, month[0].lines[i], mw, month[1].lines[i], mw, month[2].lines[i]);
++		else
++			wprintf(L"%.1ls%-*s %-*s %-*s\n", wds.names[i], mw, month[0].lines[i], mw, month[1].lines[i], mw, month[2].lines[i]);
++	}
++	if (flag_weeks)
++		wprintf(L"  %-*s %-*s %-*s\n", mw, month[0].weeks, mw, month[1].weeks, mw, month[2].weeks);
++	wprintf(L"\n");
++
++}
++void
++printmonthlb(int y, int m, int jd_flag)
++{
++	struct monthlines month[3];
++	struct weekdays wds;
++	int i, n;
++	int mw;
++
++	mkweekdays(&wds);
++	mw = jd_flag ? MONTH_WIDTH_B_J : MONTH_WIDTH_B;
++
++	for (n = y * 12 + m - 2, i = 0; i < 3; n++, i++) {
++		int l;
++		wchar_t s[MAX_WIDTH], t[MAX_WIDTH];
++
++		mkmonthb(n / 12, n % 12, jd_flag, &month[i]);
++
++		swprintf(s, MAX_WIDTH, L"%d", n / 12);
++		l = wcslen(s);
++		swprintf(s, MAX_WIDTH, L"%ls", month[i].name);
++		s[mw - l -1] = '\0';
++		swprintf(s + wcslen(s), MAX_WIDTH, L" %d", n / 12);
++		wprintf(L"%ls  ", w3center(t, s, mw));
++	}
++	wprintf(L"\n");
++
++	for (i = 0; i < 3; i++) {
++		if (jd_flag)
++			wprintf(L" %ls %ls %ls %ls %ls %ls %.2ls  ",
++				wds.names[6], wds.names[0],
++				wds.names[1], wds.names[2], wds.names[3],
++				wds.names[4], wds.names[5]);
++		else
++			wprintf(L"%ls%ls%ls%ls%ls%ls%.2ls  ", wds.names[6],
++				wds.names[0], wds.names[1], wds.names[2], wds.names[3],
++				wds.names[4], wds.names[5]);
++	}
++	wprintf(L"\n");
++
++	for (i = 0; i < 6; i++)
++		wprintf(L"%-*s  %-*s  %s\n",
++		       mw, month[0].lines[i]+1,
++		       mw, month[1].lines[i]+1,
++		       month[2].lines[i]+1);
++}
++
++void
+ printmonth(int y, int m, int jd_flag)
+ {
+ 	struct monthlines month;
+@@ -740,8 +838,8 @@
+ 			} else
+ 				memcpy(mlines->lines[i] + k + l, "    ", dw);
+ 		}
++
+ 		mlines->lines[i][k + l] = '\0';
+-				
+ 	}
+ 
+ 	/* fill the weeknumbers */
+@@ -991,6 +1089,19 @@
+ 	return (s);
+ }
+ 
++/* Center string t in string s of length w by putting enough leading blanks and also fill up at the end */
++wchar_t *
++w3center(wchar_t *s, wchar_t *t, int w)
++{
++	char blanks[80];
++	char mm[80];
++
++	memset(blanks, ' ', sizeof(blanks));
++	swprintf(s, MAX_WIDTH, L"%.*s%ls%.*s", (int)(w - wcslen(t)) / 2, blanks, t, w - ((w - wcslen(t)) / 2) - wcslen(t), blanks);
++	wcstombs(mm,s,80);
++	return (s);
++}
++
+ int
+ parsemonth(const char *s, int *m, int *y)
+ {

@@ -1,6 +1,8 @@
 PROG   = ncal
 SRC    = ncal.c calendar.c easter.c
 
+LDFLAGS+=-lncurses
+
 topdir=../..
 include $(topdir)/config.mk
 

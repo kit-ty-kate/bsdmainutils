@@ -1,13 +1,11 @@
 /*
  * New Zealand holidays
  *
- * $FreeBSD: src/usr.bin/calendar/calendars/calendar.newzealand,v 1.1 2001/11/15 02:35:14 grog Exp $
+ * $FreeBSD$
  */
 
 #ifndef _calendar_newzealand_
 #define _calendar_newzealand_
-
-LANG=utf-8
 
 Jan 02	New Year Holiday (NZ)
 Jan 14	Anniversary Day (Southland)

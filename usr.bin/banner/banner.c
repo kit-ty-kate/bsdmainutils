@@ -37,6 +37,15 @@ static const char copyright[] =
 	The Regents of the University of California.  All rights reserved.\n";
 #endif
 
+#if 0
+#ifndef lint
+static char sccsid[] = "@(#)banner.c	8.4 (Berkeley) 4/29/95";
+#endif
+#endif
+
+#include <sys/cdefs.h>
+__FBSDID("$FreeBSD$");
+
 /*
  * banner - prints large signs
  * banner [-w#] [-d] [-t] message ...
@@ -639,7 +648,7 @@ const unsigned char data_table[NBYTES] = {
 /* 5530 */   129,   34,    7,  129,   35,    8,  129,   36,    9,  117,
 /* 5540 */     4,  129,   38,    9,  117,    4,  129,   40,   10,  117,
 /* 5550 */     4,  129,   42,   12,  117,    4,  129,   44,   77,  129,
-/* 5560 */    46,   75,  129,   50,   71,  129,   56,   43,   99,   22,
+/* 5560 */    46,   75,  129,   50,   71,  129,   56,   43,  100,   21,
 /* 5570 */   129,  117,    4,  132,  193,  129,  117,    4,  132,  115,
 /* 5580 */     6,  129,  110,   11,  129,  105,   16,  129,  101,   20,
 /* 5590 */   129,   96,   25,  129,   92,   29,  129,   87,   34,  129,
@@ -1036,7 +1045,7 @@ main(int argc, char *argv[])
 			break;
 		case 'w':
 			width = atoi(optarg);
-			if (width <= 0)
+			if (width <= 0 || width > DWIDTH)
 				errx(1, "illegal argument for -w option");
 			break;
 		case '?':
@@ -1047,7 +1056,7 @@ main(int argc, char *argv[])
 	argv += optind;
 
 	for (i = 0; i < width; i++) {
-		j = i * 132 / width;
+		j = i * DWIDTH / width;
 		print[j] = 1;
 	}
 

@@ -1,0 +1,10 @@
+--- freebsd/usr.bin/from/from.c	2009-10-16 14:07:59.000000000 +0200
++++ bsdmainutils/usr.bin/from/from.c	2009-10-16 14:11:23.000000000 +0200
+@@ -43,7 +43,6 @@
+ #endif
+ #endif /* not lint */
+ #include <sys/cdefs.h>
+-__FBSDID("$FreeBSD$");
+ 
+ #include <sys/types.h>
+ #include <ctype.h>
