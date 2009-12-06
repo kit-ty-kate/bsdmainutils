@@ -16,7 +16,7 @@ diff -ru /home/michael/technik/sources/archive/bsdmainutils/usr.bin/ncal/calenda
 -	if ((wd = weekday(nd)) > 3)
 +
 +	/* 3 may or may not be correct, better use what the locale says */
-+	if ((wd = weekday(nd)) > *nl_langinfo(_NL_TIME_WEEK_1STWEEK))
++	if ((wd = weekday(nd)) >= *nl_langinfo(_NL_TIME_WEEK_1STWEEK))
  		return (nd - wd + 7);
  	else
  		return (nd - wd);

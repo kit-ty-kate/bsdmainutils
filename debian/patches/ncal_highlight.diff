@@ -1,5 +1,5 @@
-diff -rNu /home/michael/bsdmainutils/usr.bin/ncal/ncal.c bsdmainutils/usr.bin/ncal/ncal.c
---- /home/michael/bsdmainutils/usr.bin/ncal/ncal.c	2009-11-22 18:52:17.000000000 +0100
+diff -rNu bsdmainutils/usr.bin/ncal/ncal.c bsdmainutils/usr.bin/ncal/ncal.c
+--- bsdmainutils/usr.bin/ncal/ncal.c	2009-11-22 18:52:17.000000000 +0100
 +++ bsdmainutils/usr.bin/ncal/ncal.c	2009-11-22 18:51:18.000000000 +0100
 @@ -389,7 +389,7 @@
  		printeaster(y, flag_julian_cal, flag_orthodox);
@@ -10,3 +10,35 @@ diff -rNu /home/michael/bsdmainutils/usr.bin/ncal/ncal.c bsdmainutils/usr.bin/nc
  		if (flag_backward)
  			printyearb(y, flag_julian_day);
  		else
+@@ -809,6 +809,7 @@
+ 	for (i = 0; i != 7; i++) {
+ 		l = 0;
+ 		for (j = firstm + i, k = 0; j < last; j += 7, k += dw) {
++			if (j >= first) {
+ 			if (j == today && (term_so != NULL && term_se != NULL)) {
+ 				l = strlen(term_so);
+ 				if (jd_flag)
+@@ -828,7 +829,6 @@
+ 				l = strlen(term_se) + strlen(term_so);
+ 				continue;
+ 			}
+-			if (j >= first) {
+ 				if (jd_flag)
+ 					dt.d = j - jan1 + 1;
+ 				else
+@@ -928,6 +928,7 @@
+ 		l = 0;
+ 		for (j = firsts + 7 * i, k = 0; j < last && k != dw * 7;
+ 		    j++, k += dw) { 
++			if (j >= first) {
+ 			if (j == today && (term_so != NULL && term_se != NULL)) {
+ 				l = strlen(term_so);
+ 				if (jd_flag)
+@@ -947,7 +948,6 @@
+ 				l = strlen(term_se) + strlen(term_so);
+ 				continue;
+ 			}
+-			if (j >= first) {
+ 				if (jd_flag)
+ 					dt.d = j - jan1 + 1;
+ 				else

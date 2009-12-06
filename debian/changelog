@@ -1,3 +1,14 @@
+bsdmainutils (8.0.3) unstable; urgency=low
+
+  * Clarified package description. (Closes: #557650)
+  * Fixed off by one calculation of first week of year.
+  * Prevented highlighting from displaying a day belonging to an older
+    month. (Closes: #558793)
+  * Fixed multimonth mode to show correct tabbing even if today is
+    highlighted. (Closes: #558726)
+
+ -- Michael Meskes <meskes@debian.org>  Sun, 06 Dec 2009 14:56:00 +0100
+
 bsdmainutils (8.0.2) unstable; urgency=low
 
   * Added VCS information to control file.
