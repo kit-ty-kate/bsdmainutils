@@ -1,3 +1,10 @@
+bsdmainutils (8.0.4) unstable; urgency=low
+
+  * Fixed Emily Dickinson's name. (Closes: #561612)
+  * Added examples for '-e' option to hexdump manpage. (Closes: #488473)
+
+ -- Michael Meskes <meskes@debian.org>  Fri, 25 Dec 2009 15:11:46 +0100
+
 bsdmainutils (8.0.3) unstable; urgency=low
 
   * Clarified package description. (Closes: #557650)

@@ -18,6 +18,7 @@ banner.diff
 banner_manpage.diff
 hexdump.diff
 hexdump_segfault.diff
+hexdump_man.diff
 hd.diff
 from.diff
 ul_buffer.diff
