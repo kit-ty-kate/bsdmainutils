@@ -10,7 +10,7 @@ Vcs-Browser: http://git.debian.org/?p=bsdmainutils/bsdmainutils.git
 
 Package: bsdmainutils
 Architecture: any
-Depends: ${shlibs:Depends}, bsdutils (>= 3.0-0), debianutils (>= 1.8)
+Depends: ${shlibs:Depends}, ${misc:Depends}, bsdutils (>= 3.0-0), debianutils (>= 1.8)
 Conflicts: bsdutils (<< 1:2.13-11)
 Suggests: cpp, wamerican | wordlist, whois, vacation
 Description: collection of more utilities from FreeBSD
