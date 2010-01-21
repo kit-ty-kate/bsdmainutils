@@ -7,6 +7,7 @@ ncal_length.diff
 ncal_option.diff
 ncal_langinfo.diff
 ncal_highlight.diff
+ncal_mfdow.diff
 col.diff
 col_line.diff
 colrm.diff
@@ -19,6 +20,7 @@ banner_manpage.diff
 hexdump.diff
 hexdump_segfault.diff
 hexdump_man.diff
+hexdump_seek.diff
 hd.diff
 from.diff
 ul_buffer.diff

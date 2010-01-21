@@ -69,6 +69,15 @@
  	} else
  		if (flag_backward)
  			printmonthb(y, m, flag_julian_day);
+@@ -401,7 +413,7 @@
+ 	fputs(
+ 	    "usage: cal [-hjy] [[month] year]\n"
+ 	    "       cal [-hj] [-m month] [year]\n"
+-	    "       ncal [-hJjpwy] [-s country_code] [[month] year]\n"
++	    "       ncal [-hJjpwy3] [-s country_code] [[month] year]\n"
+ 	    "       ncal [-hJeo] [year]\n", stderr);
+ 	exit(EX_USAGE);
+ }
 @@ -464,6 +476,92 @@
  }
  

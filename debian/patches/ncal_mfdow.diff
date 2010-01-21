@@ -1,0 +1,59 @@
+--- bsdmainutils/usr.bin/ncal/ncal.c	2010-01-21 13:35:39.000000000 +0100
++++ bsdmainutils/usr.bin/ncal/ncal.c	2010-01-21 13:37:40.000000000 +0100
+@@ -284,7 +284,7 @@
+ 		weekstart = *nl_langinfo(_NL_TIME_FIRST_WEEKDAY) + (ndaysj(&first_week_d) - ndaysj(&sunday)) % 7 - 1;
+         }
+ #endif
+-	while ((ch = getopt(argc, argv, "Jehjm:ops:wy3")) != -1)
++	while ((ch = getopt(argc, argv, "Jehjm:ops:wy3SM")) != -1)
+ 		switch (ch) {
+ 		case '3':
+ 			flag_three = 1;
+@@ -342,6 +342,16 @@
+ 		case 'y':
+ 			flag_hole_year = 1;
+ 			break;
++		case 'S':
++			if (flag_backward)
++				usage();
++			weekstart = -1;
++			break;
++		case 'M':
++			if (flag_backward)
++				usage();
++			weekstart = 0;
++			break;
+ 		default:
+ 			usage();
+ 		}
+@@ -416,7 +426,7 @@
+ 	fputs(
+ 	    "usage: cal [-hjy] [[month] year]\n"
+ 	    "       cal [-hj] [-m month] [year]\n"
+-	    "       ncal [-hJjpwy3] [-s country_code] [[month] year]\n"
++	    "       ncal [-hJjpwy3MS] [-s country_code] [[month] year]\n"
+ 	    "       ncal [-hJeo] [year]\n", stderr);
+ 	exit(EX_USAGE);
+ }
+--- bsdmainutils/usr.bin/ncal/ncal.1	2010-01-21 13:35:39.000000000 +0100
++++ bsdmaintutils/usr.bin/ncal/ncal.1	2010-01-21 13:38:40.000000000 +0100
+@@ -43,7 +43,7 @@
+ .Fl m Ar month
+ .Op Ar year
+ .Nm ncal
+-.Op Fl hjJpwy3
++.Op Fl hjJpwy3MS
+ .Op Fl s Ar country_code
+ .Oo
+ .Op Ar month
+@@ -111,6 +111,10 @@
+ Print the number of the week below each week column.
+ .It Fl y
+ Display a calendar for the specified year.
++.It Fl M
++Weeks start on Monday.
++.It Fl M
++Weeks start on Sunday.
+ .El
+ .Pp
+ A single parameter specifies the year (1\(en9999) to be displayed;

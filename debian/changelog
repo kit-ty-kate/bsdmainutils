@@ -1,3 +1,18 @@
+bsdmainutils (8.0.6) unstable; urgency=low
+
+  * Added Nikola Tesla birth and death to birthday calendar. (Closes:
+    #564139) - thanks to Dale Harris <rodmur@maybe.org>
+  * Patched 'from' utility to work with maildirs. (Closes: #136087)
+  * Manage 'from' utility with update-alternatives. At the same time fixed
+    some problems with alternative handling (LP #67698) (Closes: #565596)
+  * Fixed UK Bank Holiday entries (LP #234921)
+  * Made hexdump try to use seek even on non regular files to speed
+    things up. (LP #406583)
+  * Added options '-M' and '-S' to manually set starting day of week.
+    (Closes: #561403)
+
+ -- Michael Meskes <meskes@debian.org>  Thu, 21 Jan 2010 13:49:06 +0100
+
 bsdmainutils (8.0.5) unstable; urgency=low
 
   * Fixed typos in manpage. (Closes: #488473) - thanks to A. Costa

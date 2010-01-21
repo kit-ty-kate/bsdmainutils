@@ -1,0 +1,25 @@
+--- bsdmainutils/usr.bin/hexdump/display.c	2010-01-21 13:12:52.000000000 +0100
++++ bsdmainutils/usr.bin/hexdump/display.c	2010-01-21 13:13:20.000000000 +0100
+@@ -384,11 +383,9 @@
+ 			return;
+ 		}
+ 	}
++	if (fseeko(stdin, skip, SEEK_SET)) {
+ 	if (S_ISREG(sb.st_mode)) {
+-		if (fseeko(stdin, skip, SEEK_SET))
+ 			err(1, "%s", fname);
+-		address += skip;
+-		skip = 0;
+ 	} else {
+ 		for (cnt = 0; cnt < skip; ++cnt)
+ 			if (getchar() == EOF)
+@@ -396,4 +393,9 @@
+ 		address += cnt;
+ 		skip -= cnt;
+ 	}
++	}
++	else {
++		address += skip;
++		skip = 0;
++	}
+ }

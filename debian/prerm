@@ -2,6 +2,10 @@
 
 set -e
 
-update-alternatives --remove write /usr/bin/bsd-write
+if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ] ; then
+	update-alternatives --remove write /usr/bin/bsd-write
+
+	update-alternatives --remove from /usr/bin/bsd-from
+fi
 
 #DEBHELPER#

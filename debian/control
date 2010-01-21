@@ -18,8 +18,8 @@ Description: collection of more utilities from FreeBSD
  they use a BSD-style Unix system.
  .
  It provides banner (as printerbanner), calendar, col, colcrt, colrm, column,
- from, hexdump (or hd), look, lorder, ncal (or cal), ul, and write (as
- bsd-write).
+ from (as bsd-from), hexdump (or hd), look, lorder, ncal (or cal), ul, and
+ write (as bsd-write).
  .
  This package used to contain whois and vacation, which are now distributed in
  their own packages. Also here was tsort, which is now in the "coreutils"

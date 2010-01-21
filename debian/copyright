@@ -1,5 +1,5 @@
 This is a collection of programs from 4.4BSD-Lite that have not (yet)
-need re-written by FSF as GNU.  It was constructed for inclusion in
+been re-written by FSF as GNU.  It was constructed for inclusion in
 Debian Linux.  As programs found here become available from GNU sources,
 they will be replaced.
 

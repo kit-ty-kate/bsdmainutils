@@ -29,7 +29,15 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  01/01	J.D. Salinger born, 1919
  01/01	Paul Revere born in Boston, 1735
  01/02	Isaac Asimov born in Petrovichi, Russian SFSR, 1920
-@@ -117,12 +119,13 @@
+@@ -14,6 +16,7 @@
+ 01/04	Jakob Grimm born, 1785
+ 01/04	Wilhelm Beer born, 1797, first astronomer to map Mars
+ 01/05	DeWitt B. Brace born, 1859, inventor of spectrophotometer
++01/07	Nikola Tesla died, 1943, supergenius, inventor AC Motor 
+ 01/10	Ethan Allen born, 1738
+ 01/11	Alexander Hamilton born in Nevis, British West Indies, 1757?
+ 01/12	"Long" John Baldry is born in London, 1941
+@@ -117,12 +120,13 @@
  04/10	William Booth born, 1829, founder of the Salvation Army
  04/13	Thomas Jefferson, 3rd President of the United States, born Shadwell
  		Plantation, Albemarle County, Virginia, 1743
@@ -44,7 +52,15 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  04/28	James Monroe, 5th President of the United States, born in Westmoreland
  		County, Viriginia, 1758
  04/29	Jules Henri Poincare born, 1854, founder of topology
-@@ -239,6 +242,7 @@
+@@ -176,6 +180,7 @@
+ 07/07	P.T. Barnum dies, 1891
+ 07/08	Count Ferdinand von Zeppelin born, 1838
+ 07/10	John Calvin born, 1509
++07/10	Nikola Tesla, born, 1856, supergenius, inventor AC Motor 
+ 07/11	John Quincy Adams, 6th President of the United States, born in
+ 		Braintree, Massachusetts, 1767
+ 07/12	Henry David Thoreau born, 1817
+@@ -239,6 +244,7 @@
  10/02	Mohandas K. Gandhi born at Porbandar, Kathiawad, India, 1869
  10/04	John V. Atanasoff born, 1903
  10/05	Ray Kroc (founder of McDonald's) born, 1902
@@ -52,7 +68,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  10/13	Lenny Bruce is born in New York City, 1925
  10/13	Virgil (Publius Vergilius Maro) born near Mantua, Italy, 70 BC
  10/14	Dwight David Eisenhower, 34th President of the United States, born in
-@@ -260,6 +264,7 @@
+@@ -260,6 +266,7 @@
  10/31	Chiang Kai-Shek born, 1887
  10/31	Dale Evans born, 1912
  11/02	Daniel Boone born near Reading, PA, 1734
@@ -60,7 +76,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  11/04	King William III of Orange born, 1650
  11/05	Roy Rogers born, 1912
  11/09	Carl Sagan born, 1934
-@@ -283,11 +288,11 @@
+@@ -283,11 +290,11 @@
  12/05	Walt (Walter Elias) Disney born in Chicago, 1901
  12/08	Horace (Quintus Horatius Flaccus) born in Venosa (Italy), 65BC
  12/08	James (Grover) Thurber born in Columbus, Ohio, 1894
@@ -329,6 +345,24 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  03/08	First Annual International Women's Day, 1909
  03/08	International Women's Day in former USSR
  03/08	Syrian National Day in Libyan Arab Republic
+@@ -162,7 +167,7 @@
+ 05/05	Coronation Day in Thailand
+ 05/05	Liberation Day in the Netherlands
+ 05/06	Bataan Day in Philippines
+-05/06*	Bank Holiday in UK
++05/MonFirst	Bank Holiday in UK
+ 05/07	May Day in United Kingdom
+ 05/08	Buddha's Birthday in South Korea
+ 05/08	Elections for the National Assembly in Philippines
+@@ -198,7 +203,7 @@
+ 05/25	Memorial Day in New Mexico & Puerto Rico
+ 05/25	Revolution in the Sudan in Libyan Arab Republic
+ 05/27	Afghanistan attains sovereignty, 1921
+-05/27*	Bank Holiday in UK
++05/MonLast	Bank Holiday in UK
+ 05/28	Mothers Day in Central African Republic
+ 05/31	Pya Martyrs Day in Togo
+ 05/MonThird	Memorial Day in Michigan (3rd Monday)
 @@ -246,9 +251,8 @@
  06/28	Mothers Day in Central African Republic
  06/29	Independence Day in Seychelles
@@ -349,7 +383,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  07/21	National Holiday in Belgium
  07/22	King's Birthday in Swaziland
  07/22	National Day in Poland
-@@ -345,6 +350,7 @@
+@@ -345,11 +350,12 @@
  08/17	Independence Day in Indonesia
  08/19	Independence Day in Afghanistan
  08/20	Constitution Day in Hungary
@@ -357,6 +391,12 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  08/24	National Flag Day in Liberia
  08/25	Constitution Day in Paraguay
  08/25	Independence Day in Uruguay
+ 08/26	Susan B. Anthony Day in Massachusetts
+-08/26*	Bank Holiday in England and Wales
++08/MonLast	Bank Holiday in England and Wales
+ 08/27	Liberation Day in Hong Kong
+ 08/28	Heroes Day in Philippines
+ 08/30	Huey P. Long Day in Louisiana
 @@ -366,6 +372,7 @@
  09/07	Independence Day in Brazil
  09/09	Admission Day in California
