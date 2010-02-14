@@ -38,6 +38,7 @@ debian/calendars/calendar.argentina			/usr/share/calendar
 debian/calendars/calendar.pagan				/usr/share/calendar
 debian/calendars/calendar.belgium			/usr/share/calendar
 debian/calendars/calendar.kazakhstan			/usr/share/calendar
+debian/calendars/calendar.thai				/usr/share/calendar
 
 debian/lintian/bsdmainutils				 /usr/share/lintian/overrides
 

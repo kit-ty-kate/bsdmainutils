@@ -1,3 +1,13 @@
+bsdmainutils (8.0.7) unstable; urgency=low
+
+  * Added Thai calendar. (Closes: #566391) - thanks to Theppitak
+    Karoonboonyanan <thep@debian.org>
+  * Fixed Thai entries in holiday calendar. (Closes: #566387) - thanks
+    to Theppitak Karoonboonyanan <thep@debian.org>
+  * Bumped Standards version to 3.8.4, no update needed.
+
+ -- Michael Meskes <meskes@debian.org>  Sun, 14 Feb 2010 15:29:24 +0100
+
 bsdmainutils (8.0.6) unstable; urgency=low
 
   * Added Nikola Tesla birth and death to birthday calendar. (Closes:
