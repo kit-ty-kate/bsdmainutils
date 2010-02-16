@@ -1,3 +1,9 @@
+bsdmainutils (8.0.8) unstable; urgency=low
+
+  * Added Thai calendar to master calendar file. (Closes: #566391)
+
+ -- Michael Meskes <meskes@debian.org>  Tue, 16 Feb 2010 09:51:52 +0100
+
 bsdmainutils (8.0.7) unstable; urgency=low
 
   * Added Thai calendar. (Closes: #566391) - thanks to Theppitak

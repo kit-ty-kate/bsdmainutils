@@ -25,6 +25,7 @@
 #include <calendar.kazakhstan>
 #include <calendar.newzealand>
 #include <calendar.southafrica>
+#include <calendar.thai>
 #include <calendar.russian>
 #include <calendar.usholiday>
 
