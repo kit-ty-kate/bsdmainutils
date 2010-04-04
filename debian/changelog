@@ -1,3 +1,13 @@
+bsdmainutils (8.0.9) unstable; urgency=low
+
+  * Fixed typo in manpage, option '-S' denotes weeks starting on Sunday.
+    (Closes: #570199)
+  * Rewrote wide-character patch for calendar using the old patch as a
+    starting point to honor special locale UTF-8 again. (Closes:
+    #562562)
+
+ -- Michael Meskes <meskes@debian.org>  Sun, 04 Apr 2010 15:13:35 +0200
+
 bsdmainutils (8.0.8) unstable; urgency=low
 
   * Added Thai calendar to master calendar file. (Closes: #566391)

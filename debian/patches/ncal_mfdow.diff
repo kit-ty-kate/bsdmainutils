@@ -52,7 +52,7 @@
  Display a calendar for the specified year.
 +.It Fl M
 +Weeks start on Monday.
-+.It Fl M
++.It Fl S
 +Weeks start on Sunday.
  .El
  .Pp
