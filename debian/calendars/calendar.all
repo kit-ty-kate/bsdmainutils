@@ -24,9 +24,10 @@
 #include <calendar.hungarian>
 #include <calendar.kazakhstan>
 #include <calendar.newzealand>
+#include <calendar.russian>
 #include <calendar.southafrica>
 #include <calendar.thai>
-#include <calendar.russian>
+#include <calendar.ukrainian>
 #include <calendar.usholiday>
 
 #endif /* !_calendar_all_ */

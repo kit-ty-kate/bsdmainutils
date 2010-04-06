@@ -1,3 +1,12 @@
+bsdmainutils (8.0.10) unstable; urgency=low
+
+  * Re-install default calendar file that was lost in the makeover.
+    (Closes: #576626)
+  * Changed ordering of tests to prevent calendar hang (LP #357055)
+  * Updated some calendar files.
+
+ -- Michael Meskes <meskes@debian.org>  Tue, 06 Apr 2010 15:22:31 +0200
+
 bsdmainutils (8.0.9) unstable; urgency=low
 
   * Fixed typo in manpage, option '-S' denotes weeks starting on Sunday.
