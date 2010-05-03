@@ -669,29 +669,3 @@ diff -ru bsdmainutils/usr.bin/calendar/io.c bsdmainutils/usr.bin/calendar/io.c
  		;
  	*endp = p;
  	return (val);
-@@ -336,13 +386,9 @@
- 				errx(1, "cannot get home directory");
- 			if (!(chdir(home) == 0 &&
- 			    chdir(calendarHome) == 0 &&
--			    (fdin = open(calendarFile, O_RDONLY)) != -1)) {
--				/* Try the system-wide calendar file. */
--				if ((fdin = open(_PATH_DEFAULT, O_RDONLY)) == -1) {
--					errx(1, "no calendar file: ``%s'' or ``~/%s/%s''",
--					    calendarFile, calendarHome, calendarFile);
--				}
--			}
-+			    (fdin = open(calendarFile, O_RDONLY)) != -1))
-+				errx(1, "no calendar file: ``%s'' or ``~/%s/%s''",
-+				    calendarFile, calendarHome, calendarFile);
- 		}
- 	}
- 
-@@ -374,7 +420,7 @@
- 			(void)close(fderr);
- 		}
- 		execl(_PATH_CPP, "cpp", "-traditional", "-undef", "-U__GNUC__",
--		    "-P", "-I.", _PATH_EINCLUDE, _PATH_INCLUDE, (char *)NULL);
-+		    "-P", "-I.", _PATH_INCLUDE, (char *)NULL);
- 		warn(_PATH_CPP);
- 		_exit(1);
- 	}

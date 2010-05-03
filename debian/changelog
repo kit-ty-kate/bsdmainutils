@@ -1,3 +1,14 @@
+bsdmainutils (8.0.11) unstable; urgency=low
+
+  * Removed those parts from one patch that reverted another patch
+    making calendar not being able to read the systemwide calendar
+    file.(Closes: #576626)
+  * Fixed small typo in calendar.debian (Closes: #578106)
+  * Fixed highlight patch to display correct date for today even in
+    Julian Calendar. (Closes: #578527)
+
+ -- Michael Meskes <meskes@debian.org>  Mon, 03 May 2010 11:21:31 +0200
+
 bsdmainutils (8.0.10) unstable; urgency=low
 
   * Re-install default calendar file that was lost in the makeover.
