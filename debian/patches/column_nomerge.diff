@@ -1,3 +1,6 @@
+Description: Add nomerge option.
+Author: Michael Meskes <meskes@debian.org>
+
 --- bsdmainutils/usr.bin/column/column.c.orig	2009-10-26 19:19:42.000000000 +0100
 +++ bsdmainutils/usr.bin/column/column.c	2009-10-26 20:02:25.000000000 +0100
 @@ -69,6 +69,8 @@

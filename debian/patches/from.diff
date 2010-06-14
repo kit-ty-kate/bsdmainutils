@@ -1,3 +1,6 @@
+Description: Make program compile on Debian and work with Maildirs 
+Author: Michael Meskes <meskes@debian.org>
+
 --- freebsd/usr.bin/from/from.c	2009-12-19 20:46:26.000000000 +0100
 +++ bsdmainutils/usr.bin/from/from.c	2010-01-21 11:43:20.000000000 +0100
 @@ -43,9 +43,10 @@

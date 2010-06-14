@@ -1,3 +1,6 @@
+Description: Rename program to printerbanner in manpage.
+Author: Michael Meskes <meskes@debian.org>
+
 --- freebsd/usr.bin/banner/banner.6	2009-10-03 18:17:50.000000000 +0200
 +++ bsdmainutils/usr.bin/banner/banner.6	2009-10-03 18:19:19.000000000 +0200
 @@ -33,10 +33,10 @@

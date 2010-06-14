@@ -1,3 +1,6 @@
+Description: Correctly parse year argument.
+Author: Michael Meskes <meskes@debian.org>
+
 --- bsdmainutils/usr.bin/ncal/ncal.c	2009-11-04 14:47:32.000000000 +0100
 +++ bsdmainutils/usr.bin/ncal/ncal.c	2009-11-04 14:58:14.000000000 +0100
 @@ -355,9 +355,12 @@

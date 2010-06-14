@@ -1,3 +1,6 @@
+Description: Add option to set first day of week.
+Author: Michael Meskes <meskes@debian.org>
+
 --- bsdmainutils/usr.bin/ncal/ncal.c	2010-01-21 13:35:39.000000000 +0100
 +++ bsdmainutils/usr.bin/ncal/ncal.c	2010-01-21 13:37:40.000000000 +0100
 @@ -284,7 +284,7 @@
@@ -16,12 +19,12 @@
 +		case 'S':
 +			if (flag_backward)
 +				usage();
-+			weekstart = -1;
++			weekstart = 0;
 +			break;
 +		case 'M':
 +			if (flag_backward)
 +				usage();
-+			weekstart = 0;
++			weekstart = 1;
 +			break;
  		default:
  			usage();

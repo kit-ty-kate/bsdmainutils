@@ -1,3 +1,6 @@
+Description: Allow root to write even without write permissions.
+Author: Michael Meskes <meskes@debian.org>
+
 --- bsdmainutils/usr.bin/write/write.c	2009-10-29 14:24:50.000000000 +0100
 +++ bsdmainutils/usr.bin/write/write.c	2009-10-29 14:28:06.000000000 +0100
 @@ -93,7 +93,7 @@

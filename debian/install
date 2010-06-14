@@ -17,7 +17,6 @@ usr.bin/calendar/calendars/calendar.croatian		/usr/share/calendar
 usr.bin/calendar/calendars/calendar.christian		/usr/share/calendar
 usr.bin/calendar/calendars/calendar.computer		/usr/share/calendar
 usr.bin/calendar/calendars/calendar.russian		/usr/share/calendar
-usr.bin/calendar/calendars/calendar.judaic		/usr/share/calendar
 usr.bin/calendar/calendars/calendar.freebsd		/usr/share/calendar
 usr.bin/calendar/calendars/calendar.usholiday		/usr/share/calendar
 usr.bin/calendar/calendars/calendar.birthday		/usr/share/calendar
@@ -39,8 +38,10 @@ debian/calendars/calendar.pagan				/usr/share/calendar
 debian/calendars/calendar.belgium			/usr/share/calendar
 debian/calendars/calendar.kazakhstan			/usr/share/calendar
 debian/calendars/calendar.thai				/usr/share/calendar
+debian/calendars/calendar.judaic			/usr/share/calendar
 
 debian/calendars/default				/etc/calendar
 
-debian/lintian/bsdmainutils				 /usr/share/lintian/overrides
+debian/lintian/bsdmainutils				/usr/share/lintian/overrides
 
+debian/calendarJudaic.py				/usr/share/doc/bsdmainutils

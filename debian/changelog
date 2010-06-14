@@ -1,3 +1,13 @@
+bsdmainutils (8.0.12) unstable; urgency=low
+
+  * Create /usr/share/calendar/calendar.judaic automatically for the
+    current year. (Closes: #583629) - thanks to Ron Varburg <linux-
+    il@hotmail.com>
+  * Added descriptions to all patches.
+  * Do not move days when option '-S' is given. (Closes: #582240)
+
+ -- Michael Meskes <meskes@debian.org>  Mon, 14 Jun 2010 16:35:41 +0200
+
 bsdmainutils (8.0.11) unstable; urgency=low
 
   * Removed those parts from one patch that reverted another patch

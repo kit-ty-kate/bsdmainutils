@@ -1,3 +1,6 @@
+Description: Cut month name so it fits into the output.
+Author: Michael Meskes <meskes@debian.org>
+
 --- bsdmainutils/usr.bin/ncal/ncal.c	2009-11-02 16:10:43.000000000 +0100
 +++ bsdmainutils/usr.bin/ncal/ncal.c	2009-11-02 16:08:58.000000000 +0100
 @@ -546,7 +552,11 @@

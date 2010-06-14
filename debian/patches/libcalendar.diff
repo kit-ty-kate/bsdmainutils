@@ -1,3 +1,6 @@
+Description: Make library compile on Debian.
+Author: Michael Meskes <meskes@debian.org>
+
 --- freebsd/usr-bin/libcalendar/calendar.c	2009-09-22 14:36:17.000000000 +0200
 +++ bsdmainutils/usr.bin/ncal/calendar.c	2009-09-22 14:38:03.000000000 +0200
 @@ -25,7 +25,6 @@

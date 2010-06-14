@@ -1,3 +1,6 @@
+Description: Add option to display 3 months.
+Author: Michael Meskes <meskes@debian.org>
+
 --- bsdmainutils/usr.bin/ncal/ncal.1	2009-10-31 20:31:14.000000000 +0100
 +++ bsdmainutils/usr.bin/ncal/ncal.1	2009-11-01 12:25:41.000000000 +0100
 @@ -43,7 +43,7 @@

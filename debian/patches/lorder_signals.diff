@@ -1,3 +1,6 @@
+Description: Use signal names for POSIX compliance.
+Author: Michael Meskes <meskes@debian.org>
+
 --- bsdmainutils/usr.bin/lorder/lorder.sh.orig	2009-10-28 16:18:29.000000000 +0100
 +++ bsdmainutils/usr.bin/lorder/lorder.sh	2009-10-28 16:19:02.000000000 +0100
 @@ -51,7 +51,7 @@

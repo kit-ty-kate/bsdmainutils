@@ -1,3 +1,6 @@
+Description: Make program compile on Debian.
+Author: Michael Meskes <meskes@debian.org>
+
 --- bsd/freebsd/look/look.c	2009-10-29 12:18:22.000000000 +0100
 +++ bsdmainutils/usr.bin/look/look.c	2009-10-29 12:18:03.000000000 +0100
 @@ -46,7 +46,6 @@

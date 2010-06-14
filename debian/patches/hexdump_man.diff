@@ -1,3 +1,6 @@
+Description: Add examples to manpage.
+Author: Michael Meskes <meskes@debian.org>
+
 --- freebsd/usr.bin/hexdump/hexdump.1.orig      2009-12-25 14:53:16.000000000 +0100
 +++ bsdmainutils/usr.bin/hexdump/hexdump.1   2009-12-25 15:08:25.000000000 +0100
 @@ -346,6 +346,49 @@

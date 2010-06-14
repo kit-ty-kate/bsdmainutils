@@ -1,3 +1,6 @@
+Description: Use locale to figure out which week is week 1.
+Author: Michael Meskes <meskes@debian.org>
+
 diff -ru /home/michael/technik/sources/archive/bsdmainutils/usr.bin/ncal/calendar.c bsdmainutils/usr.bin/ncal/calendar.c
 --- /home/michael/technik/sources/archive/bsdmainutils/usr.bin/ncal/calendar.c	2009-11-05 13:00:39.000000000 +0100
 +++ bsdmainutils/usr.bin/ncal/calendar.c	2009-11-05 13:01:10.000000000 +0100

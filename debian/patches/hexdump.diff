@@ -1,3 +1,6 @@
+Description: Make program compile on Debian.
+Author: Michael Meskes <meskes@debian.org>
+
 --- freebsd/usr.bin/hexdump/conv.c	2009-10-03 18:45:29.000000000 +0200
 +++ bsdmainutils/usr.bin/hexdump/conv.c	2009-10-03 18:46:04.000000000 +0200
 @@ -35,7 +35,6 @@

@@ -1,3 +1,6 @@
+Description: Add binary search option.
+Author: Michael Meskes <meskes@debian.org>
+
 --- bsdmainutils/usr.bin/look/look.1	2009-10-29 12:35:45.000000000 +0100
 +++ bsdmainutils/usr.bin/look/look.1	2009-10-29 12:44:46.000000000 +0100
 @@ -40,7 +40,7 @@

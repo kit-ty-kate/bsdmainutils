@@ -1,3 +1,6 @@
+Description: MAke calendar UTF-8 aware.
+Author: Michael Meskes <meskes@debian.org>
+
 diff -ru bsdmainutils/usr.bin/calendar/calendar.h bsdmainutils/usr.bin/calendar/calendar.h
 --- bsdmainutils/usr.bin/calendar/calendar.h	2010-04-04 15:05:50.000000000 +0200
 +++ bsdmainutils/usr.bin/calendar/calendar.h	2010-04-04 15:01:30.000000000 +0200

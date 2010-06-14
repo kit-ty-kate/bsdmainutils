@@ -1,3 +1,6 @@
+Description: Use seek whenever possible to skip parts of a file.
+Author: Michael Meskes <meskes@debian.org>
+
 --- bsdmainutils/usr.bin/hexdump/display.c	2010-01-21 13:12:52.000000000 +0100
 +++ bsdmainutils/usr.bin/hexdump/display.c	2010-01-21 13:13:20.000000000 +0100
 @@ -384,11 +383,9 @@

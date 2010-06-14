@@ -25,11 +25,13 @@ build: patch build-stamp
 build-stamp:
 	dh_testdir
 	$(MAKE) $(CROSS)
+	python $(CURDIR)/debian/calendarJudaic.py > $(CURDIR)/debian/calendars/calendar.judaic
 	touch build-stamp
 
 clean: unpatch
 	dh_testdir
 	$(MAKE) clean
+	-rm -f $(CURDIR)/debian/calendars/calendar.judaic
 	-rm -f build-stamp
 	dh_clean
 

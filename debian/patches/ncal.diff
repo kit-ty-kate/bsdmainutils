@@ -1,3 +1,6 @@
+Description: Make ncal work with UTF-8.
+Author: Michael Meskes <meskes@debian.org>
+
 --- freebsd/usr.bin/ncal/ncal.c	2009-09-22 11:18:30.000000000 +0200
 +++ bsdmainutils/usr.bin/ncal/ncal.c	2009-09-22 14:40:50.000000000 +0200
 @@ -29,7 +29,7 @@

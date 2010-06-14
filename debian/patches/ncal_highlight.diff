@@ -1,3 +1,6 @@
+Description: Highlight current day.
+Author: Michael Meskes <meskes@debian.org>
+
 diff -rNu bsdmainutils/usr.bin/ncal/ncal.c bsdmainutils/usr.bin/ncal/ncal.c
 --- bsdmainutils/usr.bin/ncal/ncal.c	2009-11-22 18:52:17.000000000 +0100
 +++ bsdmainutils/usr.bin/ncal/ncal.c	2009-11-22 18:51:18.000000000 +0100

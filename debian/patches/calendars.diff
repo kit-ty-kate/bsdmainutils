@@ -1,3 +1,6 @@
+Description: Lots of corrections to calendar files.
+Author: Michael Meskes <meskes@debian.org>
+
 diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.australia bsdmainutils/usr.bin/calendar/calendars/calendar.australia
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.australia	2009-12-19 20:50:39.000000000 +0100
 +++ bsdmainutils/usr.bin/calendar/calendars/calendar.australia	2009-12-19 20:50:07.000000000 +0100

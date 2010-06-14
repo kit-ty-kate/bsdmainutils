@@ -1,3 +1,6 @@
+Description: Add options '-l' and '-w'.
+Author: Michael Meskes <meskes@debian.org>
+
 --- bsdmainutils/usr.bin/calendar/calendar.1	2009-10-29 22:59:13.000000000 +0100
 +++ bsdmainutils/usr.bin/calendar/calendar.1	2009-10-29 23:22:07.000000000 +0100
 @@ -40,6 +40,8 @@
