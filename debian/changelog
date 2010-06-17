@@ -1,3 +1,9 @@
+bsdmainutils (8.0.13) unstable; urgency=low
+
+  * Correctly initialize weekstart variable. (Closes: #586190)
+
+ -- Michael Meskes <meskes@debian.org>  Thu, 17 Jun 2010 13:02:19 +0200
+
 bsdmainutils (8.0.12) unstable; urgency=low
 
   * Create /usr/share/calendar/calendar.judaic automatically for the

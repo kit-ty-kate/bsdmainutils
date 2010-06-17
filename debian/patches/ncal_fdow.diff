@@ -7,7 +7,7 @@ Author: Michael Meskes <meskes@debian.org>
  int     nswitch;		/* user defined switch date */
  int	nswitchb;		/* switch date for backward compatibility */
  const char	*term_so, *term_se;
-+int     weekstart;              /* day the week starts on (Sun [0] - Sat [6]) */
++int     weekstart = 0;              /* day the week starts on (Sun [0] - Sat [6]) */
  int	today;
  
  char   *center(char *s, char *t, int w);
@@ -23,19 +23,23 @@ Author: Michael Meskes <meskes@debian.org>
  
  	term_se = term_so = NULL;
  	today = 0;
-@@ -263,6 +269,16 @@
+@@ -263,6 +269,20 @@
  	if (flag_backward)
  		nswitchb = ndaysj(&ukswitch);
  
 +	/* Determine on what day the week starts. */
++	if (flag_backward) 
++		weekstart = 1; /* technically not correct, but removing the need to add 1 later on */
 +#ifdef __GLIBC__
-+	first_week_i = (intptr_t) nl_langinfo(_NL_TIME_WEEK_1STDAY);
-+	first_week_d.d = first_week_i % 100;
-+	first_week_i /= 100;
-+	first_week_d.m = first_week_i % 100;
-+	first_week_i /= 100;
-+	first_week_d.y = first_week_i;
-+	weekstart = *nl_langinfo(_NL_TIME_FIRST_WEEKDAY) + (ndaysj(&first_week_d) - ndaysj(&sunday)) % 7 - 1;
++	else {
++		first_week_i = (intptr_t) nl_langinfo(_NL_TIME_WEEK_1STDAY);
++		first_week_d.d = first_week_i % 100;
++		first_week_i /= 100;
++		first_week_d.m = first_week_i % 100;
++		first_week_i /= 100;
++		first_week_d.y = first_week_i;
++		weekstart = *nl_langinfo(_NL_TIME_FIRST_WEEKDAY) + (ndaysj(&first_week_d) - ndaysj(&sunday)) % 7 - 1;
++	}
 +#endif
  	while ((ch = getopt(argc, argv, "Jehjm:ops:wy")) != -1)
  		switch (ch) {
