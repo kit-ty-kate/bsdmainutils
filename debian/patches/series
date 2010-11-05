@@ -5,9 +5,9 @@ ncal_three.diff
 ncal_man.diff
 ncal_length.diff
 ncal_option.diff
-ncal_langinfo.diff
 ncal_mfdow.diff
 ncal_highlight.diff
+ncal_backward.diff
 col.diff
 col_line.diff
 colrm.diff

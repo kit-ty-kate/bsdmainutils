@@ -1,0 +1,64 @@
+Description: Add an option to ncal to use the oldstyle output.
+Author: Michael Meskes <meskes@debian.org>
+
+--- bsdmainutils/usr.bin/ncal/ncal.c	2010-09-17 16:06:46.000000000 +0200
++++ bsdmainutils/usr.bin/ncal/ncal.c	2010-11-03 19:25:58.000000000 +0100
+@@ -199,6 +199,7 @@
+ 	int	y = 0;			/* year */
+ 	int	flag_three = 0;		/* show previous, current, and next month */
+ 	int     flag_backward = 0;	/* user called cal--backward compat. */
++	int     ncal_backward = 0;	/* make output of ncal backward compat. */
+ 	int     flag_hole_year = 0;	/* user wants the whole year */
+ 	int	flag_julian_cal = 0;	/* user wants Julian Calendar */
+ 	int     flag_julian_day = 0;	/* user wants the Julian day
+@@ -287,8 +286,13 @@
+ 		weekstart = *nl_langinfo(_NL_TIME_FIRST_WEEKDAY) + (ndaysj(&first_week_d) - ndaysj(&sunday)) % 7 - 1;
+ 	}
+ #endif
+-	while ((ch = getopt(argc, argv, "Jehjm:ops:wy3SM")) != -1)
++	while ((ch = getopt(argc, argv, "Jbehjm:ops:wy3SM")) != -1)
+ 		switch (ch) {
++		case 'b':
++			if (flag_backward)
++				usage();
++			ncal_backward = 1;
++			break;
+ 		case '3':
+ 			flag_three = 1;
+ 			break;
+@@ -391,6 +397,10 @@
+ 		usage();
+ 	}
+ 
++	/* Technically not correct, but removes the need to add 1 later on */
++	if (flag_backward)
++		weekstart += 1;
++
+ 	if (flag_month != NULL) {
+ 		if (parsemonth(flag_month, &m, &y)) {
+ 			errx(EX_USAGE,
+@@ -887,7 +897,7 @@
+ 	date    dt;		/* handy date */
+ 	int     dw;		/* width of numbers */
+ 	int     first;		/* first day of month */
+-	int     firsts;		/* sunday of first week of month */
++	int     firsts;		/* first day of first week of month */
+ 	int     i, j, k, l;	/* just indices */
+ 	int     jan1 = 0;	/* the first day of this year */
+ 	int     last;		/* the first day of next month */
+@@ -939,10 +949,13 @@
+ 	}
+ 
+ 	/*
+-	 * Set firsts to the day number of sunday of the first week of
++	 * Set firsts to the day number of the day starting the first week of
+ 	 * this month. (This might be in the last month)
+ 	 */
+-	firsts = first - (weekday(first)+1) % 7;
++	if (weekstart == 1)
++		firsts = first - (weekday(first)+1) % 7;
++	else
++		firsts = first - weekday(first);
+ 
+ 	/*
+ 	 * Fill the lines with day of month or day of year (Julian day)

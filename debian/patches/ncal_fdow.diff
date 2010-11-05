@@ -1,8 +1,40 @@
-Description: Use locale to figure out first day of week.
+Description: Use locale to figure out first day of week and first week of year.
 Author: Michael Meskes <meskes@debian.org>
 
---- bsdmainutils/usr.bin/ncal/ncal.c.orig	2010-06-14 10:45:48.000000000 +0200
-+++ bsdmainutils/usr.bin/ncal/ncal.c	2010-06-14 10:48:08.000000000 +0200
+--- bsdmaintuils/usr.bin/ncal/calendar.c	2010-11-05 14:06:35.000000000 +0100
++++ bsdmaintuils/usr.bin/ncal/calendar.c	2010-11-05 14:07:10.000000000 +0100
+@@ -25,6 +25,8 @@
+  */
+ 
+ #include <sys/cdefs.h>
++#include <langinfo.h>
+ 
+ #include "calendar.h"
++extern int weekstart;
+ 
+@@ -254,14 +255,16 @@
+ 	idt.m = 10;
+ 	idt.d = 0;
+ 
+-	nd = ndaysgi(&idt);
++	nd = ndaysgi(&idt) - 1 + weekstart;
+ 	/*
+ 	 * If more than 3 days of this week are in the preceding year, the
+-	 * next week is week 1 (and the next monday is the answer),
+-	 * otherwise this week is week 1 and the last monday is the
++	 * next week is week 1 (and the next sunday/monday is the answer),
++	 * otherwise this week is week 1 and the last sunday/monday is the
+ 	 * answer.
+ 	 */
+-	if ((wd = weekday(nd)) > 3)
++
++	/* 3 may or may not be correct, better use what the locale says */
++	if ((wd = weekday(nd)) >= *nl_langinfo(_NL_TIME_WEEK_1STWEEK))
+ 		return (nd - wd + 7);
+ 	else
+ 		return (nd - wd);
+--- bsdmainutils/usr.bin/ncal/ncal.c	2010-11-05 14:06:30.000000000 +0100
++++ bsdmainutils/usr.bin/ncal/ncal.c	2010-11-05 14:09:49.000000000 +0100
 @@ -162,6 +162,7 @@
  int     nswitch;		/* user defined switch date */
  int	nswitchb;		/* switch date for backward compatibility */
@@ -23,15 +55,14 @@ Author: Michael Meskes <meskes@debian.org>
  
  	term_se = term_so = NULL;
  	today = 0;
-@@ -263,6 +269,20 @@
+@@ -263,6 +269,19 @@
  	if (flag_backward)
  		nswitchb = ndaysj(&ukswitch);
  
 +	/* Determine on what day the week starts. */
-+	if (flag_backward) 
-+		weekstart = 1; /* technically not correct, but removing the need to add 1 later on */
 +#ifdef __GLIBC__
-+	else {
++	if (!flag_backward) 
++	{
 +		first_week_i = (intptr_t) nl_langinfo(_NL_TIME_WEEK_1STDAY);
 +		first_week_d.d = first_week_i % 100;
 +		first_week_i /= 100;
@@ -44,7 +75,33 @@ Author: Michael Meskes <meskes@debian.org>
  	while ((ch = getopt(argc, argv, "Jehjm:ops:wy")) != -1)
  		switch (ch) {
  		case 'J':
-@@ -797,10 +797,13 @@
+@@ -351,6 +370,10 @@
+ 		usage();
+ 	}
+ 
++	/* Technically not correct, but removes the need to add 1 later on */
++	if (flag_backward) 
++		weekstart = 1;
++
+ 	if (flag_month != NULL) {
+ 		if (parsemonth(flag_month, &m, &y)) {
+ 			errx(EX_USAGE,
+@@ -419,7 +442,13 @@
+ 	char    buf[80];
+ 
+ #ifndef D_MD_ORDER
+-        static int d_first = 1; /* XXX */
++        static int d_first = -1; /* XXX */
++	char * str = nl_langinfo(D_FMT);
++
++	if (d_first < 0) {
++		for (; *str && *str != 'd' && *str != 'm'; str++);
++		d_first = (*str == 'm') ? 0 : 1;
++	}
+ #else
+         static int d_first = -1;
+ 
+@@ -659,10 +688,13 @@
  		jan1 = firstday(y, 1);
  
  	/*
@@ -60,7 +117,7 @@ Author: Michael Meskes <meskes@debian.org>
  
  	/* Set ds (daystring) and dw (daywidth) according to the jd_flag */
  	if (jd_flag) {
-@@ -1000,7 +1003,7 @@
+@@ -847,7 +879,7 @@
  	memset(&tm, 0, sizeof(tm));
  
  	for (i = 0; i != 7; i++) {

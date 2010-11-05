@@ -1,3 +1,18 @@
+bsdmainutils (8.0.14) unstable; urgency=low
+
+  * Added option to ncal to use oldstyle cal output. (Closes: #590592)
+  * Updated Ubuntu calendar. (Closes: #600067)
+  * In hexdump.1 mention that % is a not supported conversion character.
+    (Closes: #600244)
+  * Bumped Standards version to 8.9.1, no changes needed.
+  * Renamed build dependency on python-hdate to reflect package name
+    change.
+  * Unified some patches and at the same time added a small change to
+    use the right weekstart when looking for the first week of the year.
+    (Closes: #597657)
+
+ -- Michael Meskes <meskes@debian.org>  Fri, 05 Nov 2010 14:15:37 +0100
+
 bsdmainutils (8.0.13) unstable; urgency=low
 
   * Correctly initialize weekstart variable. (Closes: #586190)

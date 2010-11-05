@@ -1,8 +1,17 @@
 Description: Add examples to manpage.
 Author: Michael Meskes <meskes@debian.org>
 
---- freebsd/usr.bin/hexdump/hexdump.1.orig      2009-12-25 14:53:16.000000000 +0100
-+++ bsdmainutils/usr.bin/hexdump/hexdump.1   2009-12-25 15:08:25.000000000 +0100
+--- freebsd/usr.bin/hexdump/hexdump.1.orig	2010-11-03 19:36:36.000000000 +0100
++++ bsdmainutils/usr.bin/hexdump/hexdump.1	2010-11-03 19:37:44.000000000 +0100
+@@ -197,7 +197,7 @@
+ .Xr fprintf 3
+ default which prints the entire string if the precision is unspecified).
+ .It
+-The conversion characters ``h'', ``l'', ``n'', ``p'' and ``q'' are
++The conversion characters ``%'', ``h'', ``l'', ``n'', ``p'' and ``q'' are
+ not supported.
+ .It
+ The single character escape sequences
 @@ -346,6 +346,49 @@
  "%07.7_Ax\en"
  "%07.7_ax  " 8/2 "%04x " "\en"
