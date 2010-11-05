@@ -1,3 +1,9 @@
+bsdmainutils (8.0.15) unstable; urgency=low
+
+  * Re-added accidently lost parts of patch fixing #590592.
+
+ -- Michael Meskes <meskes@debian.org>  Fri, 05 Nov 2010 16:10:51 +0100
+
 bsdmainutils (8.0.14) unstable; urgency=low
 
   * Added option to ncal to use oldstyle cal output. (Closes: #590592)

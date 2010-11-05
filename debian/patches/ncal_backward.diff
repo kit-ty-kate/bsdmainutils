@@ -26,17 +26,26 @@ Author: Michael Meskes <meskes@debian.org>
  		case '3':
  			flag_three = 1;
  			break;
-@@ -391,6 +397,10 @@
- 		usage();
- 	}
+@@ -361,6 +365,8 @@
+
+	argc -= optind;
+	argv += optind;
++	if (ncal_backward) 
++		flag_backward = 1;
+
+	switch (argc) {
+	case 2:
+@@ -440,8 +440,8 @@
+ 	fputs(
+ 	    "usage: cal [-hjy] [[month] year]\n"
+ 	    "       cal [-hj] [-m month] [year]\n"
+-	    "       ncal [-hJjpwy3MS] [-s country_code] [[month] year]\n"
+-	    "       ncal [-hJeo] [year]\n", stderr);
++	    "       ncal [-bhJjpwy3MS] [-s country_code] [[month] year]\n"
++	    "       ncal [-bhJeo] [year]\n", stderr);
+ 	exit(EX_USAGE);
+ }
  
-+	/* Technically not correct, but removes the need to add 1 later on */
-+	if (flag_backward)
-+		weekstart += 1;
-+
- 	if (flag_month != NULL) {
- 		if (parsemonth(flag_month, &m, &y)) {
- 			errx(EX_USAGE,
 @@ -887,7 +897,7 @@
  	date    dt;		/* handy date */
  	int     dw;		/* width of numbers */
@@ -62,3 +71,23 @@ Author: Michael Meskes <meskes@debian.org>
  
  	/*
  	 * Fill the lines with day of month or day of year (Julian day)
+--- bsdmainutils/usr.bin/ncal/ncal.1	2010-11-05 16:06:07.000000000 +0100
++++ bsdmainutils/usr.bin/ncal/ncal.1	2010-11-05 16:07:23.000000000 +0100
+@@ -43,7 +43,7 @@
+ .Fl m Ar month
+ .Op Ar year
+ .Nm ncal
+-.Op Fl hjJpwy3MS
++.Op Fl bhjJpwy3MS
+ .Op Fl s Ar country_code
+ .Oo
+ .Op Ar month
+@@ -115,6 +115,8 @@
+ Weeks start on Monday.
+ .It Fl S
+ Weeks start on Sunday.
++.It Fl b
++Use oldstyle format for ncal output.
+ .El
+ .Pp
+ A single parameter specifies the year (1\(en9999) to be displayed;
