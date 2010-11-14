@@ -81,7 +81,7 @@ Author: Michael Meskes <meskes@debian.org>
  
 +	/* Technically not correct, but removes the need to add 1 later on */
 +	if (flag_backward) 
-+		weekstart = 1;
++		weekstart++;
 +
  	if (flag_month != NULL) {
  		if (parsemonth(flag_month, &m, &y)) {

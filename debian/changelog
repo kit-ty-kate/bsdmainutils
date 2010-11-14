@@ -1,3 +1,11 @@
+bsdmainutils (8.0.16) unstable; urgency=low
+
+  * Do not ignore weekstart setting when using old style format.
+    (Closes: #603100)
+  * Removed double dash in manpage. (Closes: #602403)
+
+ -- Michael Meskes <meskes@debian.org>  Sun, 14 Nov 2010 15:44:13 +0100
+
 bsdmainutils (8.0.15) unstable; urgency=low
 
   * Re-added accidently lost parts of patch fixing #590592.

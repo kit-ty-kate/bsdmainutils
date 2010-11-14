@@ -90,7 +90,7 @@ Author: Michael Meskes <meskes@debian.org>
 +.It Fl n
 +By default, the column command will merge multiple adjacent delimiters into a
 +single delimiter when using the
-+.Fl -t
++.Fl t
 +option; this option disables that behavior. This option is a Debian GNU/Linux extension.
  .El
  .Sh ENVIRONMENT
