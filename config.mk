@@ -35,7 +35,7 @@ $(PROG): $(SRC)
 else
 objs=$(subst .c,.o,$(SRC))
 $(PROG): $(objs)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) $(LDFLAGS) -o $@ $^ $(LIBS)
 endif
 
 .c.o:

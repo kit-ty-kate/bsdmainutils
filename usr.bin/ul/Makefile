@@ -1,5 +1,5 @@
 PROG     = ul
-LDFLAGS += -lncurses
+LIBS += -lncurses
 
 topdir=../..
 include $(topdir)/config.mk
