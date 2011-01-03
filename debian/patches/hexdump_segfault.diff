@@ -3,7 +3,7 @@ Author: Michael Meskes <meskes@debian.org>
 
 --- bsdmainutils/usr.bin/hexdump/parse.c	2009-10-04 02:46:16.000000000 +0200
 +++ bsdmainutils/usr.bin/hexdump/parse.c	2009-10-04 02:43:59.000000000 +0200
-@@ -426,7 +426,7 @@
+@@ -427,7 +427,7 @@
  		if (!fu->nextfu && fs->bcnt < blocksize &&
  		    !(fu->flags&F_SETREP) && fu->bcnt)
  			fu->reps += (blocksize - fs->bcnt) / fu->bcnt;

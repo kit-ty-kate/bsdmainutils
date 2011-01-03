@@ -1,4 +1,4 @@
-/*	$OpenBSD: day.c,v 1.21 2008/04/13 00:22:17 djm Exp $	*/
+/*	$OpenBSD: day.c,v 1.23 2010/04/28 18:20:15 jsg Exp $	*/
 
 /*
  * Copyright (c) 1989, 1993, 1994
@@ -29,20 +29,6 @@
  * SUCH DAMAGE.
  */
 
-#ifndef lint
-static const char copyright[] =
-"@(#) Copyright (c) 1989, 1993\n\
-	The Regents of the University of California.  All rights reserved.\n";
-#endif /* not lint */
-
-#ifndef lint
-#if 0
-static const char sccsid[] = "@(#)calendar.c  8.3 (Berkeley) 3/25/94";
-#else
-static const char rcsid[] = "$OpenBSD: day.c,v 1.21 2008/04/13 00:22:17 djm Exp $";
-#endif
-#endif /* not lint */
-
 #include <sys/types.h>
 #include <sys/uio.h>
 
@@ -57,6 +43,8 @@ static const char rcsid[] = "$OpenBSD: day.c,v 1.21 2008/04/13 00:22:17 djm Exp 
 
 #include "pathnames.h"
 #include "calendar.h"
+
+extern struct iovec header[];
 
 #define WEEKLY 1
 #define MONTHLY 2

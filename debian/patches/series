@@ -1,12 +1,14 @@
+calendar.diff
+calendar_wcs.diff
+calendar_weekend.diff
+calendar_fifo.diff
+calendars.diff
 libcalendar.diff
 ncal.diff
 ncal_fdow.diff
-ncal_three.diff
 ncal_man.diff
-ncal_length.diff
 ncal_option.diff
 ncal_mfdow.diff
-ncal_highlight.diff
 ncal_backward.diff
 col.diff
 col_line.diff
@@ -30,8 +32,3 @@ look.diff
 look_bflag.diff
 write.diff
 write_allow.diff
-calendar.diff
-calendar_wcs.diff
-calendar_weekend.diff
-calendars.diff
-calendar_fifo.diff

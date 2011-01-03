@@ -3,7 +3,7 @@ Author: Michael Meskes <meskes@debian.org>
 
 --- bsdmainutils/usr.bin/calendar/io.c	2010-04-06 14:40:43.000000000 +0200
 +++ bsdmainutils/usr.bin/calendar/io.c	2010-04-06 14:42:29.000000000 +0200
-@@ -378,8 +378,8 @@
+@@ -364,8 +364,8 @@
  	struct stat st;
  
  	/* open up calendar file as stdin */

@@ -110,7 +110,7 @@ Author: Michael Meskes <meskes@debian.org>
  .Nm
 --- bsdmainutils/usr.bin/calendar/calendar.c	2009-10-29 22:59:13.000000000 +0100
 +++ bsdmainutils/usr.bin/calendar/calendar.c	2009-10-29 23:07:14.000000000 +0100
-@@ -60,6 +60,8 @@
+@@ -46,6 +46,8 @@
  #include "pathnames.h"
  #include "calendar.h"
  
@@ -119,7 +119,7 @@ Author: Michael Meskes <meskes@debian.org>
  char *calendarFile = "calendar";  /* default calendar file */
  char *calendarHome = ".calendar"; /* HOME */
  char *calendarNoMail = "nomail";  /* don't sent mail if this file exists */
-@@ -69,6 +71,7 @@
+@@ -55,6 +57,7 @@
  time_t f_time = 0;
  int bodun_always = 0;
  
@@ -127,7 +127,7 @@ Author: Michael Meskes <meskes@debian.org>
  int f_dayAfter = 0; /* days after current date */
  int f_dayBefore = 0; /* days before current date */
  int f_SetdayAfter = 0; /* calendar invoked with -A */
-@@ -85,7 +88,7 @@
+@@ -71,7 +74,7 @@
  
  	(void)setlocale(LC_ALL, "");
  
@@ -136,7 +136,7 @@ Author: Michael Meskes <meskes@debian.org>
  		switch (ch) {
  		case '-':		/* backward contemptible */
  		case 'a':
-@@ -107,11 +110,16 @@
+@@ -93,11 +96,16 @@
  				errx(1, "specified date is outside allowed range");
  			break;
  
@@ -154,7 +154,7 @@ Author: Michael Meskes <meskes@debian.org>
  		case 'B': /* days before current date */
  			f_dayBefore = atoi(optarg);
  			break;
-@@ -251,13 +259,24 @@
+@@ -237,13 +245,24 @@
  	exit(0);
  }
  
@@ -183,7 +183,7 @@ Author: Michael Meskes <meskes@debian.org>
  
 --- bsdmainutils/usr.bin/calendar/calendar.h	2009-10-29 22:59:13.000000000 +0100
 +++ bsdmainutils/usr.bin/calendar/calendar.h	2009-10-29 23:08:00.000000000 +0100
-@@ -98,6 +98,7 @@
+@@ -97,6 +97,7 @@
  			      * calendar time--e.g.  Easter or easter depending
  			      * days */
  
@@ -193,7 +193,7 @@ Author: Michael Meskes <meskes@debian.org>
  extern int f_SetdayAfter; /* calendar invoked with -A */
 --- bsdmainutils/usr.bin/calendar/day.c	2009-10-29 22:59:13.000000000 +0100
 +++ bsdmainutils/usr.bin/calendar/day.c	2009-10-29 23:11:33.000000000 +0100
-@@ -173,8 +173,8 @@
+@@ -161,8 +161,8 @@
  		cumdays = daytab[1];
  	else
  		cumdays = daytab[0];

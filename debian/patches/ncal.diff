@@ -1,8 +1,8 @@
 Description: Make ncal work with UTF-8.
 Author: Michael Meskes <meskes@debian.org>
 
---- freebsd/usr.bin/ncal/ncal.c	2009-09-22 11:18:30.000000000 +0200
-+++ bsdmainutils/usr.bin/ncal/ncal.c	2009-09-22 14:40:50.000000000 +0200
+--- freebsd/usr.bin/ncal/ncal.c	2011-01-03 13:09:12.000000000 +0100
++++ bsdmainutils/usr.bin/ncal/ncal.c	2011-01-03 13:15:27.000000000 +0100
 @@ -29,7 +29,7 @@
    "$FreeBSD$";
  #endif /* not lint */
@@ -12,124 +12,143 @@ Author: Michael Meskes <meskes@debian.org>
  #include <ctype.h>
  #include <err.h>
  #include <langinfo.h>
-@@ -417,10 +417,15 @@
+@@ -520,7 +520,7 @@
+ 	int n;	/* number of lines to print */
+ 	int m;	/* offset from left to right table entry on the same line */
+ 
+-#define FSTR "%c%s %-15s%4d-%02d-%02d"
++#define FSTR L"%c%s %-15s%4d-%02d-%02d"
+ #define DFLT(p) ((p) == dftswitch ? '*' : ' ')
+ #define FSTRARG(p) DFLT(p), (p)->cc, (p)->nm, (p)->dt.y, (p)->dt.m, (p)->dt.d
+ 
+@@ -528,9 +528,9 @@
+ 	m = (n + 1) / 2;
+ 	n /= 2;
+ 	for (p = switches; p != switches + n; p++)
+-		printf(FSTR"     "FSTR"\n", FSTRARG(p), FSTRARG(p+m));
++		wprintf(FSTR"     "FSTR"\n", FSTRARG(p), FSTRARG(p+m));
+ 	if (m != n)
+-		printf(FSTR"\n", FSTRARG(p));
++		wprintf(FSTR"\n", FSTRARG(p));
+ }
+ 
+ /* Print the date of easter sunday. */
+@@ -540,10 +540,14 @@
  	date    dt;
  	struct tm tm;
- 	char    buf[80];
--	static int d_first = -1;
- 
--	if (d_first < 0)
--		d_first = (*nl_langinfo(D_MD_ORDER) == 'd');
+ 	char    buf[MAX_WIDTH];
 +#ifndef D_MD_ORDER
-+        static int d_first = 1; /* XXX */
++	static int d_first = 1; /* XXX */
 +#else
-+        static int d_first = -1;
-+
-+        if (d_first < 0)
-+                d_first = (*nl_langinfo(D_MD_ORDER) == 'd');
+ 	static int d_first = -1;
+ 
+ 	if (d_first < 0)
+ 		d_first = (*nl_langinfo(D_MD_ORDER) == 'd');
 +#endif
  	/* force orthodox easter for years before 1583 */
  	if (y < 1583)
  		orthodox = 1;
-@@ -450,7 +455,7 @@
- 
- 	mkmonth(y, m - 1, jd_flag, &month);
- 	mkweekdays(&wds);
--	printf("    %ls %d\n", month.name, y);
-+	wprintf(L"    %ls %d\n", month.name, y);
- 	for (i = 0; i != 7; i++) {
- 		len = wcslen(wds.names[i]);
- 		if (wcswidth(wds.names[i], len) == len)
-@@ -459,7 +464,7 @@
- 			wprintf(L"%.1ls%s\n", wds.names[i], month.lines[i]);
- 	}
- 	if (flag_weeks)
--		printf("  %s\n", month.weeks);
-+		wprintf(L"  %s\n", month.weeks);
+@@ -561,7 +565,7 @@
+ 	tm.tm_mon  = dt.m - 1;
+ 	tm.tm_mday = dt.d;
+ 	strftime(buf, sizeof(buf), d_first ? "%e %B %Y" : "%B %e %Y",  &tm);
+-	printf("%s\n", buf);
++	wprintf(L"%s\n", buf);
  }
  
- void
-@@ -490,7 +495,7 @@
- 			wds.names[4], wds.names[5]);
+ #define MW(mw, me)		((mw) + me)
+@@ -625,12 +629,12 @@
  
- 	for (i = 0; i != 6; i++)
--		printf("%s\n", month.lines[i]+1);
-+		wprintf(L"%s\n", month.lines[i]+1);
- }
+ 		/* Empty line between two rows of months */
+ 		if (m != m1)
+-			printf("\n");
++			wprintf(L"\n");
  
- void
-@@ -510,14 +515,14 @@
- 	mw = jd_flag ? MONTH_WIDTH_J : MONTH_WIDTH;
- 
- 	sprintf(s, "%d", y);
--	printf("%s\n", center(t, s, mpl * mw));
-+	wprintf(L"%s\n", center(t, s, mpl * mw));
- 
- 	for (j = 0; j != 12; j += mpl) {
- 		wprintf(L"    %-*ls%-*ls",
- 		    mw, year[j].name,
- 		    mw, year[j + 1].name);
- 		if (mpl == 3)
--			printf("%ls\n", year[j + 2].name);
-+			wprintf(L"%ls\n", year[j + 2].name);
- 		else
- 			wprintf(L"%-*ls%ls\n",
- 		    	    mw, year[j + 2].name,
-@@ -528,20 +533,20 @@
- 			    mw, year[j].lines[i],
- 			    mw, year[j + 1].lines[i]);
- 			if (mpl == 3)
--				printf("%s\n", year[j + 2].lines[i]);
-+				wprintf(L"%s\n", year[j + 2].lines[i]);
- 			else
--				printf("%-*s%s\n",
-+				wprintf(L"%-*s%s\n",
- 			    	    mw, year[j + 2].lines[i],
- 			    	    year[j + 3].lines[i]);
+ 		/* Year at the top. */
+ 		if (printyearheader && M2Y(m) != prevyear) {
+ 			sprintf(s, "%d", M2Y(m));
+-			printf("%s\n", center(t, s, mpl * mw));
++			wprintf(L"%s\n", center(t, s, mpl * mw));
+ 			prevyear = M2Y(m);
  		}
- 		if (flag_weeks) {
- 			if (mpl == 3)
--				printf("  %-*s%-*s%-s\n",
-+				wprintf(L"  %-*s%-*s%-s\n",
- 				    mw, year[j].weeks,
- 				    mw, year[j + 1].weeks,
- 				    year[j + 2].weeks);
- 			else
--				printf("  %-*s%-*s%-*s%-s\n",
-+				wprintf(L"  %-*s%-*s%-*s%-s\n",
- 				    mw, year[j].weeks,
- 				    mw, year[j + 1].weeks,
- 				    mw, year[j + 2].weeks,
-@@ -568,12 +573,12 @@
- 	mw = jd_flag ? MONTH_WIDTH_B_J : MONTH_WIDTH_B;
  
- 	sprintf(s, "%d", y);
--	printf("%s\n\n", center(t, s, mw * mpl + mpl));
-+	wprintf(L"%s\n\n", center(t, s, mw * mpl + mpl));
+@@ -644,7 +648,7 @@
+ 				    year[i].name, M2Y(m + i));
+ 				wprintf(L"%-*ls  ", mw, wcenter(ws1, ws, mw));
+ 			}
+-		printf("\n");
++		wprintf(L"\n");
  
- 	for (j = 0; j != 12; j += mpl) {
- 		wprintf(L"%-*ls  ", mw, wcenter(ws, year[j].name, mw));
- 		if (mpl == 2)
--			printf("%ls\n", wcenter(ws, year[j + 1].name, mw));
-+			wprintf(L"%ls\n", wcenter(ws, year[j + 1].name, mw));
- 		else
- 			wprintf(L"%-*ls  %ls\n", mw,
- 			    wcenter(ws, year[j + 1].name, mw),
-@@ -603,11 +608,11 @@
- 				wds.names[5]);
+ 		/* Day of the week names. */
+ 		for (i = 0; i < count; i++) {
+@@ -654,15 +658,15 @@
+ 				wdss, wds.names[3], wdss, wds.names[4],
+ 				wdss, wds.names[5]);
+ 		}
+-		printf("\n");
++		wprintf(L"\n");
+ 
+ 		/* And the days of the month. */
  		for (i = 0; i != 6; i++) {
- 			if (mpl == 2)
--				printf("%-*s  %s\n",
-+				wprintf(L"%-*s  %s\n",
- 			    mw, year[j].lines[i]+1,
- 			    year[j + 1].lines[i]+1);
+ 			for (j = 0; j < count; j++)
+-				printf("%-*s  ",
++				wprintf(L"%-*s  ",
+ 				    MW(mw, year[j].extralen[i]),
+ 					year[j].lines[i]+1);
+-			printf("\n");
++			wprintf(L"\n");
+ 		}
+ 
+ 		m += mpl;
+@@ -712,12 +716,12 @@
+ 
+ 		/* Empty line between two rows of months. */
+ 		if (m != m1)
+-			printf("\n");
++			wprintf(L"\n");
+ 
+ 		/* Year at the top. */
+ 		if (printyearheader && M2Y(m) != prevyear) {
+ 			sprintf(s, "%d", M2Y(m));
+-			printf("%s\n", center(t, s, mpl * mw));
++			wprintf(L"%s\n", center(t, s, mpl * mw));
+ 			prevyear = M2Y(m);
+ 		}
+ 
+@@ -729,7 +733,7 @@
  			else
--				printf("%-*s  %-*s  %s\n",
-+				wprintf(L"%-*s  %-*s  %s\n",
- 			    mw, year[j].lines[i]+1,
- 			    mw, year[j + 1].lines[i]+1,
- 			    year[j + 2].lines[i]+1);
-@@ -636,7 +641,7 @@
+ 				wprintf(L"%-ls %-*d", year[i].name,
+ 				    mw - wcslen(year[i].name) - 1, M2Y(m + i));
+-		printf("\n");
++		wprintf(L"\n");
+ 
+ 		/* And the days of the month. */
+ 		for (i = 0; i != 7; i++) {
+@@ -738,18 +742,18 @@
+ 
+ 			/* Full months */
+ 			for (j = 0; j < count; j++)
+-				printf("%-*s",
++				wprintf(L"%-*s",
+ 				    MW(mw, year[j].extralen[i]),
+ 					year[j].lines[i]);
+-			printf("\n");
++			wprintf(L"\n");
+ 		}
+ 
+ 		/* Week numbers. */
+ 		if (flag_weeks) {
+-			printf("  ");
++			wprintf(L"  ");
+ 			for (i = 0; i < count; i++)
+-				printf("%-*s", mw, year[i].weeks);
+-			printf("\n");
++				wprintf(L"%-*s", mw, year[i].weeks);
++			wprintf(L"\n");
+ 		}
+ 
+ 		m += mpl;
+@@ -777,7 +777,7 @@
  	memset(&tm, 0, sizeof(tm));
  	tm.tm_mon = m;
  	wcsftime(mlines->name, sizeof(mlines->name) / sizeof(mlines->name[0]),
@@ -138,7 +157,7 @@ Author: Michael Meskes <meskes@debian.org>
  	mlines->name[0] = towupper(mlines->name[0]);
  
  	/*
-@@ -750,7 +755,7 @@
+@@ -876,7 +876,7 @@
  	memset(&tm, 0, sizeof(tm));
  	tm.tm_mon = m;
  	wcsftime(mlines->name, sizeof(mlines->name) / sizeof(mlines->name[0]),

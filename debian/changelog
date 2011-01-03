@@ -1,3 +1,18 @@
+bsdmainutils (8.2.1) unstable; urgency=low
+
+  * Updates from the upcoming FreeBSD release 8.2:
+    - calendars
+    - hexdump manpages
+    - libcalendar
+    - ncal (Closes: #607960)
+  * Updates from OpenBSD 4.8:
+    - calendar
+  * Adapted, removed and/or re-diffed patches.
+  * Updated debian calendar (Closes: #607837)
+  * Replace Conflict: on older bsdutils version with Break: to make lintian happy.
+
+ -- Michael Meskes <meskes@debian.org>  Mon, 03 Jan 2011 18:57:48 +0100
+
 bsdmainutils (8.0.17) unstable; urgency=low
 
   * Fixed build failure with --as-needed. (Closes: #604811) - thanks to
