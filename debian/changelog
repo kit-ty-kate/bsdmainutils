@@ -1,3 +1,10 @@
+bsdmainutils (8.2.2) unstable; urgency=low
+
+  * Fix some wide character problems (LP: #697213). (Closes: #610760) -
+    thanks to Allison Randal <allison@parrot.org>
+
+ -- Michael Meskes <meskes@debian.org>  Wed, 26 Jan 2011 13:04:25 +0100
+
 bsdmainutils (8.2.1) unstable; urgency=low
 
   * Updates from the upcoming FreeBSD release 8.2:

@@ -57,7 +57,7 @@ Author: Michael Meskes <meskes@debian.org>
  }
  
  #define MW(mw, me)		((mw) + me)
-@@ -625,12 +629,12 @@
+@@ -625,26 +629,26 @@
  
  		/* Empty line between two rows of months */
  		if (m != m1)
@@ -72,7 +72,14 @@ Author: Michael Meskes <meskes@debian.org>
  			prevyear = M2Y(m);
  		}
  
-@@ -644,7 +648,7 @@
+ 		/* Month names. */
+ 		for (i = 0; i < count; i++)
+ 			if (printyearheader)
+ 				wprintf(L"%-*ls  ",
+ 				    mw, wcenter(ws, year[i].name, mw));
+ 			else {
+-				swprintf(ws, sizeof(ws), L"%-ls %d",
++				swprintf(ws, (sizeof(ws)/sizeof(wchar_t)), L"%-ls %d",
  				    year[i].name, M2Y(m + i));
  				wprintf(L"%-*ls  ", mw, wcenter(ws1, ws, mw));
  			}
