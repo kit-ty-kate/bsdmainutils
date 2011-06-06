@@ -1,3 +1,18 @@
+bsdmainutils (8.2.3) unstable; urgency=low
+
+  * Document that ul changes some special characters. (Closes: #629134)
+  * Added latest Ubuntu release to calendar.
+    Thanks to Colin Watson <cjwatson@ubuntu.com> (Closes: #627096)
+  * Updated Republic of Kazakhstan holidays.
+    Thanks to Timur Birsh <taem@linukz.org> (Closes: #624392)
+  * Correctly convert ru_RU calendar. (Closes: #612044)
+  * Added patch from usptream to make sure all line are correctly displayed in
+    hexdump. (Closes: #612939)
+  * Bumped Standards version to 3.9.2, no changes needed.
+  * Corrected the date of George Harrison's death. (LP: #683163)
+
+ -- Michael Meskes <meskes@debian.org>  Mon, 06 Jun 2011 16:20:29 +0200
+
 bsdmainutils (8.2.2) unstable; urgency=low
 
   * Fix some wide character problems (LP: #697213). (Closes: #610760) -
@@ -47,7 +62,7 @@ bsdmainutils (8.0.14) unstable; urgency=low
   * Updated Ubuntu calendar. (Closes: #600067)
   * In hexdump.1 mention that % is a not supported conversion character.
     (Closes: #600244)
-  * Bumped Standards version to 8.9.1, no changes needed.
+  * Bumped Standards version to 3.9.1, no changes needed.
   * Renamed build dependency on python-hdate to reflect package name
     change.
   * Unified some patches and at the same time added a small change to
