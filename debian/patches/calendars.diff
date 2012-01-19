@@ -1,9 +1,9 @@
 Description: Lots of corrections to calendar files.
 Author: Michael Meskes <meskes@debian.org>
 
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.australia bsdmainutils//usr.bin/calendar/calendars/calendar.australia
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.australia bsdmainutils/usr.bin/calendar/calendars/calendar.australia
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.australia	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.australia	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.australia	2011-06-06 16:16:44.000000000 +0200
 @@ -7,12 +7,12 @@
  #ifndef _calendar_australia_
  #define _calendar_australia_
@@ -20,9 +20,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.australia bsdmai
  Jun/MonSecond	Queen's Birthday Holiday (Australia, except WA)
  Oct/SunFirst	Daylight Savings Time starts in ACT, NSW, SA and VIC.
  
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmainutils//usr.bin/calendar/calendars/calendar.birthday
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmainutils/usr.bin/calendar/calendars/calendar.birthday
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.birthday	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.birthday	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,8 @@
  #ifndef _calendar_birthday_
  #define _calendar_birthday_
@@ -40,7 +40,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  01/10	Ethan Allen born, 1738
  01/11	Alexander Hamilton born in Nevis, British West Indies, 1757?
  01/12	"Long" John Baldry is born in London, 1941
-@@ -117,12 +120,13 @@
+@@ -119,12 +122,13 @@
  04/10	William Booth born, 1829, founder of the Salvation Army
  04/13	Thomas Jefferson, 3rd President of the United States, born Shadwell
  		Plantation, Albemarle County, Virginia, 1743
@@ -55,7 +55,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  04/28	James Monroe, 5th President of the United States, born in Westmoreland
  		County, Viriginia, 1758
  04/29	Jules Henri Poincare born, 1854, founder of topology
-@@ -176,6 +180,7 @@
+@@ -178,6 +182,7 @@
  07/07	P.T. Barnum dies, 1891
  07/08	Count Ferdinand von Zeppelin born, 1838
  07/10	John Calvin born, 1509
@@ -63,15 +63,15 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  07/11	John Quincy Adams, 6th President of the United States, born in
  		Braintree, Massachusetts, 1767
  07/12	Henry David Thoreau born, 1817
-@@ -239,6 +244,7 @@
+@@ -241,6 +246,7 @@
  10/02	Mohandas K. Gandhi born at Porbandar, Kathiawad, India, 1869
  10/04	John V. Atanasoff born, 1903
  10/05	Ray Kroc (founder of McDonald's) born, 1902
 +10/05	Pablo Picasso born in Malaga, Spain, 1881 
+ 10/05	Steve Jobs died at the age of 56, 2011
+ 10/12	Dennis MacAlistair Ritchie died at the age of 70, 2011
  10/13	Lenny Bruce is born in New York City, 1925
- 10/13	Virgil (Publius Vergilius Maro) born near Mantua, Italy, 70 BC
- 10/14	Dwight David Eisenhower, 34th President of the United States, born in
-@@ -260,6 +266,7 @@
+@@ -264,6 +270,7 @@
  10/31	Chiang Kai-Shek born, 1887
  10/31	Dale Evans born, 1912
  11/02	Daniel Boone born near Reading, PA, 1734
@@ -79,7 +79,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  11/04	King William III of Orange born, 1650
  11/05	Roy Rogers born, 1912
  11/09	Carl Sagan born, 1934
-@@ -283,11 +290,11 @@
+@@ -287,11 +294,11 @@
  12/05	Walt (Walter Elias) Disney born in Chicago, 1901
  12/08	Horace (Quintus Horatius Flaccus) born in Venosa (Italy), 65BC
  12/08	James (Grover) Thurber born in Columbus, Ohio, 1894
@@ -93,9 +93,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  12/20	Carl Sagan died, 1996
  12/21	Benjamin Disraeli born, 1804
  12/22	Giacomo Puccini born, 1858
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.christian bsdmainutils//usr.bin/calendar/calendars/calendar.christian
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.christian bsdmainutils/usr.bin/calendar/calendars/calendar.christian
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.christian	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.christian	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.christian	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,8 @@
  #ifndef _calendar_christian_
  #define _calendar_christian_
@@ -145,9 +145,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.christian bsdmai
 +
 +
  #endif /* !_calendar_christian_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.computer bsdmainutils//usr.bin/calendar/calendars/calendar.computer
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.computer bsdmainutils/usr.bin/calendar/calendars/calendar.computer
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.computer	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.computer	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.computer	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,8 @@
  #ifndef _calendar_computer_
  #define _calendar_computer_
@@ -187,9 +187,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.computer bsdmain
 +Mar 24	Introduction od Mac OS X, 2001
 +
  #endif /* !_calendar_computer_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.croatian bsdmainutils//usr.bin/calendar/calendars/calendar.croatian
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.croatian bsdmainutils/usr.bin/calendar/calendars/calendar.croatian
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.croatian	2011-06-06 16:04:39.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.croatian	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.croatian	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,6 @@
  #ifndef _calendar_croatian_
  #define _calendar_croatian_
@@ -198,9 +198,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.croatian bsdmain
 +#include <hr_HR/calendar.all>
  
  #endif /* !_calendar_croatian_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.dutch bsdmainutils//usr.bin/calendar/calendars/calendar.dutch
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.dutch bsdmainutils/usr.bin/calendar/calendars/calendar.dutch
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.dutch	2011-06-06 16:04:39.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.dutch	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.dutch	2011-06-06 16:16:44.000000000 +0200
 @@ -4,7 +4,7 @@
   * Originally submitted by Edwin Groothuis <edwin@FreeBSD.org>
   */
@@ -210,30 +210,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.dutch bsdmainuti
  Easter=Pasen
  
  /*
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.freebsd bsdmainutils//usr.bin/calendar/calendars/calendar.freebsd
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.freebsd	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.freebsd	2011-06-06 16:16:44.000000000 +0200
-@@ -7,6 +7,8 @@
- #ifndef _calendar_freebsd_
- #define _calendar_freebsd_
- 
-+LANG=UTF-8
-+
- 01/01	Alexander Langer <alex@FreeBSD.org> born in Duesseldorf, Nordrhein-Westfalen, Germany, 1981
- 01/02	Ion-Mihai "IOnut" Tetcu <itetcu@FreeBSD.org> born in Bucharest, Romania, 1980
- 01/02	Patrick Li <pat@FreeBSD.org> born in Beijing, People's Republic of China, 1985
-@@ -304,7 +306,7 @@
- 11/28	Stanislav Sedov <stas@FreeBSD.org> born in Chelyabinsk, USSR, 1985
- 12/01	Hajimu Umemoto <ume@FreeBSD.org> born in Nara, Japan, 1961
- 12/01	Alexey Dokuchaev <danfe@FreeBSD.org> born in Magadan, USSR, 1980
--12/02   Ermal Lu�i <eri@FreeBSD.org> born in Tirane, Albania, 1980
-+12/02   Ermal Luçi <eri@FreeBSD.org> born in Tirane, Albania, 1980
- 12/03	Diane Bruce <db@FreeBSD.org> born in Ottawa, Ontario, Canada, 1952
- 12/05	Ivan Voras <ivoras@FreeBSD.org> born in Slavonski Brod, Croatia, 1981
- 12/06	Stefan Farfeleder <stefanf@FreeBSD.org> born in Wien, Austria, 1980
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.french bsdmainutils//usr.bin/calendar/calendars/calendar.french
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.french bsdmainutils/usr.bin/calendar/calendars/calendar.french
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.french	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.french	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.french	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,6 @@
  #ifndef _calendar_french_
  #define _calendar_french_
@@ -242,9 +221,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.french bsdmainut
 +#include <fr_FR/calendar.all>
  
  #endif /* !_calendar_french_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.german bsdmainutils//usr.bin/calendar/calendars/calendar.german
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.german bsdmainutils/usr.bin/calendar/calendars/calendar.german
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.german	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.german	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.german	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,6 @@
  #ifndef _calendar_german_
  #define _calendar_german_
@@ -253,9 +232,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.german bsdmainut
 +#include <de_DE/calendar.all>
  
  #endif /* !_calendar_german_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.history bsdmainutils//usr.bin/calendar/calendars/calendar.history
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.history bsdmainutils/usr.bin/calendar/calendars/calendar.history
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.history	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.history	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.history	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,8 @@
  #ifndef _calendar_history_
  #define _calendar_history_
@@ -312,9 +291,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.history bsdmainu
  11/12	Dr. Sun Yat-sen's Birthday in Taiwan
  11/12	USA first exports oil to Europe, 1861
  11/14	Quarter Pounder price raised from $0.53 to $0.55 in violation of Nixon
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainutils//usr.bin/calendar/calendars/calendar.holiday
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainutils/usr.bin/calendar/calendars/calendar.holiday
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday	2011-06-06 16:04:41.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.holiday	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.holiday	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,8 @@
  #ifndef _calendar_holiday_
  #define _calendar_holiday_
@@ -520,9 +499,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
 +May 04	Holiday for a Nation in Japan 
 +
  #endif /* !_calendar_holiday_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.hungarian bsdmainutils//usr.bin/calendar/calendars/calendar.hungarian
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.hungarian bsdmainutils/usr.bin/calendar/calendars/calendar.hungarian
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.hungarian	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.hungarian	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.hungarian	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,6 @@
  #ifndef _calendar_hungarian_
  #define _calendar_hungarian_
@@ -531,9 +510,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.hungarian bsdmai
 +#include <hu_HU/calendar.all>
  
  #endif /* !_calendar_hungarian_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.lotr bsdmainutils//usr.bin/calendar/calendars/calendar.lotr
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.lotr bsdmainutils/usr.bin/calendar/calendars/calendar.lotr
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.lotr	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.lotr	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.lotr	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,8 @@
  #ifndef _calendar_lotr_
  #define _calendar_lotr_
@@ -543,9 +522,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.lotr bsdmainutil
  01/05	Fellowship enters Moria
  01/09	Fellowship reaches Lorien
  01/17	Passing of Gandalf
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.music bsdmainutils//usr.bin/calendar/calendars/calendar.music
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.music bsdmainutils/usr.bin/calendar/calendars/calendar.music
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.music	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.music	2011-06-06 16:17:03.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.music	2011-06-06 16:17:03.000000000 +0200
 @@ -7,6 +7,8 @@
  #ifndef _calendar_music_
  #define _calendar_music_
@@ -637,9 +616,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.music bsdmainuti
  12/13	Ted Nugent, the motor city madman, born in Detroit, 1949
  12/15	Thomas Edison receives patent on the phonograph, 1877
  12/16	Don McLean's "American Pie" is released, 1971
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.newzealand bsdmainutils//usr.bin/calendar/calendars/calendar.newzealand
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.newzealand bsdmainutils/usr.bin/calendar/calendars/calendar.newzealand
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.newzealand	2011-06-06 16:04:41.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.newzealand	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.newzealand	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,8 @@
  #ifndef _calendar_newzealand_
  #define _calendar_newzealand_
@@ -649,9 +628,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.newzealand bsdma
  Jan 02	New Year Holiday (NZ)
  Jan 14	Anniversary Day (Southland)
  Jan 21	Anniversary Day (Wellington)
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.russian bsdmainutils//usr.bin/calendar/calendars/calendar.russian
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.russian bsdmainutils/usr.bin/calendar/calendars/calendar.russian
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.russian	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.russian	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.russian	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,6 @@
  #ifndef _calendar_russian_
  #define _calendar_russian_
@@ -660,9 +639,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.russian bsdmainu
 +#include <ru_RU/calendar.all>
  
  #endif /* !_calendar_russian_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.southafrica bsdmainutils//usr.bin/calendar/calendars/calendar.southafrica
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.southafrica bsdmainutils/usr.bin/calendar/calendars/calendar.southafrica
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.southafrica	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.southafrica	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.southafrica	2011-06-06 16:16:44.000000000 +0200
 @@ -11,6 +11,8 @@
  #ifndef _calendar_southafrica_
  #define _calendar_southafrica_
@@ -672,9 +651,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.southafrica bsdm
  03/01	Human Rights Day in South Africa
  04/27	Freedom Day in South Africa
  05/01	Workers Day in South Africa
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.ukrainian bsdmainutils//usr.bin/calendar/calendars/calendar.ukrainian
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.ukrainian bsdmainutils/usr.bin/calendar/calendars/calendar.ukrainian
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.ukrainian	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.ukrainian	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.ukrainian	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,6 @@
  #ifndef _calendar_ukrainian_
  #define _calendar_ukrainian_
@@ -683,9 +662,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.ukrainian bsdmai
 +#include <uk_UA/calendar.all>
  
  #endif /* !_calendar_ukrainian_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.usholiday bsdmainutils//usr.bin/calendar/calendars/calendar.usholiday
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.usholiday bsdmainutils/usr.bin/calendar/calendars/calendar.usholiday
 --- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.usholiday	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/calendar.usholiday	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.usholiday	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,8 @@
  #ifndef _calendar_usholiday_
  #define _calendar_usholiday_
@@ -704,9 +683,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.usholiday bsdmai
  11/SunFirst	Daylight Savings Time ends in USA; clocks move back (1st Sunday of November)
  11/11	Veterans' Day
  11/ThuFourth	Thanksgiving Day (4th Thursday in November)
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag bsdmainutils//usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag bsdmainutils/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag
 --- bsdmainutils.orig/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag	2011-06-06 16:16:44.000000000 +0200
 @@ -4,10 +4,10 @@
   * $FreeBSD$
   */
@@ -764,9 +743,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calenda
  
 -#endif /*! _de_AT_ISO8859_15_feiertag_ */
 +#endif /*! _de_AT_feiertag_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all
 --- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all	2011-06-06 16:16:44.000000000 +0200
 @@ -4,14 +4,14 @@
   * $FreeBSD$
   */
@@ -791,9 +770,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* !_de_DE.ISO8859-1_all_ */
 +#endif /* !_de_DE_all_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag
 --- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag	2011-06-06 16:16:44.000000000 +0200
 @@ -4,10 +4,10 @@
   * $FreeBSD$
   */
@@ -846,9 +825,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /*! _de_DE_ISO8859_1_feiertag_ */
 +#endif /*! _de_DE_feiertag_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte
 --- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte	2011-06-06 16:16:44.000000000 +0200
 @@ -2,12 +2,12 @@
   * deutsche Geschichte
   *
@@ -1133,9 +1112,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* _de_DE_ISO8859_1_geschichte_ */
 +#endif /* _de_DE_geschichte_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche
 --- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche	2011-06-06 16:16:44.000000000 +0200
 @@ -4,10 +4,10 @@
   * $FreeBSD$
   */
@@ -1156,9 +1135,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* !_de_DE_ISO8859_1_kirche_ */
 +#endif /* !_de_DE_kirche_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur
 --- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur	2011-06-06 16:16:44.000000000 +0200
 @@ -4,10 +4,10 @@
   * $FreeBSD$
   */
@@ -1214,9 +1193,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* !_de_DE_ISO8859_1_literatur_ */
 +#endif /* !_de_DE_literatur_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik
 --- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik	2011-06-06 16:16:44.000000000 +0200
 @@ -4,18 +4,18 @@
   * $FreeBSD$
   */
@@ -1278,9 +1257,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* !_de_DE_ISO8859_1_musik_ */
 +#endif /* !_de_DE_musik_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft
 --- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft	2011-06-06 16:16:44.000000000 +0200
 @@ -4,16 +4,16 @@
   * $FreeBSD$
   */
@@ -1303,9 +1282,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* ! _de_DE_ISO8859_1_wissenschaft_ */
 +#endif /* ! _de_DE_wissenschaft_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all bsdmainutils//usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all
 --- bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all	2011-06-06 16:16:44.000000000 +0200
 @@ -1,14 +1,14 @@
  /*
 - * Calendrier fran�ais
@@ -1328,9 +1307,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.
  
 -#endif /* !_fr_FR.ISO8859-1_all_ */
 +#endif /* !_fr_FR_all_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes bsdmainutils//usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes
 --- bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes	2011-06-06 16:16:44.000000000 +0200
 @@ -1,630 +1,630 @@
  /*
 - * F�tes � souhaiter
@@ -2272,9 +2251,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.
  
 -#endif /*! _fr_FR_ISO8859_1_fetes */
 +#endif /*! _fr_FR_fetes */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french bsdmainutils//usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french
 --- bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french	2011-06-06 16:16:44.000000000 +0200
 @@ -7,6 +7,6 @@
  #ifndef _calendar_french_
  #define _calendar_french_
@@ -2283,9 +2262,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.
 +#include <fr_FR/calendar.all>
  
  #endif /* !_calendar_french_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies bsdmainutils//usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies
 --- bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies	2011-06-06 16:16:44.000000000 +0200
 @@ -1,46 +1,46 @@
  /*
 - * Jours f�ri�s
@@ -2353,9 +2332,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.
  
 -#endif /*! _fr_FR_ISO8859_1_jferies_ */
 +#endif /*! _fr_FR_jferies_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes bsdmainutils//usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes
 --- bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes	2011-06-06 16:16:44.000000000 +0200
 @@ -1,38 +1,38 @@
  /*
 - * Proverbes li�s au calendrier
@@ -2901,9 +2880,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.
  
 -#endif /*! _fr_FR_ISO8859_1_proverbes_ */
 +#endif /*! _fr_FR_proverbes_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all bsdmainutils//usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all bsdmainutils/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all
 --- bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all	2011-06-06 16:16:44.000000000 +0200
 @@ -4,9 +4,9 @@
   * $FreeBSD$
   */
@@ -2918,9 +2897,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.
  
 -#endif /* !_hr_HR_ISO8859_2_all */
 +#endif /* !_hr_HR_all */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici bsdmainutils//usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici bsdmainutils/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici
 --- bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici	2011-06-06 16:16:44.000000000 +0200
 @@ -4,41 +4,41 @@
   * $FreeBSD$
   */
@@ -2979,9 +2958,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.
  
 -#endif /* !_hr_HR_ISO8859_2_praznici */
 +#endif /* !_hr_HR_praznici */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all bsdmainutils//usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all
 --- bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all	2011-06-06 16:16:44.000000000 +0200
 @@ -1,13 +1,13 @@
  /*
 - * Magyar kalend�rium
@@ -3002,9 +2981,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.
  
 -#endif /* !_hu_HU.ISO8859-2_all_ */
 +#endif /* !_hu_HU_all_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok bsdmainutils//usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok
 --- bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok	2011-06-06 16:16:44.000000000 +0200
 @@ -1,386 +1,386 @@
  /*
 - * N�vnapok
@@ -3615,9 +3594,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.
  
 -#endif /*! _hu_HU_ISO8859_2_nevnapok_ */
 +#endif /*! _hu_HU_nevnapok_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek bsdmainutils//usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek
 --- bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek	2011-06-06 16:16:44.000000000 +0200
 @@ -1,53 +1,53 @@
  /*
 - * �nnepnapok
@@ -3713,9 +3692,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.
  
 -#endif /*! _hu_HU_ISO8859_2_unnepek_ */
 +#endif /*! _hu_HU_unnepek_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all
 --- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all	2011-06-06 16:16:44.000000000 +0200
 @@ -1,17 +1,17 @@
  /*
 - * ������� ���������
@@ -3744,9 +3723,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all
  
 -#endif /* !_ru_RU_KOI8_R_all */
 +#endif /* !_ru_RU_all */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.common bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.common
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.common bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.common
 --- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.common	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.common	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.common	2011-06-06 16:16:44.000000000 +0200
 @@ -1,5 +1,5 @@
  /*
 - * ���������� ���������
@@ -3947,9 +3926,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.com
 +27 дек	День спасателя
  
  #endif /* !_ru_RU_KOI8_R_common_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.holiday bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.holiday
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.holiday bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.holiday
 --- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.holiday	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.holiday	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.holiday	2011-06-06 16:16:44.000000000 +0200
 @@ -1,25 +1,25 @@
  /*
 - * ���������� ��������� (��������� "�������" ���)
@@ -3993,10 +3972,10 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.hol
  
 -#endif /* !_ru_RU_KOI8_R_holiday_ */
 +#endif /* !_ru_RU_holiday_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military
---- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military	2011-06-06 16:16:44.000000000 +0200
-@@ -1,27 +1,27 @@
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military
+--- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military	2012-01-17 14:44:45.801614399 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military	2012-01-17 14:49:52.017616968 +0100
+@@ -1,27 +1,28 @@
  /*
 - * ��� �������� ����� ������
 + * Дни воинской славы России
@@ -4033,6 +4012,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.mil
 +10 июл	День победы русской армии под командованием Петра Первого над шведами в Полтавском сражении (1709 год)
 + 9 авг	День первой в российской истории морской победы русского флота под командованием Петра Первого над шведами у мыса Гангут (1714 год)
 +23 авг	День разгрома советскими войсками немецко-фашистских войск в Курской битве (1943 год)
++ 2 сен	День окончания Второй мировой войны (1945 год)
 + 8 сен	День Бородинского сражения русской армии под командованием М.И. Кутузова с французской армией (1812 год)
 +11 сен	День победы русской эскадры под командованием Ф.Ф. Ушакова над турецкой эскадрой у мыса Тендра (1790 год)
 +21 сен	День победы русских полков во главе с великим князем Дмитрием Донским над монголо-татарскими войсками в Куликовской битве (1380 год)
@@ -4043,9 +4023,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.mil
  
 -#endif /* !_ru_RU_KOI8_R_military_ */
 +#endif /* !_ru_RU_military_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk
 --- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk	2011-06-06 16:16:44.000000000 +0200
 @@ -1,16 +1,16 @@
  /*
 - * ������� ����� ��� ���������� ��������� ����
@@ -4070,10 +4050,10 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk
 -#endif /* !_ru_RU_KOI8_R_msk_ */
 +#endif /* !_ru_RU_msk_ */
  
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox
---- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox	2011-06-06 16:16:44.000000000 +0200
-@@ -1,34 +1,33 @@
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox
+--- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox	2012-01-17 14:44:45.869614400 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox	2012-01-17 14:51:42.245617893 +0100
+@@ -1,34 +1,36 @@
  /*
 - * ������������ ���������
 + * Православные праздники
@@ -4111,30 +4091,33 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.ort
 -19 ���	������������ ��������
 -28 ���	������� ��������� ����������
 +21 сен	Рождество Пресвятой Богородицы
-+28 сен	Воздвижение Креста Господня
++27 сен	Воздвижение Креста Господня
 +14 окт	Покров Пресвятой Богородицы
 + 4 дек	Введение во храм Пресвятой Богородицы
 + 7 янв	Рождество Христово
++14 янв	Обрезание Господне
 +19 янв	Богоявление или Крещение Господне
 +15 фев	Сретение Господне
-+Пасха-46	Великий Пост
-+Пасха-7	Вербное Воскресенье
++Пасха-48	Великий Пост
++Пасха-7	Вход Господень в Иерусалим. Вербное Воскресенье
 +Пасха-3	Великий Четверг
 +Пасха-2	Страстная Пятница
 +Пасха	Воскресение Христово
 +Пасха+39	Вознесение
-+Пасха+49	Пятидесятница. День Святой Троицы.
-+Пасха+56	День Всех Святых
++Пасха+49	День Святой Троицы. Пятидесятница
 + 7 апр	Благовещение Пресвятой Богородицы
++ 7 июл	Рождество Иоанна Предтечи
++12 июл	День святых первоверховных апостолов Петра и Павла
 +19 авг	Преображение Господне
 +28 авг	Успение Пресвятой Богородицы
++11 сен	Усекновение главы Иоанна Предтечи
  
 -#endif /* !_ru_RU_KOI8_R_orthodox_ */
 +#endif /* !_ru_RU_orthodox_ */
  
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan
---- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan	2011-06-06 16:16:44.000000000 +0200
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan
+--- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan	2012-01-17 14:44:45.821614399 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan	2012-01-17 14:51:24.773617746 +0100
 @@ -1,42 +1,42 @@
  /*
 - * ��������� ���������
@@ -4187,7 +4170,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pag
 +29 фев	День Кащея
 + 1 мар	День Марены
 +14 мар	Новый Год, Овсень малый
-+Пасха-47	Масленица
++Пасха-55	Масленица
 +Пасха+7	Красная Горка
 +Пасха+16	Радуница
 +20 мар*	Весенние равноденствие
@@ -4211,9 +4194,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pag
 -#endif /* !_ru_RU_KOI8_R_pagan_ */
 +#endif /* !_ru_RU_pagan_ */
  
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all bsdmainutils//usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all
 --- bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all	2011-06-06 16:16:44.000000000 +0200
 @@ -1,14 +1,14 @@
  /*
 - * ����������� ��������
@@ -4236,9 +4219,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all
  
 -#endif /* !_uk_UA_KOI8_U_all_ */
 +#endif /* !_uk_UA_all_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday bsdmainutils//usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday
 --- bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday	2011-06-06 16:04:40.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday	2011-06-06 16:16:44.000000000 +0200
 @@ -1,22 +1,22 @@
  /*
 - * ��������˦ ������Φ �����
@@ -4276,9 +4259,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.hol
  
 -#endif /* !_uk_UA_KOI8_U_holiday_ */
 +#endif /* !_uk_UA_holiday_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc bsdmainutils//usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc
 --- bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc	2011-06-06 16:04:39.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc	2011-06-06 16:16:44.000000000 +0200
 @@ -1,18 +1,18 @@
  /*
 - * ��ۦ æ��צ ����
@@ -4307,9 +4290,9 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.mis
  
 -#endif /* !_uk_UA_KOI8_U_misc_ */
 +#endif /* !_uk_UA_misc_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox bsdmainutils//usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox
 --- bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox	2011-06-06 16:04:39.000000000 +0200
-+++ bsdmainutils//usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox	2011-06-06 16:16:44.000000000 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox	2011-06-06 16:16:44.000000000 +0200
 @@ -1,35 +1,35 @@
  /*
 - * ���������Φ �����
@@ -4373,3 +4356,24 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.ort
  
 -#endif /* !_uk_UA_KOI8_U_orthodox_ */
 +#endif /* !_uk_UA_orthodox_ */
+diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.freebsd bsdmainutils/usr.bin/calendar/calendars/calendar.freebsd
+--- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.freebsd	2012-01-16 15:30:18.000000000 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.freebsd	2012-01-16 15:53:46.582005374 +0100
+@@ -7,6 +7,8 @@
+ #ifndef _calendar_freebsd_
+ #define _calendar_freebsd_
+ 
++LANG=UTF-8
++
+ 01/01	Dimitry Andric <dim@FreeBSD.org> born in Utrecht, the Netherlands, 1969
+ 01/01	Alexander Langer <alex@FreeBSD.org> born in Duesseldorf, Nordrhein-Westfalen, Germany, 1981
+ 01/02	Ion-Mihai "IOnut" Tetcu <itetcu@FreeBSD.org> born in Bucharest, Romania, 1980
+@@ -319,7 +321,7 @@
+ 11/28	Stanislav Sedov <stas@FreeBSD.org> born in Chelyabinsk, USSR, 1985
+ 12/01	Hajimu Umemoto <ume@FreeBSD.org> born in Nara, Japan, 1961
+ 12/01	Alexey Dokuchaev <danfe@FreeBSD.org> born in Magadan, USSR, 1980
+-12/02	Ermal Lu�i <eri@FreeBSD.org> born in Tirane, Albania, 1980
++12/02	Ermal Luçi <eri@FreeBSD.org> born in Tirane, Albania, 1980
+ 12/03	Diane Bruce <db@FreeBSD.org> born in Ottawa, Ontario, Canada, 1952
+ 12/05	Ivan Voras <ivoras@FreeBSD.org> born in Slavonski Brod, Croatia, 1981
+ 12/06	Stefan Farfeleder <stefanf@FreeBSD.org> born in Wien, Austria, 1980

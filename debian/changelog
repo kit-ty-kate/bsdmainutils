@@ -1,3 +1,20 @@
+bsdmainutils (9.0.1) unstable; urgency=low
+
+  * Synced with FreeBSD 9 and added the latest changes from OpenBSD calendar
+  * Enabled hardening buildflags.
+    Thanks to Moritz Muehlenhoff <jmm@debian.org> (Closes: #656011)
+  * Allow usage of conflicting options for ncal.
+    Thanks to Peter Selinger <selinger@mathstat.dal.ca>
+  * In column check for a multibyte error when reading a file. (Closes: #636618)
+  * Added option to not ignore empty lines in column. (Closes: #345684)
+  * Added recommended targets build-arch and build-indep to rules file.
+  * Also add python as build dependency to make lintian happy.
+  * Finally added the russian calendar updates from FreeBSD 9.0 that were still
+    missing.
+  * Allow usage of stdin as calendar file. (Closes: #640358)
+
+ -- Michael Meskes <meskes@debian.org>  Thu, 19 Jan 2012 10:11:52 +0100
+
 bsdmainutils (8.2.3) unstable; urgency=low
 
   * Document that ul changes some special characters. (Closes: #629134)

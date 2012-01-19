@@ -5,15 +5,14 @@ SHELL+= -e
 
 include /usr/share/quilt/quilt.make
 
-# support noopt; nostrip is handled dh_strip
-CFLAGS = -g
-ifeq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	CFLAGS += -O2
-endif
-export CFLAGS
-
 DEB_HOST_GNU_TYPE=$(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE=$(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+
+CFLAGS = `dpkg-buildflags --get CFLAGS`
+CFLAGS += `dpkg-buildflags --get CPPFLAGS`
+LDFLAGS = `dpkg-buildflags --get LDFLAGS`
+export CFLAGS
+export LDFLAGS
 
 ifneq ($(DEB_HOST_GNU_TYPE),$(DEB_BUILD_GNU_TYPE))
 	CROSS += "CC=$(DEB_HOST_GNU_TYPE)-gcc"
@@ -21,8 +20,10 @@ else
 	CROSS +=
 endif
 
-build: patch build-stamp
-build-stamp:
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
+build-stamp: patch
 	dh_testdir
 	$(MAKE) $(CROSS)
 	python $(CURDIR)/debian/calendarJudaic.py > $(CURDIR)/debian/calendars/calendar.judaic
