@@ -16,12 +16,12 @@ diff -ru bsdmainutils/usr.bin/calendar/calendar.c bsdmainutils/usr.bin/calendar/
 diff -ru bsdmainutils/usr.bin/calendar/io.c bsdmainutils/usr.bin/calendar/io.c
 --- bsdmainutils/usr.bin/calendar/io.c	2012-01-19 10:07:37.314810663 +0100
 +++ bsdmainutils/usr.bin/calendar/io.c	2012-01-19 10:03:54.682808794 +0100
-@@ -364,7 +364,7 @@
- 	struct stat st;
+@@ -365,7 +365,7 @@
  
  	/* open up calendar file as stdin */
--	if (stat(calendarFile, &st) == -1 || !S_ISREG(st.st_mode) ||
-+	if (stat(calendarFile, &st) == -1 || !(S_ISREG(st.st_mode)||S_ISCHR(st.st_mode)) ||
- 	       (fdin = open(calendarFile, O_RDONLY)) == -1) {
+ 	if ((fdin = open(calendarFile, O_RDONLY)) == -1 ||
+-	    fstat(fdin, &st) == -1 || !S_ISREG(st.st_mode)) {
++	    fstat(fdin, &st) == -1 || !(S_ISREG(st.st_mode)||S_ISCHR(st.st_mode))) {
  		if (!doall) {
  			char *home = getenv("HOME");
+ 			if (home == NULL || *home == '\0')

@@ -1,3 +1,17 @@
+bsdmainutils (9.0.2) unstable; urgency=low
+
+  * A new sentence should trigger a new line in the manpage source.
+  * Removed patch for fifo handling because upstream found a better way to
+    solve the problem.
+  * Moved cronjob configuration out of the cron file into a default file.
+    (Closes: #672445)
+  * Fixed typo in our patch that adds the introduction of Mac OS X.
+    (Closes: #673093)
+  * Mention that calendar -l is the same as calendar -A. (Closes: #658133)
+  * Bumped Standards-Version to 3.9.3, no changes needed.
+
+ -- Michael Meskes <meskes@debian.org>  Wed, 16 May 2012 17:12:52 +0200
+
 bsdmainutils (9.0.1) unstable; urgency=low
 
   * Synced with FreeBSD 9 and added the latest changes from OpenBSD calendar

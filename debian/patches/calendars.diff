@@ -184,7 +184,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.computer bsdmain
 +Oct 20	MIT hacked the Harvard-Yale football game, 1982
 +
 +Jan 24	Introduction of the first Mac, 1984
-+Mar 24	Introduction od Mac OS X, 2001
++Mar 24	Introduction of Mac OS X, 2001
 +
  #endif /* !_calendar_computer_ */
 diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.croatian bsdmainutils/usr.bin/calendar/calendars/calendar.croatian

@@ -1,7 +1,6 @@
 calendar.diff
 calendar_wcs.diff
 calendar_weekend.diff
-calendar_fifo.diff
 calendar_stdio.diff
 calendars.diff
 libcalendar.diff
