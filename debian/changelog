@@ -1,3 +1,10 @@
+bsdmainutils (9.0.3) unstable; urgency=high
+
+  * Adjustment for weeks starting on Sunday was made at a wrong place. Fixing
+    this should give correct week numbers again. (Closes: #676426)
+
+ -- Michael Meskes <meskes@debian.org>  Mon, 11 Jun 2012 12:25:40 +0200
+
 bsdmainutils (9.0.2) unstable; urgency=low
 
   * A new sentence should trigger a new line in the manpage source.
