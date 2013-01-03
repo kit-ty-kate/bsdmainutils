@@ -1,3 +1,11 @@
+bsdmainutils (9.0.4) unstable; urgency=low
+
+  * Added Debian Squeeze release date. (Closes: #695911)
+  * Added calendar for the United Kingdom of Great Britain and Northern Ireland.
+    Thanks to Peter Tynan <happy@sdf.lonestar.org> (Closes: #695525)
+
+ -- Michael Meskes <meskes@debian.org>  Thu, 03 Jan 2013 13:18:00 +0100
+
 bsdmainutils (9.0.3) unstable; urgency=high
 
   * Adjustment for weeks starting on Sunday was made at a wrong place. Fixing

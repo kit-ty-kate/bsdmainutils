@@ -28,6 +28,7 @@
 #include <calendar.southafrica>
 #include <calendar.thai>
 #include <calendar.ukrainian>
+#include <calendar.unitedkingdom>
 #include <calendar.usholiday>
 
 #endif /* !_calendar_all_ */
