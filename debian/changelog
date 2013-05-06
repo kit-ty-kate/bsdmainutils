@@ -1,3 +1,20 @@
+bsdmainutils (9.0.5) unstable; urgency=low
+
+  * Mark package Multi-Arch: foreign.
+    Thanks to Colin Watson <cjwatson@ubuntu.com> (Closes: #697673)
+  * Add latest Ubuntu releases to calendar.
+    Thanks to Colin Watson <cjwatson@ubuntu.com> (Closes: #697674)
+  * Fixed small typo. (Closes: #704799)
+  * Updated calendar.debian.
+    Thanks to Andrew Bennett <drewbenn@gmail.com> (Closes: #704491)
+  * Fixed small typo in hexdump. (Closes: #700122)
+  * Fix manpage emtry for Julian dates to correctly refer to Orthodox Easter.
+    (Closes: #704804)
+  * Added Wheezy release date to Debian calendar.
+  * Made calendar.all list all calendars that are distributed.
+
+ -- Michael Meskes <meskes@debian.org>  Mon, 06 May 2013 16:21:55 +0200
+
 bsdmainutils (9.0.4) unstable; urgency=low
 
   * Added Debian Squeeze release date. (Closes: #695911)

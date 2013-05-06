@@ -10,6 +10,7 @@ Vcs-Browser: http://git.debian.org/?p=bsdmainutils/bsdmainutils.git
 
 Package: bsdmainutils
 Architecture: any
+Multi-Arch: foreign
 Depends: ${shlibs:Depends}, ${misc:Depends}, bsdutils (>= 3.0-0), debianutils (>= 1.8)
 Breaks: bsdutils (<< 1:2.13-11)
 Suggests: cpp, wamerican | wordlist, whois, vacation

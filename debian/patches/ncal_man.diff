@@ -1,8 +1,19 @@
-Description: Explain cal in manpage.
+Description: Explain cal in manpage and fix entry for Julian dates
 Author: Michael Meskes <meskes@debian.org>
 
---- bsdmainutils/usr.bin/ncal/ncal.1	2009-11-01 17:26:26.000000000 +0100
-+++ bsdmainutils/usr.bin/ncal/ncal.1	2009-11-01 17:28:33.000000000 +0100
+--- bsdmainutils/usr.bin/ncal/ncal.1	2013-05-06 15:57:18.859176730 +0200
++++ bsdmainutils/usr.bin/ncal/ncal.1	2013-05-06 15:58:02.487177096 +0200
+@@ -81,8 +81,8 @@
+ Turns off highlighting of today.
+ .It Fl J
+ Display Julian Calendar, if combined with the
+-.Fl e
+-option, display date of Easter according to the Julian Calendar.
++.Fl o
++option, display date of Orthodox Easter according to the Julian Calendar.
+ .It Fl e
+ Display date of Easter (for western churches).
+ .It Fl j
 @@ -183,6 +183,15 @@
  .Nm ncal
  command appeared in
@@ -15,7 +26,7 @@ Author: Michael Meskes <meskes@debian.org>
 +that should not be broken. Therefore it will always output 8 lines, even if
 +only 7 contain data. This extra blank line also appears with the original
 +.Nm cal
-+command, at least on solaris 8
++command, at least on Solaris 8
  .Sh AUTHORS
  The
  .Nm ncal

@@ -27,6 +27,7 @@ hexdump_segfault.diff
 hexdump_man.diff
 hexdump_seek.diff
 hexdump_increment.diff
+hexdump_dc1.diff
 hd.diff
 from.diff
 ul_buffer.diff
