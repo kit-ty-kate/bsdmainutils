@@ -19,6 +19,8 @@ column_empty.diff
 column_nomerge.diff
 column_error.diff
 column_empty_lines.diff
+column_maxline.diff
+column_tab.diff
 colcrt.diff
 banner.diff
 banner_manpage.diff

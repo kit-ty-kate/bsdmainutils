@@ -23,16 +23,23 @@ endif
 build: build-arch build-indep
 build-arch: build-stamp
 build-indep: build-stamp
-build-stamp: patch
+build-stamp: debian/stamp-patched
 	dh_testdir
 	$(MAKE) $(CROSS)
-	python $(CURDIR)/debian/calendarJudaic.py > $(CURDIR)/debian/calendars/calendar.judaic
+	currentyear=$(shell date +%Y); \
+	year=`expr $$currentyear + 5`; \
+	while [ $${year} -ne $${currentyear} ] ; do \
+	    year=`expr $$year - 1`; \
+	    python $(CURDIR)/debian/calendarJudaic.py $$year > $(CURDIR)/debian/calendars/calendar.judaic.$$year; \
+	done; \
+	cd $(CURDIR)/debian/calendars; \
+	[ -L calendar.judaic ] || ln -s calendar.judaic.$$year calendar.judaic;
 	touch build-stamp
 
 clean: unpatch
 	dh_testdir
 	$(MAKE) clean
-	-rm -f $(CURDIR)/debian/calendars/calendar.judaic
+	-rm -f $(CURDIR)/debian/calendars/calendar.judaic*
 	-rm -f build-stamp
 	dh_clean
 

@@ -1,3 +1,22 @@
+bsdmainutils (9.0.6) unstable; urgency=medium
+
+  * Add Ubuntu 13.04 release date to calendar.ubuntu.
+  * Update Dutch calendar for royal succession.
+    Thanks to Sander Steffann <sander@steffann.nl> (Closes: #750216)
+  * Updated control file.
+  * Completely convert kyrillic calendars.
+    Thanks to Sergey Romanov <schragge@gmail.com>
+  * Explain option 'p' and 'f' better in manpage (Closes: #759675)
+  * Fix calendar.judaic format.
+    Thanks to Robbin Edgren <robbin@edgren.pp.se> (Closes: #763312)
+  * Calculate Jewish calendars for five years. (Closes: #741386)
+  * Symlink Judaic calendar for the current year.
+  * Increase maximal line length to 1MB (Closes: #737348)
+  * Process tabs in column binary (Closes: #729038)
+  * Prevent buffer overrins in col (Closes: #737159)
+
+ -- Michael Meskes <meskes@debian.org>  Fri, 15 Aug 2014 11:46:48 +0200
+
 bsdmainutils (9.0.5) unstable; urgency=low
 
   * Mark package Multi-Arch: foreign.

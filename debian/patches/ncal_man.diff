@@ -1,8 +1,8 @@
-Description: Explain cal in manpage and fix entry for Julian dates
+Description: Explain cal and make manpage better understandable
 Author: Michael Meskes <meskes@debian.org>
 
---- bsdmainutils/usr.bin/ncal/ncal.1	2013-05-06 15:57:18.859176730 +0200
-+++ bsdmainutils/usr.bin/ncal/ncal.1	2013-05-06 15:58:02.487177096 +0200
+--- bsdmainutils/usr.bin/ncal/ncal.1	2014-10-17 11:11:47.179009560 +0200
++++ bsdmainutils/usr.bin/ncal/ncal.1	2014-10-17 11:12:51.850729403 +0200
 @@ -81,8 +81,8 @@
  Turns off highlighting of today.
  .It Fl J
@@ -14,7 +14,22 @@ Author: Michael Meskes <meskes@debian.org>
  .It Fl e
  Display date of Easter (for western churches).
  .It Fl j
-@@ -183,6 +183,15 @@
+@@ -92,12 +92,11 @@
+ .Ar month .
+ If
+ .Ar month
+-is specified as a decimal number, it may be followed by the letter
++is specified as a decimal number, appending
+ .Ql f
+ or
+ .Ql p
+-to indicate the following or preceding month of that number,
+-respectively.
++displays the same month of the following or previous year respectively.
+ .It Fl o
+ Display date of Orthodox Easter (Greek and Russian
+ Orthodox Churches).
+@@ -183,6 +182,15 @@
  .Nm ncal
  command appeared in
  .Fx 2.2.6 .
