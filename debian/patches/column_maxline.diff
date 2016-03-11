@@ -1,14 +1,35 @@
-Description: Increase maximal line length to 1MB
+Description: Increase maximal line length to 1MB and dynamically allocate it.
 Author: Michael Meskes <meskes@debian.org>
 
---- bsdmainutils/usr.bin/column/column.c	2014-10-17 13:51:15.898151112 +0200
-+++ bsdmainutils/usr.bin/column/column.c	2014-10-17 13:50:11.058265535 +0200
-@@ -316,7 +316,7 @@
+--- bsdmainutils/usr.bin/column.orig/column.c	2016-03-10 20:44:38.032862343 +0100
++++ bsdmainutils/usr.bin/column/column.c	2016-03-10 20:50:55.941382781 +0100
+@@ -316,14 +316,18 @@
  }
  
  #define	DEFNUM		1000
 -#define	MAXLINELEN	(LINE_MAX + 1)
-+#define	MAXLINELEN	(LINE_MAX * 512 + 1)
++#define	MAXLINELEN	(LINE_MAX * 512  + 1)
  
  void
  input(FILE *fp)
+ {
+ 	static int maxentry;
+ 	int len;
+-	wchar_t *p, buf[MAXLINELEN];
++	wchar_t *p, *buf;
++
++	buf = malloc(MAXLINELEN);
++	if (!buf)
++		err(1, (char *)NULL);
+ 
+ 	if (!list)
+ 		if ((list = calloc((maxentry = DEFNUM), sizeof(*list))) ==
+@@ -358,6 +362,8 @@
+ 
+ 	if (errno == EILSEQ)
+ 		perror("column");
++
++	free(buf);
+ }
+ 
+ /* Like wcswidth(), but ignores non-printing characters. */

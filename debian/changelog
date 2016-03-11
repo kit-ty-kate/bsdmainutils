@@ -1,3 +1,20 @@
+bsdmainutils (9.0.7) unstable; urgency=medium
+
+  * Updated calendar and lorder from OpenBSD.
+  * Bumped Standards-Version to 3.9.7, no changes needed.
+  * (Printer)Banner will probably always be ascii only, so let's document it.
+    (Closes: #570036)
+  * Removed entries with unparsable dates from UK calendar. (Closes: #806846)
+  * Ignore escape sequences when calculating length of entry. (Closes: #627481)
+  * Combine patches that handle first day of week.
+  * Dynamically allocate buffer to reduce stack size. (Closes: #784734)
+  * Cleanup usage of conflicting options. (Closes: #688078, #783470)
+  * Updated to delbhelper 9.
+  * Document fall back on system-wide default. (Closes: #739915)
+  * Use changelog date instead of current date when building jewish calendars.
+
+ -- Michael Meskes <meskes@debian.org>  Fri, 11 Mar 2016 13:01:23 +0100
+
 bsdmainutils (9.0.6) unstable; urgency=medium
 
   * Add Ubuntu 13.04 release date to calendar.ubuntu.
