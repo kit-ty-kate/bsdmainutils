@@ -107,7 +107,7 @@ diff -ru bsdmainutils/usr.bin/ncal.orig/ncal.c bsdmainutils/usr.bin/ncal/ncal.c
  
 +	/* Technically not correct, but removes the need to add 1 later on */
 +	if (flag_backward) 
-+		weekstart++;
++		weekstart = (weekstart == -1) ? 1 : weekstart + 1;
 +	/* Determine on what day the week starts. */
 +#ifdef __GLIBC__
 +	else if (weekstart == -1)

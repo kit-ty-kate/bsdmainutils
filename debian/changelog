@@ -1,3 +1,11 @@
+bsdmainutils (9.0.8) unstable; urgency=medium
+
+  * Fix first day of week calculation for cal. (Closes: #817916)
+  * Fix escape bug in hexdump.
+    Thanks to Rémi Rampin <remirampin@gmail.com> (Closes: #776096)
+
+ -- Michael Meskes <meskes@debian.org>  Sat, 12 Mar 2016 12:27:26 +0100
+
 bsdmainutils (9.0.7) unstable; urgency=medium
 
   * Updated calendar and lorder from OpenBSD.
