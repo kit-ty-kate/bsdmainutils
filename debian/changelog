@@ -1,3 +1,14 @@
+bsdmainutils (9.0.9) unstable; urgency=medium
+
+  * Do not document an option that does not exist anymore.
+  * Fix date order in judaic calendar.
+    Thanks to Sergey Romanov <schragge@gmail.com>
+  * Let libc handle correct date output for different locales.
+    Thanks to Sergey Romanov <shruggy@yandex.ru> (Closes: #252166)
+  * Correctly document maximal line length. (Closes: #441048)
+
+ -- Michael Meskes <meskes@debian.org>  Sat, 19 Mar 2016 21:19:31 +0100
+
 bsdmainutils (9.0.8) unstable; urgency=medium
 
   * Fix first day of week calculation for cal. (Closes: #817916)
