@@ -1,3 +1,10 @@
+bsdmainutils (9.0.10) unstable; urgency=medium
+
+  * Re-added a few changes that got lost during last update. (Closes: #819067)
+  * Removed check for uid. (Closes: #743215)
+
+ -- Michael Meskes <meskes@debian.org>  Tue, 29 Mar 2016 19:39:31 +0200
+
 bsdmainutils (9.0.9) unstable; urgency=medium
 
   * Do not document an option that does not exist anymore.

@@ -1,9 +1,9 @@
 Description: Make calendar UTF-8 aware.
 Author: Michael Meskes <meskes@debian.org>
 
-diff -ru bsdmainutils/usr.bin/calendar.orig/calendar.h bsdmainutils/usr.bin/calendar/calendar.h
---- bsdmainutils/usr.bin/calendar.orig/calendar.h	2016-03-08 13:16:49.923692646 +0100
-+++ bsdmainutils/usr.bin/calendar/calendar.h	2016-03-08 13:18:55.604768739 +0100
+diff -ruN bsdmainutils/usr.bin/calendar/calendar.h bsdmainutils/usr.bin/calendar/calendar.h
+--- bsdmainutils/usr.bin/calendar/calendar.h	2016-03-29 19:23:58.239050027 +0200
++++ bsdmainutils/usr.bin/calendar/calendar.h	2016-03-29 19:25:50.617838707 +0200
 @@ -30,6 +30,7 @@
   */
  
@@ -72,24 +72,28 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/calendar.h bsdmainutils/usr.bin/cale
  FILE	*opencal(void);
  void	 settime(time_t *);
  time_t	 Mktime(char *);
-@@ -108,11 +109,11 @@
+@@ -108,12 +109,12 @@
  
  /* Special events; see also setnnames() in day.c */
  /* '=' is not a valid character in a special event name */
 -#define PESACH "pesach"
-+#define PESACH L"pesach"
- #define PESACHLEN (sizeof(PESACH) - 1)
+-#define PESACHLEN (sizeof(PESACH) - 1)
 -#define EASTER "easter"
-+#define EASTER L"easter"
- #define EASTERNAMELEN (sizeof(EASTER) - 1)
+-#define EASTERNAMELEN (sizeof(EASTER) - 1)
 -#define PASKHA "paskha"
+-#define PASKHALEN (sizeof(PASKHA) - 1)
++#define PESACH L"pesach"
++#define PESACHLEN ((sizeof(PESACH) / sizeof(wchar_t)) - 1)
++#define EASTER L"easter"
++#define EASTERNAMELEN ((sizeof(EASTER) / sizeof(wchar_t)) - 1)
 +#define PASKHA L"paskha"
- #define PASKHALEN (sizeof(PASKHA) - 1)
++#define PASKHALEN ((sizeof(PASKHA) / sizeof(wchar_t)) - 1)
  
  /* calendars */
-diff -ru bsdmainutils/usr.bin/calendar.orig/day.c bsdmainutils/usr.bin/calendar/day.c
---- bsdmainutils/usr.bin/calendar.orig/day.c	2016-03-08 13:16:49.923692646 +0100
-+++ bsdmainutils/usr.bin/calendar/day.c	2016-03-08 13:22:11.018379886 +0100
+ extern enum calendars { GREGORIAN = 0, JULIAN, LUNAR } calendar;
+diff -ruN bsdmainutils/usr.bin/calendar/day.c bsdmainutils/usr.bin/calendar/day.c
+--- bsdmainutils/usr.bin/calendar/day.c	2016-03-29 19:23:58.239050027 +0200
++++ bsdmainutils/usr.bin/calendar/day.c	2016-03-29 19:24:12.055793324 +0200
 @@ -62,13 +62,13 @@
  	{ 0, -1, 30, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365 },
  };
@@ -324,9 +328,9 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/day.c bsdmainutils/usr.bin/calendar/
  	    return(+4);
  
  	/* no offset detected */
-diff -ru bsdmainutils/usr.bin/calendar.orig/io.c bsdmainutils/usr.bin/calendar/io.c
---- bsdmainutils/usr.bin/calendar.orig/io.c	2016-03-08 13:16:49.923692646 +0100
-+++ bsdmainutils/usr.bin/calendar/io.c	2016-03-08 13:26:20.644361757 +0100
+diff -ruN bsdmainutils/usr.bin/calendar/io.c bsdmainutils/usr.bin/calendar/io.c
+--- bsdmainutils/usr.bin/calendar/io.c	2016-03-29 19:23:58.239050027 +0200
++++ bsdmainutils/usr.bin/calendar/io.c	2016-03-29 19:25:00.338662564 +0200
 @@ -46,6 +46,8 @@
  #include <string.h>
  #include <unistd.h>
@@ -336,7 +340,7 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/io.c bsdmainutils/usr.bin/calendar/i
  
  #include "pathnames.h"
  #include "calendar.h"
-@@ -62,13 +64,36 @@
+@@ -62,13 +64,37 @@
  	{ "Auto-Submitted: auto-generated\n\n", 32 },
  };
  
@@ -360,7 +364,8 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/io.c bsdmainutils/usr.bin/calendar/i
 +	if (obl >= sizeof(wchar_t))
 +		*((wchar_t *) op) = L'\0';
 +	else
-+		return r;
++		*(((wchar_t *) op) - 1) = L'\0';
++	return r;
 +}
  
  void
@@ -375,7 +380,7 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/io.c bsdmainutils/usr.bin/calendar/i
  	struct match *m;
  	FILE *fp;
  
-@@ -76,26 +101,45 @@
+@@ -76,26 +102,45 @@
  	cur_evt = NULL;
  	if ((fp = opencal()) == NULL)
  		return;
@@ -435,7 +440,7 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/io.c bsdmainutils/usr.bin/calendar/i
  				bodun_maybe++;
  				bodun = 0;
  				free(prefix);
-@@ -103,58 +147,58 @@
+@@ -103,58 +148,58 @@
  			} else
  				bodun_maybe = 0;
  			continue;
@@ -511,7 +516,7 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/io.c bsdmainutils/usr.bin/calendar/i
  				var = 1;
  			else
  				var = 0;
-@@ -168,20 +212,22 @@
+@@ -168,20 +213,22 @@
  						err(1, NULL);
  
  					cur_evt->when = m->when;
@@ -541,7 +546,7 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/io.c bsdmainutils/usr.bin/calendar/i
  							err(1, NULL);
  						cur_evt->desc = &(cur_evt->ldesc);
  						ev1 = cur_evt;
-@@ -193,16 +239,20 @@
+@@ -193,16 +240,20 @@
  				}
  			}
  		} else if (printing) {
@@ -566,7 +571,7 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/io.c bsdmainutils/usr.bin/calendar/i
  		tmp = tmp->next;
  	}
  	tmp = events;
-@@ -216,33 +266,33 @@
+@@ -216,33 +267,33 @@
  }
  
  int
@@ -612,7 +617,7 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/io.c bsdmainutils/usr.bin/calendar/i
  			;
  
  	savech = *p;
-@@ -269,12 +319,12 @@
+@@ -269,12 +320,12 @@
  	/* Try specials (Easter, Paskha, ...) */
  	else {
  		for (i = 0; i < NUMEV; i++) {
@@ -627,7 +632,7 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/io.c bsdmainutils/usr.bin/calendar/i
  				start += spev[i].ulen;
  				val = i + 1;
  				i = NUMEV + 1;
-@@ -284,10 +334,10 @@
+@@ -284,10 +335,10 @@
  			const char *errstr;
  
  			switch (*start) {
@@ -642,20 +647,20 @@ diff -ru bsdmainutils/usr.bin/calendar.orig/io.c bsdmainutils/usr.bin/calendar/i
  					return (0); /* Someone is just being silly */
  				if (*start == '-')
  					var = -var;
-@@ -306,8 +356,8 @@
+@@ -306,8 +357,8 @@
  			return (0);
  		}
  	}
 -	for (*p = savech; !isdigit((unsigned char)*p) &&
 -	    !isalpha((unsigned char)*p) && *p != '*' && *p != '\t'; ++p)
 +	for (*p = savech; !iswdigit(*p) &&
-+	    !iswalpha(*p) && *p != '*' && *p != '\t'; ++p)
++	    !iswalpha(*p) && *p != L'*' && *p != L'\t'; ++p)
  		;
  	*endp = p;
  	return (val);
-diff -ru bsdmainutils/usr.bin/calendar.orig/pathnames.h bsdmainutils/usr.bin/calendar/pathnames.h
---- bsdmainutils/usr.bin/calendar.orig/pathnames.h	2016-03-08 13:16:49.923692646 +0100
-+++ bsdmainutils/usr.bin/calendar/pathnames.h	2016-03-08 13:26:52.592610918 +0100
+diff -ruN bsdmainutils/usr.bin/calendar/pathnames.h bsdmainutils/usr.bin/calendar/pathnames.h
+--- bsdmainutils/usr.bin/calendar/pathnames.h	2016-03-29 19:23:58.239050027 +0200
++++ bsdmainutils/usr.bin/calendar/pathnames.h	2016-03-29 19:24:12.055793324 +0200
 @@ -33,7 +33,7 @@
  
  #include <paths.h>
