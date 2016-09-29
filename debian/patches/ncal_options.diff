@@ -1,126 +1,8 @@
 Description: Cleanup usage of conflicting options.
 Author: <selinger@mathstat.dal.ca>, Michael Meskes <meskes@łdebian.org>
 
---- bsdmainutils/usr.bin/ncal.orig/ncal.1	2016-03-15 19:35:59.930919691 +0100
-+++ bsdmainutils/usr.bin/ncal/ncal.1	2016-03-15 19:36:37.679484945 +0100
-@@ -33,37 +33,38 @@
- .Nd displays a calendar and the date of Easter
- .Sh SYNOPSIS
- .Nm
--.Op Fl 3hjy
-+.Op Fl 31jy
- .Op Fl A Ar number
- .Op Fl B Ar number
-+.Op Fl d Ar yyyy-mm
- .Oo
- .Op Ar month
- .Ar year
- .Oc
- .Nm
--.Op Fl 3hj
-+.Op Fl 31j
- .Op Fl A Ar number
- .Op Fl B Ar number
-+.Op Fl d Ar yyyy-mm
- .Fl m Ar month
- .Op Ar year
- .Nm ncal
--.Op Fl 3bhjJpwySM
-+.Op Fl C31bhjJpwySM
- .Op Fl A Ar number
- .Op Fl B Ar number
-+.Op Fl H Ar yyyy-mm-dd
-+.Op Fl d Ar yyyy-mm
- .Op Fl s Ar country_code
- .Oo
- .Op Ar month
- .Ar year
- .Oc
- .Nm ncal
--.Op Fl 3bhJeoSM
-+.Op Fl C31bhJeoSM
- .Op Fl A Ar number
- .Op Fl B Ar number
--.Op Ar year
--.Nm ncal
--.Op Fl CN
--.Op Fl H Ar yyyy-mm-dd
- .Op Fl d Ar yyyy-mm
-+.Op Ar year
- .Sh DESCRIPTION
- The
- .Nm
-@@ -119,25 +120,37 @@
- .It Fl w
- Print the number of the week below each week column.
- .It Fl y
--Display a calendar for the specified year.
-+Display a calendar for the specified year. This option is implied when
-+a year but no month are specified on the command line.
- .It Fl 3
- Display the previous, current and next month surrounding today.
-+.It Fl 1
-+Display only the current month. This is the default. 
- .It Fl A Ar number
--Display the
--.Ar number
--of months after the current month.
-+Months to add after. The specified number of months is added to the
-+end of the display. This is in addition to any date range selected by the
-+.Fl y ,
-+.Fl 3 ,
-+or
-+.Fl 1
-+options. For example,
-+.Dq Li cal -y -B2 -A2
-+shows everything from November of the previous year to
-+February of the following year. Negative numbers are allowed, in which
-+case the specified number of months is subtracted. For example, 
-+.Dq Li cal -y -B-6 
-+shows July to December. And 
-+.Dq Li cal -A11
-+simply shows the next 12 months.
- .It Fl B Ar number
--Display the
--.Ar number
--of months before the current month.
-+Months to add before. The specified number of months is added to the 
-+beginning of the display. See
-+.Fl A
-+for examples.
- .It Fl C
- Switch to
- .Nm cal
- mode.
--.It Fl N
--Switch to
--.Nm ncal
--mode.
- .It Fl d Ar yyyy-mm
- Use
- .Ar yyyy-mm
-@@ -167,13 +180,12 @@
- will display a calendar for the month of August in the current
- year).
- .Pp
--Not all options can be used together. For example
--.Dq Li -3 -A 2 -B 3 -y -m 7
--would mean:
--show me the three months around the seventh month, three before
--that, two after that and the whole year.
--.Nm ncal
--will warn about these combinations.
-+Not all options can be used together. For example, the options 
-+.Fl y , 3 , 
-+and 
-+.Fl 1 
-+are mutually exclusive. If inconsistent options are given, the later
-+ones take precedence over the earlier ones.
- .Pp
- A year starts on January 1.
- .Sh SEE ALSO
---- bsdmainutils/usr.bin/ncal.orig/ncal.c	2016-03-15 19:35:59.930919691 +0100
-+++ bsdmainutils/usr.bin/ncal/ncal.c	2016-03-15 19:36:07.479046041 +0100
+--- bsdmainutils/usr.bin/ncal.orig/ncal.c	2016-09-29 13:39:21.077012024 +0200
++++ bsdmainutils/usr.bin/ncal/ncal.c	2016-09-29 13:41:35.581332960 +0200
 @@ -197,17 +197,18 @@
  	int	y = 0;			/* year */
  	int     flag_backward = 0;	/* user called cal--backward compat. */
@@ -430,7 +312,7 @@ Author: <selinger@mathstat.dal.ca>, Michael Meskes <meskes@łdebian.org>
  
  	/* Highlight a specified day or today .*/
  	if (flag_highlightdate != NULL) {
-@@ -548,12 +577,11 @@
+@@ -548,12 +577,13 @@
  {
  
  	fputs(
@@ -439,15 +321,17 @@ Author: <selinger@mathstat.dal.ca>, Michael Meskes <meskes@łdebian.org>
 -"       ncal [general options] [-bhJjpwySM] [-s country_code] [[month] year]\n"
 +"Usage: cal [general options] [-jy] [[month] year]\n"
 +"       cal [general options] [-j] [-m month] [year]\n"
++"       ncal -C [general options] [-jy] [[month] year]\n"
++"       ncal -C [general options] [-j] [-m month] [year]\n"
 +"       ncal [general options] [-bhJjpwySM] [-H yyyy-mm-dd] [-s country_code] [[month] year]\n"
  "       ncal [general options] [-bhJeoSM] [year]\n"
 -"General options: [-NC3] [-A months] [-B months]\n"
 -"For debug the highlighting: [-H yyyy-mm-dd] [-d yyyy-mm]\n",
-+"General options: [-C31] [-A months] [-B months] [-d yyyy-mm]\n",
++"General options: [-31] [-A months] [-B months] [-d yyyy-mm]\n",
  	    stderr);
  	exit(EX_USAGE);
  }
-@@ -654,11 +682,16 @@
+@@ -654,11 +684,16 @@
  	mw = jd_flag ? MONTH_WIDTH_B_J : MONTH_WIDTH_B;
  	wdss = (mpl == 2) ? " " : "";
  
@@ -465,7 +349,7 @@ Author: <selinger@mathstat.dal.ca>, Michael Meskes <meskes@łdebian.org>
  	m1 = y * 12 + m - 1;
  	m2 = m1 + after;
  
-@@ -741,11 +774,16 @@
+@@ -741,11 +776,16 @@
  	mpl = jd_flag ? 3 : 4;
  	mw = jd_flag ? MONTH_WIDTH_R_J : MONTH_WIDTH_R;
  
@@ -483,3 +367,139 @@ Author: <selinger@mathstat.dal.ca>, Michael Meskes <meskes@łdebian.org>
  	m1 = y * 12 + m - 1;
  	m2 = m1 + after;
  
+--- bsdmainutils/usr.bin/ncal.orig/ncal.1	2016-09-29 13:39:21.077012024 +0200
++++ bsdmainutils/usr.bin/ncal/ncal.1	2016-09-29 13:46:34.858054197 +0200
+@@ -33,37 +33,56 @@
+ .Nd displays a calendar and the date of Easter
+ .Sh SYNOPSIS
+ .Nm
+-.Op Fl 3hjy
++.Op Fl 31jy
+ .Op Fl A Ar number
+ .Op Fl B Ar number
++.Op Fl d Ar yyyy-mm
+ .Oo
+ .Op Ar month
+ .Ar year
+ .Oc
+ .Nm
+-.Op Fl 3hj
++.Op Fl 31j
+ .Op Fl A Ar number
+ .Op Fl B Ar number
++.Op Fl d Ar yyyy-mm
+ .Fl m Ar month
+ .Op Ar year
+ .Nm ncal
+-.Op Fl 3bhjJpwySM
++.Op Fl C
++.Op Fl 31jy
+ .Op Fl A Ar number
+ .Op Fl B Ar number
+-.Op Fl s Ar country_code
++.Op Fl d Ar yyyy-mm
+ .Oo
+ .Op Ar month
+ .Ar year
+ .Oc
+ .Nm ncal
+-.Op Fl 3bhJeoSM
++.Op Fl C
++.Op Fl 31j
+ .Op Fl A Ar number
+ .Op Fl B Ar number
++.Op Fl d Ar yyyy-mm
++.Fl m Ar month
+ .Op Ar year
+ .Nm ncal
+-.Op Fl CN
++.Op Fl 31bhjJpwySM
++.Op Fl A Ar number
++.Op Fl B Ar number
+ .Op Fl H Ar yyyy-mm-dd
+ .Op Fl d Ar yyyy-mm
++.Op Fl s Ar country_code
++.Oo
++.Op Ar month
++.Ar year
++.Oc
++.Nm ncal
++.Op Fl 31bhJeoSM
++.Op Fl A Ar number
++.Op Fl B Ar number
++.Op Fl d Ar yyyy-mm
++.Op Ar year
+ .Sh DESCRIPTION
+ The
+ .Nm
+@@ -119,21 +138,41 @@
+ .It Fl w
+ Print the number of the week below each week column.
+ .It Fl y
+-Display a calendar for the specified year.
++Display a calendar for the specified year. This option is implied when
++a year but no month are specified on the command line.
+ .It Fl 3
+ Display the previous, current and next month surrounding today.
++.It Fl 1
++Display only the current month. This is the default. 
+ .It Fl A Ar number
+-Display the
+-.Ar number
+-of months after the current month.
++Months to add after. The specified number of months is added to the
++end of the display. This is in addition to any date range selected by the
++.Fl y ,
++.Fl 3 ,
++or
++.Fl 1
++options. For example,
++.Dq Li cal -y -B2 -A2
++shows everything from November of the previous year to
++February of the following year. Negative numbers are allowed, in which
++case the specified number of months is subtracted. For example, 
++.Dq Li cal -y -B-6 
++shows July to December. And 
++.Dq Li cal -A11
++simply shows the next 12 months.
+ .It Fl B Ar number
+-Display the
+-.Ar number
+-of months before the current month.
++Months to add before. The specified number of months is added to the 
++beginning of the display. See
++.Fl A
++for examples.
+ .It Fl C
+-Switch to
++Completely switch to
+ .Nm cal
+-mode.
++mode. For
++.Nm cal
++like output only, use
++.Fl b
++instead.
+ .It Fl N
+ Switch to
+ .Nm ncal
+@@ -167,13 +206,12 @@
+ will display a calendar for the month of August in the current
+ year).
+ .Pp
+-Not all options can be used together. For example
+-.Dq Li -3 -A 2 -B 3 -y -m 7
+-would mean:
+-show me the three months around the seventh month, three before
+-that, two after that and the whole year.
+-.Nm ncal
+-will warn about these combinations.
++Not all options can be used together. For example, the options 
++.Fl y , 3 , 
++and 
++.Fl 1 
++are mutually exclusive. If inconsistent options are given, the later
++ones take precedence over the earlier ones.
+ .Pp
+ A year starts on January 1.
+ .Sh SEE ALSO

@@ -1,3 +1,15 @@
+bsdmainutils (9.0.11) unstable; urgency=medium
+
+  * Updated ubuntu calendar.
+    Thanks to Dimitri John Ledkov <xnox@ubuntu.com> (Closes: #834128)
+  * Wide characters need more space than normal ones, so allocate more.
+    (Closes: #839113)
+  * Updated lorder to latest SVN snapshot from FreeBSD. (Closes: #830259)
+  * More clarifications about options. (Closes: #826370)
+  * Bumped Standards-Version to 3.9.8, no changes needed.
+
+ -- Michael Meskes <meskes@debian.org>  Thu, 29 Sep 2016 14:08:33 +0200
+
 bsdmainutils (9.0.10) unstable; urgency=medium
 
   * Re-added a few changes that got lost during last update. (Closes: #819067)
