@@ -1,3 +1,9 @@
+bsdmainutils (9.0.12) unstable; urgency=medium
+
+  * Made hexdump work with length arguments greater than 2^31. (Closes: #841454)
+
+ -- Michael Meskes <meskes@debian.org>  Tue, 25 Oct 2016 11:05:53 +0200
+
 bsdmainutils (9.0.11) unstable; urgency=medium
 
   * Updated ubuntu calendar.

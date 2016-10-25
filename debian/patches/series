@@ -33,6 +33,7 @@ hexdump_seek.diff
 hexdump_increment.diff
 hexdump_dc1.diff
 hexdump_escape.diff
+hexdump_length.diff
 hd.diff
 from.diff
 ul_buffer.diff
