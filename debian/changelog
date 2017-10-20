@@ -1,3 +1,15 @@
+bsdmainutils (9.0.13) unstable; urgency=medium
+
+  * Make sure the correct architecture python is included in cross builds.
+    Thanks to Helmut Grohne <helmut@subdivi.de> (Closes: #792867)
+  * Allow unicode characters in write messages.
+    Thanks to Nikolas Nyby <nikolas@gnu.org> (Closes: #876557)
+  * Added patch to ncal to show week number information even in backward mode.
+    Thanks to Paul Seyfert <paul.seyfert@mib.infn.it> (Closes: #850034)
+  * Bumped Standards-Version to 4.1.1, no changes needed.
+
+ -- Michael Meskes <meskes@debian.org>  Fri, 20 Oct 2017 15:11:05 +0200
+
 bsdmainutils (9.0.12) unstable; urgency=medium
 
   * Made hexdump work with length arguments greater than 2^31. (Closes: #841454)
