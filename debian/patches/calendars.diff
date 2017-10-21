@@ -350,8 +350,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.history bsdmainu
  11/12	USA first exports oil to Europe, 1861
  11/14	Quarter Pounder price raised from $0.53 to $0.55 in violation of Nixon
 diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainutils/usr.bin/calendar/calendars/calendar.holiday
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.holiday	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday	2016-10-25 16:05:06.000000000 +0700
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.holiday	2017-07-19 10:48:37.776368892 +0700
 @@ -7,6 +7,8 @@
  #ifndef _calendar_holiday_
  #define _calendar_holiday_
@@ -404,8 +404,11 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  04/14	Day of the Americas in Honduras
  04/15	Bengali New Year in Bangladesh
  04/16	De Diego's Birthday celebrated in Puerto Rico
-@@ -162,7 +169,7 @@
- 05/05	Coronation Day in Thailand
+@@ -159,10 +166,9 @@
+ 05/04	Rhode Island Independence Day
+ 05/05	Battle of Puebla in Mexico
+ 05/05	Children's Day in Japan and South Korea
+-05/05	Coronation Day in Thailand
  05/05	Liberation Day in the Netherlands
  05/06	Bataan Day in Philippines
 -05/06*	Bank Holiday in UK
@@ -413,7 +416,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  05/07	May Day in United Kingdom
  05/08	Buddha's Birthday in South Korea
  05/08	Elections for the National Assembly in Philippines
-@@ -177,7 +184,9 @@
+@@ -177,7 +183,9 @@
  05/14	Unification Day in Liberia
  05/15	Kamuzu Day in Malawi
  05/15	Vesak Day, observed in Singapore and Malaysia
@@ -423,7 +426,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  05/16	Discovery Day in Cayman Islands
  05/17	Constitution Day in Nauru and Norway
  05/18	Flag Day in Haiti
-@@ -198,7 +207,7 @@
+@@ -198,7 +206,7 @@
  05/25	Memorial Day in New Mexico & Puerto Rico
  05/25	Revolution in the Sudan in Libyan Arab Republic
  05/27	Afghanistan attains sovereignty, 1921
@@ -432,7 +435,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  05/28	Mothers Day in Central African Republic
  05/31	Pya Martyrs Day in Togo
  05/MonThird	Memorial Day in Michigan (3rd Monday)
-@@ -246,9 +255,8 @@
+@@ -246,9 +254,8 @@
  06/28	Mothers Day in Central African Republic
  06/29	Independence Day in Seychelles
  06/30	Day of the Army in Guatemala
@@ -444,7 +447,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  07/01	Freedom Day in Suriname
  07/01	Independence Day in Burundi
  07/01	National Day in Rwanda
-@@ -271,7 +279,9 @@
+@@ -271,7 +278,9 @@
  07/10	Independence Day in Bahamas
  07/11	National Holiday in the Mongolian People's Republic
  07/12	Battle of Boyne celebrated in Northern Ireland
@@ -454,7 +457,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  07/14	Anniversary of the Revolution in Iraq
  07/14	French National Festival
  07/14	National Holiday in Monaco
-@@ -285,6 +295,7 @@
+@@ -285,6 +294,7 @@
  07/18	Liberation Day in Nicaragua
  07/19	Martyrs Day in Burma
  07/20	Independence Day in Colombia
@@ -462,6 +465,14 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  07/21	National Holiday in Belgium
  07/22	King's Birthday in Swaziland
  07/22	National Day in Poland
+@@ -301,6 +311,7 @@
+ 07/26	National Day in Maldives
+ 07/27	Barbosa's Birthday (celebrated in Puerto Rico)
+ 07/28	Independence Days (2 days) in Peru
++07/28	King's Birthday in Thailand
+ 07/29	Olsok Eve in Norway to commemorate Norway's Viking King St. Olav
+ 07/29	Rain Day in Waynesburg, PA
+ 07/31	Revolution Day in Congo
 @@ -345,11 +356,12 @@
  08/17	Independence Day in Indonesia
  08/19	Independence Day in Afghanistan
@@ -502,10 +513,11 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  10/08*	Fiji Day
  10/09	Independence Day in Uganda
  10/09	Independence of Guayaquil in Ecuador
-@@ -435,9 +450,9 @@
+@@ -435,9 +450,10 @@
  10/12	National Day in Equatorial Guinea and Spain
  10/12	Our Lady Aparecida Day in Brazil
  10/12	Pan American Day in Belize
++10/13	King Bhumibol's Memorial Day in Thailand
 +10/13	St. Edward's Day - Patron saint of England
  10/14	National Day in Yemen Arab Republic
  10/14	Young People's Day in Zaire
@@ -513,7 +525,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  10/15	Evacuation Day in Tunisia
  10/16	National Boss Day, USA
  10/17	Dessaline's Death Anniversary in Haiti
-@@ -475,7 +490,10 @@
+@@ -475,7 +491,10 @@
  11/04	Will Rogers Day, USA
  11/06	Green March Day in Morocco
  11/07	October Revolution Day in Hungary
@@ -524,7 +536,16 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  11/10	King's Birthday in Bhutan
  11/11	Angola gains independence from Portugal, 1975
  11/11	Independence Day in Angola
-@@ -554,10 +572,32 @@
+@@ -520,7 +539,7 @@
+ 12/01	World AIDS Day
+ 12/02	National Holiday in United Arab Emirates
+ 12/03	National Holiday in Laos
+-12/05	King's Birthday in Thailand
++12/05	King Bhumibol's Birthday, National Day and Father's Day in Thailand
+ 12/06	Independence Day in Finland
+ 12/07	Delaware Day in Delaware
+ 12/07	Independence Day in Ivory Coast
+@@ -554,10 +573,32 @@
  12/27	Constitution Day in North Korea
  12/27	Public Holiday in Lesotho, Zimbabwe
  12/29	Civic Holidays (3 days) in Costa Rica

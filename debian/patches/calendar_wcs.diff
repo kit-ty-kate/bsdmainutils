@@ -546,7 +546,7 @@ diff -ruN bsdmainutils/usr.bin/calendar/io.c bsdmainutils/usr.bin/calendar/io.c
  							err(1, NULL);
  						cur_evt->desc = &(cur_evt->ldesc);
  						ev1 = cur_evt;
-@@ -193,16 +240,20 @@
+@@ -193,16 +240,19 @@
  				}
  			}
  		} else if (printing) {
@@ -567,7 +567,6 @@ diff -ruN bsdmainutils/usr.bin/calendar/io.c bsdmainutils/usr.bin/calendar/io.c
  	while (tmp) {
 -		(void)fprintf(fp, "%s%s\n", tmp->print_date, *(tmp->desc));
 +		(void)fprintf(fp, "%ls%ls\n", tmp->print_date, *(tmp->desc));
-+		(void)fprintf(fp, "\n");
  		tmp = tmp->next;
  	}
  	tmp = events;

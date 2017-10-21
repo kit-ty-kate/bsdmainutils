@@ -1,3 +1,12 @@
+bsdmainutils (9.0.14) unstable; urgency=medium
+
+  * Updated Thai holidays.
+    Thanks to Theppitak Karoonboonyanan <thep@debian.org> (Closes: 868732)
+  * Re-added fix for #859933 that was lost in the last upload.
+  * Added small bit lost in fix for #792867.
+
+ -- Michael Meskes <meskes@debian.org>  Sat, 21 Oct 2017 09:24:26 +0200
+
 bsdmainutils (9.0.13) unstable; urgency=medium
 
   * Make sure the correct architecture python is included in cross builds.
