@@ -1,9 +1,8 @@
 Description: Lots of corrections to calendar files.
 Author: Michael Meskes <meskes@debian.org>
 
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.australia bsdmainutils/usr.bin/calendar/calendars/calendar.australia
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.australia	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.australia	2014-08-15 13:41:23.268657726 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.australia	2017-12-27 10:23:06.540639080 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.australia	2017-12-27 10:24:00.626291361 +0100
 @@ -7,12 +7,12 @@
  #ifndef _calendar_australia_
  #define _calendar_australia_
@@ -16,23 +15,13 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.australia bsdmai
 +Jan 26		Australia Day Holiday (Australia, except NSW, Vic)
  Apr/SunFirst	Daylight Savings Time ends in ACT, NSW, SA, TAS and VIC.
 -Apr 25		Anzac Day
-+Apr 25		Anzac Day Australian and New Zealand Army Corps) Day (Australia)
++Apr 25		Anzac Day (Australian and New Zealand Army Corps) Day (Australia)
  Jun/MonSecond	Queen's Birthday Holiday (Australia, except WA)
  Oct/SunFirst	Daylight Savings Time starts in ACT, NSW, SA and VIC.
  
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmainutils/usr.bin/calendar/calendars/calendar.birthday
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.birthday	2014-08-15 13:41:23.268657726 +0200
-@@ -7,6 +7,8 @@
- #ifndef _calendar_birthday_
- #define _calendar_birthday_
- 
-+LANG=UTF-8
-+
- 01/01	J.D. Salinger born, 1919
- 01/01	Paul Revere born in Boston, 1735
- 01/02	Isaac Asimov born in Petrovichi, Russian SFSR, 1920
-@@ -14,6 +16,7 @@
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.birthday	2017-12-27 10:25:49.445615803 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.birthday	2017-12-27 10:29:57.678510329 +0100
+@@ -15,6 +15,7 @@
  01/04	Jakob Grimm born, 1785
  01/04	Wilhelm Beer born, 1797, first astronomer to map Mars
  01/05	DeWitt B. Brace born, 1859, inventor of spectrophotometer
@@ -40,14 +29,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  01/10	Ethan Allen born, 1738
  01/11	Alexander Hamilton born in Nevis, British West Indies, 1757?
  01/12	"Long" John Baldry is born in London, 1941
-@@ -119,12 +122,13 @@
- 04/10	William Booth born, 1829, founder of the Salvation Army
- 04/13	Thomas Jefferson, 3rd President of the United States, born Shadwell
- 		Plantation, Albemarle County, Virginia, 1743
--04/14	Christian Huygen born, 1629, physicist & astronomer;
-+04/14	Christian Huygens born, 1629, physicist & astronomer;
- 		discovered Saturn's rings
- 04/15	Leonardo da Vinci born, 1452
+@@ -126,6 +127,7 @@
  04/16	Charles (Charlie) Chaplin (Sir) born in London, 1889
  04/22	Kant born, 1724
  04/27	Louis Victor de Broglie born, 1774, physicist
@@ -55,7 +37,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  04/28	James Monroe, 5th President of the United States, born in Westmoreland
  		County, Viriginia, 1758
  04/29	Jules Henri Poincare born, 1854, founder of topology
-@@ -178,6 +182,7 @@
+@@ -179,6 +181,7 @@
  07/07	P.T. Barnum dies, 1891
  07/08	Count Ferdinand von Zeppelin born, 1838
  07/10	John Calvin born, 1509
@@ -63,7 +45,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  07/11	John Quincy Adams, 6th President of the United States, born in
  		Braintree, Massachusetts, 1767
  07/12	Henry David Thoreau born, 1817
-@@ -241,6 +246,7 @@
+@@ -242,6 +245,7 @@
  10/02	Mohandas K. Gandhi born at Porbandar, Kathiawad, India, 1869
  10/04	John V. Atanasoff born, 1903
  10/05	Ray Kroc (founder of McDonald's) born, 1902
@@ -71,7 +53,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  10/05	Steve Jobs died at the age of 56, 2011
  10/12	Dennis MacAlistair Ritchie died at the age of 70, 2011
  10/13	Lenny Bruce is born in New York City, 1925
-@@ -264,6 +270,7 @@
+@@ -265,6 +269,7 @@
  10/31	Chiang Kai-Shek born, 1887
  10/31	Dale Evans born, 1912
  11/02	Daniel Boone born near Reading, PA, 1734
@@ -79,279 +61,18 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.birthday bsdmain
  11/04	King William III of Orange born, 1650
  11/05	Roy Rogers born, 1912
  11/09	Carl Sagan born, 1934
-@@ -287,11 +294,11 @@
- 12/05	Walt (Walter Elias) Disney born in Chicago, 1901
- 12/08	Horace (Quintus Horatius Flaccus) born in Venosa (Italy), 65BC
- 12/08	James (Grover) Thurber born in Columbus, Ohio, 1894
--12/10	Emily Dickenson born, 1830
-+12/10	Emily Dickinson born, 1830
- 12/12	E.G. Robinson born, 1893
- 12/14	George Washington dies, 1799
- 12/17	William Safire (Safir) born, 1929
--12/18	Konrad Zuse died in HЭnfeld, 1995
-+12/18	Konrad Zuse died in Hц╪nfeld, 1995
- 12/20	Carl Sagan died, 1996
- 12/21	Benjamin Disraeli born, 1804
- 12/22	Giacomo Puccini born, 1858
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.christian bsdmainutils/usr.bin/calendar/calendars/calendar.christian
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.christian	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.christian	2014-08-15 13:41:23.268657726 +0200
-@@ -7,6 +7,8 @@
- #ifndef _calendar_christian_
- #define _calendar_christian_
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.brazilian	2017-12-27 10:53:29.639180900 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.brazilian	2017-12-27 10:54:31.479323108 +0100
+@@ -8,6 +8,6 @@
+ #ifndef _calendar_brazilian_
+ #define _calendar_brazilian_
  
-+LANG=UTF-8
-+
- 01/05	Last (twelfth) day of Christmastide
- 01/06	Epiphany
- Easter-47	Shrove Tuesday / Mardi Gras (day before Ash Wednesday)
-@@ -21,7 +23,7 @@
- Easter+56	Trinity Sunday (7 days after Pentecost)
- Easter+60	Corpus Christi (11 days after Pentecost)
- 05/28*	Rogation Sunday
--10/18	Feast Day of St. Luke
-+/* 10/18	Feast Day of St. Luke */
- 11/SunLast	First Sunday of Advent (4th Sunday before Christmas)
- 12/SunFirst	First Sunday of Advent (4th Sunday before Christmas)
- 12/06	St. Nicholas' Day
-@@ -29,4 +31,30 @@
- 12/25	Christmastide begins: First day of Christmas
- 12/26	Second day of Christmas (Boxing Day)
+-#include <pt_BR.ISO8859-1/calendar.all>
++#include <pt_BR/calendar.all>
  
-+Easter+1       Easter Monday
-+
-+Jan 01	Circumcision of Christ
-+Jan 25	Conversion of St Paul
-+Feb 02	Purification of the Virgin Mary
-+Feb 24	St Matthias
-+Mar 25	Annunciation of the Virgin Mary
-+Apr 25	St Mark
-+May 01	St Philip and St James
-+Jun 11	St Barnabas
-+Jun 24	St John the Baptist
-+Jun 29	St Peter
-+Jul 25	St James
-+Aug 24	St Bartholomew
-+Sep 21	St Matthew
-+Sep 29	St Michael and all angels
-+Oct 18	St. Luke
-+Oct 28	St Simon and St Jude
-+Nov 01	All Saints
-+Nov 30	St Andrew
-+Dec 21	St Thomas
-+Dec 26	St Stephen (Boxing Day)
-+Dec 27	St John the Evangelist
-+Dec 28	Holy Innocents
-+
-+
- #endif /* !_calendar_christian_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.computer bsdmainutils/usr.bin/calendar/calendars/calendar.computer
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.computer	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.computer	2014-08-15 13:41:23.268657726 +0200
-@@ -7,6 +7,8 @@
- #ifndef _calendar_computer_
- #define _calendar_computer_
- 
-+LANG=UTF-8
-+
- 01/01	AT&T officially divests its local Bell companies, 1984
- 01/01	The Epoch (Time 0 for UNIX systems, Midnight GMT, 1970)
- 01/03	Apple Computer founded, 1977
-@@ -24,7 +26,7 @@
- 02/14	First micro-on-a-chip patented (TI), 1978
- 02/15	ENIAC demonstrated, 1946
- 03/01	First NPL (later PL/I) report published, 1964
--03/04	First Cray-1 shipped to Los Alamos
-+03/04	First Cray-1 shipped to Los Alamos, 1976
- 03/09	"GOTO considered harmful" (E.J. Dijkstra) published in CACM, 1968
- 03/14	LISP introduced, 1960
- 03/28	DEC announces PDP-11, 1970
-@@ -73,4 +75,20 @@
- 11/04	UNIVAC I program predicts Eisenhower victory based on 7% of votes, 1952
- 12/08	First Ph.D. awarded by Computer Science Dept, Univ. of Penna, 1965
- 
-+/* added in the debian package, from the Jargon File */
-+Jan 01	Macintosh Epoch, Midnight 1904
-+Jan 18	Unix clock runs out, 2038
-+Feb 08	Black Thursday, The CDA is signed into law, 1996
-+Mar 31	Automated Retroactive Minimal Moderation (ARMM) released, 1993
-+Apr 01	Usenet site kremvax announced as an April Fool's joke, 1984
-+Jun 26	White Thursday, CDA demolished by U.S. Supreme Court, 1997
-+Jul 04	First @-party, at the Westercon (California SF convention), 1980
-+Sep 09	First bug found, a moth in Harvard Mark II, 1947
-+Oct 16	Sanford Wallace's Cyber Promotions Inc. shut down by lawsuit, 1997
-+Nov 17	VMS Epoch (base date of U.S. Naval Observatory's ephemerides), 1858
-+Oct 20	MIT hacked the Harvard-Yale football game, 1982
-+
-+Jan 24	Introduction of the first Mac, 1984
-+Mar 24	Introduction of Mac OS X, 2001
-+
- #endif /* !_calendar_computer_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.croatian bsdmainutils/usr.bin/calendar/calendars/calendar.croatian
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.croatian	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.croatian	2014-08-15 13:41:23.272657787 +0200
-@@ -7,6 +7,6 @@
- #ifndef _calendar_croatian_
- #define _calendar_croatian_
- 
--#include <hr_HR.ISO8859-2/calendar.all>
-+#include <hr_HR/calendar.all>
- 
- #endif /* !_calendar_croatian_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.dutch bsdmainutils/usr.bin/calendar/calendars/calendar.dutch
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.dutch	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.dutch	2014-08-15 13:41:23.272657787 +0200
-@@ -4,7 +4,7 @@
-  * Originally submitted by Edwin Groothuis <edwin@FreeBSD.org>
-  */
- 
--LANG=nl_NL.ISO8859-15
-+LANG=UTF-8
- Easter=Pasen
- 
- /*
-@@ -13,7 +13,7 @@
- jan/01	Nieuwjaar
- jan/06	Driekoningen
- apr/01	1 april
--apr/30	Koninginnedag
-+apr/27	Koningsdag
- mei/01	Dag van de Arbeid
- mei/04	Dodenherdenking
- mei/05	Bevrijdingsdag
-@@ -60,20 +60,20 @@
-  * Het koningshuis
-  */
- jan/19	Prinses Margriet (1943)
--jan/31	Koningin Beatrix (1938)
--feb/17	Prins Willem III (1817 - 1890)
-+jan/31	Prinses Beatrix (1938, koningin 1980 - 2013)
-+feb/17	Prins Willem III (1817 - 1890, koning 1849 - 1890)
- feb/18	Prinses Christina (1947)
- apr/10	Prinses Ariane (2007)
- apr/19	Prins Hendrik (1876 - 1934)
--apr/27	Kroonprins Willem Alexander (1967)
--apr/30	Koningin Juliana (1909 - 2004)
-+apr/27	Koning Willem Alexander (1967, koning sinds 2013)
-+apr/30	Prinses Juliana (1909 - 2004, koningin 1948 - 1980)
- apr/30	Mr. Pieter van Vollenhoven (1939)
- mei/17	Prinses Maxima (1971)
- jun/26	Prinses Alexia (2005)
- jun/29	Prins Bernhard (1911 - 2004)
- aug/05	Prinses Irene (1939)
--aug/31	Prinses Wilhelmina (1880 - 1962)
-+aug/31	Prinses Wilhelmina (1880 - 1962, koningin 1890 - 1948)
- sep/06	Prins Claus (1925 - 2002)
--sep/25	Prins Johan Friso (1968)
-+sep/25	Prins Johan Friso (1968 - 2013)
- okt/11	Prins Constantijn (1969)
--dec/07	Prinses Catharina-Amalia (2003)
-+dec/07	Kroonprinses Catharina-Amalia (2003)
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.freebsd bsdmainutils/usr.bin/calendar/calendars/calendar.freebsd
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.freebsd	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.freebsd	2014-08-15 13:41:23.276657847 +0200
-@@ -7,6 +7,8 @@
- #ifndef _calendar_freebsd_
- #define _calendar_freebsd_
- 
-+LANG=UTF-8
-+
- 01/01	Dimitry Andric <dim@FreeBSD.org> born in Utrecht, the Netherlands, 1969
- 01/01	Alexander Langer <alex@FreeBSD.org> born in Duesseldorf, Nordrhein-Westfalen, Germany, 1981
- 01/02	Ion-Mihai "IOnut" Tetcu <itetcu@FreeBSD.org> born in Bucharest, Romania, 1980
-@@ -319,7 +321,7 @@
- 11/28	Stanislav Sedov <stas@FreeBSD.org> born in Chelyabinsk, USSR, 1985
- 12/01	Hajimu Umemoto <ume@FreeBSD.org> born in Nara, Japan, 1961
- 12/01	Alexey Dokuchaev <danfe@FreeBSD.org> born in Magadan, USSR, 1980
--12/02	Ermal LuГi <eri@FreeBSD.org> born in Tirane, Albania, 1980
-+12/02	Ermal Luц╖i <eri@FreeBSD.org> born in Tirane, Albania, 1980
- 12/03	Diane Bruce <db@FreeBSD.org> born in Ottawa, Ontario, Canada, 1952
- 12/05	Ivan Voras <ivoras@FreeBSD.org> born in Slavonski Brod, Croatia, 1981
- 12/06	Stefan Farfeleder <stefanf@FreeBSD.org> born in Wien, Austria, 1980
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.french bsdmainutils/usr.bin/calendar/calendars/calendar.french
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.french	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.french	2014-08-15 13:41:23.272657787 +0200
-@@ -7,6 +7,6 @@
- #ifndef _calendar_french_
- #define _calendar_french_
- 
--#include <fr_FR.ISO8859-1/calendar.all>
-+#include <fr_FR/calendar.all>
- 
- #endif /* !_calendar_french_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.german bsdmainutils/usr.bin/calendar/calendars/calendar.german
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.german	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.german	2014-08-15 13:41:23.272657787 +0200
-@@ -7,6 +7,6 @@
- #ifndef _calendar_german_
- #define _calendar_german_
- 
--#include <de_DE.ISO8859-1/calendar.all>
-+#include <de_DE/calendar.all>
- 
- #endif /* !_calendar_german_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.history bsdmainutils/usr.bin/calendar/calendars/calendar.history
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.history	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.history	2014-08-15 13:41:23.272657787 +0200
-@@ -7,6 +7,8 @@
- #ifndef _calendar_history_
- #define _calendar_history_
- 
-+LANG=UTF-8
-+
- 01/01	Anniversary of the Triumph of the Revolution in Cuba
- 01/01	Castro expels Cuban President Batista, 1959
- 01/01	Churchill delivers his "Iron Curtain" speech, 1947
-@@ -16,7 +18,7 @@
- 01/05	The FCC hears the first demonstration of FM radio, 1940
- 01/05	Twelfth night
- 01/06	Millard Fillmore's birthday (let's party!)
--01/08	Battle of New Orleans
-+01/08	Battle of New Orleans, 1815
- 01/09	Plough Monday
- 01/10	First meeting of United Nations General Assembly in London, 1946
- 01/10	Thomas Paine's Common Sense published, 1776
-@@ -154,7 +156,7 @@
- 05/25	Successful test of the limelight in Purfleet, England, 1830
- 05/26	Congress sets first immigration quotas, 1924
- 05/27	Golden Gate Bridge opens, 1937
--05/29	Edmund Hillary and Tenzing Norkay climb Mt. Everest, 1953
-+05/29	Edmund Hillary and Tenzing Norgay climb Mt. Everest, 1953
- 05/29	First food stamps issued, 1961
- 05/30	US Marines sent to Nicaragua, 1912
- 06/02	Native Americans "granted" citizenship, 1924
-@@ -302,7 +304,7 @@
- 09/11	Terrorists destroy World Trade Center in New York, 2001
- 09/12	German paratroopers rescue Mussolini from captivity in Rome, 1943
- 09/12	Germany annexes Sudetenland, 1938
--09/13	58╟ C (136.4╟ F) measured at el Azizia, Libya, 1922
-+09/13	58б╟ C (136.4б╟ F) measured at el Azizia, Libya, 1922
- 09/13	British defeat the French at the Plains of Abraham, just outside the walls of Quebec City, 1759
- 09/13	Building of Hadrian's Wall begun, 122
- 09/13	Chiang Kai-Shek becomes president of China, 1943
-@@ -360,10 +362,9 @@
- 10/11	The first steam powered ferry ran between New York and Hoboken, 1811
- 10/11	The second Vatican Ecumenical Council opens in Rome, 1962
- 10/11	First broadcast of Saturday Night Live, 1975
--10/12	Bahama Natives discover Columbus of Europe lost on their shores, 1492
- 10/12	Khrushchev pounds his desk with shoe during a speech to the UN, 1960
- 10/12	Man O'War's last race, 1920
--10/12	Native Americans discover Columbus of Europe lost on their shores, 1492
-+10/12	Native Americans (Bahama) discover Columbus of Europe lost on their shores, 1492
- 10/13	Italy declares war on Germany, 1943
- 10/13	US Navy born, 1775, authorized by the Second Continental Congress
- 10/14	Battle of Hastings won by William the Conqueror and the Normans, 1066
-@@ -413,6 +414,7 @@
- 11/10	Cpt. Wirz, commandant of Andersonville Prison hanged, 1865
- 11/10	Henry Stanley asks David Livingston, "Dr. Livingston, I presume?", 1871
- 11/11	Washington becomes the 42nd state, 1889
-+11/11	Pilgrims come to Plymouth, 1620
- 11/12	Dr. Sun Yat-sen's Birthday in Taiwan
- 11/12	USA first exports oil to Europe, 1861
- 11/14	Quarter Pounder price raised from $0.53 to $0.55 in violation of Nixon
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainutils/usr.bin/calendar/calendars/calendar.holiday
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday	2016-10-25 16:05:06.000000000 +0700
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.holiday	2017-07-19 10:48:37.776368892 +0700
+ #endif
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.holiday	2017-12-27 10:40:30.532190222 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.holiday	2017-12-27 10:43:49.061139324 +0100
 @@ -7,6 +7,8 @@
  #ifndef _calendar_holiday_
  #define _calendar_holiday_
@@ -441,8 +162,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
  06/30	Day of the Army in Guatemala
 -06/MonFirst	Jefferson Davis's Birthday in Alabama & Mississippi (1st Monday)
 -06/MonFirst	Jefferson Davis's Birthday in Florida, Georgia, & S. Carolina
--07/01	Dominion Day in Canada
-+06/MonFirst	Jefferson Davis's Birthday in Alabamai, Mississippi, Florida, Georgia, & S. Carolina (1st Monday)
+-07/01	Canada Day
++06/MonFirst	Jefferson Davis's Birthday in Alabama, Mississippi, Florida, Georgia, & S. Carolina (1st Monday)
 +07/01	Canada Day formerly known as Dominion Day in Canada
  07/01	Freedom Day in Suriname
  07/01	Independence Day in Burundi
@@ -578,9 +299,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.holiday bsdmainu
 +May 04	Holiday for a Nation in Japan 
 +
  #endif /* !_calendar_holiday_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.hungarian bsdmainutils/usr.bin/calendar/calendars/calendar.hungarian
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.hungarian	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.hungarian	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.hungarian	2017-12-27 10:48:23.403285125 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.hungarian	2017-12-27 10:48:39.751236960 +0100
 @@ -7,6 +7,6 @@
  #ifndef _calendar_hungarian_
  #define _calendar_hungarian_
@@ -589,9 +309,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.hungarian bsdmai
 +#include <hu_HU/calendar.all>
  
  #endif /* !_calendar_hungarian_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.lotr bsdmainutils/usr.bin/calendar/calendars/calendar.lotr
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.lotr	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.lotr	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.lotr	2017-12-27 10:49:38.619109396 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.lotr	2017-12-27 10:49:49.855092760 +0100
 @@ -7,6 +7,8 @@
  #ifndef _calendar_lotr_
  #define _calendar_lotr_
@@ -601,9 +320,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.lotr bsdmainutil
  01/05	Fellowship enters Moria
  01/09	Fellowship reaches Lorien
  01/17	Passing of Gandalf
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.music bsdmainutils/usr.bin/calendar/calendars/calendar.music
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.music	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.music	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.music	2017-12-27 10:50:15.347063628 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.music	2017-12-27 10:50:29.059052742 +0100
 @@ -7,6 +7,8 @@
  #ifndef _calendar_music_
  #define _calendar_music_
@@ -686,18 +404,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.music bsdmainuti
  12/04	Frank Zappa dies in his Laurel Canyon home shortly before 18:00, 1993
  12/05	Wolfgang Amadeus Mozart dies in Vienna, Austria, 1791
  12/06	First sound recording made by Thomas Edison, 1877
-@@ -225,7 +238,7 @@
- 12/08	Jim Morrison is born in Melbourne, Florida, 1943
- 12/08	John Lennon is shot and killed in New York City, 1980
- 12/09	The Who's "Tommy" premieres in London, 1973
--12/11	(Louis) Hector Berlioz born in La-CТte-Saint-AndrИ, 1803
-+12/11	(Louis) Hector Berlioz born in La-Cц╢te-Saint-Andrц╘, 1803
- 12/13	Ted Nugent, the motor city madman, born in Detroit, 1949
- 12/15	Thomas Edison receives patent on the phonograph, 1877
- 12/16	Don McLean's "American Pie" is released, 1971
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.newzealand bsdmainutils/usr.bin/calendar/calendars/calendar.newzealand
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.newzealand	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.newzealand	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.newzealand	2017-12-27 10:51:13.991039271 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.newzealand	2017-12-27 10:51:24.575040831 +0100
 @@ -7,6 +7,8 @@
  #ifndef _calendar_newzealand_
  #define _calendar_newzealand_
@@ -707,9 +415,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.newzealand bsdma
  Jan 02	New Year Holiday (NZ)
  Jan 14	Anniversary Day (Southland)
  Jan 21	Anniversary Day (Wellington)
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.russian bsdmainutils/usr.bin/calendar/calendars/calendar.russian
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.russian	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.russian	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.russian	2017-12-27 10:51:45.615049027 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.russian	2017-12-27 10:51:57.467056547 +0100
 @@ -7,6 +7,6 @@
  #ifndef _calendar_russian_
  #define _calendar_russian_
@@ -718,9 +425,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.russian bsdmainu
 +#include <ru_RU/calendar.all>
  
  #endif /* !_calendar_russian_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.southafrica bsdmainutils/usr.bin/calendar/calendars/calendar.southafrica
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.southafrica	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.southafrica	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.southafrica	2017-12-27 10:52:15.495071866 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.southafrica	2017-12-27 10:52:39.319099045 +0100
 @@ -11,6 +11,8 @@
  #ifndef _calendar_southafrica_
  #define _calendar_southafrica_
@@ -730,9 +436,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.southafrica bsdm
  03/01	Human Rights Day in South Africa
  04/27	Freedom Day in South Africa
  05/01	Workers Day in South Africa
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.ukrainian bsdmainutils/usr.bin/calendar/calendars/calendar.ukrainian
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.ukrainian	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.ukrainian	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.ukrainian	2017-12-27 10:52:58.135125873 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.ukrainian	2017-12-27 10:53:12.011148584 +0100
 @@ -7,6 +7,6 @@
  #ifndef _calendar_ukrainian_
  #define _calendar_ukrainian_
@@ -741,9 +446,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.ukrainian bsdmai
 +#include <uk_UA/calendar.all>
  
  #endif /* !_calendar_ukrainian_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.usholiday bsdmainutils/usr.bin/calendar/calendars/calendar.usholiday
---- bsdmainutils.orig/usr.bin/calendar/calendars/calendar.usholiday	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/calendar.usholiday	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.usholiday	2017-12-27 10:54:48.815370544 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.usholiday	2017-12-27 10:55:04.639416557 +0100
 @@ -7,6 +7,8 @@
  #ifndef _calendar_usholiday_
  #define _calendar_usholiday_
@@ -762,11 +466,10 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/calendar.usholiday bsdmai
  11/SunFirst	Daylight Savings Time ends in USA; clocks move back (1st Sunday of November)
  11/11	Veterans' Day
  11/ThuFourth	Thanksgiving Day (4th Thursday in November)
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag bsdmainutils/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag
---- bsdmainutils.orig/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/de_AT.ISO_8859-15/calendar.feiertag	2017-12-27 11:21:22.948795564 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag	2017-12-27 11:21:11.704696430 +0100
 @@ -4,10 +4,10 @@
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calendar.feiertag 129609 2004-05-23 13:22:01Z josef $
   */
  
 -#ifndef _de_AT_ISO8859_15_feiertag_
@@ -822,11 +525,10 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_AT.ISO_8859-15/calenda
  
 -#endif /*! _de_AT_ISO8859_15_feiertag_ */
 +#endif /*! _de_AT_feiertag_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all
---- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/de_DE.ISO8859-1/calendar.all	2017-12-27 11:41:13.067678364 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all	2017-12-27 11:41:44.707455097 +0100
 @@ -4,14 +4,14 @@
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.all 78047 2001-06-11 03:08:46Z ache $
   */
  
 -#ifndef _de_DE_ISO8859_1_all_
@@ -849,11 +551,10 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* !_de_DE.ISO8859-1_all_ */
 +#endif /* !_de_DE_all_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag
---- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/de_DE.ISO8859-1/calendar.feiertag	2017-12-27 11:41:13.067678364 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag	2017-12-27 11:42:07.131311229 +0100
 @@ -4,10 +4,10 @@
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.feiertag 162920 2006-10-01 09:22:05Z maxim $
   */
  
 -#ifndef _de_DE_ISO8859_1_feiertag_
@@ -904,9 +605,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /*! _de_DE_ISO8859_1_feiertag_ */
 +#endif /*! _de_DE_feiertag_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte
---- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/de_DE.ISO8859-1/calendar.geschichte	2017-12-27 11:41:13.067678364 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte	2017-12-27 11:42:28.439185042 +0100
 @@ -2,12 +2,12 @@
   * deutsche Geschichte
   *
@@ -925,7 +625,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
   * English Title: Questions on German history
   * 
 @@ -16,80 +16,80 @@
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.geschichte 323135 2017-09-02 23:17:35Z grog $
   */
  
 -#ifndef _de_DE_ISO8859_1_geschichte_
@@ -1028,7 +728,7 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  03/15	Einmarsch deutscher Truppen in die Tschechoslowakei, 1939
 -03/23	RЭckgabe des Memelgebietes an Deutschland, 1939
 -08/23	Abschluъ des Hitler-Stalin-Paktes, 1939
--09/03	KriegserklДrung Groъbritaniens und Frankreichs an Deutschland, 1939
+-09/03	KriegserklДrung Groъbritanniens und Frankreichs an Deutschland, 1939
 -04/09	Deutsche Besetzung DДnemarks, Invasion in Norwegen, 1940
 +03/23	Rц╪ckgabe des Memelgebietes an Deutschland, 1939
 +08/23	Abschluц÷ des Hitler-Stalin-Paktes, 1939
@@ -1191,11 +891,10 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* _de_DE_ISO8859_1_geschichte_ */
 +#endif /* _de_DE_geschichte_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche
---- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/de_DE.ISO8859-1/calendar.kirche	2017-12-27 11:41:13.067678364 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche	2017-12-27 11:42:45.063093432 +0100
 @@ -4,10 +4,10 @@
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.kirche 78047 2001-06-11 03:08:46Z ache $
   */
  
 -#ifndef _de_DE_ISO8859_1_kirche_
@@ -1214,11 +913,10 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* !_de_DE_ISO8859_1_kirche_ */
 +#endif /* !_de_DE_kirche_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur
---- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/de_DE.ISO8859-1/calendar.literatur	2017-12-27 11:41:13.067678364 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur	2017-12-27 11:42:59.659017778 +0100
 @@ -4,10 +4,10 @@
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.literatur 120829 2003-10-06 01:17:42Z grog $
   */
  
 -#ifndef _de_DE_ISO8859_1_literatur_
@@ -1272,11 +970,10 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* !_de_DE_ISO8859_1_literatur_ */
 +#endif /* !_de_DE_literatur_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik
---- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/de_DE.ISO8859-1/calendar.musik	2017-12-27 11:41:13.067678364 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik	2017-12-27 11:43:14.158946915 +0100
 @@ -4,18 +4,18 @@
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.musik 163673 2006-10-24 23:18:07Z grog $
   */
  
 -#ifndef _de_DE_ISO8859_1_musik_
@@ -1336,11 +1033,10 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* !_de_DE_ISO8859_1_musik_ */
 +#endif /* !_de_DE_musik_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft
---- bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/de_DE.ISO8859-1/calendar.wissenschaft	2017-12-27 11:41:13.067678364 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft	2017-12-27 11:43:26.854888285 +0100
 @@ -4,16 +4,16 @@
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.wissenschaft 121109 2003-10-15 08:18:59Z tg $
   */
  
 -#ifndef _de_DE_ISO8859_1_wissenschaft_
@@ -1361,15 +1057,14 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/de_DE.ISO8859-1/calendar.
  
 -#endif /* ! _de_DE_ISO8859_1_wissenschaft_ */
 +#endif /* ! _de_DE_wissenschaft_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all
---- bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/fr_FR.ISO8859-1/calendar.all	2017-12-27 11:44:21.022672169 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all	2017-12-27 11:44:42.418601150 +0100
 @@ -1,14 +1,14 @@
  /*
 - * Calendrier franГais
 + * Calendrier franц╖ais
   *
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.all 95753 2002-04-29 20:57:36Z dwmalone $
   */
  
 -#ifndef _fr_FR_ISO8859_1_all_
@@ -1386,15 +1081,14 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.
  
 -#endif /* !_fr_FR.ISO8859-1_all_ */
 +#endif /* !_fr_FR_all_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes
---- bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/fr_FR.ISO8859-1/calendar.fetes	2017-12-27 11:44:21.022672169 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes	2017-12-27 11:44:57.250556408 +0100
 @@ -1,630 +1,630 @@
  /*
 - * FЙtes Ю souhaiter
 + * Fц╙tes ц═ souhaiter
   *
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.fetes 212163 2010-09-02 21:48:35Z edwin $
   */
  
 -#ifndef _fr_FR_ISO8859_1_fetes_
@@ -2330,9 +2024,8 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.
  
 -#endif /*! _fr_FR_ISO8859_1_fetes */
 +#endif /*! _fr_FR_fetes */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french
---- bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french	2014-08-15 13:41:23.272657787 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/fr_FR.ISO8859-1/calendar.french	2017-12-27 11:44:21.022672169 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.french	2017-12-27 11:45:13.942510304 +0100
 @@ -7,6 +7,6 @@
  #ifndef _calendar_french_
  #define _calendar_french_
@@ -2341,15 +2034,14 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.
 +#include <fr_FR/calendar.all>
  
  #endif /* !_calendar_french_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies
---- bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies	2014-08-15 13:41:23.276657847 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/fr_FR.ISO8859-1/calendar.jferies	2017-12-27 11:44:21.022672169 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies	2017-12-27 11:45:27.366476402 +0100
 @@ -1,46 +1,46 @@
  /*
 - * Jours fИriИs
 + * Jours fц╘riц╘s
   *
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies 157720 2006-04-13 12:14:44Z flz $
   */
  
 -#ifndef _fr_FR_ISO8859_1_jferies_
@@ -2411,15 +2103,14 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.
  
 -#endif /*! _fr_FR_ISO8859_1_jferies_ */
 +#endif /*! _fr_FR_jferies_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes
---- bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes	2014-08-15 13:41:23.276657847 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/fr_FR.ISO8859-1/calendar.proverbes	2017-12-27 11:44:21.022672169 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes	2017-12-27 11:45:42.230442058 +0100
 @@ -1,38 +1,38 @@
  /*
 - * Proverbes liИs au calendrier
 + * Proverbes liц╘s au calendrier
   *
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.proverbes 95753 2002-04-29 20:57:36Z dwmalone $
   */
  
 -#ifndef _fr_FR_ISO8859_1_proverbes_
@@ -2959,32 +2650,30 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.
  
 -#endif /*! _fr_FR_ISO8859_1_proverbes_ */
 +#endif /*! _fr_FR_proverbes_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all bsdmainutils/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all
---- bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all	2014-08-15 13:41:23.276657847 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/hr_HR.ISO8859-2/calendar.all	2017-12-27 11:50:51.570346703 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all	2017-12-27 11:51:09.006369508 +0100
 @@ -4,9 +4,9 @@
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all 232105 2012-02-24 11:40:20Z osa $
   */
  
--#ifndef _hr_HR_ISO8859_2_all
--#define _hr_HR_ISO8859_2_all
+-#ifndef _hr_HR_ISO8859_2_all_
+-#define _hr_HR_ISO8859_2_all_
 +#ifndef _hr_HR_all
 +#define _hr_HR_all
  
 -#include <hr_HR.ISO8859-2/calendar.praznici>
 +#include <hr_HR/calendar.praznici>
  
--#endif /* !_hr_HR_ISO8859_2_all */
+-#endif /* !_hr_HR_ISO8859_2_all_ */
 +#endif /* !_hr_HR_all */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici bsdmainutils/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici
---- bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici	2014-08-15 13:41:23.276657847 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/hr_HR.ISO8859-2/calendar.praznici	2017-12-27 11:50:51.570346703 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici	2017-12-27 11:51:29.130398779 +0100
 @@ -4,41 +4,41 @@
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.praznici 232105 2012-02-24 11:40:20Z osa $
   */
  
--#ifndef _hr_HR_ISO8859_2_praznici
--#define _hr_HR_ISO8859_2_praznici
+-#ifndef _hr_HR_ISO8859_2_praznici_
+-#define _hr_HR_ISO8859_2_praznici_
 +#ifndef _hr_HR_praznici
 +#define _hr_HR_praznici
  
@@ -3035,17 +2724,16 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.
 +03/NedjeljaLast	Poц╗etak ljetnog vremena
  10/NedjeljaLast	Kraj ljetnog vremena
  
--#endif /* !_hr_HR_ISO8859_2_praznici */
+-#endif /* !_hr_HR_ISO8859_2_praznici_ */
 +#endif /* !_hr_HR_praznici */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all
---- bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all	2014-08-15 13:41:23.276657847 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/hu_HU.ISO8859-2/calendar.all	2017-12-27 11:51:45.182424316 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all	2017-12-27 11:52:03.206455225 +0100
 @@ -1,13 +1,13 @@
  /*
 - * Magyar kalendАrium
 + * Magyar kalendц║rium
   *
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.all 133833 2004-08-16 09:31:09Z dwmalone $
   */
  
 -#ifndef _hu_HU_ISO8859_2_all_
@@ -3060,15 +2748,14 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.
  
 -#endif /* !_hu_HU.ISO8859-2_all_ */
 +#endif /* !_hu_HU_all_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok
---- bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok	2014-08-15 13:41:23.276657847 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/hu_HU.ISO8859-2/calendar.nevnapok	2017-12-27 11:51:45.182424316 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok	2017-12-27 11:52:27.182499865 +0100
 @@ -1,386 +1,386 @@
  /*
 - * NИvnapok
 + * Nц╘vnapok
   *
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok 133833 2004-08-16 09:31:09Z dwmalone $
   */
  
 -#ifndef _hu_HU_ISO8859_2_nevnapok_
@@ -3673,15 +3360,14 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.
  
 -#endif /*! _hu_HU_ISO8859_2_nevnapok_ */
 +#endif /*! _hu_HU_nevnapok_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek
---- bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek	2014-08-15 13:41:14.956532424 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek	2014-08-15 13:41:23.276657847 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/hu_HU.ISO8859-2/calendar.unnepek	2017-12-27 11:51:45.182424316 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek	2017-12-27 11:52:41.306527981 +0100
 @@ -1,53 +1,53 @@
  /*
 - * эnnepnapok
 + * ц°nnepnapok
   *
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.unnepek 133833 2004-08-16 09:31:09Z dwmalone $
   */
  
 -#ifndef _hu_HU_ISO8859_2_unnepek_
@@ -3771,517 +3457,14 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.
  
 -#endif /*! _hu_HU_ISO8859_2_unnepek_ */
 +#endif /*! _hu_HU_unnepek_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all
---- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.all	2014-08-15 13:41:53.353111125 +0200
-@@ -1,17 +1,17 @@
- /*
-- * Русский календарь
-+ * п═я┐я│я│п╨п╦п╧ п╨п╟п╩п╣п╫п╢п╟я─я▄
-  *
-  * $FreeBSD$
-  */
- 
--#ifndef _ru_RU_KOI8_R_all
--#define _ru_RU_KOI8_R_all
-+#ifndef _ru_RU_all
-+#define _ru_RU_all
- 
--#include <ru_RU.KOI8-R/calendar.common>
--#include <ru_RU.KOI8-R/calendar.holiday>
--#include <ru_RU.KOI8-R/calendar.military>
--#include <ru_RU.KOI8-R/calendar.msk>
--#include <ru_RU.KOI8-R/calendar.orthodox>
--#include <ru_RU.KOI8-R/calendar.pagan>
-+#include <ru_RU/calendar.common>
-+#include <ru_RU/calendar.holiday>
-+#include <ru_RU/calendar.military>
-+#include <ru_RU/calendar.msk>
-+#include <ru_RU/calendar.orthodox>
-+#include <ru_RU/calendar.pagan>
- 
--#endif /* !_ru_RU_KOI8_R_all */
-+#endif /* !_ru_RU_all */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.common bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.common
---- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.common	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.common	2014-08-15 13:41:53.365111305 +0200
-@@ -1,5 +1,5 @@
- /*
-- * Российские праздники
-+ * п═п╬я│я│п╦п╧я│п╨п╦п╣ п©я─п╟п╥п╢п╫п╦п╨п╦
-  *
-  * $FreeBSD$
-  */
-@@ -7,99 +7,99 @@
- #ifndef _ru_RU_KOI8_R_common_
- #define _ru_RU_KOI8_R_common_
- 
--LANG=ru_RU.KOI8-R
-+LANG=UTF-8
- 
--12 янв	День работника прокуратуры
--13 янв	День российской печати
--14 янв	Старый Новый год
--21 янв	День инженерных войск
--25 янв	Татьянин день. Студенческий праздник
-- 8 фев	День российской науки
--10 фев	День дипломатического работника
-- 1 мар	Всемирный день гражданской обороны
--03/SunSecond	День работников геодезии и картографии
--11 мар	День работника органов наркоконтроля
--18 мар	День налоговой полиции
--03/SunThird	День работников торговли, бытового обслуживания населения и жилищно-коммунального хозяйства
--27 мар	Международный день театра
--27 мар	День внутренних войск
-- 1 апр	День смеха
-- 2 апр	День единения народов
--04/SunFirst	День геолога
--12 апр	День космонавтики
--04/SunSecond	День войск противовоздушной обороны
--26 апр	День памяти погибших в радиационных авариях и катастрофах
--30 апр	День пожарной охраны
-- 7 май	День радио
--17 май	Международный день телекоммуникаций
--18 май	Международный день музеев
--24 май	День славянской письменности и культуры
--26 май	День российского предпринимательства
--27 май	Общероссийский день библиотек
--28 май	День пограничника
--30 май	День пожарной охраны
--31 май	День Российской Адвокатуры
--05/SunLast	День химика
-- 1 июн	День защиты детей
-- 5 июн	День эколога
-- 6 июн	Пушкинский день
-- 8 июн	День социального работника
--06/SunSecond	День работников легкой промышленности
--06/SunThird	День медицинского работника
--22 июн	День памяти и скорби (Начало Великой Отечественной Войны, 1941 год)
--27 июн	День молодежи
--29 июн	День партизан и подпольщиков
--06/SatLast	День изобретателя и рационализатора
--07/SunFirst	День работников морского и речного флота
--07/SunSecond	День рыбака
--07/SunSecond	День российской почты
--07/SunThird	День металлурга
--07/SunLast	День Военно-Морского Флота
--28 июл	День крещения Руси
-- 6 авг	День железнодорожных войск
--08/SunFirst	День железнодорожника
--12 авг	День военно-воздушных сил
--08/SunSecond	День строителя
--08/SunThird	День Воздушного Флота
--22 авг	День государственного флага
--27 авг	День кино
--08/SunLast	День шахтера
-- 1 сен	День знаний
-- 2 сен	День российской гвардии
-- 3 сен	День солидарности в борьбе с терроризмом
-- 4 сен	День специалиста по ядерному обеспечению
--09/SunFirst	День работников нефтяной и газовой промышленности
--09/SunSecond	День танкиста
--09/SunThird	День работников леса
--28 сен	День работника атомной промышленности
--09/SunLast	День машиностроителя
-- 1 окт	День пожилых людей
-- 1 окт	День сухопутных войск
-- 4 окт	День космических войск
-- 5 окт	День учителя
--14 окт	Международный день стандартизации
--10/SunSecond	День работников сельского хозяйства и перерабатывающей промышленности
--10/SunThird	День работников дорожного хозяйства
--24 окт	Международный день ООН
--25 окт	День таможенника
--30 окт	День памяти жертв политических репрессий
--10/SunLast	День работников автомобильного транспорта
-- 7 ноя	День октябрьской революции 1917 года
-- 9 ноя	Всемирный день качества
--10 ноя	День милиции
--16 ноя	День морской пехоты
--17 ноя	Международный день студентов
--19 ноя	День ракетных войск и артиллерии
--21 ноя	День работников налоговых органов
--26 ноя	Всемирный день информации
--11/SunLast	День матери
-- 1 дек	Всемирный день борьбы со СПИДом
-- 3 дек	День юриста
-- 9 дек	День Героев Отечества
--12 дек	День Конституции
--17 дек	День ракетных войск стратегического назначения
--20 дек	День работника органов безопасности
--22 дек	День энергетика
--27 дек	День спасателя
-+01/12	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╟ п©я─п╬п╨я┐я─п╟я┌я┐я─я▀
-+01/13	п■п╣п╫я▄ я─п╬я│я│п╦п╧я│п╨п╬п╧ п©п╣я┤п╟я┌п╦
-+01/14	п║я┌п╟я─я▀п╧ п²п╬п╡я▀п╧ пЁп╬п╢
-+01/21	п■п╣п╫я▄ п╦п╫п╤п╣п╫п╣я─п╫я▀я┘ п╡п╬п╧я│п╨
-+01/25	п╒п╟я┌я▄я▐п╫п╦п╫ п╢п╣п╫я▄. п║я┌я┐п╢п╣п╫я┤п╣я│п╨п╦п╧ п©я─п╟п╥п╢п╫п╦п╨
-+02/8	п■п╣п╫я▄ я─п╬я│я│п╦п╧я│п╨п╬п╧ п╫п╟я┐п╨п╦
-+02/10	п■п╣п╫я▄ п╢п╦п©п╩п╬п╪п╟я┌п╦я┤п╣я│п╨п╬пЁп╬ я─п╟п╠п╬я┌п╫п╦п╨п╟
-+03/1	п▓я│п╣п╪п╦я─п╫я▀п╧ п╢п╣п╫я▄ пЁя─п╟п╤п╢п╟п╫я│п╨п╬п╧ п╬п╠п╬я─п╬п╫я▀
-+03/SunSecond	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╬п╡ пЁп╣п╬п╢п╣п╥п╦п╦ п╦ п╨п╟я─я┌п╬пЁя─п╟я└п╦п╦
-+03/11	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╟ п╬я─пЁп╟п╫п╬п╡ п╫п╟я─п╨п╬п╨п╬п╫я┌я─п╬п╩я▐
-+03/18	п■п╣п╫я▄ п╫п╟п╩п╬пЁп╬п╡п╬п╧ п©п╬п╩п╦я├п╦п╦
-+03/SunThird	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╬п╡ я┌п╬я─пЁп╬п╡п╩п╦, п╠я▀я┌п╬п╡п╬пЁп╬ п╬п╠я│п╩я┐п╤п╦п╡п╟п╫п╦я▐ п╫п╟я│п╣п╩п╣п╫п╦я▐ п╦ п╤п╦п╩п╦я┴п╫п╬-п╨п╬п╪п╪я┐п╫п╟п╩я▄п╫п╬пЁп╬ я┘п╬п╥я▐п╧я│я┌п╡п╟
-+03/27	п°п╣п╤п╢я┐п╫п╟я─п╬п╢п╫я▀п╧ п╢п╣п╫я▄ я┌п╣п╟я┌я─п╟
-+03/27	п■п╣п╫я▄ п╡п╫я┐я┌я─п╣п╫п╫п╦я┘ п╡п╬п╧я│п╨
-+04/1	п■п╣п╫я▄ я│п╪п╣я┘п╟
-+04/2	п■п╣п╫я▄ п╣п╢п╦п╫п╣п╫п╦я▐ п╫п╟я─п╬п╢п╬п╡
-+04/SunFirst	п■п╣п╫я▄ пЁп╣п╬п╩п╬пЁп╟
-+04/12	п■п╣п╫я▄ п╨п╬я│п╪п╬п╫п╟п╡я┌п╦п╨п╦
-+04/SunSecond	п■п╣п╫я▄ п╡п╬п╧я│п╨ п©я─п╬я┌п╦п╡п╬п╡п╬п╥п╢я┐я┬п╫п╬п╧ п╬п╠п╬я─п╬п╫я▀
-+04/26	п■п╣п╫я▄ п©п╟п╪я▐я┌п╦ п©п╬пЁп╦п╠я┬п╦я┘ п╡ я─п╟п╢п╦п╟я├п╦п╬п╫п╫я▀я┘ п╟п╡п╟я─п╦я▐я┘ п╦ п╨п╟я┌п╟я│я┌я─п╬я└п╟я┘
-+04/30	п■п╣п╫я▄ п©п╬п╤п╟я─п╫п╬п╧ п╬я┘я─п╟п╫я▀
-+05/7	п■п╣п╫я▄ я─п╟п╢п╦п╬
-+05/17	п°п╣п╤п╢я┐п╫п╟я─п╬п╢п╫я▀п╧ п╢п╣п╫я▄ я┌п╣п╩п╣п╨п╬п╪п╪я┐п╫п╦п╨п╟я├п╦п╧
-+05/18	п°п╣п╤п╢я┐п╫п╟я─п╬п╢п╫я▀п╧ п╢п╣п╫я▄ п╪я┐п╥п╣п╣п╡
-+05/24	п■п╣п╫я▄ я│п╩п╟п╡я▐п╫я│п╨п╬п╧ п©п╦я│я▄п╪п╣п╫п╫п╬я│я┌п╦ п╦ п╨я┐п╩я▄я┌я┐я─я▀
-+05/26	п■п╣п╫я▄ я─п╬я│я│п╦п╧я│п╨п╬пЁп╬ п©я─п╣п╢п©я─п╦п╫п╦п╪п╟я┌п╣п╩я▄я│я┌п╡п╟
-+05/27	п·п╠я┴п╣я─п╬я│я│п╦п╧я│п╨п╦п╧ п╢п╣п╫я▄ п╠п╦п╠п╩п╦п╬я┌п╣п╨
-+05/28	п■п╣п╫я▄ п©п╬пЁя─п╟п╫п╦я┤п╫п╦п╨п╟
-+05/30	п■п╣п╫я▄ п©п╬п╤п╟я─п╫п╬п╧ п╬я┘я─п╟п╫я▀
-+05/31	п■п╣п╫я▄ п═п╬я│я│п╦п╧я│п╨п╬п╧ п░п╢п╡п╬п╨п╟я┌я┐я─я▀
-+05/SunLast	п■п╣п╫я▄ я┘п╦п╪п╦п╨п╟
-+06/1	п■п╣п╫я▄ п╥п╟я┴п╦я┌я▀ п╢п╣я┌п╣п╧
-+06/5	п■п╣п╫я▄ я█п╨п╬п╩п╬пЁп╟
-+06/6	п÷я┐я┬п╨п╦п╫я│п╨п╦п╧ п╢п╣п╫я▄
-+06/8	п■п╣п╫я▄ я│п╬я├п╦п╟п╩я▄п╫п╬пЁп╬ я─п╟п╠п╬я┌п╫п╦п╨п╟
-+06/SunSecond	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╬п╡ п╩п╣пЁп╨п╬п╧ п©я─п╬п╪я▀я┬п╩п╣п╫п╫п╬я│я┌п╦
-+06/SunThird	п■п╣п╫я▄ п╪п╣п╢п╦я├п╦п╫я│п╨п╬пЁп╬ я─п╟п╠п╬я┌п╫п╦п╨п╟
-+06/22	п■п╣п╫я▄ п©п╟п╪я▐я┌п╦ п╦ я│п╨п╬я─п╠п╦ (п²п╟я┤п╟п╩п╬ п▓п╣п╩п╦п╨п╬п╧ п·я┌п╣я┤п╣я│я┌п╡п╣п╫п╫п╬п╧ п▓п╬п╧п╫я▀, 1941 пЁп╬п╢)
-+06/27	п■п╣п╫я▄ п╪п╬п╩п╬п╢п╣п╤п╦
-+06/29	п■п╣п╫я▄ п©п╟я─я┌п╦п╥п╟п╫ п╦ п©п╬п╢п©п╬п╩я▄я┴п╦п╨п╬п╡
-+06/SatLast	п■п╣п╫я▄ п╦п╥п╬п╠я─п╣я┌п╟я┌п╣п╩я▐ п╦ я─п╟я├п╦п╬п╫п╟п╩п╦п╥п╟я┌п╬я─п╟
-+07/SunFirst	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╬п╡ п╪п╬я─я│п╨п╬пЁп╬ п╦ я─п╣я┤п╫п╬пЁп╬ я└п╩п╬я┌п╟
-+07/SunSecond	п■п╣п╫я▄ я─я▀п╠п╟п╨п╟
-+07/SunSecond	п■п╣п╫я▄ я─п╬я│я│п╦п╧я│п╨п╬п╧ п©п╬я┤я┌я▀
-+07/SunThird	п■п╣п╫я▄ п╪п╣я┌п╟п╩п╩я┐я─пЁп╟
-+07/SunLast	п■п╣п╫я▄ п▓п╬п╣п╫п╫п╬-п°п╬я─я│п╨п╬пЁп╬ п╓п╩п╬я┌п╟
-+07/28	п■п╣п╫я▄ п╨я─п╣я┴п╣п╫п╦я▐ п═я┐я│п╦
-+08/6	п■п╣п╫я▄ п╤п╣п╩п╣п╥п╫п╬п╢п╬я─п╬п╤п╫я▀я┘ п╡п╬п╧я│п╨
-+08/SunFirst	п■п╣п╫я▄ п╤п╣п╩п╣п╥п╫п╬п╢п╬я─п╬п╤п╫п╦п╨п╟
-+08/12	п■п╣п╫я▄ п╡п╬п╣п╫п╫п╬-п╡п╬п╥п╢я┐я┬п╫я▀я┘ я│п╦п╩
-+08/SunSecond	п■п╣п╫я▄ я│я┌я─п╬п╦я┌п╣п╩я▐
-+08/SunThird	п■п╣п╫я▄ п▓п╬п╥п╢я┐я┬п╫п╬пЁп╬ п╓п╩п╬я┌п╟
-+08/22	п■п╣п╫я▄ пЁп╬я│я┐п╢п╟я─я│я┌п╡п╣п╫п╫п╬пЁп╬ я└п╩п╟пЁп╟
-+08/27	п■п╣п╫я▄ п╨п╦п╫п╬
-+08/SunLast	п■п╣п╫я▄ я┬п╟я┘я┌п╣я─п╟
-+09/1	п■п╣п╫я▄ п╥п╫п╟п╫п╦п╧
-+09/2	п■п╣п╫я▄ я─п╬я│я│п╦п╧я│п╨п╬п╧ пЁп╡п╟я─п╢п╦п╦
-+09/3	п■п╣п╫я▄ я│п╬п╩п╦п╢п╟я─п╫п╬я│я┌п╦ п╡ п╠п╬я─я▄п╠п╣ я│ я┌п╣я─я─п╬я─п╦п╥п╪п╬п╪
-+09/4	п■п╣п╫я▄ я│п©п╣я├п╦п╟п╩п╦я│я┌п╟ п©п╬ я▐п╢п╣я─п╫п╬п╪я┐ п╬п╠п╣я│п©п╣я┤п╣п╫п╦я▌
-+09/SunFirst	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╬п╡ п╫п╣я└я┌я▐п╫п╬п╧ п╦ пЁп╟п╥п╬п╡п╬п╧ п©я─п╬п╪я▀я┬п╩п╣п╫п╫п╬я│я┌п╦
-+09/SunSecond	п■п╣п╫я▄ я┌п╟п╫п╨п╦я│я┌п╟
-+09/SunThird	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╬п╡ п╩п╣я│п╟
-+09/28	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╟ п╟я┌п╬п╪п╫п╬п╧ п©я─п╬п╪я▀я┬п╩п╣п╫п╫п╬я│я┌п╦
-+09/SunLast	п■п╣п╫я▄ п╪п╟я┬п╦п╫п╬я│я┌я─п╬п╦я┌п╣п╩я▐
-+10/1	п■п╣п╫я▄ п©п╬п╤п╦п╩я▀я┘ п╩я▌п╢п╣п╧
-+10/1	п■п╣п╫я▄ я│я┐я┘п╬п©я┐я┌п╫я▀я┘ п╡п╬п╧я│п╨
-+10/4	п■п╣п╫я▄ п╨п╬я│п╪п╦я┤п╣я│п╨п╦я┘ п╡п╬п╧я│п╨
-+10/5	п■п╣п╫я▄ я┐я┤п╦я┌п╣п╩я▐
-+10/14	п°п╣п╤п╢я┐п╫п╟я─п╬п╢п╫я▀п╧ п╢п╣п╫я▄ я│я┌п╟п╫п╢п╟я─я┌п╦п╥п╟я├п╦п╦
-+10/SunSecond	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╬п╡ я│п╣п╩я▄я│п╨п╬пЁп╬ я┘п╬п╥я▐п╧я│я┌п╡п╟ п╦ п©п╣я─п╣я─п╟п╠п╟я┌я▀п╡п╟я▌я┴п╣п╧ п©я─п╬п╪я▀я┬п╩п╣п╫п╫п╬я│я┌п╦
-+10/SunThird	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╬п╡ п╢п╬я─п╬п╤п╫п╬пЁп╬ я┘п╬п╥я▐п╧я│я┌п╡п╟
-+10/24	п°п╣п╤п╢я┐п╫п╟я─п╬п╢п╫я▀п╧ п╢п╣п╫я▄ п·п·п²
-+10/25	п■п╣п╫я▄ я┌п╟п╪п╬п╤п╣п╫п╫п╦п╨п╟
-+10/30	п■п╣п╫я▄ п©п╟п╪я▐я┌п╦ п╤п╣я─я┌п╡ п©п╬п╩п╦я┌п╦я┤п╣я│п╨п╦я┘ я─п╣п©я─п╣я│я│п╦п╧
-+10/SunLast	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╬п╡ п╟п╡я┌п╬п╪п╬п╠п╦п╩я▄п╫п╬пЁп╬ я┌я─п╟п╫я│п©п╬я─я┌п╟
-+11/7	п■п╣п╫я▄ п╬п╨я┌я▐п╠я─я▄я│п╨п╬п╧ я─п╣п╡п╬п╩я▌я├п╦п╦ 1917 пЁп╬п╢п╟
-+11/9	п▓я│п╣п╪п╦я─п╫я▀п╧ п╢п╣п╫я▄ п╨п╟я┤п╣я│я┌п╡п╟
-+11/10	п■п╣п╫я▄ п╪п╦п╩п╦я├п╦п╦
-+11/16	п■п╣п╫я▄ п╪п╬я─я│п╨п╬п╧ п©п╣я┘п╬я┌я▀
-+11/17	п°п╣п╤п╢я┐п╫п╟я─п╬п╢п╫я▀п╧ п╢п╣п╫я▄ я│я┌я┐п╢п╣п╫я┌п╬п╡
-+11/19	п■п╣п╫я▄ я─п╟п╨п╣я┌п╫я▀я┘ п╡п╬п╧я│п╨ п╦ п╟я─я┌п╦п╩п╩п╣я─п╦п╦
-+11/21	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╬п╡ п╫п╟п╩п╬пЁп╬п╡я▀я┘ п╬я─пЁп╟п╫п╬п╡
-+11/26	п▓я│п╣п╪п╦я─п╫я▀п╧ п╢п╣п╫я▄ п╦п╫я└п╬я─п╪п╟я├п╦п╦
-+11/SunLast	п■п╣п╫я▄ п╪п╟я┌п╣я─п╦
-+12/1	п▓я│п╣п╪п╦я─п╫я▀п╧ п╢п╣п╫я▄ п╠п╬я─я▄п╠я▀ я│п╬ п║п÷п≤п■п╬п╪
-+12/3	п■п╣п╫я▄ я▌я─п╦я│я┌п╟
-+12/9	п■п╣п╫я▄ п⌠п╣я─п╬п╣п╡ п·я┌п╣я┤п╣я│я┌п╡п╟
-+12/12	п■п╣п╫я▄ п п╬п╫я│я┌п╦я┌я┐я├п╦п╦
-+12/17	п■п╣п╫я▄ я─п╟п╨п╣я┌п╫я▀я┘ п╡п╬п╧я│п╨ я│я┌я─п╟я┌п╣пЁп╦я┤п╣я│п╨п╬пЁп╬ п╫п╟п╥п╫п╟я┤п╣п╫п╦я▐
-+12/20	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╟ п╬я─пЁп╟п╫п╬п╡ п╠п╣п╥п╬п©п╟я│п╫п╬я│я┌п╦
-+12/22	п■п╣п╫я▄ я█п╫п╣я─пЁп╣я┌п╦п╨п╟
-+12/27	п■п╣п╫я▄ я│п©п╟я│п╟я┌п╣п╩я▐
- 
- #endif /* !_ru_RU_KOI8_R_common_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.holiday bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.holiday
---- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.holiday	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.holiday	2014-08-15 13:41:53.369111366 +0200
-@@ -1,25 +1,25 @@
- /*
-- * Российские праздники (нерабочие "красные" дни)
-+ * п═п╬я│я│п╦п╧я│п╨п╦п╣ п©я─п╟п╥п╢п╫п╦п╨п╦ (п╫п╣я─п╟п╠п╬я┤п╦п╣ "п╨я─п╟я│п╫я▀п╣" п╢п╫п╦)
-  *
-  * $FreeBSD$
-  */
- 
--#ifndef _ru_RU_KOI8_R_holiday_
--#define _ru_RU_KOI8_R_holiday_
-+#ifndef _ru_RU_holiday_
-+#define _ru_RU_holiday_
- 
--LANG=ru_RU.KOI8-R
-+LANG=UTF-8
- 
-- 1 янв	Новый год
-- 2 янв	Новогодние каникулы
-- 3 янв	Новогодние каникулы
-- 4 янв	Новогодние каникулы
-- 5 янв	Новогодние каникулы
-- 7 янв	Рождество Христово
--23 фев	День защитника Отечества
-- 8 мар	Международный женский день
-- 1 май	Праздник Весны и Труда
-- 9 май	День Победы
--12 июн	День России
-- 4 ноя	День народного единства
-+01/1	п²п╬п╡я▀п╧ пЁп╬п╢
-+01/2	п²п╬п╡п╬пЁп╬п╢п╫п╦п╣ п╨п╟п╫п╦п╨я┐п╩я▀
-+01/3	п²п╬п╡п╬пЁп╬п╢п╫п╦п╣ п╨п╟п╫п╦п╨я┐п╩я▀
-+01/4	п²п╬п╡п╬пЁп╬п╢п╫п╦п╣ п╨п╟п╫п╦п╨я┐п╩я▀
-+01/5	п²п╬п╡п╬пЁп╬п╢п╫п╦п╣ п╨п╟п╫п╦п╨я┐п╩я▀
-+01/7	п═п╬п╤п╢п╣я│я┌п╡п╬ п╔я─п╦я│я┌п╬п╡п╬
-+02/23	п■п╣п╫я▄ п╥п╟я┴п╦я┌п╫п╦п╨п╟ п·я┌п╣я┤п╣я│я┌п╡п╟
-+03/8	п°п╣п╤п╢я┐п╫п╟я─п╬п╢п╫я▀п╧ п╤п╣п╫я│п╨п╦п╧ п╢п╣п╫я▄
-+05/1	п÷я─п╟п╥п╢п╫п╦п╨ п▓п╣я│п╫я▀ п╦ п╒я─я┐п╢п╟
-+05/9	п■п╣п╫я▄ п÷п╬п╠п╣п╢я▀
-+06/12	п■п╣п╫я▄ п═п╬я│я│п╦п╦
-+11/4	п■п╣п╫я▄ п╫п╟я─п╬п╢п╫п╬пЁп╬ п╣п╢п╦п╫я│я┌п╡п╟
- 
--#endif /* !_ru_RU_KOI8_R_holiday_ */
-+#endif /* !_ru_RU_holiday_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military
---- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.military	2014-08-15 13:41:53.373111426 +0200
-@@ -1,27 +1,28 @@
- /*
-- * Дни воинской славы России
-+ * п■п╫п╦ п╡п╬п╦п╫я│п╨п╬п╧ я│п╩п╟п╡я▀ п═п╬я│я│п╦п╦
-  *
-  * $FreeBSD$
-  */
- 
--#ifndef _ru_RU_KOI8_R_military_
--#define _ru_RU_KOI8_R_military_
-+#ifndef _ru_RU_military_
-+#define _ru_RU_military_
- 
--LANG=ru_RU.KOI8-R
-+LANG=UTF-8
- 
--27 янв	День снятия блокады города Ленинграда (1944 год)
-- 2 фев	День разгрома советскими войсками немецко-фашистских войск в Сталинградской битве (1943 год)
--23 фев	День победы Красной Армии над кайзеровскими войсками Германии (1918 год)
--18 апр	День победы русских воинов князя Александра Невского над немецкими рыцарями на Чудском озере (Ледовое побоище, 1242 год)
--10 июл	День победы русской армии под командованием Петра Первого над шведами в Полтавском сражении (1709 год)
-- 9 авг	День первой в российской истории морской победы русского флота под командованием Петра Первого над шведами у мыса Гангут (1714 год)
--23 авг	День разгрома советскими войсками немецко-фашистских войск в Курской битве (1943 год)
-- 8 сен	День Бородинского сражения русской армии под командованием М.И. Кутузова с французской армией (1812 год)
--11 сен	День победы русской эскадры под командованием Ф.Ф. Ушакова над турецкой эскадрой у мыса Тендра (1790 год)
--21 сен	День победы русских полков во главе с великим князем Дмитрием Донским над монголо-татарскими войсками в Куликовской битве (1380 год)
-- 7 ноя	День освобождения Москвы силами народного ополчения под руководством Кузьмы Минина и Дмитрия Пожарского от польских интервентов (1612 год)
-- 1 дек	День победы русской эскадры под командованием П.С. Нахимова над турецкой эскадрой у мыса Синоп (1853 год)
-- 5 дек	День начала контрнаступления советских войск против немецко-фашистских войск в битве под Москвой (1941 год)
--24 дек	День взятия турецкой крепости Измаил русскими войсками под командованием А.В. Суворова (1790 год)
-+01/27	п■п╣п╫я▄ я│п╫я▐я┌п╦я▐ п╠п╩п╬п╨п╟п╢я▀ пЁп╬я─п╬п╢п╟ п⌡п╣п╫п╦п╫пЁя─п╟п╢п╟ (1944 пЁп╬п╢)
-+02/2	п■п╣п╫я▄ я─п╟п╥пЁя─п╬п╪п╟ я│п╬п╡п╣я┌я│п╨п╦п╪п╦ п╡п╬п╧я│п╨п╟п╪п╦ п╫п╣п╪п╣я├п╨п╬-я└п╟я┬п╦я│я┌я│п╨п╦я┘ п╡п╬п╧я│п╨ п╡ п║я┌п╟п╩п╦п╫пЁя─п╟п╢я│п╨п╬п╧ п╠п╦я┌п╡п╣ (1943 пЁп╬п╢)
-+02/23	п■п╣п╫я▄ п©п╬п╠п╣п╢я▀ п я─п╟я│п╫п╬п╧ п░я─п╪п╦п╦ п╫п╟п╢ п╨п╟п╧п╥п╣я─п╬п╡я│п╨п╦п╪п╦ п╡п╬п╧я│п╨п╟п╪п╦ п⌠п╣я─п╪п╟п╫п╦п╦ (1918 пЁп╬п╢)
-+04/18	п■п╣п╫я▄ п©п╬п╠п╣п╢я▀ я─я┐я│я│п╨п╦я┘ п╡п╬п╦п╫п╬п╡ п╨п╫я▐п╥я▐ п░п╩п╣п╨я│п╟п╫п╢я─п╟ п²п╣п╡я│п╨п╬пЁп╬ п╫п╟п╢ п╫п╣п╪п╣я├п╨п╦п╪п╦ я─я▀я├п╟я─я▐п╪п╦ п╫п╟ п╖я┐п╢я│п╨п╬п╪ п╬п╥п╣я─п╣ (п⌡п╣п╢п╬п╡п╬п╣ п©п╬п╠п╬п╦я┴п╣, 1242 пЁп╬п╢)
-+07/10	п■п╣п╫я▄ п©п╬п╠п╣п╢я▀ я─я┐я│я│п╨п╬п╧ п╟я─п╪п╦п╦ п©п╬п╢ п╨п╬п╪п╟п╫п╢п╬п╡п╟п╫п╦п╣п╪ п÷п╣я┌я─п╟ п÷п╣я─п╡п╬пЁп╬ п╫п╟п╢ я┬п╡п╣п╢п╟п╪п╦ п╡ п÷п╬п╩я┌п╟п╡я│п╨п╬п╪ я│я─п╟п╤п╣п╫п╦п╦ (1709 пЁп╬п╢)
-+08/9	п■п╣п╫я▄ п©п╣я─п╡п╬п╧ п╡ я─п╬я│я│п╦п╧я│п╨п╬п╧ п╦я│я┌п╬я─п╦п╦ п╪п╬я─я│п╨п╬п╧ п©п╬п╠п╣п╢я▀ я─я┐я│я│п╨п╬пЁп╬ я└п╩п╬я┌п╟ п©п╬п╢ п╨п╬п╪п╟п╫п╢п╬п╡п╟п╫п╦п╣п╪ п÷п╣я┌я─п╟ п÷п╣я─п╡п╬пЁп╬ п╫п╟п╢ я┬п╡п╣п╢п╟п╪п╦ я┐ п╪я▀я│п╟ п⌠п╟п╫пЁя┐я┌ (1714 пЁп╬п╢)
-+08/23	п■п╣п╫я▄ я─п╟п╥пЁя─п╬п╪п╟ я│п╬п╡п╣я┌я│п╨п╦п╪п╦ п╡п╬п╧я│п╨п╟п╪п╦ п╫п╣п╪п╣я├п╨п╬-я└п╟я┬п╦я│я┌я│п╨п╦я┘ п╡п╬п╧я│п╨ п╡ п я┐я─я│п╨п╬п╧ п╠п╦я┌п╡п╣ (1943 пЁп╬п╢)
-+09/2	п■п╣п╫я▄ п╬п╨п╬п╫я┤п╟п╫п╦я▐ п▓я┌п╬я─п╬п╧ п╪п╦я─п╬п╡п╬п╧ п╡п╬п╧п╫я▀ (1945 пЁп╬п╢)
-+09/8	п■п╣п╫я▄ п▒п╬я─п╬п╢п╦п╫я│п╨п╬пЁп╬ я│я─п╟п╤п╣п╫п╦я▐ я─я┐я│я│п╨п╬п╧ п╟я─п╪п╦п╦ п©п╬п╢ п╨п╬п╪п╟п╫п╢п╬п╡п╟п╫п╦п╣п╪ п°.п≤. п я┐я┌я┐п╥п╬п╡п╟ я│ я└я─п╟п╫я├я┐п╥я│п╨п╬п╧ п╟я─п╪п╦п╣п╧ (1812 пЁп╬п╢)
-+09/11	п■п╣п╫я▄ п©п╬п╠п╣п╢я▀ я─я┐я│я│п╨п╬п╧ я█я│п╨п╟п╢я─я▀ п©п╬п╢ п╨п╬п╪п╟п╫п╢п╬п╡п╟п╫п╦п╣п╪ п╓.п╓. пёя┬п╟п╨п╬п╡п╟ п╫п╟п╢ я┌я┐я─п╣я├п╨п╬п╧ я█я│п╨п╟п╢я─п╬п╧ я┐ п╪я▀я│п╟ п╒п╣п╫п╢я─п╟ (1790 пЁп╬п╢)
-+09/21	п■п╣п╫я▄ п©п╬п╠п╣п╢я▀ я─я┐я│я│п╨п╦я┘ п©п╬п╩п╨п╬п╡ п╡п╬ пЁп╩п╟п╡п╣ я│ п╡п╣п╩п╦п╨п╦п╪ п╨п╫я▐п╥п╣п╪ п■п╪п╦я┌я─п╦п╣п╪ п■п╬п╫я│п╨п╦п╪ п╫п╟п╢ п╪п╬п╫пЁп╬п╩п╬-я┌п╟я┌п╟я─я│п╨п╦п╪п╦ п╡п╬п╧я│п╨п╟п╪п╦ п╡ п я┐п╩п╦п╨п╬п╡я│п╨п╬п╧ п╠п╦я┌п╡п╣ (1380 пЁп╬п╢)
-+11/7	п■п╣п╫я▄ п╬я│п╡п╬п╠п╬п╤п╢п╣п╫п╦я▐ п°п╬я│п╨п╡я▀ я│п╦п╩п╟п╪п╦ п╫п╟я─п╬п╢п╫п╬пЁп╬ п╬п©п╬п╩я┤п╣п╫п╦я▐ п©п╬п╢ я─я┐п╨п╬п╡п╬п╢я│я┌п╡п╬п╪ п я┐п╥я▄п╪я▀ п°п╦п╫п╦п╫п╟ п╦ п■п╪п╦я┌я─п╦я▐ п÷п╬п╤п╟я─я│п╨п╬пЁп╬ п╬я┌ п©п╬п╩я▄я│п╨п╦я┘ п╦п╫я┌п╣я─п╡п╣п╫я┌п╬п╡ (1612 пЁп╬п╢)
-+12/1	п■п╣п╫я▄ п©п╬п╠п╣п╢я▀ я─я┐я│я│п╨п╬п╧ я█я│п╨п╟п╢я─я▀ п©п╬п╢ п╨п╬п╪п╟п╫п╢п╬п╡п╟п╫п╦п╣п╪ п÷.п║. п²п╟я┘п╦п╪п╬п╡п╟ п╫п╟п╢ я┌я┐я─п╣я├п╨п╬п╧ я█я│п╨п╟п╢я─п╬п╧ я┐ п╪я▀я│п╟ п║п╦п╫п╬п© (1853 пЁп╬п╢)
-+12/5	п■п╣п╫я▄ п╫п╟я┤п╟п╩п╟ п╨п╬п╫я┌я─п╫п╟я│я┌я┐п©п╩п╣п╫п╦я▐ я│п╬п╡п╣я┌я│п╨п╦я┘ п╡п╬п╧я│п╨ п©я─п╬я┌п╦п╡ п╫п╣п╪п╣я├п╨п╬-я└п╟я┬п╦я│я┌я│п╨п╦я┘ п╡п╬п╧я│п╨ п╡ п╠п╦я┌п╡п╣ п©п╬п╢ п°п╬я│п╨п╡п╬п╧ (1941 пЁп╬п╢)
-+12/24	п■п╣п╫я▄ п╡п╥я▐я┌п╦я▐ я┌я┐я─п╣я├п╨п╬п╧ п╨я─п╣п©п╬я│я┌п╦ п≤п╥п╪п╟п╦п╩ я─я┐я│я│п╨п╦п╪п╦ п╡п╬п╧я│п╨п╟п╪п╦ п©п╬п╢ п╨п╬п╪п╟п╫п╢п╬п╡п╟п╫п╦п╣п╪ п░.п▓. п║я┐п╡п╬я─п╬п╡п╟ (1790 пЁп╬п╢)
- 
--#endif /* !_ru_RU_KOI8_R_military_ */
-+#endif /* !_ru_RU_military_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk
---- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.msk	2014-08-15 13:41:53.373111426 +0200
-@@ -1,16 +1,16 @@
- /*
-- * Перевод часов для московской временной зоны
-+ * п÷п╣я─п╣п╡п╬п╢ я┤п╟я│п╬п╡ п╢п╩я▐ п╪п╬я│п╨п╬п╡я│п╨п╬п╧ п╡я─п╣п╪п╣п╫п╫п╬п╧ п╥п╬п╫я▀
-  *
-  * $FreeBSD$
-  */
- 
--#ifndef _ru_RU_KOI8_R_msk_
--#define _ru_RU_KOI8_R_msk_
-+#ifndef _ru_RU_msk_
-+#define _ru_RU_msk_
- 
--LANG=ru_RU.KOI8-R
-+LANG=UTF-8
- 
--03/SunLast	Начало московского летнего времени; часы переводятся вперед
--10/SunLast	Конец московского летнего времени; часы переводятся назад
-+03/SunLast	п²п╟я┤п╟п╩п╬ п╪п╬я│п╨п╬п╡я│п╨п╬пЁп╬ п╩п╣я┌п╫п╣пЁп╬ п╡я─п╣п╪п╣п╫п╦; я┤п╟я│я▀ п©п╣я─п╣п╡п╬п╢я▐я┌я│я▐ п╡п©п╣я─п╣п╢
-+10/SunLast	п п╬п╫п╣я├ п╪п╬я│п╨п╬п╡я│п╨п╬пЁп╬ п╩п╣я┌п╫п╣пЁп╬ п╡я─п╣п╪п╣п╫п╦; я┤п╟я│я▀ п©п╣я─п╣п╡п╬п╢я▐я┌я│я▐ п╫п╟п╥п╟п╢
- 
--#endif /* !_ru_RU_KOI8_R_msk_ */
-+#endif /* !_ru_RU_msk_ */
- 
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox
---- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.orthodox	2014-08-15 13:41:53.381111546 +0200
-@@ -1,34 +1,36 @@
- /*
-- * Православные праздники
-+ * п÷я─п╟п╡п╬я│п╩п╟п╡п╫я▀п╣ п©я─п╟п╥п╢п╫п╦п╨п╦
-  *
-  * $FreeBSD$
-  */
- 
--#ifndef _ru_RU_KOI8_R_orthodox_
--#define _ru_RU_KOI8_R_orthodox_
-+#ifndef _ru_RU_orthodox_
-+#define _ru_RU_orthodox_
- 
--LANG=ru_RU.KOI8-R
--Paskha=Пасха
-+LANG=UTF-8
-+Paskha=п÷п╟я│я┘п╟
- 
--21 сен	Рождество Пресвятой Богородицы
--28 сен	Воздвижение Креста Господня
--14 окт	Покров Пресвятой Богородицы
-- 4 дек	Введение во храм Пресвятой Богородицы
-- 7 янв	Рождество Христово
--19 янв	Богоявление или Крещение Господне
--15 фев	Сретение Господне
--Пасха-46	Великий Пост
--Пасха-7	Вербное Воскресенье
--Пасха-3	Великий Четверг
--Пасха-2	Страстная Пятница
--Пасха	Воскресение Христово
--Пасха+39	Вознесение
--Пасха+49	Пятидесятница
--Пасха+56	Троицин День
--Пасха+60	Праздник Тела Христова
-- 7 апр	Благовещение Пресвятой Богородицы
--19 авг	Преображение Господне
--28 авг	Успение Пресвятой Богородицы
-+09/21	п═п╬п╤п╢п╣я│я┌п╡п╬ п÷я─п╣я│п╡я▐я┌п╬п╧ п▒п╬пЁп╬я─п╬п╢п╦я├я▀
-+09/27	п▓п╬п╥п╢п╡п╦п╤п╣п╫п╦п╣ п я─п╣я│я┌п╟ п⌠п╬я│п©п╬п╢п╫я▐
-+10/14	п÷п╬п╨я─п╬п╡ п÷я─п╣я│п╡я▐я┌п╬п╧ п▒п╬пЁп╬я─п╬п╢п╦я├я▀
-+12/4	п▓п╡п╣п╢п╣п╫п╦п╣ п╡п╬ я┘я─п╟п╪ п÷я─п╣я│п╡я▐я┌п╬п╧ п▒п╬пЁп╬я─п╬п╢п╦я├я▀
-+01/7	п═п╬п╤п╢п╣я│я┌п╡п╬ п╔я─п╦я│я┌п╬п╡п╬
-+01/14	п·п╠я─п╣п╥п╟п╫п╦п╣ п⌠п╬я│п©п╬п╢п╫п╣
-+01/19	п▒п╬пЁп╬я▐п╡п╩п╣п╫п╦п╣ п╦п╩п╦ п я─п╣я┴п╣п╫п╦п╣ п⌠п╬я│п©п╬п╢п╫п╣
-+02/15	п║я─п╣я┌п╣п╫п╦п╣ п⌠п╬я│п©п╬п╢п╫п╣
-+п÷п╟я│я┘п╟-48	п▓п╣п╩п╦п╨п╦п╧ п÷п╬я│я┌
-+п÷п╟я│я┘п╟-7	п▓я┘п╬п╢ п⌠п╬я│п©п╬п╢п╣п╫я▄ п╡ п≤п╣я─я┐я│п╟п╩п╦п╪. п▓п╣я─п╠п╫п╬п╣ п▓п╬я│п╨я─п╣я│п╣п╫я▄п╣
-+п÷п╟я│я┘п╟-3	п▓п╣п╩п╦п╨п╦п╧ п╖п╣я┌п╡п╣я─пЁ
-+п÷п╟я│я┘п╟-2	п║я┌я─п╟я│я┌п╫п╟я▐ п÷я▐я┌п╫п╦я├п╟
-+п÷п╟я│я┘п╟	п▓п╬я│п╨я─п╣я│п╣п╫п╦п╣ п╔я─п╦я│я┌п╬п╡п╬
-+п÷п╟я│я┘п╟+39	п▓п╬п╥п╫п╣я│п╣п╫п╦п╣
-+п÷п╟я│я┘п╟+49	п■п╣п╫я▄ п║п╡я▐я┌п╬п╧ п╒я─п╬п╦я├я▀. п÷я▐я┌п╦п╢п╣я│я▐я┌п╫п╦я├п╟
-+04/7	п▒п╩п╟пЁп╬п╡п╣я┴п╣п╫п╦п╣ п÷я─п╣я│п╡я▐я┌п╬п╧ п▒п╬пЁп╬я─п╬п╢п╦я├я▀
-+07/7	п═п╬п╤п╢п╣я│я┌п╡п╬ п≤п╬п╟п╫п╫п╟ п÷я─п╣п╢я┌п╣я┤п╦
-+07/12	п■п╣п╫я▄ я│п╡я▐я┌я▀я┘ п©п╣я─п╡п╬п╡п╣я─я┘п╬п╡п╫я▀я┘ п╟п©п╬я│я┌п╬п╩п╬п╡ п÷п╣я┌я─п╟ п╦ п÷п╟п╡п╩п╟
-+08/19	п÷я─п╣п╬п╠я─п╟п╤п╣п╫п╦п╣ п⌠п╬я│п©п╬п╢п╫п╣
-+08/28	пёя│п©п╣п╫п╦п╣ п÷я─п╣я│п╡я▐я┌п╬п╧ п▒п╬пЁп╬я─п╬п╢п╦я├я▀
-+09/11	пёя│п╣п╨п╫п╬п╡п╣п╫п╦п╣ пЁп╩п╟п╡я▀ п≤п╬п╟п╫п╫п╟ п÷я─п╣п╢я┌п╣я┤п╦
- 
--#endif /* !_ru_RU_KOI8_R_orthodox_ */
-+#endif /* !_ru_RU_orthodox_ */
- 
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan
---- bsdmainutils.orig/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan	2014-08-15 13:41:53.385111607 +0200
-@@ -1,42 +1,42 @@
- /*
-- * Языческие праздники
-+ * п╞п╥я▀я┤п╣я│п╨п╦п╣ п©я─п╟п╥п╢п╫п╦п╨п╦
-  *
-  * $FreeBSD$
-  */
- 
--#ifndef _ru_RU_KOI8_R_pagan_
--#define _ru_RU_KOI8_R_pagan_
-+#ifndef _ru_RU_pagan_
-+#define _ru_RU_pagan_
- 
--LANG=ru_RU.KOI8-R
--Paskha=Пасха
-+LANG=UTF-8
-+Paskha=п÷п╟я│я┘п╟
- 
--21 дек*	Зимнее солнцестояние
--25 дек	Коляда (сдвинутое зимнее солнцестояние)
-- 6 янв	День Кащея и Велеса
--24 фев	День Велеса
--29 фев	День Кащея
-- 1 мар	День Марены
--14 мар	Новый Год, Овсень малый
--Пасха-47	Масленица
--Пасха+7	Красная Горка
--Пасха+16	Радуница
--20 мар*	Весенние равноденствие
-- 7 апр	День Марены (сдвинутое весеннее равноденствие)
-- 6 май	День Дажьбога, Овсень большой
--22 май	Ярилин День
--15 июн	День Триглава
--21 июн*	Летнее солнцестояние
-- 1 июл	Русальная Неделя
-- 7 июл	Купала (сдвинутое летнее солнцестояние)
--27 июл	Отбор жертв Перуну, русалии
-- 2 авг	Перунов День
--21 авг	День Стрибога
--28 авг	Успение Златогорки
--14 сен	День Волха Змеевича
--22 сен*	Поворот к зиме (осеннее равноденствие)
--10 ноя	День Макоши
--21 ноя	День Сварога и Семаргла
-- 9 дек	День Дажьбога и Марены
-+12/21*	п≈п╦п╪п╫п╣п╣ я│п╬п╩п╫я├п╣я│я┌п╬я▐п╫п╦п╣
-+12/25	п п╬п╩я▐п╢п╟ (я│п╢п╡п╦п╫я┐я┌п╬п╣ п╥п╦п╪п╫п╣п╣ я│п╬п╩п╫я├п╣я│я┌п╬я▐п╫п╦п╣)
-+01/6	п■п╣п╫я▄ п п╟я┴п╣я▐ п╦ п▓п╣п╩п╣я│п╟
-+02/24	п■п╣п╫я▄ п▓п╣п╩п╣я│п╟
-+02/29	п■п╣п╫я▄ п п╟я┴п╣я▐
-+03/1	п■п╣п╫я▄ п°п╟я─п╣п╫я▀
-+03/14	п²п╬п╡я▀п╧ п⌠п╬п╢, п·п╡я│п╣п╫я▄ п╪п╟п╩я▀п╧
-+п÷п╟я│я┘п╟-55	п°п╟я│п╩п╣п╫п╦я├п╟
-+п÷п╟я│я┘п╟+7	п я─п╟я│п╫п╟я▐ п⌠п╬я─п╨п╟
-+п÷п╟я│я┘п╟+16	п═п╟п╢я┐п╫п╦я├п╟
-+03/20*	п▓п╣я│п╣п╫п╫п╦п╣ я─п╟п╡п╫п╬п╢п╣п╫я│я┌п╡п╦п╣
-+04/7	п■п╣п╫я▄ п°п╟я─п╣п╫я▀ (я│п╢п╡п╦п╫я┐я┌п╬п╣ п╡п╣я│п╣п╫п╫п╣п╣ я─п╟п╡п╫п╬п╢п╣п╫я│я┌п╡п╦п╣)
-+05/6	п■п╣п╫я▄ п■п╟п╤я▄п╠п╬пЁп╟, п·п╡я│п╣п╫я▄ п╠п╬п╩я▄я┬п╬п╧
-+05/22	п╞я─п╦п╩п╦п╫ п■п╣п╫я▄
-+06/15	п■п╣п╫я▄ п╒я─п╦пЁп╩п╟п╡п╟
-+06/21*	п⌡п╣я┌п╫п╣п╣ я│п╬п╩п╫я├п╣я│я┌п╬я▐п╫п╦п╣
-+07/1	п═я┐я│п╟п╩я▄п╫п╟я▐ п²п╣п╢п╣п╩я▐
-+07/7	п я┐п©п╟п╩п╟ (я│п╢п╡п╦п╫я┐я┌п╬п╣ п╩п╣я┌п╫п╣п╣ я│п╬п╩п╫я├п╣я│я┌п╬я▐п╫п╦п╣)
-+07/27	п·я┌п╠п╬я─ п╤п╣я─я┌п╡ п÷п╣я─я┐п╫я┐, я─я┐я│п╟п╩п╦п╦
-+08/2	п÷п╣я─я┐п╫п╬п╡ п■п╣п╫я▄
-+08/21	п■п╣п╫я▄ п║я┌я─п╦п╠п╬пЁп╟
-+08/28	пёя│п©п╣п╫п╦п╣ п≈п╩п╟я┌п╬пЁп╬я─п╨п╦
-+09/14	п■п╣п╫я▄ п▓п╬п╩я┘п╟ п≈п╪п╣п╣п╡п╦я┤п╟
-+09/22*	п÷п╬п╡п╬я─п╬я┌ п╨ п╥п╦п╪п╣ (п╬я│п╣п╫п╫п╣п╣ я─п╟п╡п╫п╬п╢п╣п╫я│я┌п╡п╦п╣)
-+11/10	п■п╣п╫я▄ п°п╟п╨п╬я┬п╦
-+11/21	п■п╣п╫я▄ п║п╡п╟я─п╬пЁп╟ п╦ п║п╣п╪п╟я─пЁп╩п╟
-+12/9	п■п╣п╫я▄ п■п╟п╤я▄п╠п╬пЁп╟ п╦ п°п╟я─п╣п╫я▀
- 
--#endif /* !_ru_RU_KOI8_R_pagan_ */
-+#endif /* !_ru_RU_pagan_ */
- 
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all
---- bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all	2014-08-15 13:41:53.401111848 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/uk_UA.KOI8-U/calendar.all	2017-12-27 11:54:45.954828726 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all	2017-12-27 11:55:01.114871137 +0100
 @@ -1,14 +1,14 @@
  /*
 - * Укра╖нський календар
 + * пёп╨я─п╟я≈п╫я│я▄п╨п╦п╧ п╨п╟п╩п╣п╫п╢п╟я─
   *
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all 151825 2005-10-28 21:25:28Z ru $
   */
  
 -#ifndef _uk_UA_KOI8_U_all_
@@ -4298,15 +3481,14 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all
  
 -#endif /* !_uk_UA_KOI8_U_all_ */
 +#endif /* !_uk_UA_all_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday
---- bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday	2014-08-15 13:41:53.405111909 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/uk_UA.KOI8-U/calendar.holiday	2017-12-27 11:54:45.954828726 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday	2017-12-27 11:55:11.926902082 +0100
 @@ -1,22 +1,22 @@
  /*
 - * Укра╖нськ╕ державн╕ свята
 + * пёп╨я─п╟я≈п╫я│я▄п╨я√ п╢п╣я─п╤п╟п╡п╫я√ я│п╡я▐я┌п╟
   *
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.holiday 151825 2005-10-28 21:25:28Z ru $
   */
  
 -#ifndef _uk_UA_KOI8_U_holiday_
@@ -4338,15 +3520,14 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.hol
  
 -#endif /* !_uk_UA_KOI8_U_holiday_ */
 +#endif /* !_uk_UA_holiday_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc
---- bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc	2014-08-15 13:41:53.409111969 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/uk_UA.KOI8-U/calendar.misc	2017-12-27 11:54:45.954828726 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc	2017-12-27 11:55:22.730933573 +0100
 @@ -1,18 +1,18 @@
  /*
 - * ╤нш╕ ц╕кав╕ дати
 + * п├п╫я┬я√ я├я√п╨п╟п╡я√ п╢п╟я┌п╦
   *
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.misc 151825 2005-10-28 21:25:28Z ru $
   */
  
 -#ifndef _uk_UA_KOI8_U_misc_
@@ -4369,15 +3550,14 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.mis
  
 -#endif /* !_uk_UA_KOI8_U_misc_ */
 +#endif /* !_uk_UA_misc_ */
-diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox
---- bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox	2014-08-15 13:41:14.960532484 +0200
-+++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox	2014-08-15 13:41:53.413112028 +0200
+--- bsdmainutils/usr.bin/calendar/calendars.orig/uk_UA.KOI8-U/calendar.orthodox	2017-12-27 11:54:45.954828726 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox	2017-12-27 11:55:34.482968459 +0100
 @@ -1,35 +1,35 @@
  /*
 - * Православн╕ свята
 + * п÷я─п╟п╡п╬я│п╩п╟п╡п╫я√ я│п╡я▐я┌п╟
   *
-  * $FreeBSD$
+  * $FreeBSD: head/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox 151825 2005-10-28 21:25:28Z ru $
   */
  
 -#ifndef _uk_UA_KOI8_U_orthodox_
@@ -4435,3 +3615,164 @@ diff -ruN bsdmainutils.orig/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.ort
  
 -#endif /* !_uk_UA_KOI8_U_orthodox_ */
 +#endif /* !_uk_UA_orthodox_ */
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.dutch	2017-12-27 10:32:58.613095873 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.dutch	2017-12-27 12:20:41.626744761 +0100
+@@ -4,7 +4,7 @@
+  * Originally submitted by Edwin Groothuis <edwin@FreeBSD.org>
+  */
+ 
+-LANG=nl_NL.ISO8859-15
++LANG=UTF-8
+ Easter=Pasen
+ 
+ /*
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.german	2017-12-27 10:34:42.887474624 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.german	2017-12-27 12:19:35.981872501 +0100
+@@ -7,6 +7,6 @@
+ #ifndef _calendar_german_
+ #define _calendar_german_
+ 
+-#include <de_DE.ISO8859-1/calendar.all>
++#include <de_DE/calendar.all>
+ 
+ #endif /* !_calendar_german_ */
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.french	2017-12-27 10:34:25.872303960 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.french	2017-12-27 12:19:25.581729905 +0100
+@@ -7,6 +7,6 @@
+ #ifndef _calendar_french_
+ #define _calendar_french_
+ 
+-#include <fr_FR.ISO8859-1/calendar.all>
++#include <fr_FR/calendar.all>
+ 
+ #endif /* !_calendar_french_ */
+--- bsdmainutils/usr.bin/calendar/calendars.orig/calendar.croatian	2017-12-27 10:32:37.858379663 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/calendar.croatian	2017-12-27 12:18:44.593155273 +0100
+@@ -7,6 +7,6 @@
+ #ifndef _calendar_croatian_
+ #define _calendar_croatian_
+ 
+-#include <hr_HR.ISO8859-2/calendar.all>
++#include <hr_HR/calendar.all>
+ 
+ #endif /* !_calendar_croatian_ */
+--- bsdmainutils/usr.bin/calendar/calendars.orig/ru_RU.UTF-8/calendar.all	2017-12-27 11:53:58.534703820 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.all	2017-12-27 12:25:55.306392829 +0100
+@@ -7,10 +7,10 @@
+ #ifndef _ru_RU_UTF_8_all_
+ #define _ru_RU_UTF_8_all_
+ 
+-#include <ru_RU.UTF-8/calendar.common>
+-#include <ru_RU.UTF-8/calendar.holiday>
+-#include <ru_RU.UTF-8/calendar.military>
+-#include <ru_RU.UTF-8/calendar.orthodox>
+-#include <ru_RU.UTF-8/calendar.pagan>
++#include <ru_RU/calendar.common>
++#include <ru_RU/calendar.holiday>
++#include <ru_RU/calendar.military>
++#include <ru_RU/calendar.orthodox>
++#include <ru_RU/calendar.pagan>
+ 
+ #endif /* !_ru_RU_UTF_8_all_ */
+--- bsdmainutils/usr.bin/calendar/calendars.orig/ru_RU.UTF-8/calendar.common	2017-12-27 11:53:58.534703820 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.common	2017-12-27 12:29:22.204474772 +0100
+@@ -7,7 +7,7 @@
+ #ifndef _ru_RU_UTF_8_common_
+ #define _ru_RU_UTF_8_common_
+ 
+-LANG=ru_RU.UTF-8
++LANG=UTF-8
+ 
+ 12 я▐п╫п╡.	п■п╣п╫я▄ я─п╟п╠п╬я┌п╫п╦п╨п╟ п©я─п╬п╨я┐я─п╟я┌я┐я─я▀
+ 13 я▐п╫п╡.	п■п╣п╫я▄ я─п╬я│я│п╦п╧я│п╨п╬п╧ п©п╣я┤п╟я┌п╦
+--- bsdmainutils/usr.bin/calendar/calendars.orig/ru_RU.UTF-8/calendar.holiday	2017-12-27 11:53:58.534703820 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.holiday	2017-12-27 12:29:09.676353879 +0100
+@@ -7,7 +7,7 @@
+ #ifndef _ru_RU_UTF_8_holiday_
+ #define _ru_RU_UTF_8_holiday_
+ 
+-LANG=ru_RU.UTF-8
++LANG=UTF-8
+ 
+  1 я▐п╫п╡.	п²п╬п╡я▀п╧ пЁп╬п╢
+  2 я▐п╫п╡.	п²п╬п╡п╬пЁп╬п╢п╫п╦п╣ п╨п╟п╫п╦п╨я┐п╩я▀
+--- bsdmainutils/usr.bin/calendar/calendars.orig/ru_RU.UTF-8/calendar.military	2017-12-27 11:53:58.534703820 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.military	2017-12-27 12:28:59.800258160 +0100
+@@ -7,7 +7,7 @@
+ #ifndef _ru_RU_UTF_8_military_
+ #define _ru_RU_UTF_8_military_
+ 
+-LANG=ru_RU.UTF-8
++LANG=UTF-8
+ 
+ 27 я▐п╫п╡.	п■п╣п╫я▄ я│п╫я▐я┌п╦я▐ п╠п╩п╬п╨п╟п╢я▀ пЁп╬я─п╬п╢п╟ п⌡п╣п╫п╦п╫пЁя─п╟п╢п╟ (1944 пЁп╬п╢)
+  2 я└п╣п╡я─.	п■п╣п╫я▄ я─п╟п╥пЁя─п╬п╪п╟ я│п╬п╡п╣я┌я│п╨п╦п╪п╦ п╡п╬п╧я│п╨п╟п╪п╦ п╫п╣п╪п╣я├п╨п╬-я└п╟я┬п╦я│я┌я│п╨п╦я┘ п╡п╬п╧я│п╨ п╡ п║я┌п╟п╩п╦п╫пЁя─п╟п╢я│п╨п╬п╧ п╠п╦я┌п╡п╣ (1943 пЁп╬п╢)
+--- bsdmainutils/usr.bin/calendar/calendars.orig/ru_RU.UTF-8/calendar.orthodox	2017-12-27 11:53:58.534703820 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.orthodox	2017-12-27 12:28:41.764082389 +0100
+@@ -7,7 +7,7 @@
+ #ifndef _ru_RU_UTF_8_orthodox_
+ #define _ru_RU_UTF_8_orthodox_
+ 
+-LANG=ru_RU.UTF-8
++LANG=UTF-8
+ Paskha=п÷п╟я│я┘п╟
+ 
+ 21 я│п╣п╫я┌.	п═п╬п╤п╢п╣я│я┌п╡п╬ п÷я─п╣я│п╡я▐я┌п╬п╧ п▒п╬пЁп╬я─п╬п╢п╦я├я▀
+--- bsdmainutils/usr.bin/calendar/calendars.orig/ru_RU.UTF-8/calendar.pagan	2017-12-27 11:53:58.534703820 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.pagan	2017-12-27 12:28:51.192174428 +0100
+@@ -7,7 +7,7 @@
+ #ifndef _ru_RU_UTF_8_pagan_
+ #define _ru_RU_UTF_8_pagan_
+ 
+-LANG=ru_RU.UTF-8
++LANG=UTF-8
+ Paskha=п÷п╟я│я┘п╟
+ 
+ 21 п╢п╣п╨.*	п≈п╦п╪п╫п╣п╣ я│п╬п╩п╫я├п╣я│я┌п╬я▐п╫п╦п╣
+--- bsdmainutils/usr.bin/calendar/calendars.orig/pt_BR.UTF-8/calendar.all	2017-12-27 11:39:58.580305967 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/pt_BR.UTF-8/calendar.all	2017-12-27 12:26:09.446541625 +0100
+@@ -9,8 +9,8 @@
+ #ifndef _pt_BR_UTF_8_all_
+ #define _pt_BR_UTF_8_all_
+ 
+-#include <pt_BR.UTF-8/calendar.holidays>
+-#include <pt_BR.UTF-8/calendar.commemorative>
+-#include <pt_BR.UTF-8/calendar.mcommemorative>
++#include <pt_BR/calendar.holidays>
++#include <pt_BR/calendar.commemorative>
++#include <pt_BR/calendar.mcommemorative>
+ 
+ #endif /* !_pt_BR.UTF_8_all_ */
+--- bsdmainutils/usr.bin/calendar/calendars.orig/pt_BR.UTF-8/calendar.commemorative	2017-12-27 11:39:58.580305967 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/pt_BR.UTF-8/calendar.commemorative	2017-12-27 12:30:06.328896073 +0100
+@@ -9,7 +9,7 @@
+ #ifndef _pt_BR_UTF_8_commemorative_
+ #define _pt_BR_UTF_8_commemorative_
+ 
+-LANG=pt_BR.UTF-8
++LANG=UTF-8
+ 
+ 01/06	Dia nacional do fotцЁgrafo
+ 01/06	Dia da gratidцёo
+--- bsdmainutils/usr.bin/calendar/calendars.orig/pt_BR.UTF-8/calendar.holidays	2017-12-27 11:39:58.580305967 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/pt_BR.UTF-8/calendar.holidays	2017-12-27 12:29:48.212723924 +0100
+@@ -11,7 +11,7 @@
+ #ifndef _pt_BR_UTF_8_holidays_
+ #define _pt_BR_UTF_8_holidays_
+ 
+-LANG=pt_BR.UTF-8
++LANG=UTF-8
+ 
+ 01/01	Dia da confraternizaц╖цёo universal e da paz
+ 04/21	Dia do Tiradentes
+--- bsdmainutils/usr.bin/calendar/calendars.orig/pt_BR.UTF-8/calendar.mcommemorative	2017-12-27 11:39:58.580305967 +0100
++++ bsdmainutils/usr.bin/calendar/calendars/pt_BR.UTF-8/calendar.mcommemorative	2017-12-27 12:29:55.764795825 +0100
+@@ -11,7 +11,7 @@
+ #ifndef _pt_BR_UTF_8_mcommemorative_
+ #define _pt_BR_UTF_8_mcommemorative_
+ 
+-LANG=pt_BR.UTF-8
++LANG=UTF-8
+ 
+ Easter-47	Carnaval
+ Easter-7	Domingo de Ramos

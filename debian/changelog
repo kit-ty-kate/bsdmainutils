@@ -1,3 +1,13 @@
+bsdmainutils (11.1.1) unstable; urgency=medium
+
+  * Update to latest FreeBSD/OpenBSD versions.
+  * Do not explicitly set dpkg-architecture variables.
+  * Fix dependency to reference the library that is really needed.
+  * Removed Giacomo from uploaders by his own request.
+  * Bumped Standards-Version to 4.1.2, no changes needed.
+
+ -- Michael Meskes <meskes@debian.org>  Wed, 27 Dec 2017 13:51:13 +0100
+
 bsdmainutils (9.0.14) unstable; urgency=medium
 
   * Updated Thai holidays.
