@@ -24,19 +24,19 @@ build-stamp: debian/stamp-patched
 	dh_testdir
 	$(MAKE) $(CROSS)
 	currentyear=$(shell date --date="`dpkg-parsechangelog -S Date`" +%Y); \
-	year=`expr $$currentyear + 5`; \
-	while [ $${year} -ne $${currentyear} ] ; do \
-	    year=`expr $$year - 1`; \
-	    python $(CURDIR)/debian/calendarJudaic.py $$year > $(CURDIR)/debian/calendars/calendar.judaic.$$year; \
-	done; \
+	#year=`expr $$currentyear + 5`; \
+	#while [ $${year} -ne $${currentyear} ] ; do \
+	#    year=`expr $$year - 1`; \
+	#    python3 $(CURDIR)/debian/calendarJudaic.py $$year > $(CURDIR)/debian/calendars/calendar.judaic.$$year; \
+	#done; \
 	cd $(CURDIR)/debian/calendars; \
-	[ -L calendar.judaic ] || ln -s calendar.judaic.$$year calendar.judaic;
+	[ -L calendar.judaic ] || ln -s calendar.judaic.$$currentyear calendar.judaic;
 	touch build-stamp
 
 clean: unpatch
 	dh_testdir
 	$(MAKE) clean
-	-rm -f $(CURDIR)/debian/calendars/calendar.judaic*
+	-rm -f $(CURDIR)/debian/calendars/calendar.judaic
 	-rm -f build-stamp
 	dh_clean
 
@@ -45,6 +45,9 @@ install: build
 	dh_testroot
 	dh_installdirs
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/bsdmainutils
+	mkdir -p $(CURDIR)/debian/calendar/usr/bin $(CURDIR)/debian/calendar/usr/share/man/man1
+	mv $(CURDIR)/debian/bsdmainutils/usr/bin/calendar $(CURDIR)/debian/calendar/usr/bin/calendar
+	mv $(CURDIR)/debian/bsdmainutils/usr/share/man/man1/calendar.1 $(CURDIR)/debian/calendar/usr/share/man/man1/calendar.1
 
 binary-arch: build install
 	dh_testdir

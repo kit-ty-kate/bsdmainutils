@@ -44,6 +44,4 @@ debian/calendars/calendar.unitedkingdom			/usr/share/calendar
 
 debian/calendars/default				/etc/calendar
 
-debian/lintian/bsdmainutils				/usr/share/lintian/overrides
-
-debian/calendarJudaic.py				/usr/share/doc/bsdmainutils
+debian/calendarJudaic.py				/usr/share/doc/calendar

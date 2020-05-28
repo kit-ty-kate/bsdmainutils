@@ -4,7 +4,7 @@ Author: Michael Meskes <meskes@debian.org>
 --- bsdmainutils/usr.bin/write/write.c	2017-12-20 11:37:51.796262348 +0100
 +++ bsdmainutils/usr.bin/write/write.c	2017-12-20 12:54:59.348830683 +0100
 @@ -48,13 +48,10 @@
- __FBSDID("$FreeBSD: head/usr.bin/write/write.c 326025 2017-11-20 19:49:47Z pfg $");
+ __FBSDID("$FreeBSD: head/usr.bin/write/write.c 343354 2019-01-23 20:02:17Z markj $");
  
  #include <sys/param.h>
 -#include <sys/capsicum.h>
@@ -17,7 +17,7 @@ Author: Michael Meskes <meskes@debian.org>
  #include <ctype.h>
  #include <err.h>
  #include <errno.h>
-@@ -80,8 +80,6 @@
+@@ -80,8 +77,6 @@
  int
  main(int argc, char **argv)
  {
@@ -26,13 +26,13 @@ Author: Michael Meskes <meskes@debian.org>
  	struct passwd *pwd;
  	time_t atime;
  	uid_t myuid;
-@@ -95,31 +93,6 @@
+@@ -95,30 +90,6 @@
  	devfd = open(_PATH_DEV, O_RDONLY);
  	if (devfd < 0)
  		err(1, "open(/dev)");
 -	cap_rights_init(&rights, CAP_FCNTL, CAP_FSTAT, CAP_IOCTL, CAP_LOOKUP,
 -	    CAP_PWRITE);
--	if (cap_rights_limit(devfd, &rights) < 0 && errno != ENOSYS)
+-	if (caph_rights_limit(devfd, &rights) < 0)
 -		err(1, "can't limit devfd rights");
 -
 -	/*
@@ -41,28 +41,27 @@ Author: Michael Meskes <meskes@debian.org>
 -	 */
 -	cap_rights_init(&rights, CAP_FCNTL, CAP_FSTAT, CAP_IOCTL, CAP_READ,
 -	    CAP_WRITE);
--	if ((cap_rights_limit(STDIN_FILENO, &rights) < 0 && errno != ENOSYS) ||
--	    (cap_rights_limit(STDOUT_FILENO, &rights) < 0 && errno != ENOSYS) ||
--	    (cap_rights_limit(STDERR_FILENO, &rights) < 0 && errno != ENOSYS) ||
--	    (cap_ioctls_limit(STDIN_FILENO, cmds, nitems(cmds)) < 0 && errno != ENOSYS) ||
--	    (cap_ioctls_limit(STDOUT_FILENO, cmds, nitems(cmds)) < 0 && errno != ENOSYS) ||
--	    (cap_ioctls_limit(STDERR_FILENO, cmds, nitems(cmds)) < 0 && errno != ENOSYS) ||
--	    (cap_fcntls_limit(STDIN_FILENO, CAP_FCNTL_GETFL) < 0 && errno != ENOSYS) ||
--	    (cap_fcntls_limit(STDOUT_FILENO, CAP_FCNTL_GETFL) < 0 && errno != ENOSYS) ||
--	    (cap_fcntls_limit(STDERR_FILENO, CAP_FCNTL_GETFL) < 0 && errno != ENOSYS))
+-	if (caph_rights_limit(STDIN_FILENO, &rights) < 0 ||
+-	    caph_rights_limit(STDOUT_FILENO, &rights) < 0 ||
+-	    caph_rights_limit(STDERR_FILENO, &rights) < 0 ||
+-	    caph_ioctls_limit(STDIN_FILENO, cmds, nitems(cmds)) < 0 ||
+-	    caph_ioctls_limit(STDOUT_FILENO, cmds, nitems(cmds)) < 0 ||
+-	    caph_ioctls_limit(STDERR_FILENO, cmds, nitems(cmds)) < 0 ||
+-	    caph_fcntls_limit(STDIN_FILENO, CAP_FCNTL_GETFL) < 0 ||
+-	    caph_fcntls_limit(STDOUT_FILENO, CAP_FCNTL_GETFL) < 0 ||
+-	    caph_fcntls_limit(STDERR_FILENO, CAP_FCNTL_GETFL) < 0)
 -		err(1, "can't limit stdio rights");
 -
 -	caph_cache_catpages();
 -	caph_cache_tzdata();
--
+ 
  	/*
  	 * Cache UTX database fds.
- 	 */
-@@ -137,9 +110,6 @@
+@@ -137,9 +108,6 @@
  			login = "???";
  	}
  
--	if (cap_enter() < 0 && errno != ENOSYS)
+-	if (caph_enter() < 0)
 -		err(1, "cap_enter");
 -
  	while (getopt(argc, argv, "") != -1)

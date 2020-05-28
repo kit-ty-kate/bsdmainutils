@@ -2,15 +2,10 @@
 # /etc/cron.daily/calendar: BSD mainutils calendar daily maintenance script
 # Written by Austin Donnelly <and1000@debian.org>
 
-. /etc/default/bsdmainutils
+. /etc/default/calendar
 
 [ x$RUN_DAILY = xtrue ] || exit 0
 
 [ -x /usr/sbin/sendmail ] || exit 0
-
-if [ ! -x /usr/bin/cpp ]; then
-  echo "The cpp package is needed to run calendar."
-  exit 1
-fi
 
 /usr/bin/calendar -a

@@ -3,25 +3,39 @@ Section: utils
 Priority: important
 Maintainer: Debian Bsdmainutils Team <pkg-bsdmainutils@teams.debian.net>
 Uploaders: Michael Meskes <meskes@debian.org>
-Build-Depends: debhelper (>= 9), libncurses-dev, quilt (>= 0.40), python:native, python-hdate:native, libbsd-dev
-Standards-Version: 4.1.2
-Vcs-Git: git://anonscm.debian.org/bsdmainutils/bsdmainutils.git
-Vcs-Browser: https://anonscm.debian.org/gitweb/?p=bsdmainutils/bsdmainutils.git
+Build-Depends: debhelper-compat (= 13), libncurses-dev, quilt (>= 0.40),
+               libbsd-dev
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/meskes/bsdmainutils
+Vcs-Git: https://salsa.debian.org/meskes/bsdmainutils.git
 
 Package: bsdmainutils
 Architecture: any
 Multi-Arch: foreign
 Depends: ${shlibs:Depends}, ${misc:Depends}, bsdutils (>= 3.0-0), debianutils (>= 1.8)
 Breaks: bsdutils (<< 1:2.13-11)
-Suggests: cpp, wamerican | wordlist, whois, vacation
+Suggests: calendar, wamerican | wordlist, whois, vacation
+Recommends: bsdextrautils
 Description: collection of more utilities from FreeBSD
  This package contains lots of small programs many people expect to find when
  they use a BSD-style Unix system.
  .
- It provides banner (as printerbanner), calendar, col, colcrt, colrm, column,
- from (as bsd-from), hexdump (or hd), look, lorder, ncal (or cal), ul, and
- write (as bsd-write).
+ It provides banner (as printerbanner), from (as bsd-from), look, lorder, ncal
+ (or cal), and write (as bsd-write).
  .
- This package used to contain whois and vacation, which are now distributed in
- their own packages. Also here was tsort, which is now in the "coreutils"
- package.
+ This package used to contain whois, vacation, and calendar, which are now
+ distributed in their own packages. The tools col, colrm, column, hexdump, and
+ ul are now provided as "bsdextrautils".  Also here was tsort, which is now in
+ the "coreutils" package.
+
+Package: calendar
+Priority: optional
+Architecture: any
+Multi-Arch: foreign
+Depends: ${shlibs:Depends}, ${misc:Depends}, cpp
+Breaks: bsdmainutils (<< 11.2)
+Replaces: bsdmainutils (<< 11.2)
+Description: display upcoming dates and provide reminders
+ This package contains the "calendar" program commonly found on BSD-style
+ systems, which displays upcoming relevant dates on a wide variety of
+ calendars.

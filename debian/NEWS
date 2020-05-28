@@ -1,0 +1,10 @@
+bsdmainutils (12.1.1) unstable; urgency=medium
+
+  The "calendar" program, formerly provided in this package, now appears in
+  the separate package "calendar".
+
+  The tools The tools col, colrm, column, hexdump, and ul are now provided as
+  "bsdextrautils" from the util-linux sources.
+
+ -- Michael Meskes <meskes@debian.org>  Wed, 27 May 2020 17:05:02 +0200
+

@@ -1,5 +1,4 @@
 # config.mk
-# $Id$
 
 # Configuration variables for bsdmainutils build system. These variables
 # can be set here or through the environment.
