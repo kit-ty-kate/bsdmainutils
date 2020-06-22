@@ -5,6 +5,7 @@ SHELL+= -e
 
 include /usr/share/quilt/quilt.make
 
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
 CFLAGS = `dpkg-buildflags --get CFLAGS`
 CFLAGS += `dpkg-buildflags --get CPPFLAGS`
 LDFLAGS = `dpkg-buildflags --get LDFLAGS`

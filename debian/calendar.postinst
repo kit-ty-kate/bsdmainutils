@@ -3,7 +3,7 @@ set -e
 
 # handle name change of cron script and default file
 if [ -f /etc/cron.daily/bsdmainutils ]; then
-  mv -f /etc/cron.daily/bsdmainutils /etc/cron.daily/calendar
+  sed -e 's#/etc/default/bsdmainutils#/etc/default/calendar#' < /etc/cron.daily/bsdmainutils > /etc/cron.daily/calendar && rm -f /etc/cron.daily/bsdmainutils
 fi
 if [ -f /etc/default/bsdmainutils ]; then
   mv -f /etc/default/bsdmainutils /etc/default/calendar

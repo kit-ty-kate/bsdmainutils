@@ -1,3 +1,18 @@
+bsdmainutils (12.1.2) unstable; urgency=medium
+
+  [ Michael Meskes ]
+  * Move to source format 3.0.
+  * Use correctly named default file. (Closes: #963178)
+  * Enabled hardening options.
+
+  [ Gianfranco Costamagna ]
+  * Add more Ubuntu dates to the calendar
+  * Add more Debian dates to the calendar
+  * Add patch from Ubuntu to fix 1st day of the week on Big Endian systems
+  * Update Breaks/Replaces to ensure smooth upgrades (Closes: #963177)
+
+ -- Michael Meskes <meskes@debian.org>  Mon, 22 Jun 2020 12:42:08 +0200
+
 bsdmainutils (12.1.1) unstable; urgency=medium
 
   [ Josh Triplett ]

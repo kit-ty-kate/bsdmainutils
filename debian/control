@@ -8,6 +8,7 @@ Build-Depends: debhelper-compat (= 13), libncurses-dev, quilt (>= 0.40),
 Standards-Version: 4.5.0
 Vcs-Browser: https://salsa.debian.org/meskes/bsdmainutils
 Vcs-Git: https://salsa.debian.org/meskes/bsdmainutils.git
+Rules-Requires-Root: binary-targets
 
 Package: bsdmainutils
 Architecture: any
@@ -33,8 +34,8 @@ Priority: optional
 Architecture: any
 Multi-Arch: foreign
 Depends: ${shlibs:Depends}, ${misc:Depends}, cpp
-Breaks: bsdmainutils (<< 11.2)
-Replaces: bsdmainutils (<< 11.2)
+Breaks: bsdmainutils (<< 12.1.1)
+Replaces: bsdmainutils (<< 12.1.1)
 Description: display upcoming dates and provide reminders
  This package contains the "calendar" program commonly found on BSD-style
  systems, which displays upcoming relevant dates on a wide variety of
