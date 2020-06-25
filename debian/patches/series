@@ -13,12 +13,4 @@ ncal_backward.diff
 ncal_options.diff
 ncal_backward_weeks.diff
 ncal_altmon.diff
-banner_manpage.diff
-from_maildir.diff
-lorder.diff
-look_bflag.diff
-write_cap.diff
-write_stdout.diff
-write_tty.diff
-write_allow.diff
 fix-big-1stweek.patch

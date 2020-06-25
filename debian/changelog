@@ -1,3 +1,13 @@
+bsdmainutils (12.1.3) unstable; urgency=medium
+
+  * Move (n)cal to its own package.
+  * Remove (printer)banner, from, look, lorder, and write programs.
+  * Change to full debhelper build system.
+  * Make bsdmainutils a transitional package.
+  * Fix incorrectly created cron file. (Closes: #963178)
+
+ -- Michael Meskes <meskes@debian.org>  Thu, 25 Jun 2020 20:02:39 +0200
+
 bsdmainutils (12.1.2) unstable; urgency=medium
 
   [ Michael Meskes ]
@@ -37,7 +47,7 @@ bsdmainutils (12.1.1) unstable; urgency=medium
   * Fix calendar manpage.
     Thanks to Bjarni Ingi Gislason <bjarniig@rhi.hi.is> (Closes: #899339)
   * Use the correct locale property for month name.
-    Thanks to sergio <sergio+it@outerface.net> (Closes: #924668, #943757)
+    Thanks to sergio <sergio@outerface.net> (Closes: #924668, #943757)
   * Updated Thai holidays in holiday calendar.
     Thanks to Theppitak Karoonboonyanan <theppitak@gmail.com> (Closes: #934804)
 

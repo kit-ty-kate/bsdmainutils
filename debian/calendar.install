@@ -1,3 +1,6 @@
+usr/bin/calendar
+usr/share/man/man1/calendar.1
+
 usr.bin/calendar/calendars/de_DE.ISO8859-1/*		/usr/share/calendar/de_DE
 usr.bin/calendar/calendars/fr_FR.ISO8859-1/*		/usr/share/calendar/fr_FR
 usr.bin/calendar/calendars/hr_HR.ISO8859-2/*		/usr/share/calendar/hr_HR
