@@ -1,3 +1,9 @@
+bsdmainutils (12.1.5) unstable; urgency=medium
+
+  * Source only upload. (Closes: #965014)
+
+ -- Michael Meskes <meskes@debian.org>  Tue, 14 Jul 2020 15:42:14 +0200
+
 bsdmainutils (12.1.4) unstable; urgency=medium
 
   * Re-added libncurses-dev built dependency that was lost during the
@@ -6,7 +12,7 @@ bsdmainutils (12.1.4) unstable; urgency=medium
   * Fix config file handling. (Closes: #964389)
   * Add patch to calendar to cleanup after fork(). (Closes: #946726)
 
- -- Michael Meskes <meskes@debian.org>  Tue, 14 Jul 2020 13:12:27 +0200
+ -- Michael Meskes <meskes@debian.org>  Tue, 14 Jul 2020 15:42:07 +0200
 
 bsdmainutils (12.1.3) unstable; urgency=medium
 
