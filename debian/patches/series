@@ -4,6 +4,7 @@ calendar_wcs.diff
 calendar_weekend.diff
 calendar_stdio.diff
 calendar_man.diff
+calendar_fork_cleanup.diff
 calendars.diff
 ncal_wcs.diff
 ncal_fdow.diff
