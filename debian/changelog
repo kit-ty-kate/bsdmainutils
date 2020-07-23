@@ -1,3 +1,14 @@
+bsdmainutils (12.1.6) unstable; urgency=medium
+
+  * Fix version check that was too optimistic. (Closes: #965202)
+  * Mention transitional status in short description. (Closes: #965203)
+  * Fixed backward mode to correctly calculate switch to Gregorian calendar.
+    (Closes: #945059, #961366)
+  * Do not list removed option on manpage. (Closes: #919099)
+  * Cal should not highlight the current day. (Closes: #904839)
+
+ -- Michael Meskes <meskes@debian.org>  Thu, 23 Jul 2020 14:53:53 +0200
+
 bsdmainutils (12.1.5) unstable; urgency=medium
 
   * Source only upload. (Closes: #965014)

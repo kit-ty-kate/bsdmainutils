@@ -29,7 +29,7 @@ finish_mv_conffile() {
 }
 
 if [ "$1" = configure ]; then
-   if dpkg --compare-versions "$2" lt 12.0.0; then
+   if dpkg --compare-versions "$2" lt 12.1.6; then
 	finish_mv_conffile /etc/default/bsdmainutils /etc/default/calendar calendar
 	finish_mv_conffile /etc/cron.daily/bsdmainutils /etc/cron.daily/calendar calendar
    fi

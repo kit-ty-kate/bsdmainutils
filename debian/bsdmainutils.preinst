@@ -30,7 +30,7 @@ prepare_rm_conffile() {
 	fi
 }
 
-if [ "$1" = upgrade ] && dpkg --compare-versions "$2" lt 12.0.0; then
+if [ "$1" = upgrade ] && dpkg --compare-versions "$2" lt 12.1.6; then
 	prepare_rm_conffile /etc/default/bsdmainutils bsdmainutils
 	prepare_rm_conffile /etc/cron.daily/bsdmainutils bsdmainutils
 fi

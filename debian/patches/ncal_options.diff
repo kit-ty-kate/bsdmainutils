@@ -367,8 +367,8 @@ Author: <selinger@mathstat.dal.ca>, Michael Meskes <meskes@łdebian.org>
  	m1 = y * 12 + m - 1;
  	m2 = m1 + after;
  
---- bsdmainutils/usr.bin/ncal.orig/ncal.1	2016-09-29 13:39:21.077012024 +0200
-+++ bsdmainutils/usr.bin/ncal/ncal.1	2016-09-29 13:46:34.858054197 +0200
+--- bsdmainutils/usr.bin/ncal.orig/ncal.1	2020-07-23 14:18:20.537587778 +0200
++++ bsdmainutils/usr.bin/ncal/ncal.1		2020-07-23 14:19:10.713829618 +0200
 @@ -33,37 +33,56 @@
  .Nd displays a calendar and the date of Easter
  .Sh SYNOPSIS
@@ -432,7 +432,7 @@ Author: <selinger@mathstat.dal.ca>, Michael Meskes <meskes@łdebian.org>
  .Sh DESCRIPTION
  The
  .Nm
-@@ -119,21 +138,41 @@
+@@ -119,25 +138,41 @@
  .It Fl w
  Print the number of the week below each week column.
  .It Fl y
@@ -475,15 +475,19 @@ Author: <selinger@mathstat.dal.ca>, Michael Meskes <meskes@łdebian.org>
 +Completely switch to
  .Nm cal
 -mode.
+-.It Fl N
+-Switch to
+-.Nm ncal
+-mode.
 +mode. For
 +.Nm cal
 +like output only, use
 +.Fl b
 +instead.
- .It Fl N
- Switch to
- .Nm ncal
-@@ -170,13 +209,12 @@
+ .It Fl d Ar yyyy-mm
+ Use
+ .Ar yyyy-mm
+@@ -170,13 +205,12 @@
  year).
  .Pp
  Not all options can be used together.

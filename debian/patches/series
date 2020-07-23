@@ -15,3 +15,4 @@ ncal_options.diff
 ncal_backward_weeks.diff
 ncal_altmon.diff
 fix-big-1stweek.patch
+cal_highlight.diff

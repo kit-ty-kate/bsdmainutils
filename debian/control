@@ -15,7 +15,7 @@ Section: oldlibs
 Depends: ${misc:Depends}, bsdutils (>= 3.0-0), debianutils (>= 1.8),
  bsdextrautils (>= 2.35.2-7), calendar, ncal
 Suggests: whois, vacation, mailutils
-Description: collection of more utilities from FreeBSD
+Description: Transitional package for more utilities from FreeBSD
  This is a transitional package, it can be safely removed.
 
 Package: ncal
