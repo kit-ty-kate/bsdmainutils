@@ -3535,66 +3535,6 @@ diff -ruN bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.all bsdma
 +#include <ru_RU/calendar.pagan>
  
  #endif /* !_ru_RU_UTF_8_all_ */
-diff -ruN bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.common bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.common
---- bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.common	2018-01-30 11:07:30.141833890 +0100
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.common	2020-05-28 11:02:58.213454816 +0200
-@@ -7,7 +7,7 @@
- #ifndef _ru_RU_UTF_8_common_
- #define _ru_RU_UTF_8_common_
- 
--LANG=ru_RU.UTF-8
-+LANG=UTF-8
- 
- 12 янв.	День работника прокуратуры
- 13 янв.	День российской печати
-diff -ruN bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.holiday bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.holiday
---- bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.holiday	2018-01-30 11:07:30.141833890 +0100
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.holiday	2020-05-28 11:02:58.213454816 +0200
-@@ -7,7 +7,7 @@
- #ifndef _ru_RU_UTF_8_holiday_
- #define _ru_RU_UTF_8_holiday_
- 
--LANG=ru_RU.UTF-8
-+LANG=UTF-8
- 
-  1 янв.	Новый год
-  2 янв.	Новогодние каникулы
-diff -ruN bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.military bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.military
---- bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.military	2018-01-30 11:07:30.141833890 +0100
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.military	2020-05-28 11:02:58.213454816 +0200
-@@ -7,7 +7,7 @@
- #ifndef _ru_RU_UTF_8_military_
- #define _ru_RU_UTF_8_military_
- 
--LANG=ru_RU.UTF-8
-+LANG=UTF-8
- 
- 27 янв.	День снятия блокады города Ленинграда (1944 год)
-  2 февр.	День разгрома советскими войсками немецко-фашистских войск в Сталинградской битве (1943 год)
-diff -ruN bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.orthodox bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.orthodox
---- bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.orthodox	2018-01-30 11:07:30.141833890 +0100
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.orthodox	2020-05-28 11:02:58.213454816 +0200
-@@ -7,7 +7,7 @@
- #ifndef _ru_RU_UTF_8_orthodox_
- #define _ru_RU_UTF_8_orthodox_
- 
--LANG=ru_RU.UTF-8
-+LANG=UTF-8
- Paskha=Пасха
- 
- 21 сент.	Рождество Пресвятой Богородицы
-diff -ruN bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.pagan bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.pagan
---- bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.pagan	2018-01-30 11:07:30.141833890 +0100
-+++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.pagan	2020-05-28 11:02:58.213454816 +0200
-@@ -7,7 +7,7 @@
- #ifndef _ru_RU_UTF_8_pagan_
- #define _ru_RU_UTF_8_pagan_
- 
--LANG=ru_RU.UTF-8
-+LANG=UTF-8
- Paskha=Пасха
- 
- 21 дек.*	Зимнее солнцестояние
 diff -ruN bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all
 --- bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all	2018-01-30 11:07:30.141833890 +0100
 +++ bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.all	2020-05-28 11:02:58.213454816 +0200
@@ -3757,3 +3697,25 @@ diff -ruN bsdmainutils/usr.bin/calendar/calendars/uk_UA.KOI8-U/calendar.orthodox
  
 -#endif /* !_uk_UA_KOI8_U_orthodox_ */
 +#endif /* !_uk_UA_orthodox_ */
+--- calendars/ru_RU.KOI8-R/calendar.pagan	2020-07-31 10:59:20.447244942 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.KOI8-R/calendar.pagan	2020-07-31 11:00:41.455623264 +0200
+@@ -33,7 +33,7 @@
+ 21 ���.	���� ��������
+ 28 ���.	������� ����������
+ 14 ����.	���� ����� ��������
+-22 ����.*	������� � ���� (������� �������������)
++22 ����.*	������� �������������
+ 10 ����.	���� ������
+ 21 ����.	���� ������� � ��������
+  9 ���.	���� �������� � ������
+--- calendars/ru_RU.UTF-8/calendar.pagan	2020-07-31 10:59:20.451244961 +0200
++++ bsdmainutils/usr.bin/calendar/calendars/ru_RU.UTF-8/calendar.pagan	2020-07-31 11:00:04.359450388 +0200
+@@ -33,7 +33,7 @@
+ 21 авг.	День Стрибога
+ 28 авг.	Успение Златогорки
+ 14 сент.	День Волха Змеевича
+-22 сент.*	Поворот к зиме (осеннее равноденствие)
++22 сент.*	Осеннее равноденствие
+ 10 нояб.	День Макоши
+ 21 нояб.	День Сварога и Семаргла
+  9 дек.	День Дажьбога и Марены

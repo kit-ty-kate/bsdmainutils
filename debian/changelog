@@ -1,3 +1,17 @@
+bsdmainutils (12.1.7) unstable; urgency=medium
+
+  * Fix broken locale for Russian calendars. (Closes: #930736, #945252)
+  * Fix Russian name.
+    Thanks to sergio <sergio+it@outerface.net>
+  * Mark bsdmainutils Multi-Arch: foreign again (Closes: #966818)
+  * Do not include Russian calendars in calendar.all because they only work
+    with the correct locale.
+  * Fixed week number calculation and added option to manually define when the
+    first week of the year starts.
+  * Added patch to check year argument for option '-d'.
+
+ -- Michael Meskes <meskes@debian.org>  Tue, 04 Aug 2020 13:49:06 +0200
+
 bsdmainutils (12.1.6) unstable; urgency=medium
 
   * Fix version check that was too optimistic. (Closes: #965202)

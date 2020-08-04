@@ -11,6 +11,7 @@ Rules-Requires-Root: no
 
 Package: bsdmainutils
 Architecture: all
+Multi-Arch: foreign
 Section: oldlibs
 Depends: ${misc:Depends}, bsdutils (>= 3.0-0), debianutils (>= 1.8),
  bsdextrautils (>= 2.35.2-7), calendar, ncal
