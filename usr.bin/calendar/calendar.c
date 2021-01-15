@@ -35,7 +35,6 @@
 #include <err.h>
 #include <errno.h>
 #include <locale.h>
-#include <login_cap.h>
 #include <pwd.h>
 #include <signal.h>
 #include <stdio.h>
@@ -58,6 +57,7 @@ int daynames = 0;
 time_t f_time = 0;
 int bodun_always = 0;
 
+int weekend = 2;
 int f_dayAfter = 0;	/* days after current date */
 int f_dayBefore = 0;	/* days before current date */
 int f_Setday = 0;	/* calendar invoked with -A or -B */
@@ -75,7 +75,7 @@ main(int argc, char *argv[])
 
 	(void)setlocale(LC_ALL, "");
 
-	while ((ch = getopt(argc, argv, "abwf:t:A:B:-")) != -1)
+	while ((ch = getopt(argc, argv, "abwf:l:t:e:A:B:-")) != -1)
 		switch (ch) {
 		case '-':		/* backward contemptible */
 		case 'a':
@@ -89,7 +89,7 @@ main(int argc, char *argv[])
 			break;
 
 		case 'f': /* other calendar file */
-		        calendarFile = optarg;
+		        calendarFile = (strcmp(optarg, "-") == 0) ? "/dev/stdin" : optarg;
 			break;
 
 		case 't': /* other date, undocumented, for tests */
@@ -97,11 +97,18 @@ main(int argc, char *argv[])
 				errx(1, "specified date is outside allowed range");
 			break;
 
+		case 'l':
 		case 'A': /* days after current date */
 			f_dayAfter = strtonum(optarg, 0, INT_MAX, &errstr);
 			if (errstr)
 				errx(1, "-A %s: %s", optarg, errstr);
 			f_Setday = 1;
+			break;
+
+		case 'e':
+			weekend = strtonum(optarg, 0, INT_MAX, &errstr);
+ 			if (errstr)
+ 				errx(1, "-A %s: %s", optarg, errstr);
 			break;
 
 		case 'B': /* days before current date */
@@ -124,15 +131,6 @@ main(int argc, char *argv[])
 
 	if (argc)
 		usage();
-
-	if (doall) {
-		if (pledge("stdio rpath tmppath fattr getpw id proc exec", NULL)
-		    == -1)
-			err(1, "pledge");
-	} else {
-		if (pledge("stdio rpath proc exec", NULL) == -1)
-			err(1, "pledge");
-	}
 
 	/* use current time */
 	if (f_time <= 0)
@@ -192,10 +190,6 @@ main(int argc, char *argv[])
 			case 0:	/* child */
 				(void)setpgid(getpid(), getpid());
 				(void)setlocale(LC_ALL, "");
-				if (setusercontext(NULL, pw, pw->pw_uid,
-				    LOGIN_SETALL ^ LOGIN_SETLOGIN))
-					err(1, "unable to set user context (uid %u)",
-					    pw->pw_uid);
 				if (acstat) {
 					if (chdir(pw->pw_dir) ||
 					    stat(calendarFile, &sbuf) != 0 ||
@@ -205,6 +199,7 @@ main(int argc, char *argv[])
 						exit(0);
 				}
 				cal();
+				endpwent();
 				exit(0);
 			}
 			/* parent: wait a reasonable time, then kill child if
@@ -270,7 +265,7 @@ void
 usage(void)
 {
 	(void)fprintf(stderr,
-	    "usage: calendar [-abw] [-A num] [-B num] [-f calendarfile] "
+	    "usage: calendar [-abw] [-A num] [-B num] [-l num] [-e num] [-f calendarfile] "
 	    "[-t [[[cc]yy]mm]dd]\n");
 	exit(1);
 }

@@ -29,6 +29,7 @@
  * SUCH DAMAGE.
  */
 
+#include <wchar.h>
 
 extern struct passwd *pw;
 extern int doall;
@@ -41,7 +42,7 @@ extern char *calendarHome;
 extern char *optarg;
 
 struct fixs {
-	char *name;
+	wchar_t *name;
 	int len;
 };
 
@@ -49,39 +50,39 @@ struct fixs {
 
 struct event {
 	time_t	when;
-	char	print_date[PRINT_DATE_BASE_LEN+1];
-	char	**desc;
-	char	*ldesc;
+	wchar_t	print_date[PRINT_DATE_BASE_LEN+1];
+	wchar_t	**desc;
+	wchar_t	*ldesc;
 	struct event	*next;
 };
 
 struct match {
 	time_t	when;
-	char	print_date[PRINT_DATE_BASE_LEN];
+	wchar_t	print_date[PRINT_DATE_BASE_LEN];
 	int	bodun;
 	int	var;
 	struct match	*next;
 };
 
 struct specialev {
-	char *name;
+	wchar_t *name;
 	int nlen;
-	char *uname;
+	wchar_t *uname;
 	int ulen;
 	int (*getev)(int);
 };
 
 void	 cal(void);
 void	 closecal(FILE *);
-int	 getday(char *);
-int	 getdayvar(char *);
-int	 getfield(char *, char **, int *);
-int	 getmonth(char *);
+int	 getday(wchar_t *);
+int	 getdayvar(wchar_t *);
+int	 getfield(wchar_t *, wchar_t **, int *);
+int	 getmonth(wchar_t *);
 int	 pesach(int);
 int	 easter(int);
 int	 paskha(int);
 void	 insert(struct event **, struct event *);
-struct match	*isnow(char *, int);
+struct match	*isnow(wchar_t *, int);
 FILE	*opencal(void);
 void	 settime(time_t *);
 time_t	 Mktime(char *);
@@ -101,18 +102,19 @@ void	 setnnames(void);
 #define	SECSPERDAY	(24 * 60 * 60)
 #define	isleap(y) (((y) % 4) == 0 && (((y) % 100) != 0 || ((y) % 400) == 0))
 
+extern int weekend;    /* how many days to look ahead if today is Friday */
 extern int f_dayAfter;	/* days after current date */
 extern int f_dayBefore;	/* days before current date */
 extern int f_Setday;	/* calendar invoked with -A or -B */
 
 /* Special events; see also setnnames() in day.c */
 /* '=' is not a valid character in a special event name */
-#define PESACH "pesach"
-#define PESACHLEN (sizeof(PESACH) - 1)
-#define EASTER "easter"
-#define EASTERNAMELEN (sizeof(EASTER) - 1)
-#define PASKHA "paskha"
-#define PASKHALEN (sizeof(PASKHA) - 1)
+#define PESACH L"pesach"
+#define PESACHLEN ((sizeof(PESACH) / sizeof(wchar_t)) - 1)
+#define EASTER L"easter"
+#define EASTERNAMELEN ((sizeof(EASTER) / sizeof(wchar_t)) - 1)
+#define PASKHA L"paskha"
+#define PASKHALEN ((sizeof(PASKHA) / sizeof(wchar_t)) - 1)
 
 /* calendars */
 extern enum calendars { GREGORIAN = 0, JULIAN, LUNAR } calendar;

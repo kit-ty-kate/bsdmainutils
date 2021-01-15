@@ -47,16 +47,17 @@
 .Fl m Ar month
 .Op Ar year
 .Nm ncal
-.Op Fl 3hjJpwy
+.Op Fl 3bhjJpwySM
 .Op Fl A Ar number
 .Op Fl B Ar number
+.Op Fl W Ar number
 .Op Fl s Ar country_code
 .Oo
 .Op Ar month
 .Ar year
 .Oc
 .Nm ncal
-.Op Fl 3hJeo
+.Op Fl Jeo
 .Op Fl A Ar number
 .Op Fl B Ar number
 .Op Ar year
@@ -81,8 +82,8 @@ The options are as follows:
 Turns off highlighting of today.
 .It Fl J
 Display Julian Calendar, if combined with the
-.Fl e
-option, display date of Easter according to the Julian Calendar.
+.Fl o
+option, display date of Orthodox Easter according to the Julian Calendar.
 .It Fl e
 Display date of Easter (for western churches).
 .It Fl j
@@ -92,12 +93,11 @@ Display the specified
 .Ar month .
 If
 .Ar month
-is specified as a decimal number, it may be followed by the letter
+is specified as a decimal number, appending
 .Ql f
 or
 .Ql p
-to indicate the following or preceding month of that number,
-respectively.
+displays the same month of the following or previous year respectively.
 .It Fl o
 Display date of Orthodox Easter (Greek and Russian
 Orthodox Churches).
@@ -120,25 +120,41 @@ Britain and her colonies switched to the Gregorian Calendar.
 .It Fl w
 Print the number of the week below each week column.
 .It Fl y
-Display a calendar for the specified year.
+Display a calendar for the specified year. This option is implied when
+a year but no month are specified on the command line.
 .It Fl 3
 Display the previous, current and next month surrounding today.
+.It Fl 1
+Display only the current month. This is the default. 
 .It Fl A Ar number
-Display the
-.Ar number
-of months after the current month.
+Months to add after. The specified number of months is added to the
+end of the display. This is in addition to any date range selected by the
+.Fl y ,
+.Fl 3 ,
+or
+.Fl 1
+options. For example,
+.Dq Li cal -y -B2 -A2
+shows everything from November of the previous year to
+February of the following year. Negative numbers are allowed, in which
+case the specified number of months is subtracted. For example, 
+.Dq Li cal -y -B-6 
+shows July to December. And 
+.Dq Li cal -A11
+simply shows the next 12 months.
 .It Fl B Ar number
-Display the
-.Ar number
-of months before the current month.
+Months to add before. The specified number of months is added to the 
+beginning of the display. See
+.Fl A
+for examples.
 .It Fl C
-Switch to
+Completely switch to
 .Nm cal
-mode.
-.It Fl N
-Switch to
-.Nm ncal
-mode.
+mode. For
+.Nm cal
+like output only, use
+.Fl b
+instead.
 .It Fl d Ar yyyy-mm
 Use
 .Ar yyyy-mm
@@ -147,6 +163,16 @@ as the current date (for debugging of date selection).
 Use
 .Ar yyyy-mm-dd
 as the current date (for debugging of highlighting).
+.It Fl M
+Weeks start on Monday.
+.It Fl S
+Weeks start on Sunday.
+.It Fl W Ar number
+First week of the year has at least
+.Ar number
+days.
+.It Fl b
+Use oldstyle format for ncal output.
 .El
 .Pp
 A single parameter specifies the year (1\(en9999) to be displayed;
@@ -165,13 +191,12 @@ will display a calendar for the month of August in the current
 year).
 .Pp
 Not all options can be used together.
-For example
-.Dq Li -3 -A 2 -B 3 -y -m 7
-would mean:
-show me the three months around the seventh month, three before
-that, two after that and the whole year.
-.Nm ncal
-will warn about these combinations.
+For example the options 
+.Fl y , 3 , 
+and 
+.Fl 1 
+are mutually exclusive. If inconsistent options are given, the later
+ones take precedence over the earlier ones.
 .Pp
 A year starts on January 1.
 .Pp
@@ -206,6 +231,15 @@ The
 .Nm ncal
 command appeared in
 .Fx 2.2.6 .
+The output of the
+.Nm cal
+command is supposed to be bit for bit compatible to the original Unix
+.Nm cal
+command, because its output is processed by other programs like CGI scripts,
+that should not be broken. Therefore it will always output 8 lines, even if
+only 7 contain data. This extra blank line also appears with the original
+.Nm cal
+command, at least on Solaris 8
 .Sh AUTHORS
 The
 .Nm ncal

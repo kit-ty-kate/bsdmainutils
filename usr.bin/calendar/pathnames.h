@@ -33,7 +33,10 @@
 
 #include <paths.h>
 
-#define	_PATH_CPP	"/usr/libexec/tradcpp"
+#define	_PATH_CPP	"/usr/bin/cpp"
 
 			/* XXX -- fix when cpp parses arguments rationally */
 #define	_PATH_INCLUDE	"-I/usr/share/calendar"
+#define _PATH_EINCLUDE  "-I/etc/calendar"
+#define _PATH_DEFAULT   "/etc/calendar/default"
+

@@ -7,6 +7,8 @@
 #ifndef _calendar_newzealand_
 #define _calendar_newzealand_
 
+LANG=UTF-8
+
 Jan 02	New Year Holiday (NZ)
 Jan 14	Anniversary Day (Southland)
 Jan 21	Anniversary Day (Wellington)

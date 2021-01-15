@@ -4,9 +4,9 @@
  * $FreeBSD: head/usr.bin/calendar/calendars/hr_HR.ISO8859-2/calendar.all 232105 2012-02-24 11:40:20Z osa $
  */
 
-#ifndef _hr_HR_ISO8859_2_all_
-#define _hr_HR_ISO8859_2_all_
+#ifndef _hr_HR_all
+#define _hr_HR_all
 
-#include <hr_HR.ISO8859-2/calendar.praznici>
+#include <hr_HR/calendar.praznici>
 
-#endif /* !_hr_HR_ISO8859_2_all_ */
+#endif /* !_hr_HR_all */

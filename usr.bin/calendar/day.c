@@ -39,6 +39,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <wctype.h>
 
 #include "pathnames.h"
 #include "calendar.h"
@@ -62,13 +63,13 @@ int daytab[][14] = {
 	{ 0, -1, 30, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365 },
 };
 
-static char *days[] = {
-	"sun", "mon", "tue", "wed", "thu", "fri", "sat", NULL,
+static wchar_t *days[] = {
+	L"sun", L"mon", L"tue", L"wed", L"thu", L"fri", L"sat", NULL,
 };
 
-static char *months[] = {
-	"jan", "feb", "mar", "apr", "may", "jun",
-	"jul", "aug", "sep", "oct", "nov", "dec", NULL,
+static wchar_t *months[] = {
+	L"jan", L"feb", L"mar", L"apr", L"may", L"jun",
+	L"jul", L"aug", L"sep", L"oct", L"nov", L"dec", NULL,
 };
 
 static struct fixs fndays[8];         /* full national days names */
@@ -80,67 +81,67 @@ static struct fixs nmonths[13];       /* short national month names */
 void
 fill_print_date(struct match *m, struct tm *tm)
 {
-	if (strftime(m->print_date, sizeof(m->print_date),
-	    daynames ? "%a %b %d" : "%b %d", tm) == 0)
-		m->print_date[sizeof(m->print_date) - 1] = '\0';
+	if (wcsftime(m->print_date, sizeof(m->print_date),
+	    daynames ? L"%a %b %d" : L"%b %d", tm) == 0)
+		m->print_date[sizeof(m->print_date) - 1] = L'\0';
 }
 
 void
 setnnames(void)
 {
-	char buf[80];
+	wchar_t buf[80];
 	int i, l;
 	struct tm tm;
 
 	for (i = 0; i < 7; i++) {
 		tm.tm_wday = i;
-		l = strftime(buf, sizeof(buf), "%a", &tm);
-		for (; l > 0 && isspace((unsigned char)buf[l - 1]); l--)
+		l = wcsftime(buf, sizeof(buf), L"%a", &tm);
+		for (; l > 0 && iswspace((unsigned char)buf[l - 1]); l--)
 			;
 		buf[l] = '\0';
 		free(ndays[i].name);
-		if ((ndays[i].name = strdup(buf)) == NULL)
+		if ((ndays[i].name = wcsdup(buf)) == NULL)
 			err(1, NULL);
-		ndays[i].len = strlen(buf);
+		ndays[i].len = wcslen(buf);
 
-		l = strftime(buf, sizeof(buf), "%A", &tm);
-		for (; l > 0 && isspace((unsigned char)buf[l - 1]); l--)
+		l = wcsftime(buf, sizeof(buf), L"%A", &tm);
+		for (; l > 0 && iswspace((unsigned char)buf[l - 1]); l--)
 			;
 		buf[l] = '\0';
 		free(fndays[i].name);
-		if ((fndays[i].name = strdup(buf)) == NULL)
+		if ((fndays[i].name = wcsdup(buf)) == NULL)
 			err(1, NULL);
-		fndays[i].len = strlen(buf);
+		fndays[i].len = wcslen(buf);
 	}
 
 	for (i = 0; i < 12; i++) {
 		tm.tm_mon = i;
-		l = strftime(buf, sizeof(buf), "%b", &tm);
-		for (; l > 0 && isspace((unsigned char)buf[l - 1]); l--)
+		l = wcsftime(buf, sizeof(buf), L"%b", &tm);
+		for (; l > 0 && iswspace((unsigned char)buf[l - 1]); l--)
 			;
 		buf[l] = '\0';
 		free(nmonths[i].name);
-		if ((nmonths[i].name = strdup(buf)) == NULL)
+		if ((nmonths[i].name = wcsdup(buf)) == NULL)
 			err(1, NULL);
-		nmonths[i].len = strlen(buf);
+		nmonths[i].len = wcslen(buf);
 
-		l = strftime(buf, sizeof(buf), "%B", &tm);
-		for (; l > 0 && isspace((unsigned char)buf[l - 1]); l--)
+		l = wcsftime(buf, sizeof(buf), L"%B", &tm);
+		for (; l > 0 && iswspace((unsigned char)buf[l - 1]); l--)
 			;
 		buf[l] = '\0';
 		free(fnmonths[i].name);
-		if ((fnmonths[i].name = strdup(buf)) == NULL)
+		if ((fnmonths[i].name = wcsdup(buf)) == NULL)
 			err(1, NULL);
-		fnmonths[i].len = strlen(buf);
+		fnmonths[i].len = wcslen(buf);
 	}
 	/* Hardwired special events */
-	spev[0].name = strdup(PESACH);
+	spev[0].name = wcsdup(PESACH);
 	spev[0].nlen = PESACHLEN;
 	spev[0].getev = pesach;
-	spev[1].name = strdup(EASTER);
+	spev[1].name = wcsdup(EASTER);
 	spev[1].nlen = EASTERNAMELEN;
 	spev[1].getev = easter;
-	spev[2].name = strdup(PASKHA);
+	spev[2].name = wcsdup(PASKHA);
 	spev[2].nlen = PASKHALEN;
 	spev[2].getev = paskha;
 	for (i = 0; i < NUMEV; i++) {
@@ -164,8 +165,8 @@ settime(time_t *now)
 		cumdays = daytab[1];
 	else
 		cumdays = daytab[0];
-	/* Friday displays Monday's events */
-	offset = tp->tm_wday == 5 ? 3 : 1;
+	/* Friday displays Monday's events if not configured otherwise */
+	offset = tp->tm_wday == 5 ? 1 + weekend : 1;
 	if (f_Setday)
 		offset = 0;	/* Except not when range is set explicitly */
 	header[5].iov_base = dayname;
@@ -262,7 +263,7 @@ adjust_calendar(int *day, int *month)
  * with \t, is shown along with the matched line.
  */
 struct match *
-isnow(char *endp, int bodun)
+isnow(wchar_t *endp, int bodun)
 {
 	int day = 0, flags = 0, month = 0, v1, v2, i;
 	int monthp, dayp, varp = 0;
@@ -391,7 +392,7 @@ isnow(char *endp, int bodun)
 	 */
 	if (flags & F_ISDAY) {
 #if DEBUG
-		fprintf(stderr, "\nday: %d %s month %d\n", day, endp, month);
+		fprintf(stderr, "\nday: %d %ls month %d\n", day, endp, month);
 #endif
 
 		varp = 1;
@@ -542,7 +543,7 @@ isnow(char *endp, int bodun)
 			}
 			/* How many days apart are we */
 			if ((ttmp = mktime(&tmtmp)) == -1)
-				warnx("time out of range: %s", endp);
+				warnx("time out of range: %ls", endp);
 			else {
 				tdiff = difftime(ttmp, f_time)/ SECSPERDAY;
 				if (tdiff <= offset + f_dayAfter ||
@@ -576,38 +577,38 @@ isnow(char *endp, int bodun)
 
 
 int
-getmonth(char *s)
+getmonth(wchar_t *s)
 {
-	char **p;
+	wchar_t **p;
 	struct fixs *n;
 
 	for (n = fnmonths; n->name; ++n)
-		if (!strncasecmp(s, n->name, n->len))
+		if (!wcsncasecmp(s, n->name, n->len))
 			return ((n - fnmonths) + 1);
 	for (n = nmonths; n->name; ++n)
-		if (!strncasecmp(s, n->name, n->len))
+		if (!wcsncasecmp(s, n->name, n->len))
 			return ((n - nmonths) + 1);
 	for (p = months; *p; ++p)
-		if (!strncasecmp(s, *p, 3))
+		if (!wcsncasecmp(s, *p, 3))
 			return ((p - months) + 1);
 	return (0);
 }
 
 
 int
-getday(char *s)
+getday(wchar_t *s)
 {
-	char **p;
+	wchar_t **p;
 	struct fixs *n;
 
 	for (n = fndays; n->name; ++n)
-		if (!strncasecmp(s, n->name, n->len))
+		if (!wcsncasecmp(s, n->name, n->len))
 			return ((n - fndays) + 1);
 	for (n = ndays; n->name; ++n)
-		if (!strncasecmp(s, n->name, n->len))
+		if (!wcsncasecmp(s, n->name, n->len))
 			return ((n - ndays) + 1);
 	for (p = days; *p; ++p)
-		if (!strncasecmp(s, *p, 3))
+		if (!wcsncasecmp(s, *p, 3))
 			return ((p - days) + 1);
 	return (0);
 }
@@ -618,21 +619,21 @@ getday(char *s)
  * ... etc ...
  */
 int
-getdayvar(char *s)
+getdayvar(wchar_t *s)
 {
 	int offset;
 
 
-	offset = strlen(s);
+	offset = wcslen(s);
 
 	/* Sun+1 or Wednesday-2
 	 *    ^              ^   */
 
 	/* printf ("x: %s %s %d\n", s, s + offset - 2, offset); */
 	switch(*(s + offset - 2)) {
-	case '-':
-	case '+':
-	    return(atoi(s + offset - 2));
+	case L'-':
+	case L'+':
+	    return(wcstol(s + offset - 2, (wchar_t **) NULL, 10));
 	    break;
 	}
 
@@ -641,15 +642,15 @@ getdayvar(char *s)
 	 */
 
 	/* last */
-	if      (offset > 4 && !strcasecmp(s + offset - 4, "last"))
+	if      (offset > 4 && !wcscasecmp(s + offset - 4, L"last"))
 	    return(-1);
-	else if (offset > 5 && !strcasecmp(s + offset - 5, "first"))
+	else if (offset > 5 && !wcscasecmp(s + offset - 5, L"first"))
 	    return(+1);
-	else if (offset > 6 && !strcasecmp(s + offset - 6, "second"))
+	else if (offset > 6 && !wcscasecmp(s + offset - 6, L"second"))
 	    return(+2);
-	else if (offset > 5 && !strcasecmp(s + offset - 5, "third"))
+	else if (offset > 5 && !wcscasecmp(s + offset - 5, L"third"))
 	    return(+3);
-	else if (offset > 6 && !strcasecmp(s + offset - 6, "fourth"))
+	else if (offset > 6 && !wcscasecmp(s + offset - 6, L"fourth"))
 	    return(+4);
 
 	/* no offset detected */

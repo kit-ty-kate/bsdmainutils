@@ -1,386 +1,386 @@
 /*
- * NÈvnapok
+ * N√©vnapok
  *
  * $FreeBSD: head/usr.bin/calendar/calendars/hu_HU.ISO8859-2/calendar.nevnapok 133833 2004-08-16 09:31:09Z dwmalone $
  */
 
-#ifndef _hu_HU_ISO8859_2_nevnapok_
-#define _hu_HU_ISO8859_2_nevnapok_
+#ifndef _hu_HU_nevnapok_
+#define _hu_HU_nevnapok_
 
-LANG=hu_HU.ISO8859-2
+LANG=UTF-8
 
 /*
- * N.B.: A nÈvnapok Magyarorsz·gon a szentek napjai alapj·n szerepelnek
- *	 a napt·rban. NÈh·ny nÈv tˆbbszˆr is szerepel, de mindenki
- *	 csak egyszer tart nÈvnapot egy Èvben. A v·lasztott nap
- *	 ebben az esetben a hagyom·nyokon Ès az illetın m˙lik.
+ * N.B.: A n√©vnapok Magyarorsz√°gon a szentek napjai alapj√°n szerepelnek
+ *	 a napt√°rban. N√©h√°ny n√©v t√∂bbsz√∂r is szerepel, de mindenki
+ *	 csak egyszer tart n√©vnapot egy √©vben. A v√°lasztott nap
+ *	 ebben az esetben a hagyom√°nyokon √©s az illet√µn m√∫lik.
  *
  */
 
 01/01	Fruzsina
-01/02	¡bel, Gergely
-01/03	GenovÈva, Benj·min
+01/02	√Åbel, Gergely
+01/03	Genov√©va, Benj√°min
 01/04	Titusz,	Leona
 01/05	Simon
-01/06	Boldizs·r, Menyh·rt
-01/07	Attila, RamÛna
-01/08	GyˆngyvÈr
+01/06	Boldizs√°r, Menyh√°rt
+01/07	Attila, Ram√≥na
+01/08	Gy√∂ngyv√©r
 01/09	Marcell
-01/10	Mel·nia
-01/11	¡gota, Baltaz·r
-01/12	Ernı, CÈz·r
+01/10	Mel√°nia
+01/11	√Ågota, Baltaz√°r
+01/12	Ern√µ, C√©z√°r
 01/13	Veronika
-01/14	BÛdog, FÈlix
-01/15	LÛr·nt, Lor·nd
-01/16	Guszt·v
-01/17	Antal, AntÛnia
+01/14	B√≥dog, F√©lix
+01/15	L√≥r√°nt, Lor√°nd
+01/16	Guszt√°v
+01/17	Antal, Ant√≥nia
 01/18	Piroska
-01/19	S·ra, M·riÛ
-01/20	F·bi·n, SebestyÈn
-01/21	¡gnes
-01/22	Vince, Art˙r
+01/19	S√°ra, M√°ri√≥
+01/20	F√°bi√°n, Sebesty√©n
+01/21	√Ågnes
+01/22	Vince, Art√∫r
 01/23	Zelma, Rajmund
-01/24	TimÛt, XÈnia
-01/25	P·l
+01/24	Tim√≥t, X√©nia
+01/25	P√°l
 01/26	Vanda, Paula
-01/27	Angelika, AngÈla
-01/28	K·roly, Karola
-01/29	AdÈl
+01/27	Angelika, Ang√©la
+01/28	K√°roly, Karola
+01/29	Ad√©l
 01/30	Gerda, Martina
 01/31	Marcella
-02/01	Ign·c
+02/01	Ign√°c
 02/02	Karolina, Aida
-02/03	Bal·zs
-02/04	R·hel, Csenge
-02/05	¡gota, Ingrid
-02/06	DÛra, Dorottya
-02/07	RÛmeÛ, TÛdor
+02/03	Bal√°zs
+02/04	R√°hel, Csenge
+02/05	√Ågota, Ingrid
+02/06	D√≥ra, Dorottya
+02/07	R√≥me√≥, T√≥dor
 02/08	Aranka
-02/09	AbigÈl, Alex
+02/09	Abig√©l, Alex
 02/10	Elvira
 02/11	Bertold, Marietta
-02/12	LÌvia, LÌdia
+02/12	L√≠via, L√≠dia
 02/13	Ella, Linda
-02/14	B·lint,	Valentin
+02/14	B√°lint,	Valentin
 02/15	Kolos
 02/16	Julianna, Lilla
-02/17	Don·t
+02/17	Don√°t
 02/18	Bernadett
 02/19	Zsuzsanna
-02/20	Alad·r, ¡lmos
-02/21	EleonÛra
+02/20	Alad√°r, √Ålmos
+02/21	Eleon√≥ra
 02/22	Gerzson
-02/23	AlfrÈd
-02/24	M·ty·s
-02/25	GÈza
+02/23	Alfr√©d
+02/24	M√°ty√°s
+02/25	G√©za
 02/26	Edina
-02/27	¡kos, B·tor
-02/28	ElemÈr
+02/27	√Åkos, B√°tor
+02/28	Elem√©r
 03/01	Albin
 03/02	Lujza
-03/03	KornÈlia
-03/04	K·zmÈr
-03/05	Adorj·n, Adri·n
-03/06	LeonÛra, Inez
-03/07	Tam·s
-03/08	Zolt·n
+03/03	Korn√©lia
+03/04	K√°zm√©r
+03/05	Adorj√°n, Adri√°n
+03/06	Leon√≥ra, Inez
+03/07	Tam√°s
+03/08	Zolt√°n
 03/09	Franciska, Fanni
-03/10	IldikÛ
-03/11	Szil·rd
+03/10	Ildik√≥
+03/11	Szil√°rd
 03/12	Gergely
-03/13	Kriszti·n, Ajtony
+03/13	Kriszti√°n, Ajtony
 03/14	Matild
-03/15	KristÛf
+03/15	Krist√≥f
 03/16	Henrietta
-03/17	Gertr˙d, Patrik
-03/18	S·ndor, Ede
-03/19	JÛzsef, B·nk
+03/17	Gertr√∫d, Patrik
+03/18	S√°ndor, Ede
+03/19	J√≥zsef, B√°nk
 03/20	Klaudia
 03/21	Benedek
-03/22	Be·ta, Izolda
-03/23	Emıke
-03/24	G·bor, Karina
-03/25	IrÈn, Irisz
-03/26	Em·nuel
+03/22	Be√°ta, Izolda
+03/23	Em√µke
+03/24	G√°bor, Karina
+03/25	Ir√©n, Irisz
+03/26	Em√°nuel
 03/27	Hajnalka
 03/28	Gedeon, Johanna
 03/29	Aguszta
-03/30	Zal·n
-03/31	¡rp·d
-04/01	HugÛ
-04/02	¡ron
-04/03	Buda, Rich·rd
+03/30	Zal√°n
+03/31	√Årp√°d
+04/01	Hug√≥
+04/02	√Åron
+04/03	Buda, Rich√°rd
 04/04	Izidor
 04/05	Vince
-04/06	Vilmos, BÌborka
+04/06	Vilmos, B√≠borka
 04/07	Herman
-04/08	DÈnes
+04/08	D√©nes
 04/09	Erhard
 04/10	Zsolt
-04/11	LeÛ, SzaniszlÛ
+04/11	Le√≥, Szaniszl√≥
 04/12	Gyula
 04/13	Ida
 04/14	Tibor
-04/15	Anaszt·zia, Tas
+04/15	Anaszt√°zia, Tas
 04/16	Csongor
 04/17	Rudolf
 04/18	Andrea, Ilma
 04/19	Emma
 04/20	Tivadar
-04/21	Konr·d
-04/22	Csilla, NoÈmi
-04/23	BÈla
-04/24	Gyˆrgy
-04/25	M·rk
+04/21	Konr√°d
+04/22	Csilla, No√©mi
+04/23	B√©la
+04/24	Gy√∂rgy
+04/25	M√°rk
 04/26	Ervin
 04/27	Zita
-04/28	ValÈria
-04/29	PÈter
+04/28	Val√©ria
+04/29	P√©ter
 04/30	Katalin, Kitti
-05/01	F¸lˆp, Jakab
+05/01	F√ºl√∂p, Jakab
 05/02	Zsigmond
-05/03	TÌmea, Irma
-05/04	MÛnika,	FlÛri·n
-05/05	Gyˆrgyi
+05/03	T√≠mea, Irma
+05/04	M√≥nika,	Fl√≥ri√°n
+05/05	Gy√∂rgyi
 05/06	Ivett, Frida
 05/07	Gizella
-05/08	Mih·ly
+05/08	Mih√°ly
 05/09	Gergely
-05/10	¡rmin, P·lma
+05/10	√Årmin, P√°lma
 05/11	Ferenc
-05/12	Pongr·c
-05/13	Szerv·c, Imola
-05/14	Bonif·c
-05/15	ZsÛfia, Szonja
-05/16	MÛzes, Botond
-05/17	Paszk·l
+05/12	Pongr√°c
+05/13	Szerv√°c, Imola
+05/14	Bonif√°c
+05/15	Zs√≥fia, Szonja
+05/16	M√≥zes, Botond
+05/17	Paszk√°l
 05/18	Erik, Alexandra
-05/19	IvÛ, Mil·n
-05/20	Bern·t, FelÌcia
+05/19	Iv√≥, Mil√°n
+05/20	Bern√°t, Fel√≠cia
 05/21	Konstantin
-05/22	J˙lia, Rita
-05/23	Dezsı
+05/22	J√∫lia, Rita
+05/23	Dezs√µ
 05/24	Eszter, Eliza
-05/25	Orb·n
-05/26	F¸lˆp, Evelin
+05/25	Orb√°n
+05/26	F√ºl√∂p, Evelin
 05/27	Hella
-05/28	Emil, Csan·d
+05/28	Emil, Csan√°d
 05/29	Magdolna
 05/30	Janka, Zsanett
-05/31	AngÈla, Petronella
-06/01	T¸nde
-06/02	K·rmen, Anita
+05/31	Ang√©la, Petronella
+06/01	T√ºnde
+06/02	K√°rmen, Anita
 06/03	Klotild
-06/04	Bulcs˙
+06/04	Bulcs√∫
 06/05	Fatime
 06/06	Norbert, Cintia
-06/07	RÛbert
-06/08	Med·rd
-06/09	FÈlix
-06/10	Margit, Gitta, GrÈta
-06/11	Barnab·s
-06/12	Villı
+06/07	R√≥bert
+06/08	Med√°rd
+06/09	F√©lix
+06/10	Margit, Gitta, Gr√©ta
+06/11	Barnab√°s
+06/12	Vill√µ
 06/13	Antal, Anett
 06/14	Vazul
-06/15	Jol·n, Vid
+06/15	Jol√°n, Vid
 06/16	Jusztin
 06/17	Laura, Alida
 06/18	Arnold,	Levente
-06/19	Gy·rf·s
+06/19	Gy√°rf√°s
 06/20	Rafael
 06/21	Alajos, Leila
 06/22	Paulina
-06/23	Zolt·n, Szidonia
-06/24	Iv·n
+06/23	Zolt√°n, Szidonia
+06/24	Iv√°n
 06/25	Vilmos, Viola
-06/26	J·nos, P·l
-06/27	L·szlÛ
-06/28	Levente, IrÈn
-06/29	PÈter, P·l
-06/30	P·l
-07/01	Annam·ria, TihamÈr
-07/02	OttÛ
-07/03	KornÈl, Soma
+06/26	J√°nos, P√°l
+06/27	L√°szl√≥
+06/28	Levente, Ir√©n
+06/29	P√©ter, P√°l
+06/30	P√°l
+07/01	Annam√°ria, Tiham√©r
+07/02	Ott√≥
+07/03	Korn√©l, Soma
 07/04	Ulrik
 07/05	Emese, Sarolta
 07/06	Csaba
-07/07	ApollÛnia
-07/08	Ell·k
-07/09	LukrÈcia
-07/10	Am·lia
-07/11	NÛra, Lili
+07/07	Apoll√≥nia
+07/08	Ell√°k
+07/09	Lukr√©cia
+07/10	Am√°lia
+07/11	N√≥ra, Lili
 07/12	Izabella, Dalma
-07/13	Jenı
-07/14	÷rs, Stella
+07/13	Jen√µ
+07/14	√ñrs, Stella
 07/15	Henrik,	Roland
 07/16	Valter
 07/17	Endre, Elek
 07/18	Frigyes
-07/19	EmÌlia
-07/20	IllÈs
-07/21	Daniella, D·niel
+07/19	Em√≠lia
+07/20	Ill√©s
+07/21	Daniella, D√°niel
 07/22	Magdolna
 07/23	Lenke
-07/24	Kinga, Kincsı
-07/25	KristÛf, Jakab
-07/26	Anna, AnikÛ
-07/27	Olga, Lili·na
+07/24	Kinga, Kincs√µ
+07/25	Krist√≥f, Jakab
+07/26	Anna, Anik√≥
+07/27	Olga, Lili√°na
 07/28	Szabolcs
-07/29	M·rta, FlÛra
-07/30	Judit, XÈnia
-07/31	Oszk·r
-08/01	Bogl·rka
+07/29	M√°rta, Fl√≥ra
+07/30	Judit, X√©nia
+07/31	Oszk√°r
+08/01	Bogl√°rka
 08/02	Lehel
 08/03	Hermina
 08/04	Domonkos, Dominika
 08/05	Krisztina
 08/06	Berta, Bettina
 08/07	Ibolya
-08/08	L·szlÛ
-08/09	Emıd
-08/10	Lırinc
+08/08	L√°szl√≥
+08/09	Em√µd
+08/10	L√µrinc
 08/11	Zsuzsanna, Tiborc
-08/12	Kl·ra
+08/12	Kl√°ra
 08/13	Ipoly
 08/14	Marcell
-08/15	M·ria
-08/16	¡brah·m
-08/17	J·cint
+08/15	M√°ria
+08/16	√Åbrah√°m
+08/17	J√°cint
 08/18	Ilona
 08/19	Huba
-08/20	Istv·n
-08/21	S·muel, Hajna
-08/22	MenyhÈrt, Mirjam
+08/20	Istv√°n
+08/21	S√°muel, Hajna
+08/22	Menyh√©rt, Mirjam
 08/23	Bence
 08/24	Bertalan
-08/25	Lajos, PatrÌcia
-08/26	IzsÛ
-08/27	G·sp·r
-08/28	¡goston
+08/25	Lajos, Patr√≠cia
+08/26	Izs√≥
+08/27	G√°sp√°r
+08/28	√Ågoston
 08/29	Beatrix, Erna
-08/30	RÛzsa
+08/30	R√≥zsa
 08/31	Erika, Bella
 09/01	Egyed, Egon
 09/02	Rebeka, Dorina
 09/03	Hilda
-09/04	Roz·lia
-09/05	Viktor, Lırinc
-09/06	Zakari·s
+09/04	Roz√°lia
+09/05	Viktor, L√µrinc
+09/06	Zakari√°s
 09/07	Regina
-09/08	M·ria, Adrienn
-09/09	¡d·m
+09/08	M√°ria, Adrienn
+09/09	√Åd√°m
 09/10	Nikolett, Hunor
-09/11	TeodÛra
-09/12	M·ria
-09/13	KornÈl
-09/14	SzerÈna, Rox·na
-09/15	Enikı, Melitta
+09/11	Teod√≥ra
+09/12	M√°ria
+09/13	Korn√©l
+09/14	Szer√©na, Rox√°na
+09/15	Enik√µ, Melitta
 09/16	Edit
-09/17	ZsÛfia
-09/18	Di·na
+09/17	Zs√≥fia
+09/18	Di√°na
 09/19	Vilhelmina
 09/20	Friderika
-09/21	M·tÈ, Mirella
-09/22	MÛric
+09/21	M√°t√©, Mirella
+09/22	M√≥ric
 09/23	Tekla
-09/24	GellÈrt, MercÈdesz
+09/24	Gell√©rt, Merc√©desz
 09/25	Eufrozina, Kende
 09/26	Jusztina
 09/27	Adalbert
 09/28	Vencel
-09/29	Mih·ly
+09/29	Mih√°ly
 09/30	Jeromos
 10/01	Malvin
 10/02	Petra
 10/03	Helga
 10/04	Ferenc
-10/05	AurÈl
-10/06	Br˙nÛ, Ren·ta
-10/07	Am·lia
-10/08	Kopp·ny
-10/09	DÈnes
+10/05	Aur√©l
+10/06	Br√∫n√≥, Ren√°ta
+10/07	Am√°lia
+10/08	Kopp√°ny
+10/09	D√©nes
 10/10	Gedeon
 10/11	Brigitta
 10/12	Miksa
-10/13	K·lm·n, Ede
-10/14	HelÈn
-10/15	TerÈz
-10/16	G·l
+10/13	K√°lm√°n, Ede
+10/14	Hel√©n
+10/15	Ter√©z
+10/16	G√°l
 10/17	Hedvig
-10/18	Luk·cs
-10/19	N·ndor
+10/18	Luk√°cs
+10/19	N√°ndor
 10/20	Vendel
 10/21	Orsolya
-10/22	Elıd
-10/23	Gyˆngyi
+10/22	El√µd
+10/23	Gy√∂ngyi
 10/24	Salamon
 10/25	Blanka, Bianka
-10/26	Dˆmˆtˆr
+10/26	D√∂m√∂t√∂r
 10/27	Szabina
 10/28	Simon, Szimonetta
-10/29	N·rcisz
+10/29	N√°rcisz
 10/30	Alfonz
 10/31	Farkas
 11/01	Marianna
 11/02	Achilles
-11/03	Gyızı
-11/04	K·roly
+11/03	Gy√µz√µ
+11/04	K√°roly
 11/05	Imre
-11/06	LÈn·rd
-11/07	Rezsı
+11/06	L√©n√°rd
+11/07	Rezs√µ
 11/08	Zsombor
 11/09	Tivadar
-11/10	RÈka
-11/11	M·rton
-11/12	JÛn·s, Ren·tÛ
+11/10	R√©ka
+11/11	M√°rton
+11/12	J√≥n√°s, Ren√°t√≥
 11/13	Szilvia
 11/14	Aliz
-11/15	Albert, LipÛt
-11/16	÷dˆn
-11/17	Hortenzia, Gergı
-11/18	Jenı
-11/19	ErzsÈbet
-11/20	Jol·n
-11/21	OlivÈr
-11/22	CecÌlia
+11/15	Albert, Lip√≥t
+11/16	√ñd√∂n
+11/17	Hortenzia, Gerg√µ
+11/18	Jen√µ
+11/19	Erzs√©bet
+11/20	Jol√°n
+11/21	Oliv√©r
+11/22	Cec√≠lia
 11/23	Kelemen, Klementina
 11/24	Emma
 11/25	Katalin
-11/26	Vir·g
+11/26	Vir√°g
 11/27	Virgil
-11/28	Stef·nia
+11/28	Stef√°nia
 11/29	Taksony
-11/30	Andr·s, Andor
+11/30	Andr√°s, Andor
 12/01	Elza	
 12/02	Melinda, Vivien
-12/03	Ferenc, OlÌvia
-12/04	Borb·la, Barbara
+12/03	Ferenc, Ol√≠via
+12/04	Borb√°la, Barbara
 12/05	Vilma
-12/06	MiklÛs
+12/06	Mikl√≥s
 12/07	Ambrus
-12/08	M·ria
-12/09	Nat·lia
+12/08	M√°ria
+12/09	Nat√°lia
 12/10	Judit
-12/11	¡rp·d
+12/11	√Årp√°d
 12/12	Gabriella
-12/13	Luca, OtÌlia
-12/14	Szil·rda
-12/15	ValÈr
+12/13	Luca, Ot√≠lia
+12/14	Szil√°rda
+12/15	Val√©r
 12/16	Etelka, Aletta
-12/17	L·z·r, Olimpia
+12/17	L√°z√°r, Olimpia
 12/18	Auguszta
 12/19	Viola
 12/20	Teofil
-12/21	Tam·s
-12/22	ZÈnÛ
-12/23	ViktÛria
-12/24	¡d·m, …va
-12/25	EugÈnia
-12/26	Istv·n
-12/27	J·nos
+12/21	Tam√°s
+12/22	Z√©n√≥
+12/23	Vikt√≥ria
+12/24	√Åd√°m, √âva
+12/25	Eug√©nia
+12/26	Istv√°n
+12/27	J√°nos
 12/28	Kamilla
-12/29	Tam·s, Tamara
-12/30	D·vid
+12/29	Tam√°s, Tamara
+12/30	D√°vid
 12/31	Szilveszter	
 
-#endif /*! _hu_HU_ISO8859_2_nevnapok_ */
+#endif /*! _hu_HU_nevnapok_ */

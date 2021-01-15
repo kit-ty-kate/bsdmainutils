@@ -27,9 +27,11 @@
  */
 
 #include <sys/cdefs.h>
+#include <langinfo.h>
 __FBSDID("$FreeBSD: head/lib/libcalendar/calendar.c 326219 2017-11-26 02:00:33Z pfg $");
 
 #include "calendar.h"
+extern int weekstart, days_first_week;
 
 #ifndef NULL
 #define NULL 0
@@ -260,11 +262,12 @@ firstweek(int y)
 	nd = ndaysgi(&idt);
 	/*
 	 * If more than 3 days of this week are in the preceding year, the
-	 * next week is week 1 (and the next monday is the answer),
-	 * otherwise this week is week 1 and the last monday is the
+	 * next week is week 1 (and the next sunday/monday is the answer),
+	 * otherwise this week is week 1 and the last sunday/monday is the
 	 * answer.
 	 */
-	if ((wd = weekday(nd)) > 3)
+	/* 3 may or may not be correct, better use locale information */
+	if (7 - (wd = (weekday(nd) + 1 - weekstart) % 7) < days_first_week)
 		return (nd - wd + 7);
 	else
 		return (nd - wd);

@@ -7,6 +7,8 @@
 #ifndef _calendar_music_
 #define	_calendar_music_
 
+LANG=UTF-8
+
 01/01	Country Joe McDonald is born in El Monte, California, 1942
 01/03	Steven Stills is born in Dallas, 1945
 01/04	Jazz great Charlie Mingus dies at 57 in Cuernavaca, Mexico, 1979
@@ -481,7 +483,7 @@
 11/29	Pau Casals born in Vendrell, 1876
 11/29	Erich Korngold dies in Hollywood, 1957
 11/29	Giacomo Puccini dies due to throat cancer in Brussels, Belgium, 1924
-11/30	George Harrison dies at 13:30 in L.A., 2001
+11/29	George Harrison dies at 13:30 in L.A., 2001
 11/30	Wilhelm Furtwangler dies in Baden-Baden, Germany, 1954
 11/30	Nicolas de Grigny dies, 1703
 12/01	Jeremiah Clarke dies, 1707

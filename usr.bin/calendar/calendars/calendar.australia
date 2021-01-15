@@ -7,12 +7,12 @@
 #ifndef _calendar_australia_
 #define _calendar_australia_
 
-LANG=en_AU.ISO8859-1
+LANG=UTF-8
 
 /* Australia */
-Jan 26		Australia Day
+Jan 26		Australia Day Holiday (Australia, except NSW, Vic)
 Apr/SunFirst	Daylight Savings Time ends in ACT, NSW, SA, TAS and VIC.
-Apr 25		Anzac Day
+Apr 25		Anzac Day (Australian and New Zealand Army Corps) Day (Australia)
 Jun/MonSecond	Queen's Birthday Holiday (Australia, except WA)
 Oct/SunFirst	Daylight Savings Time starts in ACT, NSW, SA and VIC.
 

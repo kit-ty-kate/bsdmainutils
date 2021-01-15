@@ -1,46 +1,46 @@
 /*
- * Jours fériés
+ * Jours fÃ©riÃ©s
  *
  * $FreeBSD: head/usr.bin/calendar/calendars/fr_FR.ISO8859-1/calendar.jferies 157720 2006-04-13 12:14:44Z flz $
  */
 
-#ifndef _fr_FR_ISO8859_1_jferies_
-#define _fr_FR_ISO8859_1_jferies_
+#ifndef _fr_FR_jferies_
+#define _fr_FR_jferies_
 
-LANG=fr_FR.ISO8859-1
+LANG=UTF-8
 
-/* Jours chômés */
+/* Jours chÃ´mÃ©s */
 01/01	Nouvel an
-05/01	Fête du travail
+05/01	FÃªte du travail
 05/08	Armistice 1945
-07/14	Fête nationale française
+07/14	FÃªte nationale franÃ§aise
 11/11	Armistice 1918
 
-/* Jours fériés religieux */
-Easter		Pâques
-Easter+1 	Lundi de Pâques
+/* Jours fÃ©riÃ©s religieux */
+Easter		PÃ¢ques
+Easter+1 	Lundi de PÃ¢ques
 Easter+39	Ascension
-Easter+49	Pentecôte
-Easter+50	Lundi de Pentecôte
+Easter+49	PentecÃ´te
+Easter+50	Lundi de PentecÃ´te
 08/15		Assomption
 11/01		Toussaint
-12/25		Noël
+12/25		NoÃ«l
 
-/* Les dates suivantes ne sont malheureusement pas fériées... */
+/* Les dates suivantes ne sont malheureusement pas fÃ©riÃ©es... */
 
 /* Saisons */
 03/21*	Printemps
-06/21*	Été
+06/21*	Ã‰tÃ©
 09/21*	Automne
 12/21*	Hiver
 
 /* Changements d'heure */
-03/SundayLast	Passage à l'heure d'été
-10/SundayLast	Passage à l'heure d'hiver
+03/SundayLast	Passage Ã  l'heure d'Ã©tÃ©
+10/SundayLast	Passage Ã  l'heure d'hiver
 
 /* Divers */
 /* BUG : si Penteco^te = 05/SunLast, fe^te des me`res repousse'e d'une semaine */
-05/SundayLast	Fêtes des mères
-June Sun+3	Fêtes des pères
+05/SundayLast	FÃªtes des mÃ¨res
+June Sun+3	FÃªtes des pÃ¨res
 
-#endif /*! _fr_FR_ISO8859_1_jferies_ */
+#endif /*! _fr_FR_jferies_ */

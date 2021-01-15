@@ -11,7 +11,7 @@
 #ifndef _pt_BR_UTF_8_holidays_
 #define _pt_BR_UTF_8_holidays_
 
-LANG=pt_BR.UTF-8
+LANG=UTF-8
 
 01/01	Dia da confraternização universal e da paz
 04/21	Dia do Tiradentes
