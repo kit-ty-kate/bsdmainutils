@@ -166,7 +166,7 @@ static int nswitch;		/* user defined switch date */
 static int nswitchb;		/* switch date for backward compatibility */
 static int highlightdate;
 int weekstart = -1;		/* day the week starts on (Sun [0] - Sat [6]) */
-int days_first_week = 0;       /* minimal length of the first week in year */
+int days_first_week = -1;	/* minimal length of the first week in year */
 
 static char	*center(char *s, char *t, int w);
 static wchar_t *wcenter(wchar_t *s, wchar_t *t, int w);
